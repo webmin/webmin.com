@@ -1,4 +1,4 @@
-baseURL: https://webmin.dev/9283yuihslskjlgfkhu4y5/
+baseURL: https://webmin.dev/
 languageCode: en-us
 title: Webmin
 theme: PaperMod
@@ -26,7 +26,7 @@ menu:
       url: http://doxfer.webmin.com/Webmin/Main_Page
       weight: 50
     - identifier: search
-      name: 'Search'
+      name: ' '
       url: /search/
       weight: 60
 
@@ -52,7 +52,12 @@ params:
   description: "Powerful and flexible web-based server management control panel"
   keywords: [webmin, usermin, virtualmin, cloudmin, linux, system administration]
   author: Jamie Cameron
-  
+
+  editPost:
+          URL: "https://github.com/webmin/webmin.com/tree/master/content"
+          Text: "Suggest Changes"
+          appendFilePath: true # to append file path to Edit link
+
   # profileMode:
   #   enabled: true
   #   title: ' '
