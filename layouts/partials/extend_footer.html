@@ -1,5 +1,29 @@
 <script>
-    document.querySelector('.footer').remove();
+(function() {
+    document.querySelector('body > .footer').remove();
+    const wikiLink = document.querySelector('#menu > li > a[href$="Webmin/Main_Page"]'),
+        searchLink = document.querySelector('#menu > li > a[href$="/search/"] > span'),
+        outerlinksAll = [
+            document.querySelectorAll('.main .post-content a[href^="https://github.com/"]'),
+            document.querySelectorAll('.main .post-content a[href^="https://www.webmin.com/download/"]'),
+        ];
+    // Wiki to new window
+    wikiLink.setAttribute('target', '_blank');
+
+    // Search link as icon
+    searchLink.classList.add('wm', 'wm-search');
+    searchLink.innerHTML = String();
+
+    // Outer links to new window
+    outerlinksAll.forEach(function(outerlinks) {
+        outerlinks.forEach(function(outerlink) {
+            outerlink.setAttribute('target', '_blank');
+        });
+    });
+
+
+})();
+</script>
 </script>
 <footer class="footer">
     <span>&copy; 1997 - {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a>&nbsp;&nbsp;|&nbsp;&nbsp;Made with&nbsp;&nbsp;❤️&nbsp;&nbsp;by <a href="https://github.com/iliajie" target="_blank">@iliajie</a>&nbsp;&nbsp;|&nbsp;&nbsp;Powered by Hugo & Papermod</span>
