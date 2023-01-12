@@ -67,7 +67,7 @@ params:
   #   quotas, services or configuration files, as well as modify, and control
   #   open-source apps, such as **BIND** DNS Server, **Apache** HTTP Server, 
   #   **PHP**, **MySQL**, and many more.'
-  #   imageUrl: "/images/webmin_2.010_-_dashboard.png"
+  #   imageUrl: "images/webmin_2.010_-_dashboard.png"
   #   imageTitle: Webmin Dashboard
   #   imageWidth: 600
   #   imageHeight: 333
