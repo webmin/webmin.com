@@ -13,6 +13,9 @@
     --menu-active: #444444ee;
 }
 
+/* Custom built (fortawesome) tiny fontpack with icons */
+@font-face{font-family:WebminCom;src:url(data:application/font-woff2;charset=utf-8;base64,d09GMgABAAAAAASgAA0AAAAACMwAAARJAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cBmAAgloIBBEICoYkhSELFAABNgIkAyIEIAWDYAdUG1IHyI6TpRKSpEg22fO4ZfN+xFeBFUvNKISKGmz1vCIeWid1scCJO8R/3fbdvzmIImw8gUQyTqnxgAM5sPv/7+f0R+HXWV2UgU7krYqq8Z9Ze4rMd3wDimrwBi8biE5ki3k1k/DDmRsBIADePPe2AQAffPZOKWk4X1/TEgjAHnYVwELUnn5Y4QFGKCiKaEc1G/iR515JjtBLSMcSGyDgB8yQjZMt+cAD3SxEH8KrBVDJGAYwmJNPJgHwMVaeW38kP0vj20QEPnR+BQ0AT/llCARocIk2HQCtJAYAFAzLwFLhb6AD48GPQTVAxnCdF2XYIaKIsp4nl0/TBIOPaIKaWO1d6VnhVVebft+qSAiJVJnzHuxxXBf2m9127CKK1jl9+v75ywmKHqp4PLLrReny99RYq1Xn4qXXbFnr3XMEtnvRPVl9T/6OE/f86875fLEVK1d6vSsPer0b3Zo1sWLFDl/8bYp+0Ycc2J4VtEddvZMRdoVVO+YLmvO6k4DzjKuxF7DdV8Oelban04qYL7KK6IUai89MLHRhd9OcH2JP7KfO8+hLWqzbmjLhnXmHz2vOQ9h7au3YceEAYK/UNGc1UfT8+cvXKRr/yH6hsLE4G01M77huiS3Kli/M2y/d9l+b8UfN8aNDX7GayZAozKvZuuRrIZUuWV+yXzj0HyqeqD3v48mz35uz4xQtD6QX6Tsb6aXmXKlXL62Fv8z0Q/sK23mb5i62lzZqcHQ336qw9CX/0FoLOpetmdu+QtO8P3bMa519Om6d6HH1qrGz1cQmlru8z7DbXfJLV5vAahlbVwTOsu0PPRltfmG6KC3bLovta1Qvm1XcmJjkkWRVx/LrA5YvG4jEywcMXFZ92U/SjRvhd8u+1+9B2XfdAw5mmkMiC/f98EO3H77v9v33+5ZEBpoeFL5twsKuHQrY0q5TrxrNrPwn8cdlzFn53nsZGxePyiuQ1XfVYdhULDXnq1+KKnZdOHbmJ7fanZgx40S7WwSSkZfBTgUAOEqoeh6TeHxnHRWFd4HjGErCOVxAGR6R/vU5Yl8JAhBM3TKGvZxa7zdZ435cD0WS/yeH0E6u19SMBwCCdUoEverHHBaKgCjPyhmCEgDQBXCTNX6l1bYdaeJjKBzIAIABCAEa8QMAIMUhEAAAdLkIABBFXQQAGEnYB04Ze4Gn+AQEeqTRIiXlwaGuAMgGBCRDOWBSNAdOG32Al+ExCLJ9t68oIx60MNwoY5gaG6+v0YYbqi/cQvA1Ht93tzMIKNbXa4YaaJim2aeg+H5t6MBhTYcPBbroq7+xhnjVKPiInQUNY8O0HXyuv75MFr8AUx1mi9q02CBLFUGdtwR8IbgbV9RhVP++puUPmHXMnlV+NGhVCVbZbytojFgkOspoA8ek7kM3DhtOrUsK+gNmA3ZGUZqcwTKXAiAsjDhw4Ukgkf878lasaRdp7LCBLQIBy6ZC5moAAAA=) format('woff2');font-weight:400;font-style:normal}.wm{display:inline-block;font:normal normal normal 14px/1 WebminCom;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.wm-fw{width:1.28571429em;text-align:center}.wm-ul{padding-left:0;margin-left:2.14285714em;list-style-type:none}.wm-ul>li{position:relative}.wm-li{position:absolute;left:-2.14285714em;width:2.14285714em;top:.14285714em;text-align:center}.wm-li.wm-lg{left:-1.85714286em}.wm-github:before{content:'\f002'}.wm-search:before{content:'\f003'}.wm-question-circle:before{content:'\f004'}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}.sr-only-focusable:active,.sr-only-focusable:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}
+
 /* Global */
 html {
     scroll-padding-top: 4.666rem;
@@ -38,6 +41,40 @@ h6 {
 pre,
 code {
     font-family: 'Roboto Mono', monospace;
+}
+h1 pre,
+h2 pre,
+h3 pre,
+h4 pre,
+h5 pre,
+h6 pre,
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code,
+strong pre,
+strong code {
+    font-weight: 600;
+}
+.post-title {
+    font-size: 36px;
+}
+.post-content h4 {
+    font-size: 20px;
+}
+
+.post-content table th {
+    font-size: 16px;
+}
+.post-content table td {
+    font-size: 15.5px
+}
+
+.post-content p strong pre,
+.post-content p strong code {
+    font-size: .88em
 }
 
 /* Header */
@@ -85,7 +122,7 @@ button#theme-toggle {
 }
 
 #menu span {
-    padding: 0.422em 0.511em;
+    padding: 0.311em 0.511em;
 }
 
 #menu span.active {
