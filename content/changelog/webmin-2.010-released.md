@@ -1,7 +1,7 @@
 ---
 title: "Webmin 2.010 released"
 date: 2022-11-27
-draft: false
+showtoc: false
 cover:
     image: "images/webmin_2.010_-_terminal.png"
 ---
@@ -18,3 +18,14 @@ cover:
 * Fix to exclude sensors with unknown temperatures
 * Fix for FreeBSD to support Let's Encrypt certificates requests
 * Fix to support attachment filenames with slash in them
+
+---
+
+#### Assets
+
+| File                       | Size |
+| -------------------------- | -----|
+|[webmin-2.010-1.noarch.rpm](https://github.com/webmin/webmin/releases/download/2.010/webmin-2.010-1.noarch.rpm) | 39.8 MB |
+|[webmin_2.010_all.deb](https://github.com/webmin/webmin/releases/download/2.010/webmin_2.010_all.deb) | 32.6 MB |
+|[webmin-2.010.tar.gz](https://github.com/webmin/webmin/releases/download/2.010/webmin-2.010.tar.gz) | 44.8 MB |
+|[webmin-2.010.pkg.gz](https://github.com/webmin/webmin/releases/download/2.010/webmin-2.010.pkg.gz) | 44.2 MB |
