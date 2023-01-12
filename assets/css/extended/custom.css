@@ -1,0 +1,115 @@
+/* Variables */
+:root {
+    --border: rgb(231, 231, 231);
+
+    --header: #043babf0;
+    --header-shadow: #00000040;
+
+    --menu-active: #ffffffee;
+}
+
+.dark {
+    --header: #2e2e33ee;
+    --menu-active: #444444ee;
+}
+
+/* Global */
+html {
+    scroll-padding-top: 4.666rem;
+    overflow-y: auto;
+}
+
+body {
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, segoe ui, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+    font-weight: 300;
+}
+
+strong,
+b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+}
+
+pre,
+code {
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Header */
+.header {
+    background-color: var(--header);
+    box-shadow: 0 2px 4px -1px var(--header-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: "Roboto Condensed", -apple-system, BlinkMacSystemFont, segoe ui, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+}
+
+.header a {
+    color: var(--theme);
+}
+
+.dark .header a {
+    color: var(--primary);
+}
+
+.header .logo>a {
+    line-height: calc(var(--header-height) - 0.111rem);
+    filter: saturate(1.666);
+}
+
+button#theme-toggle {
+    font-size: 24px;
+}
+
+/* Menu */
+#menu li+li {
+    margin-inline-start: initial;
+}
+
+#menu a {
+    padding-left: 0.511em;
+    padding-right: 0.511em;
+    font-size: 1.111rem;
+}
+
+#menu li > a > svg {
+    
+    height: 10px;
+    vertical-align: text-top;
+}
+
+#menu span {
+    padding: 0.422em 0.511em;
+}
+
+#menu span.active {
+    background-color: var(--menu-active);
+    border-bottom: none;
+    border-radius: calc(var(--radius) / 2);
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* Content */
+/* .entry-content {
+    filter: contrast(2);
+}
+ */
+.post-content hr {
+    height: 1px;
+}
+
+/* .profile img {
+    border-radius: 0;
+}
+ */
+/* Footer */
+body > footer {
+    border-top: 1px solid var(--border);
+}
