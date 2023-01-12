@@ -1,108 +1,85 @@
 ---
 title: "Downloading and Installing"
 date: 2017-10-02
-categories: []
-aliases: []
-toc: false
 draft: false
 ---
 
-**Rework in progress ...**
+## Downloading
 
-The current Webmin distribution is available in various package formats for download from:
+### Repository Setup
+The simplest and best way to get **Webmin** and **Usermin** is to use automatic [**`setup-repos.sh`**](https://github.com/webmin/webmin/blob/master/setup-repos.sh) script to configure official repositories on your **RHEL** or **Debian** derivative system. It can be done in two easy steps:
 
-Unix tar/gzip format  
-[https://prdownloads.sourceforge.net/webadmin/webmin-2.000.tar.gz](https://prdownloads.sourceforge.net/webadmin/webmin-2.000.tar.gz) 15.1 MB
+```
+curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
+sh setup-repos.sh
+```
+This script will automatically setup our repository and install our GPG keys on your system, and provide **`webmin`** and **`usermin`** packages for installation and easy upgrades in the future. The supported and tested systems are **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora** or **Debian**, **Ubuntu**, **Kali**.
 
-RPM suitable for Redhat, Fedora, CentOS, SuSE or Mandrake Linux  
-[https://prdownloads.sourceforge.net/webadmin/webmin-2.000-1.noarch.rpm](https://prdownloads.sourceforge.net/webadmin/webmin-2.000-1.noarch.rpm) 16.3 MB
+### Direct Downloads
+The latest full **Webmin** distribution is available in various package formats for download:
 
-Debian package suitable for Debian, Ubuntu or other derived Linux  
-[https://prdownloads.sourceforge.net/webadmin/webmin\_2.000\_all.deb](https://prdownloads.sourceforge.net/webadmin/webmin_2.000_all.deb) 14.8 MB
 
-Source RPM suitable for Redhat, Fedora, CentOS, SuSE or Mandrake Linux  
-[https://prdownloads.sourceforge.net/webadmin/webmin-2.000-1.src.rpm](https://prdownloads.sourceforge.net/webadmin/webmin-2.000-1.src.rpm) 15.1 MB
+  [**`rpm`**](https://www.webmin.com/download/rpm/webmin-current.rpm) — **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora**, **openSUSE**
 
-Solaris package format  
-[https://prdownloads.sourceforge.net/webadmin/webmin-2.000.pkg.gz](https://prdownloads.sourceforge.net/webadmin/webmin-2.000.pkg.gz) 14.8 MB
+  [**`deb`**](https://www.webmin.com/download/deb/webmin-current.deb) — **Debian derivatives (Ubuntu, Kali, Parrot, Pop!, Lite, Devuan)**
 
-ZIP format suitable for Windows  
-[https://prdownloads.sourceforge.net/webadmin/webmin-2.000.zip](https://prdownloads.sourceforge.net/webadmin/webmin-2.000.zip) 19.3 MB
+  [**`pkg`**](https://www.webmin.com/download/solaris-pkg/webmin-current.pkg.gz) — **Solaris**
+  
+  [**`tar`**](https://www.webmin.com/download/webmin-current.tar.gz) — **FreeBSD** or any other Linux distribution
 
-Minimal version of Webmin, Unix tar/gzip format  
-[https://prdownloads.sourceforge.net/webadmin/webmin-2.000-minimal.tar.gz](https://prdownloads.sourceforge.net/webadmin/webmin-2.000-minimal.tar.gz) 1.9 MB
+&nbsp;&nbsp;\* The minimal [**`tar`**](https://www.webmin.com/download/webmin-current-minimal.tar.gz) version of **Webmin** contains only the core API and programs, and a few modules required for its basic operation. Most modules and all themes have been left out, but can be easily added later. It can be useful if you only need some of the programs functionality, and don't want to download the entire multi-megabyte package. 
 
-A Webmin [package for Gentoo](https://packages.gentoo.org/package/app-admin/webmin) is now part of their tree, and can be installed with the command :  
-`emerge webmin`
+#### Checksum Verification
+To verify that you have downloaded Webmin fully and correctly, you can use the command **`sha256sum`** on the downloaded file, and compare it against those listed below:
 
-You can also download [recent versions of Webmin](https://sourceforge.net/project/showfiles.php?group_id=17457). Check out the [change log](changes.html) for a list of new features in this version and in older releases.
+| File                       | sha256sum                                                                                       |
+| -------------------------- | ----------------------------------------------------------------------------------------------- |
+| webmin-current.rpm         | <sha256sum-rpm>18dcfe39c86e3ba412c17ea2fc48eb27a0690b550ae7db3d16307afbce7b1021</sha256sum-rpm> |
+| webmin-current.deb         | <sha256sum-deb>5fe23eb76ab0e4d58e71e73cad7990356970dc84205b444bdf6ee70a5168032c</sha256sum-deb> |
+| webmin-current.pkg         | <sha256sum-pkg>d96d728295b9e00523e84f914c945fb24d8184d54194fe6db5417efd2274be6e</sha256sum-pkg> |
+| webmin-current.tar         | <sha256sum-tar>69a5cc42a1f529e26330b5b4a37211c968a93e5879767053034ccc3735e47bae</sha256sum-tar> |
+| webmin-current-minimal.tar | <sha256sum-tar>69a5cc42a1f529e26330b5b4a37211c968a93e5879767053034ccc3735e47bae</sha256sum-tar> |
 
-PGP Verification
-================
 
-The [PGP key](https://download.webmin.com/jcameron-key.asc) that the RPM packages for versions 1.040 and above were signed with is also available, so that you can verify their integrity. Just add it to your GnuPG or PGP keyring and run the command rpm --checksig webmin-2.000-1.noarch.rpm. If you are using RPM version 4 or above, you will need to import the key into RPM's key database with the command rpm --import jcameron-key.asc. Otherwise, you can run gpg --import jcameron-key.asc as root.
+## Installing
 
-The [PGP signature](https://download.webmin.com/download/sigs/webmin-2.000.tar.gz-sig.asc) for the latest tar/gzip version of Webmin is also available so that you can verify the tar.gz file with the command gpg --verify webmin-2.000.tar.gz-sig.asc webmin-2.000.tar.gz.
+### Using Package Manager
+If Webmin repository was setup using our [**`setup-repos.sh`**](https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh) as described earlier then **Webmin** and **Usermin** can be install as easy as:
 
-For Debian packages, you can also get the [PGP signature](https://download.webmin.com/download/sigs/webmin_2.000_all.deb-sig.asc) for the latest version, so that you can verify the package with the command gpg --verify webmin\_2.000\_all.deb-sig.asc webmin\_2.000\_all.deb.
+   #### RHEL and derivatives
+    dnf install webmin usermin
 
-MD5 Verification
-================
+   #### Debian and derivatives
+    apt-get install webmin usermin
 
-To verify that you have downloaded Webmin fully and correctly, you can use the command md5sum on the RPM, Debian package or TAR file, and compare it against those listed below :
+### Using Downloaded Package
+If Webmin package was downloaded manually it can be easily installed:
+   #### RHEL and derivatives
+    dnf install ./webmin-current.rpm
 
-Filename
+   #### Debian and derivatives
+    apt-get install ./webmin-current.deb
 
-MD5 Checksum
+   #### Solaris
+    # The root user be switched from a role account to a normal account to logins to work
+    rolemod -K type=normal root
+    # Uncompress
+    gunzip webmin-current.pkg.gz
+    # Install
+    pkgadd -d webmin-current.pkg
 
-webmin\_2.000\_all.deb
+   #### FreeBSD and any other Linux installation from source
+    # Change directory
+    cd /tmp
+    # Uncompress
+    gunzip webmin-current.tar.gz
+    tar xf webmin-current.tar.gz
+    cd webmin-current
+    # Install
+    ./setup.sh /usr/local/webmin
+   If you installed it by specifying an installation directory parameter to **`setup.sh`** as the instructions above show, i.e. **`/usr/local/webmin`**, the original **`webmin-current`** directory can now be safely deleted.
 
-294e3c587e2467c176e8e396526f784e
+   The source package can be installed on any of the supported OS, such as **FreeBSD**, **HP/UX**, **AIX**, and all other flavors of Linux. However, if your system supports one of the other package formats like **`rpm`** or **`deb`** packages, it is *recommended* to install it from that type of package.
 
-webmin-2.000-minimal.tar.gz
-
-fda2463a9bbae3e8a372439ec4a0fafd
-
-webmin-2.000-1.noarch.rpm
-
-08e86e3fa4b15b8cb3a034923a7d7d04
-
-webmin-2.000-1.src.rpm
-
-a3ebfad6a51dc9fbef2c3cbe041c94e0
-
-webmin-2.000.pkg.gz
-
-866bb3007f062a501a6aec5965facde4
-
-webmin-2.000.tar.gz
-
-d28ae15b046fbf1d974f17688892eef6
-
-webmin-2.000.zip
-
-965eb0cf23c1c5856d681fd9a1a2f6d8
-
-Minimal Package
-===============
-
-The minimal version of Webmin contains only the core API and programs, and a few modules required for its basic operation. Most modules and all themes have been left out, but can be easily added later. It can be useful if you only need some of the programs functionality, and don't want to download the entire multi-megabyte package. The 2.000 minimal tar.gz distribution can be downloaded from [webmin-2.000-minimal.tar.gz](https://prdownloads.sourceforge.net/webadmin/webmin-2.000-minimal.tar.gz)
-
-Additional documentation is available to assist with the installation of Webmin and other required packages on the following operating systems : [Sun Solaris](solaris.html) and [Apple OS X](osx.html).
-
-Latest Version Links
-====================
-
-If you want a URL that always downloads the latest version of Webmin, you can use one of the following :
-
-Unix tar/gzip format  
-[https://www.webmin.com/download/webmin-current.tar.gz](http://www.webmin.com/download/webmin-current.tar.gz)
-
-RPM suitable for Redhat, Fedora, CentOS, SuSE or Mandrake Linux  
-[https://www.webmin.com/download/rpm/webmin-current.rpm](http://www.webmin.com/download/rpm/webmin-current.rpm)
-
-Debian package suitable for Debian, Ubuntu or other derived Linux  
-[https://www.webmin.com/download/deb/webmin-current.deb](http://www.webmin.com/download/deb/webmin-current.deb)
-
-Solaris package format  
-[https://www.webmin.com/download/solaris-pkg/webmin-current.pkg.gz](http://www.webmin.com/download/solaris-pkg/webmin-current.pkg.gz)
+## Development Nightly Builds
+There are development nightly builds available for testing purposes only and can be found on [builds.webmin.dev](https://builds.webmin.dev/) page.
