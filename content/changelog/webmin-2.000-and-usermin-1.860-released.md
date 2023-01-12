@@ -2,6 +2,7 @@
 title: "Webmin 2.000 and Usermin 1.860 released"
 date: 2022-08-23
 showtoc: false
+tags: ["changelog"]
 ---
 
 * Add to enforce HTTP Strict Transport Security (HSTS) policy in SSL enabled mode

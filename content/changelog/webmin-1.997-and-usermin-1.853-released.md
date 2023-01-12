@@ -2,6 +2,7 @@
 title: "Webmin 1.997 and Usermin 1.853 released"
 date: 2022-07-27
 showtoc: false
+tags: ["changelog"]
 ---
 
 * Fix Apache, BIND, MySQL, ProFTPd and other modules configs on newest distros for new installs

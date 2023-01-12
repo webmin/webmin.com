@@ -83,14 +83,14 @@ To request a certificate, follow these steps :
   * Run the command `openssl genrsa -out key.pem 2048`. This will create the file key.pem which is your private key.
   * Run the command `openssl req -new -key key.pem -out req.pem`. When it asks for the common name, be sure to enter the full hostname of your server as used in the URL, like www.yourserver.com. This will create the file `req.pem`, which is the certificate signing request (CSR)
   * Send the CSR to your certificate authority by whatever method they use. They should send you back a file that starts with `-----BEGIN CERTIFICATE-----` which can be put in the file `cert.pem`.
-  * Combine the private key and certificate with the command `cat key.pem cert.pem &gt;/etc/webmin/miniserv.pem`.
+  * Combine the private key and certificate with the command `cat key.pem cert.pem > /etc/webmin/miniserv.pem`.
   * If your CA requires the use of chained certificates, download them and save them in a file like /etc/webmin/miniserv.ca. Then edit `/etc/webmin/miniserv.conf` and add the line `extracas=/etc/webmin/miniserv.ca`.
   * Re-start webmin (making sure it is in SSL mode) to use the new key.
 
 ---
 
 ### In the Users and Groups module, how can a script set in the Command to run after making changes option find out what user was just added?
-    The follow environment variables are set by Webmin before the script is called :
+The follow environment variables are set by Webmin before the script is called :
   * `$USERADMIN_ACTION` - This can be set to `CREATE_USER`, `MODIFY_USER`, `DELETE_USER`, `CREATE_GROUP`, `MODIFY_GROUP` or `DELETE_GROUP` depending on what was just done.
   * `$USERADMIN_USER` - The username of the Unix user who was just created, modified or deleted.
   * `$USERADMIN_UID` - The UID of the Unix user.

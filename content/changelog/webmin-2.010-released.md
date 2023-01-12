@@ -4,6 +4,7 @@ date: 2022-11-27
 showtoc: false
 cover:
     image: "images/webmin_2.010_-_terminal.png"
+tags: ["changelog"]
 ---
 
 * Add a new Terminal module (interactive shell)

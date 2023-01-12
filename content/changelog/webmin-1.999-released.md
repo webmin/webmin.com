@@ -2,6 +2,7 @@
 title: "Webmin 1.999 released"
 date: 2022-08-04
 showtoc: false
+tags: ["changelog"]
 ---
 
 * Fix to allow IPv6 addresses for slaves in BIND module

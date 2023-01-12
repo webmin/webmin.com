@@ -2,6 +2,7 @@
 title: "Webmin 1.996 released"
 date: 2022-07-04
 showtoc: false
+tags: ["changelog"]
 ---
 
 * Fix issues with `systemd` restarting Webmin on upgrade found in 1.995
