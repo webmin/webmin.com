@@ -21,6 +21,24 @@
         });
     });
 
+    // Navigation buttons tweak
+    const isLocation = function(test) {
+        return location && typeof location.pathname === 'string' && location.pathname.includes('/' + test + '/');
+    }
+    if (isLocation('changelog') || isLocation('archives')) {
+        document.querySelector('.header > .nav #menu a[href$="changelog/"] > span').classList.add('active');
+    }
+
+    // Main page tweaks
+    const mainPageSocials = document.querySelector('.main > article > .entry-footer > .social-icons'),
+        ghStarsHTML = '<iframe src="https://ghbtns.com/github-btn.html?user=webmin&repo=webmin&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>',
+        ghWatchHTML = '<iframe src="https://ghbtns.com/github-btn.html?user=webmin&repo=webmin&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>',
+        ghForkHTML = '<iframe src="https://ghbtns.com/github-btn.html?user=webmin&repo=webmin&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>';
+    if (mainPageSocials) {
+        mainPageSocials.innerHTML = ghStarsHTML + ghWatchHTML + ghForkHTML;
+    }
+
+
 
 })();
 </script>
