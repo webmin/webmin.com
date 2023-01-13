@@ -5,3 +5,5 @@ RewriteRule ^changelog/$ archives/ [L]
 RewriteRule ^intro.html$ about/ [R,301]
 RewriteRule ^about.html$ about-jamie/ [R,301]
 
+# Devel
+RewriteRule ^devel.html$ download/#development-builds [R,301]
