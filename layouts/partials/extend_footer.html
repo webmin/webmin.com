@@ -5,6 +5,8 @@
         postsLinksTargSel = '.main .post-content a',
         wikiLink = document.querySelector('' + menuLinkTargSel + '[href$="Webmin/Main_Page"]'),
         searchLink = document.querySelector('' + menuLinkTargSel + '[href$="/search/"] > span'),
+        hmenuLink = document.querySelector('' + menuLinkTargSel + '[href$="/hmenu/"]'),
+        hmenuLinkText = hmenuLink.querySelector('span'),
         outerlinksAll = [
             document.querySelectorAll('' + postsLinksTargSel + '[href*="webmin.com/download/"]'),
             document.querySelectorAll('' + postsLinksTargSel + '[href*="download.webmin.com/devel"]'),
@@ -21,6 +23,12 @@
     // Search link as icon
     searchLink.classList.add('wm', 'wm-search');
     searchLink.innerHTML = String();
+
+    // Search link as icon
+    hmenuLinkText.classList.add('wm', 'wm-md', 'wm-menu');
+    hmenuLinkText.innerHTML = String();
+    hmenuLink.setAttribute('href', 'javascript:;');
+    hmenuLink.removeAttribute('title');
 
     // Outer links to new window
     outerlinksAll.forEach(function(outerlinks) {
