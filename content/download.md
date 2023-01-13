@@ -81,6 +81,10 @@ If Webmin package was downloaded manually it can be easily installed:
 
    The source package can be installed on any of the supported OS, such as **FreeBSD**, **HP/UX**, **AIX**, and all other flavors of Linux. However, if your system supports one of the other package formats like **`rpm`** or **`deb`** packages, it is *recommended* to install it from that type of package.
 
+## Standard Modules
+The standard modules that you may have deleted from Webmin on your system can be re-installed by downloading using [this](https://download.webmin.com/download/modules/) link.
+
+
 ## Development Builds
 There are development pre-release and nightly builds available for testing purposes only. These builds may be unstable or lack certain features. Use them at your own risk!
 
