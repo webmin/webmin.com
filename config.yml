@@ -1,4 +1,4 @@
-baseURL: https://webmin.dev/9283yuihslskjlgfkhu4y5/
+baseURL: https://webmin.dev/devel-2023-01-13-take4/
 languageCode: en-us
 title: Webmin
 theme: PaperMod
@@ -9,7 +9,7 @@ menu:
       name: Download
       url: /download/
       weight: 10
-    - identifier: news
+    - identifier: changelog
       name: Changelog
       url: /changelog/
       weight: 20
