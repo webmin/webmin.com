@@ -6,6 +6,9 @@ aliases: []
 toc: false
 draft: false
 ---
+
+## Work in progress ...
+
 Because the translation of Webmin into different languages is done by volunteers, not all translations have been fully completed. The table below shows the percentage of completion for each of the currently recognized languages.
 
 **Code**

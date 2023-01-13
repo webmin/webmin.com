@@ -22,3 +22,6 @@ RewriteRule ^updates.html$ download/#standard-modules [R,301]
 
 # Security
 RewriteRule ^security.html$ security/ [R,301]
+
+# Supported Languages
+RewriteRule ^lang.html$ languages/ [R,301]
