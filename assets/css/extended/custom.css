@@ -157,10 +157,28 @@ body.dark .main > article > .entry-footer > .social-icons {
     height: 1px;
 }
 
+details.supported-os {
+    margin-top: -18px;
+    margin-left: 4px;
+}
+
+details.supported-os .inner {
+    margin-top: -10px;
+}
+
+details.supported-os > summary {
+    cursor: pointer;
+}
+
+details.supported-os > summary > .details {
+    margin-left: 4px;
+}
+
 /* Footer */
 body > footer {
     border-top: 1px solid var(--border);
 }
+
 body > footer .wm-heart{
     color: red;
 }
