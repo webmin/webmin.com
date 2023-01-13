@@ -1,12 +1,9 @@
 ---
 title: "Security"
-date: 2017-10-02
-categories: []
-aliases: []
-toc: false
-draft: false
+date: 2023-01-13
 ---
-# Security Alerts
+
+## Work in progress ...
 
 This page lists security problems found in Webmin and Usermin, versions affected and recommended solutions.
 

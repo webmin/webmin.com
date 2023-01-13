@@ -19,3 +19,6 @@ RewriteRule ^screens/ screenshots/ [R,301]
 # Standard Modules
 RewriteRule ^standard.html$ download/#standard-modules [R,301]
 RewriteRule ^updates.html$ download/#standard-modules [R,301]
+
+# Security
+RewriteRule ^security.html$ security/ [R,301]
