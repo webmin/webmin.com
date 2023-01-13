@@ -1,27 +1,27 @@
 # Changelog should be displayed as archives
-RewriteRule ^changes.html/$ changelog/ [R,301]
+RewriteRule ^changes.html/$ changelog/ [R=301]
 RewriteRule ^changelog/$ archives/ [L]
 
 # About and intro
-RewriteRule ^intro.html$ about/ [R,301]
-RewriteRule ^about.html$ about-jamie/ [R,301]
+RewriteRule ^intro.html$ about/ [R=301]
+RewriteRule ^about.html$ about-jamie/ [R=301]
 
 # Devel
-RewriteRule ^devel.html$ download/#development-builds [R,301]
+RewriteRule ^devel.html$ download/#development-builds [R=301]
 
 # Supported OS
-RewriteRule ^support.html$ about/#supported-os [R,301]
+RewriteRule ^support.html$ about/#supported-os [R=301]
 
 # Screenshots redirecs
-RewriteRule ^demo.html$ screenshots/ [R,301]
-RewriteRule ^screens/ screenshots/ [R,301]
+RewriteRule ^demo.html$ screenshots/ [R=301]
+RewriteRule ^screens/ screenshots/ [R=301]
 
 # Standard Modules
-RewriteRule ^standard.html$ download/#standard-modules [R,301]
-RewriteRule ^updates.html$ download/#standard-modules [R,301]
+RewriteRule ^standard.html$ download/#standard-modules [R=301]
+RewriteRule ^updates.html$ download/#standard-modules [R=301]
 
 # Security
-RewriteRule ^security.html$ security/ [R,301]
+RewriteRule ^security.html$ security/ [R=301]
 
 # Supported Languages
-RewriteRule ^lang.html$ languages/ [R,301]
+RewriteRule ^lang.html$ languages/ [R=301]
