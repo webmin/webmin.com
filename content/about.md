@@ -14,8 +14,8 @@ Webmin consists of a simple web server, and a number of sub-programs which direc
 All recent versions of Webmin are licensed under BSD-3-Clause licence, meaning that it may be freely distributed and modified for commercial and non-commercial use.
 
 ### Supported OS
-Because different Unix-like operating systems and Linux distributions use different locations for their various config files, Webmin can only support systems for which it has been configured.
-{{< details-start supported-os "<i class='wm wm-facebook'></i>"  >}}
+Because different Unix-like operating systems and Linux distributions use different locations for their various config files, Webmin can only support systems for which it has been configured. The following operating systems are supported by the current Webmin version.
+{{< details-start supported-os "<i class='wm wm-linux'></i>"  >}}
 {{% include file="/static/data/supported-os.txt" %}}
 {{< details-end >}}
 
