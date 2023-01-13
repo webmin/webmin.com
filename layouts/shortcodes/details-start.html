@@ -1,7 +1,7 @@
 {{ if .Get 1}}
 {{ $class :=  .Get 0 }}
-  <details>
-      <summary accesskey="c" title="(Alt + C)" class="{{ $class }}">
+  <details class="{{ $class }}">
+      <summary accesskey="c" title="(Alt + C)">
         <span class="details">
         {{ range .Params }}
           {{ if ne $class . }}
