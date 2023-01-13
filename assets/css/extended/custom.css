@@ -104,6 +104,18 @@ button#theme-toggle {
     font-size: 24px;
 }
 
+/* Header logos */
+body .logo .logo-switches svg path,
+body .logo>a>svg path {
+    fill: #fff;
+    stroke: #fff
+}
+body.dark .logo .logo-switches svg path,
+body.dark .logo>a>svg path {
+    fill: #005ebd;
+    stroke: #3164b4
+}
+
 /* Menu */
 #menu li+li {
     margin-inline-start: initial;
