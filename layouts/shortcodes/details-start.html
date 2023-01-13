@@ -5,7 +5,7 @@
         <span class="details">
         {{ range .Params }}
           {{ if ne $class . }}
-            {{ . }}
+            {{ . | safeHTML }}
           {{ end }}
         {{ end }}
         </span>

@@ -15,7 +15,7 @@ All recent versions of Webmin are licensed under BSD-3-Clause licence, meaning t
 
 ### Supported OS
 Because different Unix-like operating systems and Linux distributions use different locations for their various config files, Webmin can only support systems for which it has been configured.
-{{< details-start supported-os The following operating systems are supported by the current Webmin version. >}}
+{{< details-start supported-os "<i class='wm wm-facebook'></i>"  >}}
 {{% include file="/static/data/supported-os.txt" %}}
 {{< details-end >}}
 
