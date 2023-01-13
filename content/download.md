@@ -81,5 +81,12 @@ If Webmin package was downloaded manually it can be easily installed:
 
    The source package can be installed on any of the supported OS, such as **FreeBSD**, **HP/UX**, **AIX**, and all other flavors of Linux. However, if your system supports one of the other package formats like **`rpm`** or **`deb`** packages, it is *recommended* to install it from that type of package.
 
-## Development Nightly Builds
-There are development nightly builds available for testing purposes only and can be found on [builds.webmin.dev](https://builds.webmin.dev/) page.
+## Development Builds
+There are development pre-release and nightly builds available for testing purposes only. These builds may be unstable or lack certain features. Use them at your own risk!
+
+### Pre-release Builds
+Pre-release builds can be found on [download.webmin.com/devel](https://download.webmin.com/devel/) page.
+
+### Nightly Builds
+Nightly builds can be found on [builds.webmin.dev](https://builds.webmin.dev/) page.
+
