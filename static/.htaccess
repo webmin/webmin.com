@@ -9,4 +9,4 @@ RewriteRule ^about.html$ about-jamie/ [R,301]
 RewriteRule ^devel.html$ download/#development-builds [R,301]
 
 # Supported OS
-RewriteRule ^support.md$ about/#supported-os [R,301]
+RewriteRule ^support.html$ about/#supported-os [R,301]
