@@ -5,21 +5,27 @@ draft: false
 showtoc: false
 ---
 
-### What is Webmin?
-
 Webmin is a web-based system administration tool for Unix-like servers, and services with over 1,000,000 installations worldwide. Using it, it is possible to configure operating system internals, such as users, disk quotas, services or configuration files, as well as modify, and control open-source apps, such as **BIND** DNS Server, **Apache** HTTP Server, **PHP**, **MySQL**, and many more.
 
 Webmin consists of a simple web server, and a number of sub-programs which directly update system files like `/etc/fstab` and `/etc/passwd`. The web server and all sub-programs are written in Perl version 5, and use no non-standard Perl modules.
 
-### Who developed Webmin?
+### Licence
+
+All recent versions of Webmin are licensed under BSD-3-Clause licence, meaning that it may be freely distributed and modified for commercial and non-commercial use.
+
+### Supported OS
+Because different Unix-like operating systems and Linux distributions use different locations for their various config files, Webmin can only support systems for which it has been configured.
+{{< details-start supported-os The following operating systems are supported by the current Webmin version. >}}
+{{% include file="/static/data/supported-os.txt" %}}
+{{< details-end >}}
+
+
+### Modules
+Because Webmin supports the concept of modules (like Photoshop plugins), anyone can develop and distribute their own Webmin modules for any purpose, and distribute them under any licence (such as GPL, commercial or shareware). [More information](https://doxfer.webmin.com/Webmin/ModuleDevelopment) about the Webmin API and writing your own modules is available.
+
+### Lead Developer
 
 Almost all the development of Webmin was done by [Jamie Cameron](../about-jamie), though many people have contributed patches and translations.
-
-### What licence is Webmin distributed under?
-
-All recent versions of Webmin are under a BSD-like licence, meaning that it may be freely distributed and modified for commercial and non-commercial use.
-
-Because Webmin supports the concept of modules (like Photoshop plugins), anyone can develop and distribute their own Webmin modules for any purpose, and distribute them under any licence (such as GPL, commercial or shareware). [More information](https://doxfer.webmin.com/Webmin/ModuleDevelopment) about the Webmin API and writing your own modules is available.
 
 ### Contributions
 
