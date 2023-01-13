@@ -101,7 +101,7 @@ params:
           url: faq
 
 
-  defaultTheme: light # dark, light
+  defaultTheme: auto # dark, light
   disableThemeToggle: false
   
   ShowReadingTime: true
