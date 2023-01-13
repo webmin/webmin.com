@@ -47,6 +47,9 @@ params:
   keywords: [webmin, usermin, virtualmin, cloudmin, linux, system administration]
   author: Jamie Cameron
 
+  # hide default footer
+  hideFooter: true
+
   # edit posts
   editPost:
     URL: "https://github.com/webmin/webmin.com/tree/master/content"
