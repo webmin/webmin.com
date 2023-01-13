@@ -1,1 +1,7 @@
+# Changelog should be displayed as archives
 RewriteRule ^changelog/$ archives/ [L]
+
+# About and intro
+RewriteRule ^intro.html$ about/ [R,301]
+RewriteRule ^about.html$ about-jamie/ [R,301]
+
