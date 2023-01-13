@@ -1,4 +1,5 @@
 # Changelog should be displayed as archives
+RewriteRule ^changes.html/$ changelog/ [R,301]
 RewriteRule ^changelog/$ archives/ [L]
 
 # About and intro
