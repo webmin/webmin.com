@@ -146,18 +146,14 @@ body.dark .logo>a>svg path {
 }
 
 /* Content */
-/* .entry-content {
-    filter: contrast(2);
+body.dark .main > article > .entry-footer > .social-icons {
+    filter: invert(1) contrast(0.7)
 }
- */
+
 .post-content hr {
     height: 1px;
 }
 
-/* .profile img {
-    border-radius: 0;
-}
- */
 /* Footer */
 body > footer {
     border-top: 1px solid var(--border);
