@@ -104,6 +104,6 @@ Because Webmin supports the concept of modules (like Photoshop plugins), anyone 
 
 **[Kevin Lo](mailto:kevlo@openbsd.org)** &mdash; Contributing a port for OpenBSD.
 
-**[.. and hundreds of many more](https://github.com/webmin/webmin/graphs/contributors)**
+**[.. and hundreds of many others](https://github.com/webmin/webmin/graphs/contributors)**
 
 
