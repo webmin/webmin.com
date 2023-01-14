@@ -10,8 +10,11 @@ RewriteRule ^about.html$ https://%{HTTP_HOST}/about-jamie/ [R=301]
 # Devel
 RewriteRule ^devel.html$ https://%{HTTP_HOST}/download/#development-builds [R=301,NE]
 
-# Supported OS
-RewriteRule ^support.html$ https://%{HTTP_HOST}/about/#supported-os [R=301,NE]
+# Supported Systems
+RewriteRule ^support.html$ https://%{HTTP_HOST}/about/#supported-systems [R=301,NE]
+
+# Supported Languages
+RewriteRule ^lang.html$ https://%{HTTP_HOST}/about/#supported-languages [R=301,NE]
 
 # Screenshots redirecs
 RewriteRule ^demo.html$ https://%{HTTP_HOST}/screenshots/ [R=301]
@@ -23,5 +26,3 @@ RewriteRule ^standard.html$ https://%{HTTP_HOST}/download/#standard-modules [R=3
 # Security
 RewriteRule ^security.html$ https://%{HTTP_HOST}/security/ [R=301]
 
-# Supported Languages
-RewriteRule ^lang.html$ https://%{HTTP_HOST}/languages/ [R=301]

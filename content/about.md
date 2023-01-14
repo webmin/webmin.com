@@ -13,11 +13,68 @@ Webmin consists of a simple web server, and a number of sub-programs which direc
 
 All recent versions of Webmin are licensed under BSD-3-Clause licence, meaning that it may be freely distributed and modified for commercial and non-commercial use.
 
-### Supported OS
-Because different Unix-like operating systems and Linux distributions use different locations for their various config files, Webmin can only support systems for which it has been configured. The following operating systems are supported by the current Webmin version.
-{{< details-start supported-os "<i class='wm wm-linux'></i>"  >}}
+### Supported Systems
+Because different Unix-like operating systems and Linux distributions use different locations for their various config files, Webmin can only support systems for which it has been configured. The following operating systems are supported by the current Webmin version:
+{{< details-start post-content-details "<i class='wm wm-linux'></i>"  >}}
 {{% include file="/static/data/supported-os.txt" %}}
 {{< details-end >}}
+
+### Supported Languages
+
+Translation of Webmin modules into different languages is done by volunteers. The partial module translations made by humans are covered by automated language manager script.
+
+All translated modules have a main language file without extension, i.e. `de` and automatically translated variant, i.e. `de.auto`. Volunteers willing to contribute to the translations, should take automatically translated strings from `.auto` language file (located in `lang/` directory of each module), review, edit and move them to the main language file.
+
+All language files must use `utf-8` encoding. The following languages are supported by the current Webmin version:
+
+{{< details-start post-content-details "<i class='wm wm-language'></i>"  >}}
+|  Code   |   Language
+| ------- | ------------ |
+|  **en** |  **English**
+|  af     |  Afrikaans
+|  ar     |  العربية
+|  be     |  беларуская
+|  bg     |  български
+|  ca     |  català
+|  cs     |  čeština
+|  da     |  dansk
+|  de     |  Deutsch
+|  el     |  Ελληνικά
+|  es     |  español
+|  eu     |  euskara
+|  fa     |  فارسی
+|  fi     |  suomi
+|  fr     |  français
+|  he     |  עברית
+|  hr     |  hrvatski
+|  hu     |  magyar
+|  it     |  italiano
+|  ja     |  日本語
+|  ko     |  한국어
+|  lt     |  lietuvių
+|  lv     |  latviešu
+|  ms     |  Melayu
+|  mt     |  Malti
+|  nl     |  Nederlands
+|  no     |  norsk
+|  pl     |  polski
+|  pt     |  português
+| pt_BR   |  português (Brasil)
+|  ro     |  română
+|  ru     |  русский
+|  sk     |  slovenčina
+|  sl     |  slovenščina
+|  sv     |  svenska
+|  th     |  ไทย
+|  tr     |  Türkçe
+|  uk     |  українська
+|  ur     |  اردو
+|  vi     |  Tiếng Việt
+|  zh     |  中文 (简体)
+|  zh_TW  |  中文 (繁體)
+
+{{< details-end >}}
+
 
 
 ### Modules
