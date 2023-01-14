@@ -13,26 +13,22 @@ menu:
       name: Changelog
       url: /changelog/
       weight: 20
-    - identifier: Screenshots
-      name: Screenshots
-      url: /Screenshots/
+    - identifier: Security
+      name: Security
+      url: /Security/
       weight: 30
-    - identifier: faq
-      name: FAQ
-      url: /faq/
-      weight: 40
     - identifier: wiki
       name: 'Wiki'
       url: http://doxfer.webmin.com/Webmin/Main_Page
-      weight: 50
+      weight: 40
     - identifier: search
       name: ' '
       url: /search/
-      weight: 60
+      weight: 50
     - identifier: hmenu
       name: ' '
       url: /hmenu/
-      weight: 70
+      weight: 60
 
 minify:
   minifyOutput: true
