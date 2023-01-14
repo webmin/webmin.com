@@ -117,3 +117,10 @@ params:
     threshold: 0.4
     minMatchCharLength: 0
     keys: ["title", "permalink", "summary", "content"]
+
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
