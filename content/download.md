@@ -32,14 +32,7 @@ The latest full Webmin distribution is available in various package formats for 
 #### Checksum Verification
 To verify that you have downloaded Webmin fully and correctly, you can use the command **`sha256sum`** on the downloaded file, and compare it against those listed below:
 
-| File                       | sha256sum                                                                                       |
-| -------------------------- | ----------------------------------------------------------------------------------------------- |
-| webmin-current.rpm         | <sha256sum-rpm>18dcfe39c86e3ba412c17ea2fc48eb27a0690b550ae7db3d16307afbce7b1021</sha256sum-rpm> |
-| webmin-current.deb         | <sha256sum-deb>5fe23eb76ab0e4d58e71e73cad7990356970dc84205b444bdf6ee70a5168032c</sha256sum-deb> |
-| webmin-current.pkg         | <sha256sum-pkg>d96d728295b9e00523e84f914c945fb24d8184d54194fe6db5417efd2274be6e</sha256sum-pkg> |
-| webmin-current.tar         | <sha256sum-tar>69a5cc42a1f529e26330b5b4a37211c968a93e5879767053034ccc3735e47bae</sha256sum-tar> |
-| webmin-current-minimal.tar | <sha256sum-tar>69a5cc42a1f529e26330b5b4a37211c968a93e5879767053034ccc3735e47bae</sha256sum-tar> |
-
+{{% include file="/static/data/download-checksum-verification.md" %}}
 
 ## Installing
 
