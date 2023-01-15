@@ -87,10 +87,15 @@ foreach my $l (@fl) {
         else {
             my $ttarget = "$cdir/$tfile";
             my $output = `sha256sum "$ttarget"`;
-            my ($nhash) = $output =~ /([a-h0-9]+)/;
-            my $nl = $l;
-            $nl =~ s/^(\|\s+[\w_-]+\.[\w]+\s+\|\s+)([a-h0-9]+)/$1$nhash/;
-            push(@nfl, $nl);
+            my ($nhash) = $output =~ /^([a-h0-9]+)/;
+            if ($nhash) {
+                my $nl = $l;
+                $nl =~ s/^(\|\s+[\w_-]+\.[\w]+\s+\|\s+)([a-h0-9]+)/$1$nhash/;
+                push(@nfl, $nl);
+                }
+            else {
+                die("Error: Cannot get a new hash for '$tfile' file\n");
+                }
             }
         }
         else {
