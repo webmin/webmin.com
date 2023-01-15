@@ -33,3 +33,6 @@ RewriteRule ^windows.html$ https://%{HTTP_HOST}/ [R=301]
 # Security
 RewriteRule ^security.html$ https://%{HTTP_HOST}/security/ [R=301]
 
+# Contributed Documentation
+RewriteRule ^contrib.html$ https://%{HTTP_HOST}/books/#download [R=301,NE]
+

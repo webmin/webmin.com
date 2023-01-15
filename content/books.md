@@ -1,32 +1,43 @@
 ---
 title: "Books"
-date: 2017-10-02
-categories: []
-aliases: []
-toc: false
-draft: false
+date: 2023-15-01
+showtoc: false
 ---
-# Webmin Books
 
-The following books on Webmin are available from Amazon and fine bookstores everywhere :
+The following books on Webmin are available for purchase from Amazon and fine bookstores everywhere or for digital download.
 
+### Purcahse
 * [Managing Linux Systems with Webmin by Jamie Cameron][1]
-    Covers Webmin 1.100 extensively, and also includes an introduction to Usermin and a guide to module development.
+   
+   Covers Webmin 1.100 extensively, and also includes an introduction to Usermin and a guide to module development.
 * [The Book of Webmin by Joe Cooper][2]
-    Explains how to use Webmin's unique features, including integrating the most popular services (Apache, BIND, Sendmail, and more) as well as the standard system features (network configuration, disk configuration, users and groups, etc.).
+   
+   Explains how to use Webmin's unique features, including integrating the most popular services (Apache, BIND, Sendmail, and more) as well as the standard system features (network configuration, disk configuration, users and groups, etc.).
 * [Webmin Japanese Official Guide by MYCOM books][3]
-    A complete translation of Joe's book into Japanese, with new screenshots.
+   
+   A complete translation of Joe's book into Japanese, with new screenshots.
 * [Webmin kompakt][4]
-    A short introduction to Webmin in German. This is now available as a [free PDF download][5].
+   
+   A short introduction to Webmin in German. This is now available as a [free PDF download][5].
 
-The books below are available in PDF format :
+### Download
+
+The books below are available in digital format for free download:
 
 * [Guidance of Using Webmin (in Persian) by Amin Shokripour][6]
-    A 250-page guide to Webmin, complete with screenshots in Persian!
+   
+   A 250-page guide to Webmin, complete with screenshots in Persian!
 * [Managing Linux Systems with Webmin by Jamie Cameron][7]
-    A PDF version of the printed book, made available under its Open Content license.
-* [The Dedicated Server Handbook][8], by [Issac G][9]
-    An E-book that shows how to use Webmin. There is also a [YouTube Channel][10] with videos from the book.
+   
+   A PDF version of the printed book, made available under its Open Content license.
+* [The Dedicated Server Handbook][8] by [Issac G][9]
+   
+   An e-book that shows how to use Webmin. There is also a [YouTube Channel][10] with videos from the book.
+
+* [Linux Server: Start To Finish on Using Webmin](http://woodel.com/)
+
+   An e-book by Kevin Elwood
+
 
   [1]: http://www.amazon.com/exec/obidos/tg/detail/-/0131408828/ref=ase_webmin-20/102-6661454-6213756?v=glance&s=books
   [2]: http://www.amazon.com/exec/obidos/tg/detail/-/1886411921/ref=ase_webmin-20/102-6661454-6213756?v=glance&s=books
