@@ -3,7 +3,9 @@
     const
         headerTargSel = 'body > .header',
         menuLinkTargSel = '' + headerTargSel + ' > .nav #menu > li > a',
+        themeToggleTargSel = '' + headerTargSel + ' #theme-toggle',
         postsLinksTargSel = '.main .post-content a',
+        hmenuDropDownTargSel = '.hmenu-panel > .hmenu-drop-down',
         searchLink = document.querySelector('' + menuLinkTargSel + '[href$="/search/"] > span'),
         hmenuLink = document.querySelector('' + menuLinkTargSel + '[href$="/hmenu/"]'),
         hmenuLinkText = hmenuLink.querySelector('span'),
@@ -26,7 +28,7 @@
     const hmenu_html = '{{- partial "hmenu.html" . }}',
         hmenuResize = function() {
             const hmenuRightOffset = document.documentElement.clientWidth - hmenuLinkText.getBoundingClientRect().right;
-            hmenuLink.querySelector('.hmenu-panel > .hmenu-drop-down').style.right = hmenuRightOffset + "px";
+            hmenuLink.querySelector(hmenuDropDownTargSel).style.right = hmenuRightOffset + "px";
         };
     hmenuLinkText.classList.add('wm', 'wm-md', 'wm-menu');
     hmenuLinkText.innerHTML = String();
@@ -45,6 +47,11 @@
             hmenuLink.insertAdjacentHTML('beforeend', hmenu_html);
             hmenuLinkText.classList.add('active');
             hmenuResize();
+
+            // Add selected class if any
+            const hmenuActiveLink =
+                hmenuLink.querySelector(hmenuDropDownTargSel + ' a[href="' + (location.pathname + location.hash) + '"]');
+            hmenuActiveLink && hmenuActiveLink.classList.add('active');
         }
     });
 
@@ -62,7 +69,8 @@
                 const clickOutsideElemRef = document.querySelector("." + clickOutsideElem.getAttribute('data-reference'));
                 // If click target is opener itself
                 if (clickOutsideElemRef === evt.target || clickOutsideElemRef.contains(evt.target) ||
-                    clickOutsideElem === evt.target || clickOutsideElem.contains(evt.target)) return;
+                    clickOutsideElem === evt.target || clickOutsideElem.contains(evt.target) ||
+                    document.querySelector(themeToggleTargSel).contains(evt.target)) return;
                 // Close becaise clicked outside
                 if (clickOutsideElemRef) clickOutsideElemRef.click();
             });

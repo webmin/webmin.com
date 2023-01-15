@@ -6,14 +6,17 @@
     --header-shadow: #00000040;
 
     --menu-active: #ffffff;
+    --menu-active-link: #f7f7a6bf;
 }
 
 .dark {
     --border: rgb(58, 58, 58);
 
     --header: #2e2e33ee;
+    
     --menu-active: #444444;
     --menu-border: rgb(99, 99, 99);
+    --menu-active-link: #625a4b9e;
 
 }
 
@@ -192,6 +195,10 @@ body.dark .logo>a>svg path {
     padding-left: 0.233em
     padding-right: 0.233em
 }
+#menu .hmenu-panel li a.active {
+    border-bottom: none;
+    background-color: var(--menu-active-link);
+}
 .hmenu-panel .clearfix {
     clear: both;
 }
@@ -285,6 +292,10 @@ body.dark .logo>a>svg path {
     color: var(--primary);
     padding: 0;
     font-size: 0.88em;
+}
+.hmenu-panel .hmenu-drop-down .hmenu-body-contents ul.hmenu-categories > li.hmenu-category > span,
+.hmenu-panel .hmenu-drop-down .hmenu-body-contents ul.hmenu-categories > li.hmenu-category > span > a {
+    width: 100%;
 }
 .hmenu-panel .hmenu-drop-down .hmenu-body-contents ul.hmenu-categories > li.hmenu-category span,
 .hmenu-panel .hmenu-drop-down .hmenu-body-contents ul.hmenu-links > li span,
