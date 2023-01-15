@@ -20,8 +20,8 @@ menu:
       url: /Security/
       weight: 30
     - identifier: wiki
-      name: 'Wiki'
-      url: http://doxfer.webmin.com/Webmin/Main_Page
+      name: 'Documentation'
+      url: /docs/
       weight: 40
     - identifier: search
       name: ' '
