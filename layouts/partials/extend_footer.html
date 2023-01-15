@@ -25,13 +25,14 @@
     // Custom dropdown menu
     const hmenu_html = '{{- partial "hmenu.html" . }}',
         hmenuResize = function() {
-            const hmenuRightOffset = window.innerWidth - hmenuLinkText.getBoundingClientRect().right;
-            hmenuLink.querySelector('.hmenu-panel > .hmenu-drop-down').style.right = hmenuRightOffset - 19.4 + "px";
+            const hmenuRightOffset = document.documentElement.clientWidth - hmenuLinkText.getBoundingClientRect().right;
+            hmenuLink.querySelector('.hmenu-panel > .hmenu-drop-down').style.right = hmenuRightOffset + "px";
         };
     hmenuLinkText.classList.add('wm', 'wm-md', 'wm-menu');
     hmenuLinkText.innerHTML = String();
     hmenuLink.setAttribute('href', 'javascript:;');
     hmenuLink.removeAttribute('title');
+    hmenuLink.classList.add('hmenu-panel-opener');
     hmenuLink.addEventListener("click", function() {
         var isHmenu = hmenuLink.querySelector('.hmenu-panel');
         // Remove it
@@ -52,12 +53,29 @@
         hmenuResize();
     }
 
+    // Click event
+    window.onclick = function(evt) {
+        // Check for opened menus and close them on clicking outside
+        const clickOutsideElemsAll = document.querySelectorAll('[data-click-outside="true"]');
+        if (clickOutsideElemsAll.length) {
+            clickOutsideElemsAll.forEach(function(clickOutsideElem) {
+                const clickOutsideElemRef = document.querySelector("." + clickOutsideElem.getAttribute('data-reference'));
+                // If click target is opener itself
+                if (clickOutsideElemRef === evt.target || clickOutsideElemRef.contains(evt.target) ||
+                    clickOutsideElem === evt.target || clickOutsideElem.contains(evt.target)) return;
+                // Close becaise clicked outside
+                if (clickOutsideElemRef) clickOutsideElemRef.click();
+            });
+        }
+    }
 
-    // Outer links to new window
+    // Outer links to new thw tab
     outerlinksAll.forEach(function(outerlinks) {
-        outerlinks.forEach(function(outerlink) {
-            outerlink.setAttribute('target', '_blank');
-        });
+        if (outerlinks) {
+            outerlinks.forEach(function(outerlink) {
+                outerlink.setAttribute('target', '_blank');
+            });
+        }
     });
 
     // Navigation buttons tweak
