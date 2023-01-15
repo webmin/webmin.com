@@ -37,7 +37,7 @@ To verify that you have downloaded Webmin fully and correctly, you can use the c
 ## Installing
 
 ### Using Package Manager
-If Webmin repository was setup using our [**`setup-repos.sh`**](https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh) as described earlier then Webmin and **Usermin** can be install as easy as:
+If Webmin repository was setup using our [**`setup-repos.sh`**](https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh) as [described earlier](#repository-setup) then Webmin and Usermin can be install as easy as:
 
    #### RHEL and derivatives
     dnf install webmin usermin
