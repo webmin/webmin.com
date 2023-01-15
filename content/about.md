@@ -82,7 +82,7 @@ All language files must use `utf-8` encoding. The following languages are suppor
 Because Webmin supports the concept of modules (like Photoshop plugins), anyone can develop and distribute their own Webmin modules for any purpose, and distribute them under any licence (such as GPL, commercial or shareware). [More information](https://doxfer.webmin.com/Webmin/ModuleDevelopment) about the Webmin API and writing your own modules is available.
 
 ### Developers
-[Jamie Cameron](../about-jamie) &mdash; Author and the lead developer of Webmin.
+[Jamie Cameron](/about-jamie) &mdash; Author and the lead developer of Webmin.
 
 [@iliajie](https://github.com/iliajie) &mdash; Continuous code contributions, author of language manager script and [Authentic Theme](https://github.com/webmin/authentic-theme).
 

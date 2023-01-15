@@ -3,6 +3,8 @@ languageCode: en-us
 title: Webmin
 theme: PaperMod
 
+canonifyURLs: true
+
 menu:
   main:
     - identifier: download

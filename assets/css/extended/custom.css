@@ -313,8 +313,6 @@ body.dark .logo>a>svg path {
     color: #bb6f0b
 }
 
-
-
 /* Content */
 body.dark .main > article > .entry-footer > .social-icons {
     filter: invert(1) contrast(0.7)
@@ -340,6 +338,11 @@ details.post-content-details > summary {
 details.post-content-details > summary > .details {
     margin-left: 4px;
 }
+
+/* Pages related */
+#previous-jobs + table > tbody > tr > td:first-child {
+    white-space: nowrap;
+} 
 
 /* Footer */
 body > footer {
