@@ -171,7 +171,6 @@ body.dark .logo>a>svg path {
 }
 #menu span.wm.wm-menu.active {
     border-right-color: var(--tertiary);
-    padding-top: 0.466em;
     padding-bottom: 0.711em;
 }
 #menu > li:nth-last-child(1) > a {
