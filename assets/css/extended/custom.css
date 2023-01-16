@@ -167,7 +167,7 @@ body.dark .logo>a>svg path {
 }
 
 #menu span.wm.wm-menu {
-    vertical-align: -6%;
+    vertical-align: -4%;
 }
 #menu span.wm.wm-menu.active {
     border-right-color: var(--tertiary);
