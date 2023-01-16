@@ -25,10 +25,6 @@ tags: ["changelog"]
 
 #### Assets
 
----
-
-### Assets
-
 | File                       | Size | File                       | Size |
 | -------------------------- | -----| -------------------------- | ---- |
 | **Webmin**                 |      | **Usermin**                |      |
