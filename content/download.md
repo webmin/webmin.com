@@ -82,7 +82,7 @@ The standard modules that you may have deleted from Webmin on your system can be
 There are development pre-release and nightly builds available for testing purposes only. These builds may be unstable or lack certain features. Use them at your own risk!
 
 ### Pre-release Builds
-Pre-release builds can be found on [download.webmin.com/devel](https://download.webmin.com/devel/) page.
+Pre-release builds can be found on [devel.webmin.com](https://download.webmin.com/devel/) page.
 
 ### Nightly Builds
 Nightly builds can be found on [builds.webmin.dev](https://builds.webmin.dev/) page.
