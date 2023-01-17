@@ -29,6 +29,7 @@ RewriteRule ^deb.html$ https://%{HTTP_HOST}/download/#installing [R=301,NE]
 RewriteRule ^tgz.html$ https://%{HTTP_HOST}/download/#freebsd-and-any-other-linux-installation-from-source [R=301,NE]
 RewriteRule ^solaris.html$ https://%{HTTP_HOST}/download/#solaris [R=301,NE]
 RewriteRule ^windows.html$ https://%{HTTP_HOST}/ [R=301]
+RewriteRule ^hpux.html$ https://%{HTTP_HOST}/ [R=301]
 
 # Security
 RewriteRule ^security.html$ https://%{HTTP_HOST}/security/ [R=301]
@@ -49,3 +50,9 @@ RewriteRule ^modules-index.html$ https://%{HTTP_HOST}/community/#for-developers 
 RewriteRule ^third.html$ https://%{HTTP_HOST}/community/#for-developers [R=301,NE]
 RewriteRule ^git.html$ https://%{HTTP_HOST}/community/#for-developers [R=301,NE]
 RewriteRule ^modules-newlang.html$ https://%{HTTP_HOST}/about/#supported-languages [R=301,NE]
+
+# FAQ
+RewriteRule ^faq.html$ https://%{HTTP_HOST}/faq/ [R=301]
+RewriteRule ^apache.html$ https://%{HTTP_HOST}/faq/#can-i-run-webmin-or-usermin-under-apache [R=301,NE]
+RewriteRule ^uapache.html$ https://%{HTTP_HOST}/faq/#can-i-run-webmin-or-usermin-under-apache [R=301,NE]
+RewriteRule ^updates.html$ https://%{HTTP_HOST}/download/ [R=301]
