@@ -56,6 +56,7 @@ RewriteRule ^faq.html$ https://%{HTTP_HOST}/faq/ [R=301]
 RewriteRule ^apache.html$ https://%{HTTP_HOST}/faq/#can-i-run-webmin-or-usermin-under-apache [R=301,NE]
 RewriteRule ^uapache.html$ https://%{HTTP_HOST}/faq/#can-i-run-webmin-or-usermin-under-apache [R=301,NE]
 RewriteRule ^updates.html$ https://%{HTTP_HOST}/download/ [R=301]
+RewriteRule ^uupdates.html$ https://%{HTTP_HOST}/download/ [R=301]
 
 # Partners
 RewriteRule ^partners.html$ https://%{HTTP_HOST}/supporters/ [R=301]
