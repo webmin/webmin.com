@@ -1,0 +1,6 @@
+{{ if .Get 1}}
+{{ $class :=  .Get 0 }}
+{{ $body :=  .Get 1 }}
+{{ $icon :=  .Get 2 }}
+  <span class="badge badge-pill badge-{{ $class }}">{{ if $icon }}<i class="wm wm-fw wm-sm wm-{{ $icon }}"></i> {{ end }}{{ $body }}</span>
+{{ end }}

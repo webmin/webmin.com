@@ -137,6 +137,13 @@ body.dark .logo>a>svg path {
     fill: #005ebd;
     stroke: #3164b4
 }
+/* Bootstrap components. Start */
+/*!
+ * Bootstrap v4.6.2 (https://getbootstrap.com/)
+ * Copyright 2011-2022 The Bootstrap Authors
+ * Copyright 2011-2022 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 /* Alerts */
 .alert {
     position: relative;
@@ -197,6 +204,58 @@ body.dark .logo>a>svg path {
 .dark .alert {
     filter: brightness(0.7) contrast(1.72)
 }
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.badge-primary {
+    color: #fff;
+    background-color: #007bff;
+}
+.badge-secondary {
+    color: #fff;
+    background-color: #6c757d;
+}
+.badge-success {
+    color: #fff;
+    background-color: #28a745;
+}
+.badge-danger {
+    color: #fff;
+    background-color: #dc3545;
+}
+.badge-warning {
+    color: #212529;
+    background-color: #ffc107;
+}
+.badge-info {
+    color: #fff;
+    background-color: #17a2b8;
+}
+.badge-light {
+    color: #212529;
+    background-color: #f8f9fa;
+}
+.badge-dark {
+    color: #fff;
+    background-color: #343a40;
+}
+.badge-pill {
+    padding-right: 0.6em;
+    padding-left: 0.6em;
+    border-radius: 10rem;
+}
+/* Bootstrap components. End */
 
 /* Menu */
 #menu li+li {
