@@ -115,6 +115,11 @@ button#theme-toggle {
     font-size: 24px;
 }
 
+.wm-sm {
+    font-size: 0.966em;
+    vertical-align: 2%
+}
+
 .wm-md {
     font-size: 1.166em;
     vertical-align: -2%

@@ -4,7 +4,7 @@
 {{ $title :=  .Get 2 }}
 {{ $body :=  .Get 3 }}
       <div class="alert alert-{{ $class }}">
-        <i class="wm wm-fw wm-{{ $icon }}"></i> <strong>{{ $title }}</strong><br>
+        <i class="wm wm-fw wm-sm wm-{{ $icon }}"></i> <strong>{{ $title }}</strong><br>
         {{ $body | markdownify }}
       </div>
 {{ end }}
