@@ -1,12 +1,8 @@
 ---
-title: "Partners"
-date: 2017-10-02
-categories: []
-aliases: []
-toc: false
-draft: false
+title: "Supporters"
+date: 2023-01-17
+showtoc: false
 ---
-# Webmin Supporters
 
 Thanks to the following companies and individuals for their support of Webmin over the years :
 
@@ -31,7 +27,7 @@ Thanks to the following companies and individuals for their support of Webmin ov
 * [WebbPlatsen i Sverige AB][18] and Joaquim Homrighausen, for donations towards Webmin development and hosting a mirror site.
 * [International Syst S/A][19] for translating Webmin into Brazilian Portuguese.
 
-# Webmin Users
+### Webmin Users
 
  Companies that use Webmin in their products include :
 
@@ -129,7 +125,7 @@ Thanks to the following companies and individuals for their support of Webmin ov
 * [Black Knights Networks][118] uses Webmin to manage servers hosting various applications.
 * [Vpntunnel.se][119] uses Webmin on all of their VPN-servers.
 * [QuickVPS][120] offers Webmin as a control panel choice on their VPSs.
-* [bjï¿½rn hahnefeld IT][121] uses Webmin on their Ubuntu Internet and Intranet servers.
+* [björn hahnefeld IT][121] uses Webmin on their Ubuntu Internet and Intranet servers.
 * [GSID][122] uses Webmin for both their internal development servers, and issue it standard for all customers with semi-management.
 * [IntoVPS][123] includes Webmin and Virtualmin in an OS package for CentOS.
 * [MNX Solutions][124] uses Webmin for managing Linux dedicated servers.
@@ -151,15 +147,15 @@ Thanks to the following companies and individuals for their support of Webmin ov
 * [Gridvirt][141] recommends and installs Webmin and Virtualmin for their clients.
 * [Drupion][142] ships all its virtual private and dedicated servers with Webmin / Virtualmin.
 * [Code creator][143] has several EC2 AMIs that contain [Webmin and a LAMP stack][144].
-* [Servermanagement][145] uses webmin and virtualmin on their servers for many clients.
-* [polarhome.com][146] has been running webmin and usermin on its 30+ unix like servers since 2003 and now more than 200.000 users enjoy usermin features.
+* [Servermanagement][145] uses Webmin and virtualmin on their servers for many clients.
+* [polarhome.com][146] has been running Webmin and Usermin on its 30+ unix like servers since 2003 and now more than 200.000 users enjoy usermin features.
 * [HostPuma][147] offers Webmin as a control panel for all their VPS's.
 * [Investing.co.uk][148] has an article about Webmin on their site.
 * [Document Technologies][149] uses Webmin to manage their servers.
 * [The FurrTrax Social Network][150] uses Webmin on all their Servers and CDNs.
 * [Rimu Hosting][151] supplies Webmin and (Virtualmin) control panels along with their VPS servers.
 
-If your company is missing from the list above, please [let me know][152]!
+{{< alert secondary exclamation "Not listed?" "If your company is missing from the list above, please **[let us know](mailto:security@webmin.com)**" >}}
 
   [1]: http://www.linmin.com/
   [2]: http://www.caldera.com/
@@ -312,4 +308,3 @@ If your company is missing from the list above, please [let me know][152]!
   [149]: http://www.doctechaz.com/
   [150]: http://www.FurrTrax.com/
   [151]: https://rimuhosting.com/resellerhosting.jsp
-  [152]: mailto:jcameron@webmin.com
