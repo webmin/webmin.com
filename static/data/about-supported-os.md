@@ -109,7 +109,6 @@
 * White Dwarf Linux
 * Whitebox Linux
 * Wind River Linux
-* Windows
 * X/OS Linux
 * Xandros Linux
 * XCP-ng Linux
