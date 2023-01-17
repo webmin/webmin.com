@@ -1,4 +1,5 @@
 <script>
+/* jshint esversion: 6 */
 (function() {
     const
         siteName = '{{ site.BaseURL }}',
@@ -25,9 +26,11 @@
             const hmenuRightOffset = document.documentElement.clientWidth - hmenuLinkText.getBoundingClientRect().right,
                 hmenuRightOffsetPixel = devicePixelRatio >= 1 ? (Math.ceil(hmenuRightOffset / 0.25) * 0.25) : hmenuRightOffset,
                 hmenuTopOffset = hmenuLinkText.getBoundingClientRect().top,
-                hmenuTopOffsetPixel = devicePixelRatio >= 1 ? (Math.ceil(hmenuTopOffset / 0.25) * 0.25) : hmenuTopOffset;
-            hmenuLink.querySelector(hmenuDropDownTargSel).style.right = hmenuRightOffsetPixel + "px";
-            hmenuLink.querySelector(hmenuDropDownTargSel).style.top = "calc(" + (hmenuTopOffset + hmenuLinkText.offsetHeight) + "px - 4px)";
+                hmenuDropDownTarg = hmenuLink.querySelector(hmenuDropDownTargSel);
+            if (hmenuDropDownTarg) {
+                hmenuDropDownTarg.style.right = hmenuRightOffsetPixel + "px";
+                hmenuDropDownTarg.style.top = "calc(" + (hmenuTopOffset + hmenuLinkText.offsetHeight) + "px - 4px)";
+            }
         };
     hmenuLinkText.classList.add('wm', 'wm-md', 'wm-menu');
     hmenuLinkText.innerHTML = String();
@@ -80,7 +83,7 @@
     outerlinksAll.forEach(function(outerlinks) {
         if (outerlinks) {
             outerlinks.forEach(function(outerlink) {
-                if (outerlink.href && 
+                if (outerlink.href &&
                     !outerlink.href.startsWith('mailto:') &&
                     !outerlink.href.startsWith(siteName)) {
                     outerlink.setAttribute('target', '_blank');
