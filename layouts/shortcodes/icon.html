@@ -1,3 +1,5 @@
 {{ if .Get 0}}
-  <i class="{{ range .Params }}{{ . }} {{ end }}"></i>
+{{ $icon :=  .Get 0 }}
+{{ $size :=  .Get 1 }}
+  <i class="wm wm-{{ $icon }}{{ if $size }} wm-{{ $size }}{{ end }}{{ range .Params }}{{ if ne $icon . }}{{ if ne $size . }} wm-{{ . }}{{ end }}{{ end }}{{ end }}"></i>
 {{ end }}

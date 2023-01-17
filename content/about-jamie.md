@@ -7,9 +7,9 @@ showtoc: false
 
 ### Contacts
 
-[{{< icon wm wm-lg wm-fw wm-mail >}}](mailto:jcameron@webmin.com)&nbsp;&nbsp;
-[{{< icon wm wm-fw wm-lg wm-facebook >}}](https://www.facebook.com/jamie.cameron)&nbsp;&nbsp;
-[{{< icon wm wm-fw wm-lg wm-youtube >}}](https://www.youtube.com/channel/UCipQ3IJf1CwEXYJcqA_Zh0w)
+[{{< icon mail md fw>}}](mailto:jcameron@webmin.com)&nbsp;&nbsp;
+[{{< icon facebook md fw >}}](https://www.facebook.com/jamie.cameron)&nbsp;&nbsp;
+[{{< icon youtube md fw >}}](https://www.youtube.com/channel/UCipQ3IJf1CwEXYJcqA_Zh0w)
 
 ### Previous Jobs
 |  Period   |  Position   | Details
