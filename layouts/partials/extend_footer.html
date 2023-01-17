@@ -1,6 +1,7 @@
 <script>
 (function() {
     const
+        siteName = '{{ site.BaseURL }}',
         headerTargSel = 'body > .header',
         menuLinkTargSel = '' + headerTargSel + ' > .nav #menu > li > a',
         themeToggleTargSel = '' + headerTargSel + ' #theme-toggle',
@@ -11,13 +12,7 @@
         hmenuLinkText = hmenuLink.querySelector('span'),
         outerlinksAll = [
             document.querySelectorAll('' + menuLinkTargSel + '[href$="Webmin/Main_Page"]'),
-            document.querySelectorAll('' + postsLinksTargSel + '[href*="webmin.com/download/"]'),
-            document.querySelectorAll('' + postsLinksTargSel + '[href*="download.webmin.com/devel"]'),
-            document.querySelectorAll('' + postsLinksTargSel + '[href*="doxfer.webmin.com"]'),
-            document.querySelectorAll('' + postsLinksTargSel + '[href*="builds.webmin.dev"]'),
-            document.querySelectorAll('' + postsLinksTargSel + '[href*="github.com"]'),
-            document.querySelectorAll('' + postsLinksTargSel + '[href*="facebook.com"]'),
-            document.querySelectorAll('' + postsLinksTargSel + '[href*="youtube.com"]'),
+            document.querySelectorAll(postsLinksTargSel),
         ];
 
     // Search link as icon
@@ -85,7 +80,11 @@
     outerlinksAll.forEach(function(outerlinks) {
         if (outerlinks) {
             outerlinks.forEach(function(outerlink) {
-                outerlink.setAttribute('target', '_blank');
+                if (outerlink.href && 
+                    !outerlink.href.startsWith('mailto:') &&
+                    !outerlink.href.startsWith(siteName)) {
+                    outerlink.setAttribute('target', '_blank');
+                }
             });
         }
     });
