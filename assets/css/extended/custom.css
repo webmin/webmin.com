@@ -132,6 +132,66 @@ body.dark .logo>a>svg path {
     fill: #005ebd;
     stroke: #3164b4
 }
+/* Alerts */
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+.alert-primary {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.alert-primary a {
+    color: #004085;
+}
+.alert-secondary {
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+}
+.alert-secondary a {
+    color: #383d41;
+}
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.alert-success a {
+    color: #155724;
+}
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.alert-danger a {
+    color: #721c24;
+}
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #f5e4b2;
+}
+.alert-warning a {
+    color: #856404;    
+}
+.alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+.alert-info a {
+    color: #0c5460;
+}
+/* Tricky and lazy-dazy way but seems to work perfectly fine */
+.dark .alert {
+    filter: brightness(0.7) contrast(1.72)
+}
 
 /* Menu */
 #menu li+li {
@@ -329,6 +389,17 @@ body.dark .main > article > .entry-footer > .social-icons {
     height: 1px;
 }
 
+details.post-indent-details > summary {
+    font-size: 94%;
+    font-weight: bold;
+}
+
+details.post-indent-details > .inner {
+    margin-left: 15px;
+    font-size: 92%;
+}
+
+
 details.post-content-details {
     margin-top: -18px;
     margin-left: 4px;
@@ -338,7 +409,7 @@ details.post-content-details .inner {
     margin-top: -10px;
 }
 
-details.post-content-details > summary {
+details[class^="post-"][class$="-details"] > summary {
     cursor: pointer;
 }
 
