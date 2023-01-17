@@ -2,5 +2,6 @@
 {{ $class :=  .Get 0 }}
 {{ $body :=  .Get 1 }}
 {{ $icon :=  .Get 2 }}
-  <span class="badge badge-pill badge-{{ $class }}">{{ if $icon }}<i class="wm wm-fw wm-sm wm-{{ $icon }}"></i> {{ end }}{{ $body }}</span>
+{{ $icons :=  split $icon " " }}
+  <span class="badge badge-pill badge-{{ $class }}">{{ if $icon }}<i class="wm {{ range $icons }} wm-{{ . }}{{ end }}"></i> {{ end }}{{ $body }}</span>
 {{ end }}
