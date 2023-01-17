@@ -24,11 +24,15 @@
     searchLink.classList.add('wm', 'wm-search');
     searchLink.innerHTML = String();
 
-    // Custom dropdown menu
+    // Custom dropdown menu offsets calcs
     const hmenu_html = '{{- partial "hmenu.html" . }}',
         hmenuResize = function() {
-            const hmenuRightOffset = document.documentElement.clientWidth - hmenuLinkText.getBoundingClientRect().right;
-            hmenuLink.querySelector(hmenuDropDownTargSel).style.right = hmenuRightOffset + "px";
+            const hmenuRightOffset = document.documentElement.clientWidth - hmenuLinkText.getBoundingClientRect().right,
+                hmenuRightOffsetPixel = devicePixelRatio >= 1 ? (Math.ceil(hmenuRightOffset / 0.25) * 0.25) : hmenuRightOffset,
+                hmenuTopOffset = hmenuLinkText.getBoundingClientRect().top,
+                hmenuTopOffsetPixel = devicePixelRatio >= 1 ? (Math.ceil(hmenuTopOffset / 0.25) * 0.25) : hmenuTopOffset;
+            hmenuLink.querySelector(hmenuDropDownTargSel).style.right = hmenuRightOffsetPixel + "px";
+            hmenuLink.querySelector(hmenuDropDownTargSel).style.top = "calc(" + (hmenuTopOffset + hmenuLinkText.offsetHeight) + "px - 4px)";
         };
     hmenuLinkText.classList.add('wm', 'wm-md', 'wm-menu');
     hmenuLinkText.innerHTML = String();
