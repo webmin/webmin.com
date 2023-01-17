@@ -32,7 +32,10 @@ RewriteRule ^windows.html$ https://%{HTTP_HOST}/ [R=301]
 
 # Security
 RewriteRule ^security.html$ https://%{HTTP_HOST}/security/ [R=301]
+# What happened
+RewriteRule ^exploit.html$ https://%{HTTP_HOST}/security/#remote-command-execution-cve-2019-15231 [R=301,NE]
 
 # Contributed Documentation
 RewriteRule ^contrib.html$ https://%{HTTP_HOST}/books/#download [R=301,NE]
+
 
