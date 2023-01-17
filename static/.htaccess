@@ -38,4 +38,6 @@ RewriteRule ^exploit.html$ https://%{HTTP_HOST}/security/#remote-command-executi
 # Contributed Documentation
 RewriteRule ^contrib.html$ https://%{HTTP_HOST}/books/#download [R=301,NE]
 
+# Community
+RewriteRule ^community.html$ https://%{HTTP_HOST}/community/ [R=301]
 
