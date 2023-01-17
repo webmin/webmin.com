@@ -1,13 +1,10 @@
 {{ if .Get 1}}
 {{ $class :=  .Get 0 }}
+{{ $titleOrIcon :=  .Get 1 }}
   <details class="{{ $class }}">
-      <summary accesskey="c" title="(Alt + C)">
+      <summary>
         <span class="details">
-        {{ range .Params }}
-          {{ if ne $class . }}
-            {{ . | safeHTML }}
-          {{ end }}
-        {{ end }}
+        {{ $titleOrIcon | safeHTML }}
         </span>
       </summary>
       <div class="inner">
