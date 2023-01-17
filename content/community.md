@@ -1,41 +1,28 @@
 ---
 title: "Community"
-date: 2017-10-02
-categories: []
-aliases: []
-toc: false
-draft: false
+date: 2023-01-17
+showtoc: false
 ---
-# For Users
+### For Users
 
-Users of Webmin, Usermin or Virtualmin looking for support should post to either the [mailing list][1] or the [Webmin forum][2] hosted by SourceForge.
+The users of Webmin, Usermin, Virtualmin or Cloudmin looking for support should post a question to correspondent category in our forum:
 
-If you have found what looks like a bug, post it to the [ Webmin bug tracker][3] or [Usermin bug tracker][4].
+  [{{< badge info "Webmin" "webmin" >}}](https://forum.virtualmin.com/c/webmin/12)
+  [{{< badge success "Usermin" "webmin" >}}](https://forum.virtualmin.com/c/usermin/10)
+  [{{< badge primary "Virtualmin" "virtualmin" >}}](https://forum.virtualmin.com/c/virtualmin/11)
+  [{{< badge warning "Cloudmin" "cloudmin" >}}](https://forum.virtualmin.com/c/cloudmin/7)
+  [{{< badge danger "Authentic Theme" "palette sm" >}}](https://forum.virtualmin.com/c/authentic-theme/19)
 
-If you just want to be informed of new releases, sign up for the [Webmin announcements mailing list][5], or check back at this website regularly.
+If you have found what looks like a bug, post it to the [Webmin](https://github.com/webmin/webmin/issues), [Usermin](https://github.com/webmin/usermin/issues), [Virtualmin](https://github.com/virtualmin/virtualmin-gpl/issues), [Cloudmin](https://github.com/virtualmin/cloudmin-gpl/issues) or [Authentic theme](https://github.com/webmin/authentic-theme/issues) bug tracker.
 
-# For Developers
+If you just want to be informed of new releases, enable alerts for [news category](https://forum.virtualmin.com/c/news/5) by signing up to our forum or check back at this website regularly.
 
-Anyone wanting to write their own Webmin modules or contribute to the core distribution should first read the [module writer's guide][6]. For support, join the [development mailing list][7], or [email me directly][8].
+### For Developers
 
-If you have created your own module or theme, please post it on the [third-party modules list][9]. Patches to the Webmin core modules should be [sent to me][10] for vetting and inclusion in future releases.
+Anyone wanting to write their own Webmin modules or contribute to the core distribution should first read the [module writer's guide](http://doxfer.webmin.com/Webmin/Module_Development). For support, post to the [developers category](https://forum.virtualmin.com/c/developers/16) in our forum.
 
-If you want to work on core Webmin code, check out the page on using the [Webmin Git repository][11], which is hosted on Github.
+If you have created your own module or theme, please post it on the [developers category](https://forum.virtualmin.com/c/developers/16) in our forum. Patches for all of our products should be sent as a PR using our [Webmin](https://github.com/webmin) and [Virtualmin](https://github.com/virtualmin) GitHub organization accounts.
 
-# For Translators
+### For Translators
 
-New and updated translations for Webmin modules are always welcome. You should read the documentation on [creating translations][12], and then download the [wbmtranslator][13] Webmin module, which makes it easy to edit and submit new languages.
-
-  [1]: mailing.html
-  [2]: https://sourceforge.net/projects/webadmin/forums/forum/600155
-  [3]: bugs.html
-  [4]: ubugs.html
-  [5]: mailing-announce.html
-  [6]: modules-index.html
-  [7]: mailing-devel.html
-  [8]: mailto:jcameron@webmin.com
-  [9]: third.html
-  [10]: mailto:jcameron@webmin.com
-  [11]: git.html
-  [12]: modules-newlang.html
-  [13]: http://wbmtranslator.labs.libre-entreprise.org/
+New and updated [translations](/about/#supported-languages) for Webmin and all of its modules are always welcomed and can be submitted as a PR to any of our GitHub repositories. 

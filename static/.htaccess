@@ -38,4 +38,14 @@ RewriteRule ^exploit.html$ https://%{HTTP_HOST}/security/#remote-command-executi
 # Contributed Documentation
 RewriteRule ^contrib.html$ https://%{HTTP_HOST}/books/#download [R=301,NE]
 
-
+# Community
+RewriteRule ^community.html$ https://%{HTTP_HOST}/community/ [R=301]
+RewriteRule ^bugs.html$ https://%{HTTP_HOST}/community/ [R=301]
+RewriteRule ^ubugs.html$ https://%{HTTP_HOST}/community/ [R=301]
+RewriteRule ^mailing.html$ https://%{HTTP_HOST}/community/ [R=301]
+RewriteRule ^mailing-announce.html$ https://%{HTTP_HOST}/community/ [R=301]
+RewriteRule ^mailing-devel.html$ https://%{HTTP_HOST}/community/ [R=301]
+RewriteRule ^modules-index.html$ https://%{HTTP_HOST}/community/#for-developers [R=301,NE]
+RewriteRule ^third.html$ https://%{HTTP_HOST}/community/#for-developers [R=301,NE]
+RewriteRule ^git.html$ https://%{HTTP_HOST}/community/#for-developers [R=301,NE]
+RewriteRule ^modules-newlang.html$ https://%{HTTP_HOST}/about/#supported-languages [R=301,NE]
