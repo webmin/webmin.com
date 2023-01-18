@@ -15,6 +15,7 @@ RewriteRule ^support.html$ https://%{HTTP_HOST}/about/#supported-systems [R=301,
 
 # Supported Languages
 RewriteRule ^lang.html$ https://%{HTTP_HOST}/about/#supported-languages [R=301,NE]
+RewriteRule ^ulang.html$ https://%{HTTP_HOST}/about/#supported-languages [R=301,NE]
 
 # Screenshots redirecs
 RewriteRule ^demo.html$ https://%{HTTP_HOST}/screenshots/ [R=301]
