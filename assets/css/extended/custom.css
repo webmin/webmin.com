@@ -517,3 +517,6 @@ body > footer {
 body > footer .wm-heart{
     color: red;
 }
+body > footer.footer a {
+    border-bottom: none
+}
