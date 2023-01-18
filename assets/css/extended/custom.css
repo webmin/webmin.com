@@ -257,8 +257,8 @@ body.dark .logo>a>svg path {
 }
 .badge-container {
     display: flex;
-    padding-left: 4vw;
-    padding-right: 4vw;
+    padding-left: 3.33vw;
+    padding-right: 3.33vw;
     flex-wrap: wrap;
 }
 .badge-container > .badge-link {
@@ -470,17 +470,20 @@ body.dark .main > article > .entry-footer > .social-icons {
     height: 1px;
 }
 
+details.post-content-indent-details > summary,
 details.post-indent-details > summary {
     font-size: 94%;
     font-weight: bold;
 }
 
+details.post-content-indent-details > .inner,
 details.post-indent-details > .inner {
     margin-left: 15px;
     font-size: 92%;
 }
 
 
+details.post-content-indent-details,
 details.post-content-details {
     margin-top: -18px;
     margin-left: 4px;
