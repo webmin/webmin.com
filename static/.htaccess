@@ -60,3 +60,6 @@ RewriteRule ^uupdates.html$ https://%{HTTP_HOST}/download/ [R=301]
 
 # Partners
 RewriteRule ^partners.html$ https://%{HTTP_HOST}/supporters/ [R=301]
+
+# Translations
+RewriteRule ^trans.html$ https://%{HTTP_HOST}/community/#for-translators [R=301,NE]
