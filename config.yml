@@ -89,7 +89,7 @@ params:
   comments: false
   hidemeta: false
   hideSummary: false
-  showtoc: true
+  showtoc: false
   tocopen: false
 
   # Embed Webmin logo nicely

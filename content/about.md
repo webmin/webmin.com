@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2017-10-02
-draft: false
+showtoc: false
 ---
 
 ### Intro

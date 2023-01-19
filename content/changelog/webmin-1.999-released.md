@@ -1,7 +1,6 @@
 ---
 title: "Webmin 1.999 released"
 date: 2022-08-04
-showtoc: false
 tags: ["changelog"]
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: "Webmin 2.010 released"
 date: 2022-11-27
-showtoc: false
 cover:
     image: "images/webmin_2.010_-_terminal.png"
 tags: ["changelog"]

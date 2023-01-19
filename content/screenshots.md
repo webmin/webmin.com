@@ -1,7 +1,6 @@
 ---
 title: "Screenshots"
 summary: "Webmin and modules screenshots"
-showtoc: false
 author: "@iliajie"
 tags: ["screenshots"]
 date: 2023-01-12

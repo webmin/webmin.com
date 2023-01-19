@@ -1,7 +1,6 @@
 ---
 title: "Webmin 2.011 and Usermin 1.861 released"
 date: 2023-01-12
-showtoc: false
 tags: ["changelog"]
 ---
 

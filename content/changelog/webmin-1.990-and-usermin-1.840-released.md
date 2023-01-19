@@ -1,7 +1,6 @@
 ---
 title: "Webmin 1.990 and Usermin 1.840 released"
 date: 2022-03-03
-showtoc: false
 tags: ["changelog"]
 
 ---

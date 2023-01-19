@@ -4,7 +4,7 @@ summary: "Frequently Asked Questions"
 author: "Jamie Cameron"
 tags: ["faq"]
 date: 2023-01-11
-draft: false
+showtoc: true
 weight: 3
 ---
 

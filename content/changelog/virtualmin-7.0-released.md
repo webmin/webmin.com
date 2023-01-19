@@ -1,7 +1,6 @@
 ---
 title: "Virtualmin 7.0 released"
 date: 2022-03-23
-showtoc: false
 tags: ["changelog"]
 
 ---

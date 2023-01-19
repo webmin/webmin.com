@@ -1,7 +1,6 @@
 ---
 title: "Books"
 date: 2023-15-01
-showtoc: false
 ---
 
 The following books on Webmin are available for purchase from Amazon and fine bookstores everywhere or for digital download.
