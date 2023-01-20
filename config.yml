@@ -40,9 +40,11 @@ enableRobotsTXT: true
 params:
   # env: production
 
-  # analytics:
-  #    google:
-  #      SiteVerificationTag: "XYZabc"
+  analytics:
+     google:
+       trackingCode:
+         production: 'UA-503706-1'
+         devel: 'G-LT56QHK5DW'
 
   title: Webmin
   description: "Powerful and flexible web-based server management control panel"
