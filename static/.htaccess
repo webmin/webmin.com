@@ -7,6 +7,7 @@ RewriteRule ^changelog/$ archives/ [L]
 
 # About and intro
 RewriteRule ^intro.html$ https://%{HTTP_HOST}/about/ [R=301]
+RewriteRule ^developers.html$ https://%{HTTP_HOST}/about/#developers [R=301,NE]
 RewriteRule ^about.html$ https://%{HTTP_HOST}/about-jamie/ [R=301]
 
 # Devel
