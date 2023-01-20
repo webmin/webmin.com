@@ -1,6 +1,7 @@
 ---
 title: "Webmin 2.012"
 date: 2023-01-18T19:17:16+02:00
+tags: ["changelog", "webmin-changelog"]
 ---
 
 * Fix to set the correct algorithm when setting up RNDC #1817

@@ -1,6 +1,7 @@
 ---
 title: "Webmin 2.013 and Usermin 1.862 released"
 date: 2023-01-19T19:17:16+02:00
+tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 ---
 
 * Fix Authentic theme issue with error handling

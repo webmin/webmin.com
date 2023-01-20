@@ -1,7 +1,7 @@
 ---
 title: "Webmin 2.011 and Usermin 1.861 released"
 date: 2023-01-12
-tags: ["changelog"]
+tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 ---
 
 * Add ability to set shell character encoding and set `TERM` environmental variable in the new Terminal module
