@@ -1,6 +1,7 @@
 # Changelog should be displayed as archives
 RewriteRule ^changes.html$ https://%{HTTP_HOST}/changelog/ [R=301]
-RewriteRule ^uchanges.html$ https://%{HTTP_HOST}/changelog/ [R=301]
+RewriteRule ^uchanges.html$ https://%{HTTP_HOST}/tags/usermin-changelog/ [R=301]
+RewriteRule ^vchanges.html$ https://%{HTTP_HOST}/tags/virtualmin-changelog/ [R=301]
 RewriteRule ^changelog/$ archives/ [L]
 
 
@@ -75,3 +76,9 @@ RewriteRule ^ubugs.html$ https://%{HTTP_HOST}/community/ [R=301]
 RewriteRule ^urpm.html$ https://%{HTTP_HOST}/usermin/#downloading [R=301,NE]
 RewriteRule ^udeb.html$ https://%{HTTP_HOST}/usermin/#downloading [R=301,NE]
 RewriteRule ^utgz.html$ https://%{HTTP_HOST}/usermin/#freebsd-and-any-other-linux-installation-from-source [R=301,NE]
+
+# Virtualmin
+RewriteRule ^vinstall.html$ https://%{HTTP_HOST}/virtualmin/#automated-installation [R=301,NE]
+RewriteRule ^vdownload.html$ https://%{HTTP_HOST}/virtualmin/#manual-installation [R=301,NE]
+RewriteRule ^plugins.html$ https://%{HTTP_HOST}/virtualmin/#plugins [R=301,NE]
+RewriteRule ^mobile.html$ https://%{HTTP_HOST}/virtualmin/ [R=301]
