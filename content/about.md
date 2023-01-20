@@ -33,6 +33,20 @@ Because Webmin supports the concept of modules (like Photoshop plugins), anyone 
 [Jamie Cameron](/about-jamie) &mdash; Author and the lead developer.
 
 [@iliajie](https://github.com/iliajie) &mdash; Continuous code contributions, author of language manager script and [Authentic Theme](https://github.com/webmin/authentic-theme).
+{{< details-start post-content-indent-details "<i class='wm wm-users-cog'></i>"  >}}
+Webmin provides an excellent platform for programs that configure Linux and Unix systems. Interfaces for backup servers, spam and virus filtering, SOHO servers, firewalls and much more have been built on top of Webmin, typically as custom modules and/or themes. Many businesses have created modules to configure specialized or in-house applications, such as for satellite control, medical devices and tape loaders.
+
+If none of the standard or third-party modules meet your requirements, and you don't have the programming skills to put together a module yourself, one of the developers listed on this page may be able to help you (for a price).
+
+* [**Alex Medina**](mailto:alex@alexmedina.name) - Specialty: Everything
+* [**Antonio Gallo**](mailto:agx@linux.it) - Specialty: Webmin modules and themes, tailor made Linux distribution customization
+* [**Charlie Garrison**](mailto:garrison@zeta.org.au) - Specialty: System administration (MySQL, djbdns, qmail, Apache, mod\_perl, OSX, Linux)
+* [**Dana French**](dfrench@mtxia.com) - Specialty: Business Continuity, Disaster Recovery, High Availability, and Virtualization
+* [**Richard Teachout**](http://www.teachout.com/) - Specialty: General module development.
+
+{{< alert primary exclamation "Getting listed on this page?" "If you want your name or company to be listed here too, just email us at **[developers@webmin.com](mailto:developers@webmin.com)** with your details, specialty and some information about module or theme development work you have done in the past." >}}
+
+{{< details-end >}}
 
 ## Contributors
 
