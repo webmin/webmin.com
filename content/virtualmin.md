@@ -39,7 +39,7 @@ Both the Pro and GPL versions are built from the same codebase, so all bugfixes 
 
 ## Changelog
 
-Virtualmin [changelog](/tags/virtualmin-changelog/) can be filtered out using tags category.
+Virtualmin [changelog](/tags/virtualmin-changelog/) can be filtered out using tags.
 
 ## Automated Installation
 
