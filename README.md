@@ -18,3 +18,9 @@ Alternatively, just manually put file under `content/` directory.
 ---
 
 
+### Update build tree
+To regenerate (and clean) content of `public/` directory run:
+
+```
+hugo --cleanDestinationDir
+```
