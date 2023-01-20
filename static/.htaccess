@@ -31,6 +31,7 @@ RewriteRule ^standard.html$ https://%{HTTP_HOST}/download/#standard-modules [R=3
 RewriteRule ^rpm.html$ https://%{HTTP_HOST}/download/#installing [R=301,NE]
 RewriteRule ^deb.html$ https://%{HTTP_HOST}/download/#installing [R=301,NE]
 RewriteRule ^tgz.html$ https://%{HTTP_HOST}/download/#freebsd-and-any-other-linux-installation-from-source [R=301,NE]
+RewriteRule ^osx.html$ https://%{HTTP_HOST}/download/#freebsd-and-any-other-linux-installation-from-source [R=301,NE]
 RewriteRule ^solaris.html$ https://%{HTTP_HOST}/download/#solaris [R=301,NE]
 RewriteRule ^windows.html$ https://%{HTTP_HOST}/ [R=301]
 RewriteRule ^hpux.html$ https://%{HTTP_HOST}/ [R=301]

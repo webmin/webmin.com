@@ -96,7 +96,7 @@ If Usermin package was downloaded manually it can be easily installed:
 
    If you installed it by specifying an installation directory parameter to **`setup.sh`** as the instructions above show, i.e. **`/usr/local/usermin`**, the original **`usermin-current`** directory can now be safely deleted.
 
-   The source package can be installed on any of the supported OS, such as **FreeBSD**, and all other flavors of Linux. However, if your system supports one of the other package formats like **`rpm`** or **`deb`** packages, it is *recommended* to install it from that type of package.
+   The source package can be installed on any of the supported OS, such as **FreeBSD**, **macOS**, and all other flavors of Linux. However, if your system supports one of the other package formats like **`rpm`** or **`deb`** packages, it is *recommended* to install it from that type of package.
 
 
 ## Standard Modules
