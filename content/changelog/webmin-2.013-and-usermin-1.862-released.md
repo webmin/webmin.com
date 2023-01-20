@@ -4,6 +4,7 @@ date: 2023-01-19T19:17:16+02:00
 ---
 
 * Fix Authentic theme issue with error handling
+* Fix Framed theme to respect selected mode in left menu
 
 ---
 
