@@ -18,14 +18,14 @@ If you just want to be informed of new releases, enable alerts for [news categor
 
 ### For Developers
 
-Anyone wanting to write their own Webmin modules or contribute to the core distribution should first read the [module writer's guide](http://doxfer.webmin.com/Webmin/Module_Development). For support, post to the [developers category](https://forum.virtualmin.com/c/developers/16) in our forum.
+Anyone wanting to write their own Webmin modules or contribute to the core distribution should first read the [module writer's guide](http://doxfer.webmin.com/Webmin/Module_Development).
 
-If you have created your own module or theme, please post it on the [developers category](https://forum.virtualmin.com/c/developers/16) in our forum. Patches for all of our products should be sent as a PR using our [Webmin](https://github.com/webmin) and [Virtualmin](https://github.com/virtualmin) GitHub organization accounts.
+If you need support as developer or you have created your own module or theme, please post it on the [developers category](https://forum.virtualmin.com/c/developers/16) in our forum. Patches for all of our products should be sent as a PR using our [Webmin](https://github.com/webmin) and [Virtualmin](https://github.com/virtualmin) GitHub organization accounts.
 
 ### For Translators
 
 New and updated [translations](/about/#supported-languages) for Webmin and all of its modules are always welcomed and can be submitted as a PR to any of our GitHub repositories mentioned above.
-{{< details-start post-content-indent-details "List of contributors"  >}}
+{{< details-start post-content-indent-details "<i class='wm wm-users'></i>"  >}}
 The following people have contributed translations of Webmin or Usermin into non-English languages. The first name under each language is the most recent or prolific contributor. If you want to contribute, read [this](/about/#supported-languages) first for more details.
 
 * **German**
