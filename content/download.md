@@ -8,7 +8,7 @@ showtoc: true
 ## Downloading
 
 ### Repository Setup
-The simplest and best way to get [**Webmin**](/about/) is to use automatic [**`setup-repos.sh`**](https://github.com/webmin/webmin/blob/master/setup-repos.sh) script to configure official repositories on your **RHEL** or **Debian** derivative system. It can be done in two easy steps:
+The simplest and best way to get [**Webmin**](/about/) is to use automatic [**`setup-repos.sh`**](https://github.com/webmin/webmin/blob/master/setup-repos.sh) script to configure official repositories on your **RHEL** or **Debian** derivative systems. It can be done in two easy steps:
 
 ```
 curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
