@@ -8,13 +8,13 @@ showtoc: true
 ## Downloading
 
 ### Repository Setup
-The simplest and best way to get [**Webmin**](/about/) and **Usermin** is to use automatic [**`setup-repos.sh`**](https://github.com/webmin/webmin/blob/master/setup-repos.sh) script to configure official repositories on your **RHEL** or **Debian** derivative system. It can be done in two easy steps:
+The simplest and best way to get [**Webmin**](/about/) is to use automatic [**`setup-repos.sh`**](https://github.com/webmin/webmin/blob/master/setup-repos.sh) script to configure official repositories on your **RHEL** or **Debian** derivative system. It can be done in two easy steps:
 
 ```
 curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
 sh setup-repos.sh
 ```
-This script will automatically setup our repository and install our GPG keys on your system, and provide **`webmin`** and **`usermin`** packages for installation and easy upgrades in the future. The supported and tested systems are **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora** or **Debian**, **Ubuntu**, **Kali**.
+This script will automatically setup our repository and install our GPG keys on your system, and provide **`webmin`** package for installation and easy upgrades in the future. The supported and tested systems are **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora** or **Debian**, **Ubuntu**, **Kali**.
 
 ### Direct Downloads
 The latest full Webmin distribution is available in various package formats for download:
@@ -38,13 +38,13 @@ To verify that you have downloaded Webmin fully and correctly, you can use the c
 ## Installing
 
 ### Using Package Manager
-If Webmin repository was setup using our [**`setup-repos.sh`**](https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh) as [described earlier](#repository-setup) then Webmin and Usermin can be install as easy as:
+If Webmin repository was setup using our [**`setup-repos.sh`**](https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh) as [described earlier](#repository-setup) then Webmin can be install as easy as:
 
    #### RHEL and derivatives
-    dnf install webmin usermin
+    dnf install webmin
 
    #### Debian and derivatives
-    apt-get install webmin usermin
+    apt-get install webmin
 
 ### Using Downloaded Package
 If Webmin package was downloaded manually it can be easily installed:
