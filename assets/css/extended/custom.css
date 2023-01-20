@@ -7,6 +7,8 @@
 
     --menu-active: #ffffff;
     --menu-active-link: #f7f7a6bf;
+
+    --alert-code-bg: rgba(245, 245, 245, .6);
 }
 
 .dark {
@@ -18,6 +20,7 @@
     --menu-border: rgb(99, 99, 99);
     --menu-active-link: #625a4b9e;
 
+    --alert-code-bg: rgba(55, 56, 62, .2);
 }
 
 /* Custom built (fortawesome) tiny fontpack with icons */
@@ -203,6 +206,12 @@ body.dark .logo>a>svg path {
 .alert-info a {
     color: #0c5460;
 }
+.post-content .alert code {
+    background-color: var(--alert-code-bg);
+    filter: brightness(1.2) contrast(1.2) saturate(1.2);
+    font-weight: 600;
+}
+
 /* Tricky and lazy-dazy way but seems to work perfectly fine */
 .dark .alert {
     filter: brightness(0.7) contrast(1.72)
