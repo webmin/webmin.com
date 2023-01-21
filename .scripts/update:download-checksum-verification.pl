@@ -12,15 +12,15 @@
 #   /home/ilia/releases/webmin/webmin-2.010-minimal.tar.gz
 #
 #  The second parameter is the actual file (without full path) in which hashes needs to be
-#  updated, i.e. /home/ilia/Git/webmin.com/data/download-checksum-verification.md
+#  updated, i.e. /home/ilia/Git/webmin.com/data/download/checksum-verification.md
 # 
 #  The third and fourth are auxiliary parameters for product version and release number.
 #
 # Examples:
 #
-#   ./update\:download-checksum-verification.pl /home/ilia/releases/webmin download-checksum-verification.md 2.011 2
-#   ./update\:download-checksum-verification.pl /home/ilia/releases/webmin download-checksum-verification.md 2.011
-#   ./update\:download-checksum-verification.pl /home/ilia/releases/webmin download-checksum-verification.md
+#   ./update\:download-checksum-verification.pl /home/ilia/releases/webmin download/checksum-verification.md 2.011 2
+#   ./update\:download-checksum-verification.pl /home/ilia/releases/webmin download/checksum-verification.md 2.011
+#   ./update\:download-checksum-verification.pl /home/ilia/releases/webmin download/checksum-verification.md
 
 use strict;
 use Cwd;

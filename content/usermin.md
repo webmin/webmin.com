@@ -42,7 +42,7 @@ The latest Usermin distribution is available in various package formats for down
 #### Checksum Verification
 To verify that you have downloaded Usermin fully and correctly, you can use the command **`sha256sum`** on the downloaded file, and compare it against those listed below:
 
-{{% include file="/data/usermin-checksum-verification.md" %}}
+{{% include file="/data/usermin/checksum-verification.md" %}}
 
 ## Installing
 
