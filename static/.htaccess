@@ -84,6 +84,10 @@ RewriteRule ^vdownload.html$ https://%{HTTP_HOST}/virtualmin/#manual-installatio
 RewriteRule ^plugins.html$ https://%{HTTP_HOST}/virtualmin/#plugins [R=301,NE]
 RewriteRule ^mobile.html$ https://%{HTTP_HOST}/virtualmin/ [R=301]
 
+# Cloudmin
+RewriteRule ^cinstall-xen.html$ https://%{HTTP_HOST}/cloudmin/#installation [R=301,NE]
+RewriteRule ^cinstall-kvm.html$ https://%{HTTP_HOST}/cloudmin/#installation [R=301,NE]
+
 # Mirror
 RewriteRule ^mirrors.html$ https://%{HTTP_HOST}/mirrors/ [R=301]
 
