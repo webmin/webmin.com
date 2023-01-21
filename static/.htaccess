@@ -86,3 +86,7 @@ RewriteRule ^mobile.html$ https://%{HTTP_HOST}/virtualmin/ [R=301]
 
 # Mirror
 RewriteRule ^mirrors.html$ https://%{HTTP_HOST}/mirrors/ [R=301]
+
+# Always redirect www to non-www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
