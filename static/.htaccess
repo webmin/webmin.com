@@ -4,7 +4,6 @@ RewriteRule ^uchanges.html$ https://%{HTTP_HOST}/tags/usermin-changelog/ [R=301]
 RewriteRule ^vchanges.html$ https://%{HTTP_HOST}/tags/virtualmin-changelog/ [R=301]
 RewriteRule ^changelog/$ archives/ [L]
 
-
 # About and intro
 RewriteRule ^intro.html$ https://%{HTTP_HOST}/about/ [R=301]
 RewriteRule ^developers.html$ https://%{HTTP_HOST}/about/#developers [R=301,NE]
@@ -84,3 +83,6 @@ RewriteRule ^vinstall.html$ https://%{HTTP_HOST}/virtualmin/#automated-installat
 RewriteRule ^vdownload.html$ https://%{HTTP_HOST}/virtualmin/#manual-installation [R=301,NE]
 RewriteRule ^plugins.html$ https://%{HTTP_HOST}/virtualmin/#plugins [R=301,NE]
 RewriteRule ^mobile.html$ https://%{HTTP_HOST}/virtualmin/ [R=301]
+
+# Mirror
+RewriteRule ^mirrors.html$ https://%{HTTP_HOST}/mirrors/ [R=301]
