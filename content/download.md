@@ -33,7 +33,7 @@ The latest full Webmin distribution is available in various package formats for 
 #### Checksum Verification
 To verify that you have downloaded Webmin fully and correctly, you can use the command **`sha256sum`** on the downloaded file, and compare it against those listed below:
 
-{{% include file="/static/data/download-checksum-verification.md" %}}
+{{% include file="/data/download-checksum-verification.md" %}}
 
 ## Installing
 

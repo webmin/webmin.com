@@ -12,7 +12,7 @@
 #   /home/ilia/releases/webmin/webmin-2.010-minimal.tar.gz
 #
 #  The second parameter is the actual file (without full path) in which hashes needs to be
-#  updated, i.e. /home/ilia/Git/webmin.com/static/data/download-checksum-verification.md
+#  updated, i.e. /home/ilia/Git/webmin.com/data/download-checksum-verification.md
 # 
 #  The third and fourth are auxiliary parameters for product version and release number.
 #
@@ -51,7 +51,7 @@ if ($ARGV[3]) {
     }
 
 # Check file with checksums
-my $f = "$cwd/../static/data/$cfile";
+my $f = "$cwd/../data/$cfile";
 if (!-r $f) {
     die("Error: Cannot read '$f' with checksums\n");
     }

@@ -42,7 +42,7 @@ The latest Usermin distribution is available in various package formats for down
 #### Checksum Verification
 To verify that you have downloaded Usermin fully and correctly, you can use the command **`sha256sum`** on the downloaded file, and compare it against those listed below:
 
-{{% include file="/static/data/usermin-checksum-verification.md" %}}
+{{% include file="/data/usermin-checksum-verification.md" %}}
 
 ## Installing
 
@@ -103,9 +103,9 @@ If Usermin package was downloaded manually it can be easily installed:
 The standard modules that you may have deleted from Usermin on your system can be re-installed by downloading using [this](https://download.webmin.com/download/umodules/) link.
 
 ## Supported Languages
-Translation of Usermin modules into different languages is done by volunteers. {{% include file="/static/data/supported-languages.md" %}}
+Translation of Usermin modules into different languages is done by volunteers. {{% include file="/data/supported-languages.md" %}}
 {{< details-start post-content-details "<i class='wm wm-language'></i>"  >}}
-{{% include file="/static/data/supported-languages-list.md" %}}
+{{% include file="/data/supported-languages-list.md" %}}
 {{< details-end >}}
 
 ## Development Builds
