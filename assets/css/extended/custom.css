@@ -514,6 +514,9 @@ details.post-content-details > summary > .details {
 }
 .page-community .badge-container {
     text-align: center;
+    background-color: var(--code-bg);
+    padding: 1em 0;
+    border-radius: calc(var(--radius)/2);
 }
 
 /* Pages related */
