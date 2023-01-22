@@ -4,7 +4,7 @@ summary: "Webmin and modules screenshots"
 author: "@iliajie"
 tags: ["screenshots"]
 date: 2023-01-12
-draft: false
+hideEditPost: true
 ---
 
 ### Webmin Dashboard

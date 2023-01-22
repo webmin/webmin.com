@@ -54,6 +54,9 @@ params:
   # hide default footer
   hideFooter: true
 
+  # allow disabling for some
+  # pages with custom option
+  hideEditPost: false
   # edit posts
   editPost:
     URL: "https://github.com/webmin/webmin.com/tree/master/content"
