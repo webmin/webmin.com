@@ -1,9 +1,10 @@
 ---
-title: "Cloudmin 1.2-3.7 releases"
+title: "Cloudmin 3.7-1.2 release notes"
 date: 2007-10-29
 tags: ["changelog", "cloudmin-changelog"]
 showtoc: true
 ---
+
 - #### 1.2
     - Added support for new EC2 instance types (small, large and extra-large).
     - The list of all systems can be categorized by type or group, using a new Module Config page option.
