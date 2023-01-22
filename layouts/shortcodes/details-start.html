@@ -1,7 +1,8 @@
 {{ if .Get 1}}
 {{ $class :=  .Get 0 }}
 {{ $titleOrIcon :=  .Get 1 }}
-  <details class="{{ $class }}">
+{{ $open :=  .Get 2 }}
+  <details class="{{ $class }}"{{ if $open }} open{{ end }}>
       <summary>
         <span class="details">
         {{ $titleOrIcon | safeHTML }}
