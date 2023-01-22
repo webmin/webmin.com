@@ -1,7 +1,7 @@
 | File                       | sha256sum                                                        |
 | -------------------------- | ---------------------------------------------------------------- |
-| webmin-current.rpm         | 18dcfe39c86e3ba412c17ea2fc48eb27a0690b550ae7db3d16307afbce7b1021 |
-| webmin-current.deb         | 5fe23eb76ab0e4d58e71e73cad7990356970dc84205b444bdf6ee70a5168032c |
-| webmin-current.pkg         | d96d728295b9e00523e84f914c945fb24d8184d54194fe6db5417efd2274be6e |
-| webmin-current.tar         | 69a5cc42a1f529e26330b5b4a37211c968a93e5879767053034ccc3735e47bae |
-| webmin-current-minimal.tar | 69a5cc42a1f529e26330b5b4a37211c968a93e5879767053034ccc3735e47bae |
+| webmin-current.rpm         | 3c69f5c6f6f39cdc761bb3adeeeec8c9de2b33b81dae9912031465a5008121ec |
+| webmin-current.deb         | 8e33988bb7db78fde09067097c8ddff856bf1171e8bdfb9a460536857d360366 |
+| webmin-current.pkg         | 10340e2de2ec9b98edee3c40b2406b2ac5efb9c9b1ed6342fd182d020881f49d |
+| webmin-current.tar         | 799b6d7516e4895c8ae03463abcdd2431abc86f6cd88de603ebd573d84fc6bb6 |
+| webmin-current-minimal.tar | f7a7f89c67b607b3a0afd099da36f916e933c3fe89ae5908b9841b977545a9c4 |
