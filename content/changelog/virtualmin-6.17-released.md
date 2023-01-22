@@ -1,10 +1,14 @@
 ---
 title: "Virtualmin 6.17 released"
 date: 2021-09-09
-description: "This update adds support for SSH keys for backups and server owner logins, automates setting up..."
-categories: []
-aliases: []
-toc: false
-draft: false
+tags: ["changelog", "virtualmin-changelog"]
 ---
-This update adds support for SSH keys for backups and server owner logins, automates setting up the correct PHP version for scripts, simplifies the SSL certificate page, integrates with Usermin two-factor support, and adds an API command to login as a domain owner. For Pro users, this release adds support for Google and Cloudflare DNS providers.
+
+ - Added a field to the virtual server creation page to use an existing SSH key for logins, or generate a new key.
+ - If needed, Virtualmin will configure the exact PHP version required to run scripts when installed.
+ - Two-factor authentication for Usermin is setup for domain owners at the same time as Virtualmin.
+ - Added the `create-login-link` API command to login as a domain owner without a password.
+ - Massively simplified the SSL Certificate page for services certificates.
+ - Added a field for entering an SSH private key file for use in backups, instead of a password.
+
+Virtualmin Pro also includes a number of new cloud DNS providers (in addition to Route 53 support that's already been in for a while), including Cloudflare and Google Cloud DNS, which is a preview of features to come in Virtualmin Pro version 7. These are very large new features, and should be considered beta. Don't rely on them in production until you thoroughly test your use case, but do let us know if you find any bugs.

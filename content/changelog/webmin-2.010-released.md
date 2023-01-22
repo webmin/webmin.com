@@ -3,7 +3,7 @@ title: "Webmin 2.010 released"
 date: 2022-11-27
 cover:
     image: "images/webmin_2.010_-_terminal.png"
-tags: ["changelog"]
+tags: ["changelog", "webmin-changelog"]
 ---
 
 * Add a new Terminal module (interactive shell)

@@ -1,10 +1,7 @@
 ---
 title: "Webmin 1.962 and Usermin 1.812 released"
 date: 2020-11-11
-description: "These are bugfix releases for 2-factor signin and other small issues."
-categories: []
-aliases: []
-toc: false
-draft: false
+tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 ---
-These are bugfix releases for 2-factor signin and other small issues.
+
+These are bugfix releases for 2FA signin and other small issues.

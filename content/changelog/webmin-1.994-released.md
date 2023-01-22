@@ -1,7 +1,7 @@
 ---
 title: "Webmin 1.994 released"
 date: 2022-05-22
-tags: ["changelog"]
+tags: ["changelog", "webmin-changelog"]
 ---
 
 * Fix a security issue in versions 1.991 and below for all systems with less-privileged Webmin users

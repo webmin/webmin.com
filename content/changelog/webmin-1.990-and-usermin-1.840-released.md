@@ -1,14 +1,13 @@
 ---
 title: "Webmin 1.990 and Usermin 1.840 released"
 date: 2022-03-03
-tags: ["changelog"]
-
+tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 ---
 
 * Fix a critical security issue [CVE-2022-30708][1]
 * Add a bunch of small features and improvements
 
-  [1]: /security
+  [1]: /security/#privilege-escalation-exploit-cve-2022-30708
 
 ---
 

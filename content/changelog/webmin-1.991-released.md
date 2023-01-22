@@ -1,10 +1,10 @@
 ---
 title: "Webmin 1.991 released"
 date: 2022-04-18
-tags: ["changelog"]
+tags: ["changelog", "webmin-changelog"]
 ---
 
-* Fix bugs found since 1.990 release
+- Bug fixes releases
 
 ---
 

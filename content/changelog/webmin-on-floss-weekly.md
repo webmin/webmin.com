@@ -1,10 +1,7 @@
 ---
 title: "Webmin on FLOSS Weekly"
-date: 2010-02-09
-description: "Listen on an interview with Jamie Cameron by Randal Schwartz, Jono Bacon, and Leo Laporte on..."
-categories: []
-aliases: []
-toc: false
-draft: false
+date: 2010-02-25
+tags: ["podcasts"]
 ---
-Listen on an interview with Jamie Cameron by Randal Schwartz, Jono Bacon, and Leo Laporte on FLOSS weekly, at <http://twit.tv/floss110>.
+
+Listen on an interview with Jamie Cameron by Randal Schwartz, Jono Bacon, and Leo Laporte on [FLOSS Weekly 110](https://twit.tv/shows/floss-weekly/episodes/110).

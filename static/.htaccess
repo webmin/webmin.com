@@ -94,3 +94,13 @@ RewriteRule ^mirrors.html$ https://%{HTTP_HOST}/mirrors/ [R=301]
 # Always redirect www to non-www
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# Linked releases
+RewriteRule ^changes-1.515.html$ https://%{HTTP_HOST}/changelog/webmin-1.515-released [R=301,NE]
+RewriteRule ^changes-1.499.html$ https://%{HTTP_HOST}/changelog/webmin-1.499-released [R=301,NE]
+RewriteRule ^changes-1.479.html$ https://%{HTTP_HOST}/changelog/webmin-1.479-released [R=301,NE]
+RewriteRule ^changes-1.449.html$ https://%{HTTP_HOST}/changelog/webmin-1.449-released [R=301,NE]
+RewriteRule ^changes-1.443.html$ https://%{HTTP_HOST}/changelog/webmin-1.443-released [R=301,NE]
+RewriteRule ^changes-1.435.html$ https://%{HTTP_HOST}/changelog/webmin-1.435-released [R=301,NE]
+RewriteRule ^changes-1.429.html$ https://%{HTTP_HOST}/changelog/webmin-1.429-released [R=301,NE]
+RewriteRule ^vchanges-3.74.gpl.html$ https://%{HTTP_HOST}/changelog/virtualmin-3.74-released [R=301,NE]

@@ -1,7 +1,7 @@
 ---
 title: "Webmin 1.995 released"
 date: 2022-06-30
-tags: ["changelog"]
+tags: ["changelog", "webmin-changelog"]
 ---
 
 * Add improvements to stability for `systemd` systems
