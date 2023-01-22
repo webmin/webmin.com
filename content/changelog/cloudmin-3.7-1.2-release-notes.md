@@ -1,0 +1,196 @@
+---
+title: "Cloudmin 3.7-1.2 release notes"
+date: 2007-10-29
+tags: ["changelog", "cloudmin-changelog"]
+showtoc: true
+---
+
+- #### 1.2
+    - Added support for new EC2 instance types (small, large and extra-large).
+    - The list of all systems can be categorized by type or group, using a new Module Config page option.
+    - Added a button below the list of systems for performing Virtualmin script updates across many domains and systems at once.
+    - Paid AMI product codes can now be associated with AMIs.
+    - When creating an image or AMI, you can now choose to not remove the Virtualmin serial number. This is useful when creating multiple systems that should share the same serial.
+    - Added the --no-serial flags to create-image.pl and create-ec2-image.pl, to do the same thing.
+    - Added fields to the Edit System and Add System pages for specifying the user to SSH in as, rather than it always being root. Also added the --ssh-user parameter to modify-system.pl.
+- #### 1.3
+    - The available memory and CPU limit for Xen instances can be modified after creation, either via the web interface or using the modify-limits.pl command-line script.
+    - Scripts to be run before and after a system is created or deleted can be specified on the Module Config page.
+- #### 1.4
+    - Added a search option on the main page to find systems by their Xen, Vservers or Zones hosts.
+    - Added links from lists of Xen, Zones and Vservers host systems to search results of systems they actually host.
+    - The default Xen, Vservers and Zones host systems can now be selected on their respective pages. These are used when creating new virtual instances, and by the create-system.pl command-line API when no host is specified.
+    - Xen memory limits can now be changed immediately, rather than requiring a reboot.
+    - When editing a Xen, Zones or Vservers host system, more than one IP allocation range can now be entered, with different netmasks.
+    - Added a search option to find systems by status or common status groups.
+    - Additional IP addresses can be added, viewing and managed in Xen instances, as long as they have Webmin installed.
+    - Added a link for setting the default search criteria.
+    - When using the latest framed theme, new VM2 features are shown in the same way as Virtualmin features.
+    - The number of virtual CPUs for Xen instances can be specified, along with their bindings to real CPUs, on the new Manage Virtual CPUs page.
+- #### 1.5
+    - Domain moves can now be done directly from the source to destination systems, if an SSH password for the destination is used or if passwordless SSH logins by root are allowed.
+    - When moving a domain, a checkbox is now displayed (and checked by default) to move all sub-servers and aliases too.
+    - Bandwidth consumed by virtual systems managed by VM2 can now be monitored and graphed, and limits on usage imposed. When a system goes over it's limit, it can be shut down and/or an email sent.
+- #### 1.6
+    - Added a link to Xen, Vserver or Zones host details from the left menu when a hosting system is selected.
+    - Enhanced the Edit Xen Host page to show all hosted instances, total disk and memory used, and their percentages of the host system's total.
+    - Added the --ip flag to create-system.pl and --keep flag to delete-system.pl, to manually specify an ID and to keep collected information when deleting respectively. These are useful for regularly re-creating the same host.
+    - The SSH port number can be set for existing managed systems, and specified when adding a physical or virtual system.
+    - The sort order for virtual systems can now be set on the Module Config page.
+    - Additional logins to VM2 can be created, with permissions to manage only a subset of systems. Their allowed actions can also be limited, for example to rebooting or installing package updates.
+- #### 1.7
+    - When creating a new Xen instance, the default gateway can be specified instead of being inherited from the host system.
+    - Reverse DNS entries are added for new Xen, Zones and Vserver instances, if the reverse zone is hosted on the VM2 master.
+    - The Edit System page now shows the operating system type and version, and CPU architecture.
+    - When creating an EC2 instance, a custom API URL can be specified. This is useful for beta EC2 features, like OpenSolaris instances.
+    - Free disk space on the host system is shown when adding a Xen virtual disk.
+    - When creating a Xen instance, the MAC address, virtual interface name and UUID can be specified instead of being automatically selected by the host system.
+    - The EC2 availability zone (which roughtly corresponds to a datacenter or physical location) can be set when creating an EC2 instance.
+    - Boot-time console messages can be displayed for Xen and EC2 virtual systems, using the new View Console link on the left menu.
+    - Additional SSH keys can be marked for addition to authorized_keys on new systems, to allow easier passwordless logins.
+- #### 1.8
+    - When creating Xen instances, the actions to perform when the instance crashes, reboots or shuts down can be selected.
+    - Allow the hostname of a system to be changed to a different IP address, after asking for confirmation.
+    - Amazon EC2 elastic addresses can be requested and released on the new EC2 Static IP Addresses page, and assigned to systems managed by VM2 on the Assign EC2 Address page. Command-line scripts for listing, requesting, releasing and assigning IP addresses also exist.
+    - Better handle hung Xen instances, and add a forced shutdown option.
+    - System owner accounts can be temporarily disabled, using a new checkbox on the Edit System Owner page.
+- #### 1.9
+    - Added support for the two new EC2 high-CPU instance types, called Medium High-CPU and Extra-Large High-CPU.
+    - System images can be created un-compressed, which trades off CPU time on the host system for additional bandwidth used transferring them.
+    - MD5 checksums are generated for created system images, and can be viewed on the Image Details page and in the output from list-images.pl.
+    - Allow the disk file driver type (file or tap:aio) to be selected for Xen hosting servers.
+    - The consoles for Xen instances, Linux vservers and Solaris zones can be interactively accessed using the new Access Console page, under System State on the left menu. This uses a Java applet which makes an SSH connection to the VM2 master, which is then tunneled to the console.
+    - Internationalized domain names are now displayed by VM2, and can be entered when creating Virtualmin domains.
+- #### 2.0
+    - Added command-line API scripts for creating, listing, modifying and deleting VM2 system owners (the *-owner.pl programs).
+    - VM2 can now participate in Webmin's Backup Configuration Files module.
+    - Extra Xen configuration file entries can now be entered in the Advanced Options section when creating a new instance.
+    - Default on reboot/shutdown actions for new Xen instances can be set on the Module Config page.
+    - Added the Virtualmin API helper command /usr/sbin/vm2, which lets you more easily call API scripts with a command like "vm2 list-systems --multiline". Help on commands can also be displayed with a statement like "vm2 help list-systems".
+    - Added Module Config fields for setting a custom logo to be displayed in the top-left corner of the framed theme.
+    - Added POD format documentation for all command-line API scripts.
+    - Added the login-system.pl command, for accessing the console of Xen, Zones and Vservers instances.
+    - When multiple systems are refreshed at once, host systems are done before virtual to avoid false errors about the host being down.
+    - Xen instances can be paused and un-paused, which is is equivalent to suspending a real system.
+    - Added the transfer-file.pl command-line API script, for copying a file directly between two managed systems (where possible).
+    - Xen instances can be transferred between host systems, either view the new Move System web page or the move-system.pl command-line script.
+- #### 2.1
+    - When the vm2 --help command is run, it now outputs a list of all available API commands with short descriptions, broken down into categories.
+    - When refreshing one or many systems, the resulting statuses are now shown on the same page.
+    - When updating packages on many systems, the packages requested and installed are now shown.
+    - Added a tab for direct system to system file transfers to the Transfer File page.
+    - Solaris instances on EC2 can now host zones.
+    - Solaris Zones can now be moved between host systems, preserving all filesystem contents.
+    - If you have multiple EC2 accounts, a default can now be selected on the EC2 Accounts page. This will be used when creating a new system and for all command-line operations, unless changed.
+    - EC2 block volumes (EBS) can now be created, listed, deleted and snapshotted using VM2. Volumes can also be attached to running EC2 instances, including filesystem creation and mounting. Commands to create and use EC2 volumes have also been added to the VM2 API.
+    - SSH logins by VM2 can be turned of on the Edit System page, for machines whose owners do not want the VM2 master to be able to login. For virtual systems like Xen instances, only booting and resource management are possible when in this state.
+- #### 2.2
+    - New Xen instances are created with a VNC console enabled, which can then be accessed from within VM2 using the new Graphical Console page. VNC access can also be added to existing Xen instances using the same page, but this requires a reboot to activate.
+    - Added an option to the Edit System page to enable remote package management, using Webmin's Cluster Software Packages module. Also updated modify-system.pl to turn this on or off, and added a Module Config option to have it enabled by default on new or added systems.
+    - System statistics such as CPU load, memory and disk use are now collected from managed systems, and logged for graphing. You can use the new System Statistics Graph page to chart these values over time across one or many systems, either separately or as an average.
+    - Added the Find Existing Systems page, for scanning a range of IPs for running systems and bringing them under VM2's control.
+    - Added the Find EC2 Instances page, for bringing all EC2 systems owned by some account under VM2's control.
+    - Added the Find Xen Instances page, for bringing Xen virtual systems on a real system under VM2's management. Also added the find-systems.pl API script to do the same thing, and an option on the Register Xen Host page to find instances on a host system at the same time it is added.
+    - Added the list-processes.pl API script, for finding some or all processes on one or more managed systems.
+    - If the Xen console daemon is not running on a Xen host system, restart it as part of the regular status check.
+    - Added the VM2 Plugins page, for selecting which plugins are enabled. Also updated the internal API to allow plugins to specify system and global-level links on the left menu.
+- #### 2.3
+    - Added buttons to the System Owners page to disable or enable several at once.
+    - Moved the detailed system status information back to the Edit System page.
+    - Move the list of package updates to a separate page, linked from the left menu.
+    - Windows EC2 instances can now be created without SSH access, which they do not run.
+    - Added a Graphical Console link on the left menu for Windows EC2 instances, for RDP logins. Also show the Administrator password on the Edit System page, which can be used to login with other RDP clients.
+    - Added support for EC2 accounts in different regions, such as Europe.
+- #### 2.4
+    - Changed product name to Cloudmin, and renamed API helper script to cloudmin.
+- #### 2.6
+    - CPU, memory and run-time usage are now collected for all systems, and displayed on the Edit System page. This is also combined for system owners, and the sum total of their usage across all owned machines is displayed on the Edit System Owner page.
+    - Added locking to all scripts, to prevent concurrent updates to the same systems.
+    - Protect scripts that update or create systems from being terminated by a browser cancel, which could leave Cloudmin in an in-consistent state.
+    - CPU and drive temperatures are now collected from systems running Virtualmin Pro 3.69 or later, and can be plotted on the System Statistics page.
+    - Virtual systems can be reset to their original state using the new Reset From Image page, or the reset-image API command.
+    - Virtual systems on Xen can now have their root filesystem on an LVM logical volume on the host system. Additional disks can also be added on LVM, and logical volumes can be expanded if needed.
+    - Virtualmin Pro licence expiry dates are shown on the Edit System and Virtualmin Pro Licences page.
+    - Virtual system images copied to host systems can now be cached up to some maximum total size, using the 'System image cache' section on the 'Edit Xen Host' page. This prevents un-necessary data transfers between the Cloudmin master and host systems.
+    - Account plans which define limits on system, disk, RAM and CPU use for system owners can now be created. Each owner's limits, virtual system types, actions and host systems are now inherited from their plan, and plan changes update all owners at once.
+    - System owners can now create new virtual systems, up to the limits defined in their plans. They can also manage CPU, disk and memory use on virtual systems, if allowed in the plan.
+- #### 2.7
+    - OpenVZ containers are now fully supported as a virtual system type, including creation from templates or images, CPU, RAM and disk limits, imaging and bandwidth monitoring.
+- #### 2.8
+    - Network rate limits can now be configured for Xen and OpenVZ virtual systems, on the Resources Limits page and via the modify-limits API command.
+    - Plans can have bandwidth limits, which are then applied to all systems belonging to owners on that plan. If the limit is exceeded, an email warning is sent.
+    - The number of IP addresses that a virtual system can have can now be limited using plans. This restricts the number of systems that can be created, and how many IPs can be added on the Network Interfaces page.
+- #### 2.9
+    - Timeouts for ping, SSH and Webmin operations can now be configured on the Module Config page.
+    - Added plan restrictions to prevent installation of Webmin and Virtualmin.
+    - Reverse-lookup hostnames for virtual system IP addresses can now be edited using the new Reverse Addresses page.
+    - Updated all API commands that operate on multiple systems to take a --owner flag, for selecting systems by owner.
+    - Added the list-owner-bandwidth API command, to show the total of bandwidth use by all of an owner's systems.
+    - System owner limits on RAM, disk, CPU and other resources can now be overridden from the plan, either on the Edit System Owner page or via the API.
+    - Added support for JSON, XML and Perl output to the remote API, enabled with the json=1, xml=1 or perl=1 URL parameters.
+    - Added support for location groups, which are clusters of host systems typically in a physical location. These can then be selected from at virtual system creation time, and an actual host is allocated from the group. Also added a Locations Group page for defining them, and a field on the Host Systems page for assigning to them.
+    - Add entry to /etc/fstab on Xen instances for the swap file, if needed and if missing.
+    - Added support for backing up and restoring virtual systems, either to destinations configured on a per-host-system basis, or to a remote SSH or FTP server. Backups can be done by the master admin, or by system owners if allowed in their plans. The amount of disk space each owner can use for his backups can also be limited at the plan level.
+- #### 3.0
+    - Added a button on the list of managed systems to reboot several at once.
+    - When creating an EC2 instance, a kernel image other than the default provided by Amazon can be selected.
+    - For Xen instances and OpenVZ containers, the network rate limit can be set at system creation time.
+    - OpenVZ containers can now be paused and resumed.
+    - Existing OpenVZ containers on host systems managed by Virtualmin can now be detected and imported.
+    - OpenVZ systems can now be moved to a different host, using the move-system API command or the Move Virtual System page in the web UI.
+    - Added API commands list-reverse-addresses and modify-reverse-address to show and change IP to hostname mappings in DNS.
+    - Reverse IP mappings can now be added to and managed in partial reverse DNS zones, as long as they use the 0-10.1.168.192.in-addr.arpa format.
+    - Xen host systems with multiple network interfaces and bridges are now supported, allowing Xen instances with multiple Ethernet intefaces to be created.
+    - Replaced the Java applet used for text logins with an AJAX implementation, which allows any modern browser to login without the need to install Java.
+    - The columns to show on the Cloudmin Managed Systems page can now be configured on the Module Config page, and can include the IP address, groups and location.
+    - Added the shell-system command, for opening a root shell on any Cloudmin-managed system from the command line on the master.
+    - A root shell on Xen and real systems can now be opened using the Root Shell link on the left menu.
+- #### 3.1
+    - Existing SSH public keys can now be added to Cloudmin, for use as additonal keys on newly created virtual systems.
+    - Added a button to the Edit System page for clearing a bad SSH host key, useful if a managed system's SSH key has changed.
+    - Cloudmin now participates in Webmin's action logging, allowing you to use the Webmin Actions Log module to see all operatons performed by all users.
+    - When resetting a virtual system, you can now select which image to reset from instead of always using the one it was created from.
+    - The password for a virtual system can now be changed even when it is down, or if the password has been lost.
+    - All connections to managed systems (via SSH or Webmin) are done using the IP address instead of the hostname, to avoid dependencies on DNS.
+    - All Cloudmin code is now pre-loaded into miniserv.pl, which improves the responsiveness of the UI.
+    - Default gateways can now be set for each IP range and interface for Xen host systems, which allows you to control which interface(s) use which gateways. When a Xen instance is created using manual IP allocation, the gateway for each interface can also be manually entered.
+    - Where possible, Xen instances will now be moved between host systems using live migration. Otherwise the transfer will be done by saving and restoring system state, so that running processes are preserved.
+- #### 3.2
+    - Improved the speed of VNC port allocation, by not probing every possible port and instead using lsof.
+    - Added a Module Config option for default additional Xen configuration lines.
+    - Collection of available packages from managed systems running Webmin 1.500 or later is now possible, in addition to systems running Virtualmin.
+    - Mass package updates now ask for confirmation and allow searching and selection of specific programs to update.
+    - The update-system API command can now be limited to specific packages, or just those related to Virtualmin.
+    - When a new virtual system is created, its SSH host keys are re-generated to avoid using the keys from the template.
+    - When disk images are transferred to another system as part of a move, they are now MD5 checksummed to prevent corruption or truncation during the transfer.
+    - The period to show usage for a system owner can now be selected on the Edit System Owner page.
+    - The list-owners API command now displays resource usage over the current accounting period.
+    - The list-systems and list-owners API commands now take a --period-ago flag to select the accounting period to show total usage for.
+    - Usage accounting now includes disk space assigned and used by Xen and OpenVZ virtual systems.
+    - Backup destinations can now include strftime formatting characters like %d and %A, which get substituted for things like the day of the month or week.
+    - Added the Virtual Server Replication page for copying domains and global settings (like templates and plans) from a master Virtualmin system to one or more replicas.
+    - VNC ports for new Xen instances are now always dynamically selected at boot time, to reduce the chance of port clashes.
+    - Xen systems can now be created to boot from a kernel within the system itself, using PyGrub or Pv-Grub. This requires that the image contain a working kernel and /boot/grub/grub.conf file though.
+    - All network interfaces for Xen instances can now be managed, even those that are down. Both the Xen .cfg file and network config files on the Xen system are updated when interfaces are added, removed or changed.
+- #### 3.3
+    - Xen disks can now be added and removed without rebooting the virtual system.
+    - Fixed the manual Xen IP address section of the system creation form to properly show bridges based on the selected host system.
+    - When a Xen or OpenVZ system is moved between hosts, an option is available to re-allocate the primary IP address to match the allocation range on the new host system.
+    - Added a Module Config option for the default Xen swap disk size.
+    - System images can now be stored in multiple locations, and the default storage location can be change from /var/webmin on the Cloudmin master. This allows you to have a dedicated image server, or a cache of images closer to your host systems.
+    - System owners can now change their passwords and email addresses via a new link on the left menu.
+    - Added enable-domains and disable-domains API commands to activate and de-activate Virtualmin virtual servers.
+    - Free RAM and disk space on host systems is now taken into account when creating a virtual system, and creation will be refused if all RAM or disk would be used up. In addition, you can defined an amount of RAM and disk to leave free on the Edit Xen Host and Edit OpenVZ Host pages.
+    - Added support for KVM virtualization, including disk management, image creation, memory limits and VNC console access.
+    - When moving a Virtualmin domain which has been disabled on the source system, re-enable it if the move fails.
+- #### 3.6
+    - Backups from Virtualmin and other control panels like cPanel can be restored onto a managed system from within Cloudmin.
+- #### 3.7
+    - Changed statistics graphs to show load average in the regular scale, instead of converted to a percentage.
+    - Moved some global links under the new System Monitoring category.
+    - Added the System Alerts page, for defining email alerts that fire when variables tracked by Cloudmin (like CPU load, free memory and disk space) reach some threshold for a configurable period of time.
+    - Moved all email-related options to the new Email Settings page, such as the master admin's address and SMTP server options.
+    - Added an option to tell Cloudmin that a Xen system has been already moved manually, and just update its configs.
+    - CPU and memory limits can now be edited for Solaris Zones, assuming the host system has the rcapadm command installed.
+    - Backups of Xen systems with a single disk on LVM are now done in a new format that reduces the amount of disk space needed on the host system.
+    - Added the transfer-command API command to capture the output of a command on one system and send it to another.
