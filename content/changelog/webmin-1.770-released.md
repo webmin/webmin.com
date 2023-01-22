@@ -1,5 +1,6 @@
 ---
 title: "Webmin 1.770 released"
+date: 2015-10-04
 tags: ["changelog", "webmin-changelog"]
 ---
 
