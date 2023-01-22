@@ -13,6 +13,8 @@ The following books on Webmin are available for purchase from Amazon and fine bo
    
    Explains how to use Webmin's unique features, including integrating the most popular services (Apache, BIND, Sendmail, and more) as well as the standard system features (network configuration, disk configuration, users and groups, etc.).
 * [Webmin Japanese Official Guide by MYCOM books][3]
+
+* [Webmin Administrator's Cookbook By Michał Karzyński](https://www.packtpub.com/product/webmin-administrators-cookbook/9781849515849)
    
    A complete translation of Joe's book into Japanese, with new screenshots.
 * [Webmin kompakt][4]
