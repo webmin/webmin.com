@@ -28,9 +28,6 @@ hugo new changelog/webmin-2.013
 #### Alternatively, just manually put a new file under `content/` directory by copy/pasting from existing to use it as a template.
 
 
----
-
-
 ### Update build tree for uploading to webmin.com
 To regenerate (and clean) content of `public/` directory run:
 
