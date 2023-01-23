@@ -1,4 +1,4 @@
-baseURL: https://webmin.dev/
+baseURL: https://webmin.com/
 languageCode: en-us
 title: Webmin
 theme: PaperMod
@@ -38,7 +38,7 @@ minify:
 enableRobotsTXT: true
 
 params:
-  # env: production
+  env: production
 
   analytics:
      google:
