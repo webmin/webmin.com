@@ -11,9 +11,8 @@ tags: ["changelog", "webmin-changelog"]
 
 #### Assets
 
-| File                       | Size | File                       | Size |
-| -------------------------- | -----| -------------------------- | ---- |
-| **Webmin**                 |      | **Usermin**                |      |
+| File                       | Size | 
+| -------------------------- | -----| 
 |[webmin-2.013-1.noarch.rpm](https://github.com/webmin/webmin/releases/download/2.013/webmin-2.013-1.noarch.rpm) | 39.9 MB |
 |[webmin_2.013_all.deb](https://github.com/webmin/webmin/releases/download/2.013/webmin_2.013_all.deb)           | 32.7 MB |
 |[webmin-2.013.tar.gz](https://github.com/webmin/webmin/releases/download/2.013/webmin-2.013.tar.gz)             | 44.9 MB |
