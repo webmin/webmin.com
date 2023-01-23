@@ -1,4 +1,5 @@
 baseURL: https://webmin.com/
+# baseURL: https://webmin.dev/
 languageCode: en-us
 title: Webmin
 theme: PaperMod
