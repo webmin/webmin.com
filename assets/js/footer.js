@@ -52,6 +52,7 @@
 
             // Add selected class if any
             const hmenuActiveLink =
+                hmenuLink.querySelector(hmenuDropDownTargSel + ' a[href="' + (location.pathname) + '"]') ||
                 hmenuLink.querySelector(hmenuDropDownTargSel + ' a[href="' + (location.pathname + location.hash) + '"]');
             hmenuActiveLink && hmenuActiveLink.classList.add('active');
         }
