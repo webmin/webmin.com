@@ -32,6 +32,98 @@ Just installing Webmin will not cause any config file changes to be made. When y
 
 ---
 
+> #### Can I run Webmin or Usermin behind reverse proxy?
+Yes, this can be done with some configuration.
+{{< details-start post-content-details "<strong>Apache</strong>" >}}
+
+If you just want Webmin to be accessible via Apache gateway follow the steps below:
+ 
+ - Edit `/etc/webmin/config` file and add the following line:
+ ```
+ referers=webmin.example.com
+ ```
+ - Edit `/etc/webmin/miniserv.conf` file, add the following lines and restart Webmin afterwards by calling `/etc/webmin/restart` command:
+ ```text
+  redirect_ssl=1
+  redirect_host=webmin.example.com
+ ```
+ - Edit `/etc/webmin/xterm/config` file and add the following line:
+ ```
+ host=webmin.example.com
+ ```
+ - Enable `mod_proxy` and `mod_proxy_wstunnel` for your Apache webserver
+ - Create a `VirtualHost` with the following directives to the Apache configuration, and restart Apache afterwards:
+ ```
+ <VirtualHost 1.2.3.4:443 [0000:1111:2222:3:444:5555:6666:7777]:443>
+    ServerName webmin.example.com
+
+    # Enable the usage of the SSL/TLS protocol engines
+    SSLEngine on
+    SSLProxyEngine on
+
+    # Point to files with SSL certificates for virtual host
+    SSLCertificateFile /etc/ssl/domains/example.com/ssl.combined
+    SSLCertificateKeyFile /etc/ssl/domains/example.com/ssl.key
+    
+    # Use only secure versions of the SSL/TLS protocols
+    SSLProtocol         all -SSLv3 -TLSv1 -TLSv1.1 -TLSv1.2
+    SSLHonorCipherOrder off
+    SSLSessionTickets   off
+
+    # Disables the remote server certificate checks
+    # (only needed for self-signed certificates)
+    SSLProxyCheckPeerCN     off
+    SSLProxyCheckPeerName   off
+    SSLProxyCheckPeerExpire off
+
+    # Proxying both HTTP and websockets at the same time,
+    # where the websockets URL's are not websocket-only
+    # or not known in advance
+    ProxyPass / https://localhost:10000/
+    RewriteEngine on
+    RewriteCond %{HTTP:Upgrade} websocket [NC]
+    RewriteCond %{HTTP:Connection} upgrade [NC]
+    RewriteRule ^/?(.*) "wss://localhost:10000/$1" [P,L]
+</VirtualHost>
+ ```
+Now all requests to `webmin.example.com` to the Apache virtual host will then be passed through to the Webmin server on `localhost` port `10000`.
+
+{{< alert warning question "Want to run under Apache sub-directory?" "The instructions are exactly the same with a few additional steps described below." >}}
+
+- Edit once again `/etc/webmin/config` file and add more directives mentioned below:
+```text
+webprefix=/webmin
+webprefixnoredir=1
+```
+- Edit once again`/etc/webmin/miniserv.conf` file, add more directives mentioned below and restart Webmin afterwards by calling `/etc/webmin/restart` command:
+```
+redirect_prefix=/webmin
+cookiepath=/webmin
+```
+- Edit once again `/etc/webmin/xterm/config` file and replace previously added `host` directive with the the following:
+```
+host=webmin.example.com/webmin
+```
+- Edit previously created `VirtualHost` directives, i.e. `ProxyPass` and `RewriteRule` on the Apache configuration with the following ones, and restart Apache afterwards:
+```
+ProxyPass /webmin/ https://localhost:10000/
+RewriteRule ^/webmin/?(.*) "wss://localhost:10000/$1" [P,L]
+```
+
+Now all requests to `webmin.example.com/webmin/` (pay attention to the trailing slash) to the Apache virtual host will then be passed through to the Webmin server on `localhost` port `10000`.
+
+{{< alert primary exclamation "Usermin via Apache gateway?" "The instructions are exactly the same as for Webmin with the only difference that Usermin default port is `20000` and configuration files are located in `/etc/usermin` directory." >}}
+
+
+{{< details-end >}}
+{{< details-start post-content-details "<strong>Nginx</strong>"  >}}
+
+Nginx instructions are coming tomorrow
+{{< details-end >}}
+
+
+---
+
 > #### My browser reports _Document contains no data_ after turning on SSL
 If you are using SSL, make sure you connect to a URL like `https://myhost:10000/` instead of `http://myhost:10000/`. Without the https, your browser won't use SSL mode and thus will display this error.
 
@@ -44,11 +136,6 @@ After extracting the Webmin _tar_ file, `cd` into the `webmin-current` directory
 
 > #### How do I install new modules?
 Once you have downloaded a new module as a `.wbm` file, enter the **Webmin Configuration** module and click on the **Webmin Modules** button. Then use the form at the top of the page to install the module either from the local filesystem of the server Webmin is running on, or uploaded from the client your browser is on.
-
----
-
-> #### Can I run Webmin or Usermin behind Apache reverse proxy?
-Yes, this can be done with some configuration. See [this document](https://github.com/webmin/webmin/issues/615) for details
 
 ---
 
