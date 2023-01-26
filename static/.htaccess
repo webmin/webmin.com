@@ -57,8 +57,8 @@ RewriteRule ^modules-newlang.html$ https://%{HTTP_HOST}/about/#supported-languag
 
 # FAQ
 RewriteRule ^faq.html$ https://%{HTTP_HOST}/faq/ [R=301]
-RewriteRule ^apache.html$ https://%{HTTP_HOST}/faq/#can-i-run-webmin-or-usermin-under-apache [R=301,NE]
-RewriteRule ^uapache.html$ https://%{HTTP_HOST}/faq/#can-i-run-webmin-or-usermin-under-apache [R=301,NE]
+RewriteRule ^apache.html$ https://%{HTTP_HOST}/faq/#can-i-run-webmin-or-usermin-behind-reverse-proxy [R=301,NE]
+RewriteRule ^uapache.html$ https://%{HTTP_HOST}/faq/#can-i-run-webmin-or-usermin-behind-reverse-proxy [R=301,NE]
 RewriteRule ^updates.html$ https://%{HTTP_HOST}/download/ [R=301]
 
 # Partners

@@ -501,6 +501,11 @@ details.post-content-details {
     margin-left: 4px;
 }
 
+details.post-content-indent-details + details.post-content-indent-details,
+details.post-content-details + details.post-content-details {
+    margin-top: -2px;
+}
+
 details.post-content-details .inner {
     margin-top: -10px;
 }
