@@ -506,6 +506,13 @@ details.post-content-details + details.post-content-details {
     margin-top: -2px;
 }
 
+details.post-content-indent-details[open] ~ details.post-content-indent-details,
+details.post-content-details[open] ~ details.post-content-details {
+    margin-top: 12px;
+}
+
+
+
 details.post-content-details .inner {
     margin-top: -10px;
 }
