@@ -118,10 +118,7 @@ Now all requests to `webmin.example.com/webmin/` (pay attention to the trailing 
 
 {{< alert primary exclamation "Usermin via Apache gateway?" "The instructions are exactly the same as for Webmin with the only difference that Usermin default port is `20000` and configuration files are located in `/etc/usermin` directory." >}}
 {{< details-end >}}
-
-
-{{< details-start post-content-details "<strong>Nginx</strong>" open >}}
-<br>
+{{< details-start post-content-details "<strong>Nginx</strong>" >}}
 
 If you just want Webmin to be accessible via Nginx reverse proxy follow the steps below:
  
