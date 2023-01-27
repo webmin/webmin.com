@@ -65,7 +65,7 @@ If you just want Webmin to be accessible via Apache gateway follow the steps bel
     SSLCertificateFile /etc/ssl/domains/example.com/ssl.combined
     SSLCertificateKeyFile /etc/ssl/domains/example.com/ssl.key
     
-    # Use only secure versions of the SSL/TLS protocols
+    # Use only secure version of the TLS protocol (TLSv1.3)
     SSLProtocol         all -SSLv3 -TLSv1 -TLSv1.1 -TLSv1.2
     SSLHonorCipherOrder off
     SSLSessionTickets   off
@@ -146,6 +146,10 @@ If you just want Webmin to be accessible via Nginx reverse proxy follow the step
     # Point to files with SSL certificates for virtual host
     ssl_certificate /etc/ssl/domains/example.com/ssl.cert;
     ssl_certificate_key /etc/ssl/domains/example.com/ssl.key;
+
+    # Use only secure version of the TLS protocol (TLSv1.3)
+    ssl_protocols TLSv1.3;
+    ssl_prefer_server_ciphers off;
 
     # Disable proxying for all /.well-known requests. It will 
     # only be useful, if a domain has "root" defined
