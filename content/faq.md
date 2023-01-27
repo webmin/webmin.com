@@ -76,6 +76,9 @@ If you just want Webmin to be accessible via Apache gateway follow the steps bel
     SSLProxyCheckPeerName   off
     SSLProxyCheckPeerExpire off
 
+    # Disable proxying for all /.well-known requests
+    ProxyPass /.well-known !
+
     # Proxying both HTTP and websockets at the same time,
     # where the websockets URL's are not websocket-only
     # or not known in advance
