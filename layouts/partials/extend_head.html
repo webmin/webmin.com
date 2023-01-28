@@ -16,3 +16,13 @@
 <script type="text/javascript">
     document.querySelector('html').classList.add("page-" + location.pathname.replace(/\//g, ''))
 </script>
+
+<!-- Load chocolat.js for Screenshots page -->
+{{- if .Param "loadGallery" }}
+{{- $chocolatjs := resources.Get "js/chocolat.js" | resources.Minify }}
+{{- $chocolatcss := resources.Get "css/chocolat.css" | resources.Minify }}
+<script type="text/javascript" src="{{ $chocolatjs.RelPermalink }}"></script>
+<link rel="stylesheet" href="{{ $chocolatcss.RelPermalink }}" type="text/css" media="screen">
+{{- $chocolatloader := resources.Get "js/extended/header-chocolat.js" | resources.ExecuteAsTemplate "js/extended/header-chocolat.js" . | resources.Minify }}
+<script defer crossorigin="anonymous" src="{{ $chocolatloader.RelPermalink }}"></script>
+{{ end }}
