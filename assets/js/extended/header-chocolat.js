@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     window.onresize = function() {
         const targetClassList = document.querySelector('html').classList;
-        if (document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement) {
+        if (document.fullscreenElement || document.webkitCurrentFullScreenElement || document.webkitFullscreenElement) {
             targetClassList.add('chocolat-fullscreen');
         } else {
             targetClassList.remove('chocolat-fullscreen');
