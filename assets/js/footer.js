@@ -114,5 +114,9 @@
         ghForkHTML = '<iframe src="https://ghbtns.com/github-btn.html?user=webmin&repo=webmin&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>';
     if (mainPageSocials) {
         mainPageSocials.innerHTML = ghStarsHTML + ghWatchHTML + ghForkHTML;
+        const bmenu_elem = document.createElement("div");
+        bmenu_elem.classList.add('main-buttons-container');
+        bmenu_elem.innerHTML = `{{ partial "main-buttons.html" . }}`;
+        mainPageSocials.after(bmenu_elem);
     }
 })();
