@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
     fixChocolatDrop();
 
     // Check dark mode
-    const isDarkMode = function() { return document.body.classList.contains('dark') },
+    const isDarkMode = function() { return localStorage.getItem("pref-theme") === 'dark' || document.body.classList.contains('dark') },
         screenshotType = function() { return isDarkMode() ? 'dark' : 'light' },
         themeToggle = document.querySelector('#theme-toggle'),
         getScreenshots = [{

@@ -1342,3 +1342,24 @@ body.dark > footer .wm-heart{
 body > footer.footer a {
     border-bottom: none
 }
+
+/* Images */
+html[class*="page-index"] figure > img,
+html[class*="page-changelog"] figure > img {
+    animation: 0.333s fadeIn;
+    animation-fill-mode: forwards; 
+    opacity: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

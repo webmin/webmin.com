@@ -14,7 +14,7 @@
 
 <!-- Mark page to be accessible in JavaScript -->
 <script type="text/javascript">
-    document.querySelector('html').classList.add("page-" + location.pathname.replace(/\//g, ''))
+    document.querySelector('html').classList.add("page-" + (location.pathname.replace(/\//g, '') || 'index'))
 </script>
 
 <!-- Load chocolat.js for Screenshots page -->

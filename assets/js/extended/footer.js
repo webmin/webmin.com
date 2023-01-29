@@ -119,4 +119,39 @@
         bmenu_elem.innerHTML = `{{ partial "main-buttons.html" . }}`;
         mainPageSocials.after(bmenu_elem);
     }
+
+    // Tweak screenshots to blend with palette
+    const isDarkMode = function() { return localStorage.getItem("pref-theme") === 'dark' || document.body.classList.contains('dark') },
+        screenshotType = function() { return isDarkMode() ? 'dark' : 'light' },
+        updateScreenshots = function() {
+            const screenshots = document.querySelectorAll('figure > img');
+            let screenshotsFound = false;
+            if (screenshots) {
+                screenshots.forEach(function(screenshot) {
+                    if (screenshot && screenshot.src) {
+                        screenshotsFound = true;
+                        if (screenshotType() === 'dark') {
+                            screenshot.src = screenshot.src.replace('/light/', '/dark/');
+                        } else {
+                            screenshot.src = screenshot.src.replace('/dark/', '/light/');
+                        }
+                    }
+                });
+            }
+            return screenshotsFound;
+        };
+
+    // We need to check it in another stack, because Safari
+    // is just not reliable for anything complex
+    setTimeout(function() {
+        if (document.querySelector('html[class*="page-index"]') || document.querySelector('html[class*="page-changelog"]')) {
+            // On changing mode change screenshots palette
+            if (updateScreenshots()) {
+                const themeToggle = document.querySelector('#theme-toggle');
+                themeToggle.addEventListener("click", function() {
+                    updateScreenshots();
+                }, false);
+            }
+        }
+    });
 })();
