@@ -126,7 +126,7 @@
         updateScreenshots = function() {
             const screenshots = document.querySelectorAll('figure > img');
             let screenshotsFound = false;
-            if (screenshots) {
+            if (screenshots.length) {
                 screenshots.forEach(function(screenshot) {
                     if (screenshot && screenshot.src) {
                         screenshotsFound = true;
