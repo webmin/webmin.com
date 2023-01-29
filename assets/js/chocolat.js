@@ -3339,6 +3339,10 @@
     };
   }
   function openFullScreen(wrapper) {
+    // Update Notice (work-around Firefox bug (what they alone call security feature))
+    if (document.fullscreenElement || document.webkitCurrentFullScreenElement || document.webkitFullscreenElement) {
+      return;
+    }
     if (wrapper.requestFullscreen) {
       return wrapper.requestFullscreen();
     } else if (wrapper.webkitRequestFullscreen) {
