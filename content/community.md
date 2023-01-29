@@ -4,13 +4,7 @@ date: 2023-01-17
 ---
 ### For Users
 
-The users of Webmin, Usermin, Virtualmin or Cloudmin looking for support should post a question to correspondent category in our forum:
-
-  [{{< badge info "Webmin" "webmin" >}}](https://forum.virtualmin.com/c/webmin/12)
-  [{{< badge success "Usermin" "webmin" >}}](https://forum.virtualmin.com/c/usermin/10)
-  [{{< badge primary "Virtualmin" "virtualmin" >}}](https://forum.virtualmin.com/c/virtualmin/11)
-  [{{< badge warning "Cloudmin" "cloudmin" >}}](https://forum.virtualmin.com/c/cloudmin/7)
-  [{{< badge danger "Authentic Theme" "palette sm" >}}](https://forum.virtualmin.com/c/authentic-theme/19)
+The users looking for support should post a question to [Webmin](https://forum.virtualmin.com/c/webmin/12), [Usermin](https://forum.virtualmin.com/c/usermin/10), [Virtualmin](https://forum.virtualmin.com/c/virtualmin/11), [Cloudmin](https://forum.virtualmin.com/c/cloudmin/7) or [Authentic Theme](https://forum.virtualmin.com/c/authentic-theme/19) category in our forum.
 
 If you have found what looks like a bug, post it to the [Webmin](https://github.com/webmin/webmin/issues), [Usermin](https://github.com/webmin/usermin/issues), [Virtualmin](https://github.com/virtualmin/virtualmin-gpl/issues), [Cloudmin](https://github.com/virtualmin/cloudmin-gpl/issues) or [Authentic theme](https://github.com/webmin/authentic-theme/issues) bug tracker.
 
