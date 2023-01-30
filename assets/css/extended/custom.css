@@ -1375,6 +1375,10 @@ html[class*="page-changelog"] figure > img {
     animation-fill-mode: forwards; 
     opacity: 0;
 }
+html[class*="page-index"] .dark figure > img[src*="/light/"],
+html[class*="page-changelog"] .dark figure > img[src*="/light/"] {
+    visibility: hidden;
+}
 
 /* Animations */
 @keyframes fadeIn {
