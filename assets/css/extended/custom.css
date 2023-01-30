@@ -1269,14 +1269,24 @@ details.post-content-details > summary > .details {
     margin: 0.199em 0.099em;
     filter: saturate(1.22);
 }
+.first-entry .main-buttons-container .btn.btn-outline-secondary {
+    filter: brightness(0.711) saturate(1.82);
+}
+.first-entry .main-buttons-container .btn.btn-outline-secondary:hover {
+    filter: brightness(1) contrast(1.3) saturate(1.42);
+}
 .first-entry .main-buttons-container .btn.btn-outline-warning {
-    filter: brightness(.75)contrast(1.47) opacity(0.97) saturate(1.17)
+    filter: brightness(.75)contrast(1.47) opacity(0.97) saturate(1.17);
 }
 .dark .first-entry .main-buttons-container .btn {
-    filter: brightness(.77)contrast(1.77) opacity(0.97) saturate(1.17);
+    filter: brightness(.81)contrast(1.7) opacity(0.97) saturate(1.17);
+}
+.dark .first-entry .main-buttons-container .btn.btn-outline-success,
+.dark .first-entry .main-buttons-container .btn.btn-outline-primary {
+    filter: brightness(.921)contrast(1.21) opacity(0.97) saturate(1.07);
 }
 .dark .first-entry .main-buttons-container .btn.btn-outline-secondary {
-    filter: brightness(1.1)contrast(1.41)opacity(1)saturate(0.95)
+    filter: brightness(1.2)contrast(1.41)opacity(1)saturate(0.95);
 }
 .dark .first-entry .main-buttons-container .btn.btn-outline-warning {
     filter: brightness(.75)contrast(1.37) opacity(0.97) saturate(1.17);
@@ -1340,7 +1350,7 @@ details.post-content-details > summary > .details {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    padding: 0.166em 0.233em 0.233em 0.399em;
+    padding: 0.143em 0.233em 0.233em 0.376em;
     background-color: var(--primary-soft);
     z-index: 1;
     cursor: pointer;
