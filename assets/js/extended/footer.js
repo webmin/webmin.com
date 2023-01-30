@@ -130,10 +130,13 @@
                 screenshots.forEach(function(screenshot) {
                     if (screenshot && screenshot.src) {
                         screenshotsFound = true;
+                        const themeMode = screenshotType();
                         if (screenshotType() === 'dark') {
-                            screenshot.src = screenshot.src.replace('/light/', '/dark/');
+                            screenshot.src = screenshot.src.replace('/templates/', '/' + themeMode + '/');
+                            screenshot.src = screenshot.src.replace('/light/', '/' + themeMode + '/');
                         } else {
-                            screenshot.src = screenshot.src.replace('/dark/', '/light/');
+                            screenshot.src = screenshot.src.replace('/templates/', '/' + themeMode + '/');
+                            screenshot.src = screenshot.src.replace('/dark/', '/' + themeMode + '/');
                         }
                     }
                 });

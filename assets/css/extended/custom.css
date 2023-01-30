@@ -1312,9 +1312,11 @@ details.post-content-details > summary > .details {
 
 .page-screenshots.chocolat-fullscreen .chocolat-wrapper .screen-full-container,
 .page-screenshots .chocolat-wrapper .chocolat-bottom .chocolat-fullscreen,
-.page-screenshots:not(.chocolat-fullscreen) .chocolat-wrapper .chocolat-bottom,
 .page-screenshots:not(.chocolat-fullscreen) .chocolat-close {
     display: none;
+}
+.page-screenshots:not(.chocolat-fullscreen) .chocolat-wrapper .chocolat-bottom {
+    visibility: hidden
 }
 .page-screenshots .dark .chocolat-wrapper {
     color: var(--primary);
