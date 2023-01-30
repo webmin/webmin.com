@@ -227,7 +227,7 @@ window.addEventListener('DOMContentLoaded', () => {
           fullscreenIcon = document.createElement('i');
     fullscreenCont.classList.add('screen-full-container');
     fullscreenCont.setAttribute('aria-label', 'Enter Full Screen');
-    fullscreenIcon.classList.add('wm', 'wm-sm', 'wm-fw', 'wm-screen-full');
+    fullscreenIcon.classList.add('wm', 'wm-sm', 'wm-fw', 'wm-expand');
     fullscreenCont.appendChild(fullscreenIcon);
     document.querySelector(".chocolat-image-wrapper").appendChild(fullscreenCont);
     document.querySelector('.screen-full-container').addEventListener("click", function(e) {
