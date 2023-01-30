@@ -3646,6 +3646,9 @@
         this.elems.imageWrapper.removeChild(this.elems.img);
         this.elems.img = image;
         this.elems.img.setAttribute('class', 'chocolat-img');
+        // Update Notice. Start.
+        this.elems.img.setAttribute('alt', this.elems.description.textContent);
+        // Update Notice. End.
         this.elems.imageWrapper.appendChild(this.elems.img);
         var fadeInPromise = transitionAsPromise(function () {
           _newArrowCheck(this, _this7);
