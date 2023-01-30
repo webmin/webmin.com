@@ -221,13 +221,26 @@ window.addEventListener('DOMContentLoaded', () => {
         },
     });
     chocolat.api.open();
-    chocolat.api.set('fullScreen', true);
-
+    
+    // Allow open in full screen
+    const fullscreenCont = document.createElement('div'),
+          fullscreenIcon = document.createElement('i');
+    fullscreenCont.classList.add('screen-full-container');
+    fullscreenCont.setAttribute('aria-label', 'Enter Full Screen');
+    fullscreenIcon.classList.add('wm', 'wm-sm', 'wm-fw', 'wm-screen-full');
+    fullscreenCont.appendChild(fullscreenIcon);
+    document.querySelector(".chocolat-image-wrapper").appendChild(fullscreenCont);
+    document.querySelector('.screen-full-container').addEventListener("click", function(e) {
+        e.stopPropagation();
+        document.querySelector('.chocolat-bottom .chocolat-fullscreen').click();
+    }, false);
+    
     // On changing mode change screenshots palette
     themeToggle.addEventListener("click", function() {
         chocolat.api.destroy();
         location.reload()
     }, false);
+
 
     // On resize accomodate Chocolat viewer
     window.onresize = function() {
