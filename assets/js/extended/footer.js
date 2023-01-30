@@ -132,10 +132,8 @@
                         screenshotsFound = true;
                         const themeMode = screenshotType();
                         if (screenshotType() === 'dark') {
-                            screenshot.src = screenshot.src.replace('/templates/', '/' + themeMode + '/');
                             screenshot.src = screenshot.src.replace('/light/', '/' + themeMode + '/');
                         } else {
-                            screenshot.src = screenshot.src.replace('/templates/', '/' + themeMode + '/');
                             screenshot.src = screenshot.src.replace('/dark/', '/' + themeMode + '/');
                         }
                     }

@@ -2,7 +2,7 @@
 title: "Webmin 2.010 released"
 date: 2022-11-27
 cover:
-    image: "/images/changelog/webmin-2.010-released/templates/terminal.png"
+    image: "/images/changelog/webmin-2.010-released/light/terminal.png"
     alt: "A new Webmin Terminal module"
 tags: ["changelog", "webmin-changelog"]
 ---
