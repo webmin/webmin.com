@@ -1370,10 +1370,17 @@ body > footer.footer a {
     border-bottom: none
 }
 
-/* Images */
-html[class*="page-index"] figure > img,
-html[class*="page-changelog"] figure > img {
-    animation: 0.333s fadeIn;
+/* Load images nicely for both dark and light
+ * themes, and also make previews work
+ */
+html[class*="page-index"] figure > img.loading:not(.loaded),
+html[class*="page-changelog"] figure > img.loading:not(.loaded) {
+    visibility: hidden;
+}
+
+html[class*="page-index"] .dark figure > img,
+html[class*="page-changelog"] .dark  figure > img {
+    animation: 0.133s fadeIn;
     animation-fill-mode: forwards; 
     opacity: 0;
 }
@@ -1387,7 +1394,7 @@ html[class*="page-changelog"] .dark figure > img[src*="/light/"] {
   0% {
     opacity: 0;
   }
-  50% {
+  70% {
     opacity: 0;
   }
   100% {

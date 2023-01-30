@@ -129,6 +129,9 @@
             if (screenshots.length) {
                 screenshots.forEach(function(screenshot) {
                     if (screenshot && screenshot.src) {
+                        screenshot.classList.remove('loaded');
+                        screenshot.classList.add('loading');
+                        screenshot.setAttribute('onload', 'javascript: this.classList.add("loaded")');
                         screenshotsFound = true;
                         const themeMode = screenshotType();
                         if (screenshotType() === 'dark') {
