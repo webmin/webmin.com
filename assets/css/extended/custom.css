@@ -1,6 +1,11 @@
 /* Variables */
 :root {
-    --border: rgb(231, 231, 231);
+    --main-bg: rgb(245, 245, 245);
+    --content: rgb(21, 21, 21);
+    --primary: rgb(20, 20, 20);
+
+    --border: rgb(221, 221, 221);
+    --code-bg: rgb(235, 235, 235);
 
     --header: #043babf0;
     --header-shadow: #00000040;
@@ -19,7 +24,9 @@
 }
 
 .dark {
-    --border: rgb(58, 58, 58);
+    --main-bg: var(--theme);
+
+    --border: rgb(63, 63, 63);
 
     --header: #2e2e33ee;
     
@@ -43,7 +50,9 @@ html {
     scroll-padding-top: 4.666rem;
     overflow-y: auto;
 }
-
+html body:not(.dark) {
+    background-color: var(--main-bg);
+}
 body {
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, segoe ui, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
     font-weight: 300;
@@ -1344,7 +1353,7 @@ details.post-content-details > summary > .details {
 
 .page-screenshots .chocolat-wrapper,
 .page-screenshots .chocolat-overlay {
-    background-color: var(--theme);
+    background-color: var(--main-bg);
 }
 .page-screenshots .chocolat-wrapper .chocolat-bottom {
     background-color: var(--header);
