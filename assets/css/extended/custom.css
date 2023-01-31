@@ -578,18 +578,22 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
 }
 
+.dark .pagination a,
 .btn-light {
   color: #212529;
   background-color: #f8f9fa;
   border-color: #f8f9fa;
 }
 
+.dark .pagination a:hover,
 .btn-light:hover {
   color: #212529;
   background-color: #e2e6ea;
   border-color: #dae0e5;
 }
 
+.dark .pagination a:focus,
+.dark .pagination a.focus,
 .btn-light:focus,
 .btn-light.focus {
   color: #212529;
@@ -598,6 +602,8 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
 }
 
+.dark .pagination a.disabled,
+.dark .pagination a:disabled,
 .btn-light.disabled,
 .btn-light:disabled {
   color: #212529;
@@ -605,6 +611,8 @@ fieldset:disabled a.btn {
   border-color: #f8f9fa;
 }
 
+.dark .pagination a:not(:disabled):not(.disabled):active,
+.dark .pagination a:not(:disabled):not(.disabled).active,
 .btn-light:not(:disabled):not(.disabled):active,
 .btn-light:not(:disabled):not(.disabled).active {
   color: #212529;
@@ -612,11 +620,14 @@ fieldset:disabled a.btn {
   border-color: #d3d9df;
 }
 
+.dark .pagination a:not(:disabled):not(.disabled):active:focus,
+.dark .pagination a:not(:disabled):not(.disabled).active:focus,
 .btn-light:not(:disabled):not(.disabled):active:focus,
 .btn-light:not(:disabled):not(.disabled).active:focus {
   box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
 }
 
+.pagination a,
 .btn-dark {
   color: #fff;
   background-color: #343a40;
@@ -1203,8 +1214,15 @@ fieldset:disabled a.btn {
 .dark .main > article > .entry-footer > .social-icons {
     filter: invert(1) contrast(0.7)
 }
+
 .dark .badge {
     filter: brightness(0.7) contrast(1.72) saturate(0.81);
+}
+
+.pagination a {
+    font-weight: 100;
+    line-height: 30px;
+    padding: 0 14px;
 }
 
 /*  */

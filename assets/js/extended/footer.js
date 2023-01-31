@@ -158,4 +158,14 @@
             }
         }
     }, 10);
+
+    // Use our pagination class
+    const paginations = document.querySelectorAll('.pagination > a');
+    if (paginations.length) {
+        paginations.forEach(function(pagination) {
+            if (pagination) {
+                pagination.classList.add('btn', 'btn-sm', 'btn-outline-dark');
+            }
+        });
+    }
 })();
