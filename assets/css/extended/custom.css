@@ -1065,7 +1065,12 @@ fieldset:disabled a.btn {
 #menu > li:nth-last-child(2) > a {
     padding-right: 0.133em;
 }
-
+#menu > li:nth-last-child(2) {
+    min-width: 48.38px;
+}
+#menu > li:nth-last-child(1) {
+    min-width: 51.75px;
+}
 /* Hamburger Menu */
 .hmenu-panel {
     width: 0;
