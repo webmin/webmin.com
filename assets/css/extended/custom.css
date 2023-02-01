@@ -1244,7 +1244,12 @@ fieldset:disabled a.btn {
     height: 1px;
 }
 
-/* HTML Accordions */
+/* Pagination */
+.pagination a {
+    filter: brightness(0.8) contrast(1.4);
+}
+
+/* Accordions */
 details.post-content-indent-details > summary,
 details.post-indent-details > summary {
     font-size: 94%;
