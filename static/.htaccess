@@ -104,3 +104,52 @@ RewriteRule ^changes-1.443.html$ https://%{HTTP_HOST}/changelog/webmin-1.443-rel
 RewriteRule ^changes-1.435.html$ https://%{HTTP_HOST}/changelog/webmin-1.435-released [R=301,NE]
 RewriteRule ^changes-1.429.html$ https://%{HTTP_HOST}/changelog/webmin-1.429-released [R=301,NE]
 RewriteRule ^vchanges-3.74.gpl.html$ https://%{HTTP_HOST}/changelog/virtualmin-3.74-released [R=301,NE]
+
+RedirectMatch ^/webmin/(.*) /$1
+RedirectMatch ^/mail$ https://webmail.webmin.com/
+RedirectMatch ^/mail/$ https://webmail.webmin.com/
+
+# Webmin redirects
+Redirect /download/webmin-2.013.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.013.tar.gz
+Redirect /download/webmin-2.013-minimal.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.013-minimal.tar.gz
+Redirect /download/rpm/webmin-2.013-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.013-1.noarch.rpm
+Redirect /download/rpm/webmin-2.013-1.src.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.013-1.src.rpm
+Redirect /download/solaris-pkg/webmin-2.013.pkg.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.013.pkg.gz
+Redirect /download/solaris-pkg/webmin-2.013.zip https://prdownloads.sourceforge.net/webadmin/webmin-2.013.zip
+Redirect /download/deb/webmin_2.013_all.deb https://prdownloads.sourceforge.net/webadmin/webmin_2.013_all.deb
+
+# Webmin current redirects
+Redirect /download/webmin-current.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.013.tar.gz
+Redirect /download/webmin-current-minimal.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.013-minimal.tar.gz
+Redirect /download/rpm/webmin-current.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.013-1.noarch.rpm
+Redirect /download/rpm/webmin-current.src.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.013-1.src.rpm
+Redirect /download/solaris-pkg/webmin-current.pkg.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.013.pkg.gz
+Redirect /download/solaris-pkg/webmin-current.zip https://prdownloads.sourceforge.net/webadmin/webmin-2.013.zip
+Redirect /download/deb/webmin-current.deb https://prdownloads.sourceforge.net/webadmin/webmin_2.013_all.deb
+
+# Usermin redirects
+Redirect /download/usermin-1.861.tar.gz https://prdownloads.sourceforge.net/webadmin/usermin-1.861.tar.gz
+Redirect /download/rpm/usermin-1.861-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/usermin-1.861-1.noarch.rpm
+Redirect /download/rpm/usermin-1.861-1.src.rpm https://prdownloads.sourceforge.net/webadmin/usermin-1.861-1.src.rpm
+Redirect /download/deb/usermin_1.861_all.deb https://prdownloads.sourceforge.net/webadmin/usermin_1.861_all.deb
+
+# Usermin current redirects
+Redirect /download/usermin-current.tar.gz https://prdownloads.sourceforge.net/webadmin/usermin-1.861.tar.gz
+Redirect /download/rpm/usermin-current.rpm https://prdownloads.sourceforge.net/webadmin/usermin-1.861-1.noarch.rpm
+Redirect /download/rpm/usermin-current.src.rpm https://prdownloads.sourceforge.net/webadmin/usermin-1.861-1.src.rpm
+Redirect /download/deb/usermin-current.deb https://prdownloads.sourceforge.net/webadmin/usermin_1.861_all.deb
+
+# Send everything else to download.webmin.com
+RedirectMatch /download/(.*) "https://download.webmin.com/download/$1"
+
+# Send updates to download.webmin.com
+RedirectMatch /updates/(.*gz.*) "https://download.webmin.com/updates/$1"
+RedirectMatch /updates/(updates.txt.*) "https://download.webmin.com/updates/$1"
+RedirectMatch /uupdates/(.*gz.*) "https://download.webmin.com/uupdates/$1"
+RedirectMatch /uupdates/(uupdates.txt.*) "https://download.webmin.com/uupdates/$1"
+
+# Serve updates.txt from download.webmin.com
+
+# Redirect links to old modules docs
+RedirectMatch /modules-funcs.html http://doxfer.webmin.com/Webmin/TheWebminAPI
+RedirectMatch /modules-.*.html http://doxfer.webmin.com/Webmin/ModuleDevelopment
