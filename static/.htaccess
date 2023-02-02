@@ -27,6 +27,7 @@ RewriteRule ^screens/(.*)$ https://%{HTTP_HOST}/screenshots/ [R=301]
 RewriteRule ^standard.html$ https://%{HTTP_HOST}/download/#standard-modules [R=301,NE]
 
 # Downloads
+RewriteRule ^download.html$ https://%{HTTP_HOST}/download/ [R=301]
 RewriteRule ^rpm.html$ https://%{HTTP_HOST}/download/#installing [R=301,NE]
 RewriteRule ^deb.html$ https://%{HTTP_HOST}/download/#installing [R=301,NE]
 RewriteRule ^tgz.html$ https://%{HTTP_HOST}/download/#freebsd-and-any-other-linux-installation-from-source [R=301,NE]
@@ -41,6 +42,7 @@ RewriteRule ^security.html$ https://%{HTTP_HOST}/security/ [R=301]
 RewriteRule ^exploit.html$ https://%{HTTP_HOST}/security/#remote-command-execution-cve-2019-15231 [R=301,NE]
 
 # Contributed Documentation
+RewriteRule ^books.html$ https://%{HTTP_HOST}/books/ [R=301]
 RewriteRule ^contrib.html$ https://%{HTTP_HOST}/books/#download [R=301,NE]
 
 # Community
