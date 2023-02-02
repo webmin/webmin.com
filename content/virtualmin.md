@@ -49,19 +49,21 @@ Getting started with Virtualmin can be done with a few simple steps, using our [
 
 ## Manual Installation
 
-{{< alert danger exclamation "Danger!" "The **strongly recommended** way of installing Virtualmin on a supported operating system is to use the Virtualmin automated install script as [described above](#automated-installation), which takes care of all dependencies and configuration." >}}
+The manual installation process is [described in detail](https://www.virtualmin.com/documentation/installation/manual/) on our official website. Nevertheless, the *strongly* recommended way of installing Virtualmin on a supported operating system is to use the Virtualmin automated install script, which takes care of all dependencies and configuration.
 
 ### Packages
 
-These GPL packages should _not_ be installed directly unless you _really_ know what you're doing. Use Virtualmin automated install script as [described above](#automated-installation) instead.
+These GPL packages should _not_ be installed directly unless you _really_ know what you're doing. Use Virtualmin automated install script instead as [described above](#automated-installation).
 
-{{< alert warning exclamation "Warning!" "After manual installation, new versions of Virtualmin and related packages should be installed manually. Also, it is possible to configure Virtualmin repositories using automated installation script run with `--setup` param. " >}}
+{{< details-start post-content-indent-details "<i class='wm wm-download'></i>" open >}}
 
 | File                       | Size |
 | -------------------------- | -----|
 |[wbm-virtual-server-current.gpl-1.noarch.rpm](https://download.webmin.com/download/virtualmin/wbm-virtual-server-7.5.gpl-1.noarch.rpm) | 6.1 MB |
 |[webmin-virtual-server_current.gpl_all.deb](https://download.webmin.com/download/virtualmin/webmin-virtual-server_7.5.gpl_all.deb)     | 3.9 MB |
 |[virtual-server-current.gpl.wbm.gz](https://download.webmin.com/download/virtualmin/virtual-server-7.5.gpl.wbm.gz)                     | 6.4 MB |
+
+{{< details-end >}}
 
 If you are interested, [older versions of Virtualmin](https://download.webmin.com/download/virtualmin/) are also available.
 
