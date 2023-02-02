@@ -1,3 +1,7 @@
+# Always redirect www to non-www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
 # Changelog should be displayed as archives
 RewriteRule ^changes.html$ https://%{HTTP_HOST}/changelog/ [R=301]
 RewriteRule ^uchanges.html$ https://%{HTTP_HOST}/tags/usermin-changelog/ [R=301]
@@ -92,10 +96,6 @@ RewriteRule ^cinstall-kvm.html$ https://%{HTTP_HOST}/cloudmin/#installation [R=3
 
 # Mirror
 RewriteRule ^mirrors.html$ https://%{HTTP_HOST}/mirrors/ [R=301]
-
-# Always redirect www to non-www
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
 # Linked releases
 RewriteRule ^changes-1.515.html$ https://%{HTTP_HOST}/changelog/webmin-1.515-released [R=301,NE]
