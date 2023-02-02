@@ -49,7 +49,7 @@ Getting started with Virtualmin can be done with a few simple steps, using our [
 
 ## Manual Installation
 
-The manual installation process is [described in detail](https://www.virtualmin.com/documentation/installation/manual/) on our official website. Nevertheless, the *strongly* recommended way of installing Virtualmin on a supported operating system is to use the Virtualmin automated install script, which takes care of all dependencies and configuration.
+The manual installation process is [described in detail](https://www.virtualmin.com/documentation/installation/manual/) on our official Virtualmin website. Nevertheless, the *strongly* recommended way of installing Virtualmin on a supported operating system is to use the Virtualmin automated install script, which takes care of all dependencies and configuration.
 
 ### Packages
 
