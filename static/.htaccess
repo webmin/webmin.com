@@ -6,7 +6,7 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 RewriteRule ^changes.html$ https://%{HTTP_HOST}/changelog/ [R=301]
 RewriteRule ^uchanges.html$ https://%{HTTP_HOST}/tags/usermin-changelog/ [R=301]
 RewriteRule ^vchanges.html$ https://%{HTTP_HOST}/tags/virtualmin-changelog/ [R=301]
-RewriteRule ^changelog/$ archives/ [L]
+RewriteRule ^changelog/$ https://%{HTTP_HOST}/archives/ [L]
 
 # About and intro
 RewriteRule ^intro.html$ https://%{HTTP_HOST}/about/ [R=301]
