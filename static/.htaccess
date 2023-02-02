@@ -26,6 +26,7 @@ RewriteRule ^ulang.html$ https://%{HTTP_HOST}/about/#supported-languages [R=301,
 
 # Screenshots redirecs
 RewriteRule ^demo.html$ https://%{HTTP_HOST}/screenshots/ [R=301]
+RewriteRule ^screens.html$ https://%{HTTP_HOST}/screenshots/ [R=301]
 RewriteRule ^screens/(.*)$ https://%{HTTP_HOST}/screenshots/ [R=301]
 
 # Standard Modules
