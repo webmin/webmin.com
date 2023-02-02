@@ -97,7 +97,12 @@
         return location && typeof location.pathname === 'string' && location.pathname.includes('/' + test + '/');
     }
     if (isLocation('changelog') || isLocation('archives')) {
-        document.querySelector('' + menuLinkTargSel + '[href$="changelog/"] > span').classList.add('active');
+        const archivesMenuLink =
+            document.querySelector('' + menuLinkTargSel + '[href$="archives/"] > span') ||
+            document.querySelector('' + menuLinkTargSel + '[href$="changelog/"] > span');
+        if (archivesMenuLink) {
+            archivesMenuLink.classList.add('active');
+        }
     }
 
     // Main page tweaks
