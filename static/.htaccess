@@ -3,7 +3,7 @@ RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
 # Changelog should be displayed as archives
-RewriteRule ^changelog/$ archives/ [L]
+RewriteRule ^changelog/$ archives/ [PT]
 RewriteRule ^changes.html$ https://%{HTTP_HOST}/changelog/ [R=301]
 RewriteRule ^uchanges.html$ https://%{HTTP_HOST}/tags/usermin-changelog/ [R=301]
 RewriteRule ^vchanges.html$ https://%{HTTP_HOST}/tags/virtualmin-changelog/ [R=301]
