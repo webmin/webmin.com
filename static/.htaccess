@@ -110,6 +110,13 @@ RewriteRule ^changes-1.435.html$ https://%{HTTP_HOST}/changelog/webmin-1.435-rel
 RewriteRule ^changes-1.429.html$ https://%{HTTP_HOST}/changelog/webmin-1.429-released [R=301,NE]
 RewriteRule ^vchanges-3.74.gpl.html$ https://%{HTTP_HOST}/changelog/virtualmin-3.74-released [R=301,NE]
 
+# Old indexes pages
+RewriteRule ^index4.html$ https://%{HTTP_HOST}/ [R=301]
+RewriteRule ^index3.html$ https://%{HTTP_HOST}/ [R=301]
+RewriteRule ^index2.html$ https://%{HTTP_HOST}/ [R=301]
+RewriteRule ^index1.html$ https://%{HTTP_HOST}/ [R=301]
+RewriteRule ^index.html$ https://%{HTTP_HOST}/ [R=301]
+
 # ---- old rules ----
 
 RedirectMatch ^/webmin/(.*) /$1
