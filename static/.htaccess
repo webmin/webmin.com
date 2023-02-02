@@ -13,7 +13,7 @@ RewriteRule ^intro.html$ https://%{HTTP_HOST}/about/ [R=301]
 RewriteRule ^developers.html$ https://%{HTTP_HOST}/about/#developers [R=301,NE]
 RewriteRule ^custom.html$ https://%{HTTP_HOST}/about/#developers [R=301,NE]
 RewriteRule ^about.html$ https://%{HTTP_HOST}/about-jamie/ [R=301]
-RewriteRule ^jshock$ https://%{HTTP_HOST}/about-jamie/ [R=301]
+RewriteRule ^jshock https://%{HTTP_HOST}/about-jamie/ [R=301]
 
 # Devel
 RewriteRule ^devel.html$ https://%{HTTP_HOST}/download/#development-builds [R=301,NE]
