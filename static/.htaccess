@@ -108,15 +108,18 @@ RewriteRule ^cinstall-kvm.html$ https://%{HTTP_HOST}/cloudmin/#installation [R=3
 RewriteRule ^mirrors.html$ https://%{HTTP_HOST}/mirrors/ [R=301]
 
 # Linked releases
-RewriteRule ^oldnews.html$ https://%{HTTP_HOST}/tags/changelog/ [R=301,NE]
-RewriteRule ^changes-1.515.html$ https://%{HTTP_HOST}/changelog/webmin-1.515-released [R=301,NE]
-RewriteRule ^changes-1.499.html$ https://%{HTTP_HOST}/changelog/webmin-1.499-released [R=301,NE]
-RewriteRule ^changes-1.479.html$ https://%{HTTP_HOST}/changelog/webmin-1.479-released [R=301,NE]
-RewriteRule ^changes-1.449.html$ https://%{HTTP_HOST}/changelog/webmin-1.449-released [R=301,NE]
-RewriteRule ^changes-1.443.html$ https://%{HTTP_HOST}/changelog/webmin-1.443-released [R=301,NE]
-RewriteRule ^changes-1.435.html$ https://%{HTTP_HOST}/changelog/webmin-1.435-released [R=301,NE]
-RewriteRule ^changes-1.429.html$ https://%{HTTP_HOST}/changelog/webmin-1.429-released [R=301,NE]
-RewriteRule ^vchanges-3.74.gpl.html$ https://%{HTTP_HOST}/changelog/virtualmin-3.74-released [R=301,NE]
+RewriteRule ^oldnews.html$ https://%{HTTP_HOST}/tags/changelog/ [R=301]
+RewriteRule ^changes-1.515.html$ https://%{HTTP_HOST}/changelog/webmin-1.515-released [R=301]
+RewriteRule ^changes-1.499.html$ https://%{HTTP_HOST}/changelog/webmin-1.499-released [R=301]
+RewriteRule ^changes-1.479.html$ https://%{HTTP_HOST}/changelog/webmin-1.479-released [R=301]
+RewriteRule ^changes-1.449.html$ https://%{HTTP_HOST}/changelog/webmin-1.449-released [R=301]
+RewriteRule ^changes-1.443.html$ https://%{HTTP_HOST}/changelog/webmin-1.443-released [R=301]
+RewriteRule ^changes-1.435.html$ https://%{HTTP_HOST}/changelog/webmin-1.435-released [R=301]
+RewriteRule ^changes-1.429.html$ https://%{HTTP_HOST}/changelog/webmin-1.429-released [R=301]
+RewriteRule ^vchanges-3.74.gpl.html$ https://%{HTTP_HOST}/changelog/virtualmin-3.74-released [R=301]
+RewriteRule ^changes-.*.html$ https://%{HTTP_HOST}/tags/changelog/ [R=301]
+RewriteRule ^uchanges-.*.html$ https://%{HTTP_HOST}/tags/changelog/ [R=301]
+RewriteRule ^vchanges-.*.html$ https://%{HTTP_HOST}/tags/changelog/ [R=301]
 
 # Old indexes pages
 RewriteRule ^index4.html$ https://%{HTTP_HOST}/ [R=301]
