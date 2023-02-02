@@ -14,7 +14,7 @@ menu:
       weight: 10
     - identifier: changelog
       name: Changelog
-      url: /changelog/
+      url: /archives/
       weight: 20
     - identifier: Security
       name: Security
