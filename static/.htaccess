@@ -76,6 +76,7 @@ RewriteRule ^trans.html$ https://%{HTTP_HOST}/community/#for-translators [R=301,
 
 # Docs
 RewriteRule ^docs.html$ https://%{HTTP_HOST}/docs/ [R=301]
+RewriteRule ^index7.html$ https://%{HTTP_HOST}/docs/ [R=301]
 
 # Usermin
 RewriteRule ^udownload.html$ https://%{HTTP_HOST}/usermin/#downloading [R=301,NE]
@@ -88,12 +89,14 @@ RewriteRule ^urpm.html$ https://%{HTTP_HOST}/usermin/#downloading [R=301,NE]
 RewriteRule ^udeb.html$ https://%{HTTP_HOST}/usermin/#downloading [R=301,NE]
 RewriteRule ^utgz.html$ https://%{HTTP_HOST}/usermin/#freebsd-and-any-other-linux-installation-from-source [R=301,NE]
 RewriteRule ^uintro.html$ https://%{HTTP_HOST}/usermin/ [R=301]
+RewriteRule ^index6.html$ https://%{HTTP_HOST}/usermin/ [R=301]
 
 # Virtualmin
 RewriteRule ^vinstall.html$ https://%{HTTP_HOST}/virtualmin/#automated-installation [R=301,NE]
 RewriteRule ^vdownload.html$ https://%{HTTP_HOST}/virtualmin/#manual-installation [R=301,NE]
 RewriteRule ^plugins.html$ https://%{HTTP_HOST}/virtualmin/#plugins [R=301,NE]
 RewriteRule ^mobile.html$ https://%{HTTP_HOST}/virtualmin/ [R=301]
+RewriteRule ^index8.html$ https://%{HTTP_HOST}/virtualmin/ [R=301]
 
 # Cloudmin
 RewriteRule ^cinstall-xen.html$ https://%{HTTP_HOST}/cloudmin/#installation [R=301,NE]
