@@ -6,7 +6,6 @@
         menuLinkTargSel = '' + headerTargSel + ' > .nav #menu > li > a',
         themeToggleTargSel = '' + headerTargSel + ' #theme-toggle',
         postsLinksTargSel = '.main .post-content a',
-        postsLinksWithBadgeTarg = document.querySelectorAll('.main .post-content a > .badge'),
         hmenuDropDownTargSel = '.hmenu-panel > .hmenu-drop-down',
         searchLink = document.querySelector('' + menuLinkTargSel + '[href$="/search/"] > span'),
         hmenuLink = document.querySelector('' + menuLinkTargSel + '[href$="/hmenu/"]'),
@@ -56,12 +55,6 @@
                 hmenuLink.querySelector(hmenuDropDownTargSel + ' a[href="' + (location.pathname + location.hash) + '"]');
             hmenuActiveLink && hmenuActiveLink.classList.add('active');
         }
-    });
-
-    // Mark all links with the badge inside
-    postsLinksWithBadgeTarg.forEach(function(postsLinkWithBadge) {
-        postsLinkWithBadge.parentElement.classList.add('badge-link');
-        postsLinkWithBadge.parentElement.parentElement.classList.add('badge-container');
     });
 
     // Resize actions for the page
