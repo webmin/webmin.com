@@ -37,6 +37,7 @@ minify:
   minifyOutput: true
 
 enableRobotsTXT: true
+#robotsNoIndex: true
 
 params:
   env: production
