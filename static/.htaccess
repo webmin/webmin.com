@@ -73,6 +73,9 @@ RewriteRule ^partners.html$ https://%{HTTP_HOST}/supporters/ [R=301]
 # Translations
 RewriteRule ^trans.html$ https://%{HTTP_HOST}/community/#for-translators [R=301,NE]
 
+# Docs
+RewriteRule ^docs.html$ https://%{HTTP_HOST}/docs/ [R=301]
+
 # Usermin
 RewriteRule ^udownload.html$ https://%{HTTP_HOST}/usermin/#downloading [R=301,NE]
 RewriteRule ^uwebmail.html$ https://%{HTTP_HOST}/usermin/#downloading [R=301,NE]
