@@ -86,6 +86,7 @@ RewriteRule ^ubugs.html$ https://%{HTTP_HOST}/community/ [R=301]
 RewriteRule ^urpm.html$ https://%{HTTP_HOST}/usermin/#downloading [R=301,NE]
 RewriteRule ^udeb.html$ https://%{HTTP_HOST}/usermin/#downloading [R=301,NE]
 RewriteRule ^utgz.html$ https://%{HTTP_HOST}/usermin/#freebsd-and-any-other-linux-installation-from-source [R=301,NE]
+RewriteRule ^uintro.html$ https://%{HTTP_HOST}/usermin/ [R=301]
 
 # Virtualmin
 RewriteRule ^vinstall.html$ https://%{HTTP_HOST}/virtualmin/#automated-installation [R=301,NE]
