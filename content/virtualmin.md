@@ -43,21 +43,19 @@ Virtualmin [changelog](/tags/virtualmin-changelog/) can be filtered out using ta
 
 ## Automated Installation
 
-Getting started with Virtualmin can be done with a few simple steps, using our [automated install](https://software.virtualmin.com/gpl/scripts/virtualmin-install.sh) script. The install script will setup your package manager, usually `apt-get` or `yum/dnf`, and then download our packages as well as all of the necessary dependencies for running Virtualmin.
+Getting started with Virtualmin can be done with a few simple steps, using our [automated install](https://software.virtualmin.com/gpl/scripts/virtualmin-install.sh) script. The install script will setup your package manager, usually `apt-get` or `dnf` and then download our packages as well as all of the necessary dependencies for running Virtualmin.
 
-{{< alert primary exclamation "Note!" "Never run the `virtualmin-install.sh` script to upgrade or renew or to try to repair an existing Virtualmin system! " >}}
-
-Further documentation on [supported systems](https://www.virtualmin.com/documentation/os-support/) and installation requirements is available on the Virtualmin [download](https://www.virtualmin.com/download/) page.
+{{< alert success question "How to install?" "Documentation on supported systems and installation requirements is available on our official Virtualmin **[download](https://www.virtualmin.com/download/)** page." >}}
 
 ## Manual Installation
 
-The _strongly recommended_ way of installing Virtualmin on a supported operating system is to use the Virtualmin automated install script as described above, which takes care of all dependencies and configuration. However, this should only be run on a freshly installed system, as it may interfere with websites already hosted on the server.
-
-{{< alert warning exclamation "Warning!" "After manual installation, new versions of Virtualmin and related packages should be installed manually. Also, it is possible to configure Virtualmin repositories using automated installation script run with `--setup` param. " >}}
+{{< alert danger exclamation "Danger!" "The **strongly recommended** way of installing Virtualmin on a supported operating system is to use the Virtualmin automated install script as [described above](#automated-installation), which takes care of all dependencies and configuration." >}}
 
 ### Packages
 
-These GPL packages should _not_ be installed directly unless you _really_ know what you're doing. Use Virtualmin automated install script instead.
+These GPL packages should _not_ be installed directly unless you _really_ know what you're doing. Use Virtualmin automated install script as [described above](#automated-installation) instead.
+
+{{< alert warning exclamation "Warning!" "After manual installation, new versions of Virtualmin and related packages should be installed manually. Also, it is possible to configure Virtualmin repositories using automated installation script run with `--setup` param. " >}}
 
 | File                       | Size |
 | -------------------------- | -----|
