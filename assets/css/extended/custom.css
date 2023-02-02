@@ -232,6 +232,14 @@ body.dark .logo>a>svg path {
     filter: brightness(1.2) contrast(1.2) saturate(1.2);
     font-weight: 600;
 }
+.alert > i {
+    font-size: 86%;
+    vertical-align: 10%;
+}
+.alert + details.post-content-details,
+.alert + details.post-content-indent-details {
+    margin-top: -14px;
+}
 
 /* Tricky and lazy-dazy way but seems to work perfectly fine */
 .dark .alert {
@@ -1288,6 +1296,14 @@ details[class^="post-"][class$="-details"] > summary {
 
 details.post-content-details > summary > .details {
     margin-left: 4px;
+}
+details .details > i.wm-download {
+    font-size: 91%;
+    vertical-align: 10%;
+}
+details.post-content-details + .alert,
+details.post-content-indent-details + .alert {
+    margin-top: 4px;
 }
 
 /* 
