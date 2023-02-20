@@ -1,0 +1,91 @@
+<!-- Include search -->
+{{- /* Search */}}
+<link crossorigin="anonymous" rel="preload" as="fetch" href="/index.json">
+{{- $docsFastsearch := resources.Get "js/extended/docs-fastsearch.js" | js.Build (dict "params" (dict "fuseOpts" site.Params.fuseOpts)) | resources.Minify }}
+{{- $fusejs := resources.Get "js/fuse.basic.min.js" }}
+{{- $license_js := resources.Get "js/license.js" }}
+{{- if not site.Params.assets.disableFingerprinting }}
+{{- $search := (slice $fusejs $license_js $docsFastsearch ) | resources.Concat "assets/js/docs-search.js" | fingerprint }}
+<script defer crossorigin="anonymous" src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
+{{- else }}
+{{- $search := (slice $fusejs $docsFastsearch ) | resources.Concat "assets/js/docs-search.js" }}
+<script defer crossorigin="anonymous" src="{{ $search.RelPermalink }}"></script>
+{{- end }}
+
+<!-- Get all pages under content/doc/ -->
+{{ with .Site.GetPage "docs" }}
+  {{ template "docs-files" (dict "Section" . "CurrentPage" $) }}
+{{ end }}
+
+<!-- Print docs structure -->
+{{ define "docs-files" }}
+{{ $categorized := slice }}
+{{ $sectionOpened := 0 }}
+{{ $sectionCurrent := "" }}
+{{ $sectionLast := "" }}
+<aside class="docs-menu">
+  <div class="docs-menu-content">
+    <div id="searchbox">
+        <input id="searchInput" autofocus="" placeholder="Search ↵" aria-label="search" type="search" autocomplete="off">
+        <ul id="searchResults" aria-label="search results"></ul>
+    </div>
+    {{ $pages := .Section.Pages }}
+    {{ $pagesLen := (len $pages) }}
+    {{ range $pageIndex, $page := $pages.ByWeight }}
+      {{ $indent := sub (.Page.RelPermalink | strings.Count "/") 4 }}
+      {{ $current := eq $.CurrentPage .Page }}
+      {{ $section := replaceRE ".*/(.*)/.*" "$1" .Page.File.Path }}
+      {{ $sectionDetails := "" }}
+      {{ if ne (substr $section 0 (len "docs/")) "docs/" }}
+        {{ $sectionDetails = "1" }}
+      {{ end }}
+      {{ if $sectionDetails }}
+        {{ $sectionCurrent = $section }}
+      {{ else }}
+        {{ $sectionCurrent = "" }}
+      {{ end }}
+      {{ if ne $sectionLast $sectionCurrent }}
+          {{ if and $sectionLast $sectionCurrent $sectionOpened }}
+              {{ $sectionOpened = 0 }}
+              </details>
+          {{ end }}
+        {{ end }}
+        {{ if not (in $categorized $section)  }}
+          {{ if $sectionDetails }}
+            {{ $categorized = $categorized | append $section }}
+            {{ $sectionLast = $section }}
+            {{ $sectionOpened = 1 }}
+            <details class="docs-menu-indent-{{ $indent }}">
+            <summary><span>{{ $section }}</span></summary>
+          
+          {{ end }}
+        {{ end }}
+          {{ if not $sectionDetails }}
+            {{ if and $sectionLast $sectionOpened }}
+              {{ $sectionOpened = 0 }}
+              </details>
+            {{ end }}
+          {{ end }}
+              <div>
+                <a href="{{ .RelPermalink }}"{{ if $current }} class="active"{{ end }}>
+                  {{ .LinkTitle }}
+                </a>
+              </div>
+        {{ if eq (add $pageIndex 1) $pagesLen $sectionOpened }}
+          {{ if and $sectionLast $sectionDetails $sectionOpened }}
+            {{ $sectionOpened = 0 }}
+            </details>
+          {{ end }}
+        {{ end }}
+
+    {{ end }}
+  <script type="text/javascript">
+    (function() {
+      const closestDetails = document.querySelector('.docs-menu details .active');
+      closestDetails && closestDetails.closest('details').setAttribute('open', 'open');
+    })();
+  </script>
+  </div>
+</aside>
+{{ end }}
+
