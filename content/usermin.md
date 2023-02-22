@@ -16,9 +16,9 @@ Usermin also provides web interfaces for viewing and managing data in MySQL and 
 
 The easiest way to configure Usermin is via the **Webmin ⇾ Usermin Configuration** module in Webmin.
 
-## Downloading
+## Repository
 
-### Repository Setup
+### Setup
 The simplest and best way to get **Usermin** is to use automatic [**`setup-repos.sh`**](https://github.com/webmin/webmin/blob/master/setup-repos.sh) script to configure official repositories on your **RHEL** or **Debian** derivative systems. It can be done in two easy steps:
 
 ```
@@ -28,26 +28,8 @@ sh setup-repos.sh
 
 This script will automatically setup our repository and install our GPG keys on your system, and provide **`usermin`** package for installation and easy upgrades in the future. The supported and tested systems are **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora** or **Debian**, **Ubuntu**, **Kali**.
 
-### Direct Downloads
-The latest Usermin distribution is available in various package formats for download:
-
-
-  [**`rpm`**](https://www.webmin.com/download/rpm/usermin-current.rpm) — **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora**, **openSUSE**
-
-  [**`deb`**](https://www.webmin.com/download/deb/usermin-current.deb) — **Debian derivatives (Ubuntu, Kali, Parrot, Pop!, Lite, Devuan)**
-  
-  [**`tar`**](https://www.webmin.com/download/usermin-current.tar.gz) — **FreeBSD** or any other Linux distribution
-
-
-#### Checksum Verification
-To verify that you have downloaded Usermin fully and correctly, you can use the command **`sha256sum`** on the downloaded file, and compare it against those listed below:
-
-{{% include file="/data/usermin/checksum-verification.md" %}}
-
-## Installing
-
-### Using Package Manager
-If Usermin repository was setup using our [**`setup-repos.sh`**](https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh) as [described earlier](#repository-setup) then Usermin can be install as easy as:
+### Install
+If Usermin repository was setup using our **`setup-repos.sh`** as [described earlier](#setup) then Usermin can be installed as easy as:
 
    #### RHEL and derivatives
     dnf install usermin
@@ -55,8 +37,22 @@ If Usermin repository was setup using our [**`setup-repos.sh`**](https://raw.git
    #### Debian and derivatives
     apt-get install usermin
 
-### Using Downloaded Package
-If Usermin package was downloaded manually it can be easily installed:
+## Manual
+The latest Usermin distribution is available in various package formats for download:
+
+  [**`rpm`**](https://www.webmin.com/download/rpm/usermin-current.rpm) — **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora**, **openSUSE**
+
+  [**`deb`**](https://www.webmin.com/download/deb/usermin-current.deb) — **Debian derivatives (Ubuntu, Kali, Parrot, Pop!, Lite, Devuan)**
+  
+  [**`tar`**](https://www.webmin.com/download/usermin-current.tar.gz) — **FreeBSD** or any other Linux distribution
+
+### Checksum Verification
+To verify that you have downloaded Usermin fully and correctly, you can use the command **`sha256sum`** on the downloaded file, and compare it against those listed below:
+
+{{% include file="/data/usermin/checksum-verification.md" %}}
+
+### Configure
+If Usermin package was downloaded manually it can be installed:
    #### RHEL and derivatives
     dnf install ./usermin-current.rpm
 
