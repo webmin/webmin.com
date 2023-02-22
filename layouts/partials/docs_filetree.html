@@ -87,5 +87,7 @@
   </script>
   </div>
 </aside>
+{{- $docsFiletree := resources.Get "js/extended/docs-filetree.js" | resources.Minify }}
+<script defer crossorigin="anonymous" src="{{ $docsFiletree.RelPermalink }}?{{ now.Unix }}"></script>
 {{ end }}
 
