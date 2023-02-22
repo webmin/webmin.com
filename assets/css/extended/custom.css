@@ -1580,6 +1580,13 @@ html[class*="page-changelog"] .dark figure > img[src*="/light/"] {
         right: 1.166rem;
         bottom: 6.366rem;
     }
+    #menu a {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #menu > li:nth-last-child(1) > a {
+        margin-left: -0.611rem;
+    }
 }
 
 .docs-toc .docs-toc-content ul {
