@@ -1617,6 +1617,11 @@ html[class*="page-changelog"] .dark figure > img[src*="/light/"] {
     color: var(--link);
     letter-spacing: -0.012rem;
 }
+@-moz-document url-prefix() {
+    .docs-toc a.active {
+        letter-spacing: -0.033rem;
+    }
+}
 
 .docs-menu .docs-menu-content details > div,
 .docs-menu .docs-menu-content details,
