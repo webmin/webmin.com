@@ -89,4 +89,6 @@
             {{- end }}
         </div>
 </aside>
-{{- end }}
+{{- $chocolatloader := resources.Get "js/extended/doc-toc.js" | resources.Minify }}
+<script defer crossorigin="anonymous" src="{{ $chocolatloader.RelPermalink }}?{{ now.Unix }}"></script>
+{{ end }}
