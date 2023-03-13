@@ -1242,6 +1242,14 @@ fieldset:disabled a.btn {
     filter: invert(1) contrast(0.7)
 }
 
+.top-link {
+    bottom: 4.666rem;
+}
+
+.top-link[style*="opacity: 1"]:not(:hover) {
+    opacity: 0.5 !important;
+}
+
 .dark .badge {
     filter: brightness(0.7) contrast(1.72) saturate(0.81);
 }
@@ -1599,6 +1607,14 @@ html[class*="page-changelog"] .dark figure > img[src*="/light/"] {
     padding-top: 1em;
 }
 
+.docs-toc .docs-toc-content ul li > ul {
+    margin-left: 0.666em;
+    font-size: 94%;
+}
+
+.docs-toc .docs-toc-content ul li > ul > li {
+    padding-top: 0.333em
+}
 .docs-menu a,
 .docs-menu details {
     cursor: pointer;
