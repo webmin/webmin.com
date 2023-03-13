@@ -79,7 +79,7 @@
         }
     }
 
-    // Outer links to new thw tab
+    // Outer links go to the new tab
     outerlinksAll.forEach(function(outerlinks) {
         if (outerlinks) {
             outerlinks.forEach(function(outerlink) {
@@ -102,6 +102,14 @@
             document.querySelector('' + menuLinkTargSel + '[href$="changelog/"] > span');
         if (archivesMenuLink) {
             archivesMenuLink.classList.add('active');
+        }
+    }
+
+    if (isLocation('docs')) {
+        const docsMenuLink =
+            document.querySelector('' + menuLinkTargSel + '[href$="docs/"] > span');
+        if (docsMenuLink) {
+            docsMenuLink.classList.add('active');
         }
     }
 
