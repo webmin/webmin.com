@@ -1,35 +1,29 @@
 ---
 title: "Documentation"
 date: 2023-02-20
-weight: 12
+weight: 0
 ---
 
-Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+### Intro
 
-{{< alert warning exclamation "Under Construction" "This is a test page with dummy text." >}}
+This wiki is intended to be a complete set of documentation for Webmin and all of its modules. We've seeded it with imported content from **Jamie Cameron**'s book _Managing Linux Systems with Webmin: System Administration & Module Development_ and **Joe Cooper**'s book _The Book of Webmin or: How I Learned to Stop Worrying & Love UNIX_, and various FAQs and articles previously written by Jamie and Joe.
+
+All told, it's about 1,000 printed pages worth of documentation. But, it's not finished. In fact, it's just begun! Now, it's your turn. Get Involved!
+
+### Get Involved
+
+The documentation here is copious, but still incomplete. Webmin is a huge project with over a hundred standard modules and a couple hundred third party modules. Jamie's book covered most of the standard modules that existed in 2003 in reference form, and Joe covered a popular subset with more of a focus on teaching concepts. In both cases, the documentation has become somewhat dated and Webmin has advanced far beyond where it was back then. Modules are easier to write, themes easier to build, and capabilities in some of the core modules have become quite advanced. Cluster features have become central to the Webmin way, and lots of new modules have been introduced or modified to support multiple servers.
+
+Many folks in the Webmin community have discussed the documentation problem, and the obvious solution is a wiki!
+
+Now we need your help.
 
 
+#### Don't be shy
+If you find a mistake or omission, don't hesitate but hit the *Suggest Changes* button at the top of the page, start editing and submit a PR to us later. 
 
-### Consectetur adipiscing
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod condimentum feugiat. Nulla facilisi. Morbi ut bibendum nisl, vel ullamcorper quam. Duis tempus et nisl non mattis. Curabitur nec dapibus tortor. Nullam hendrerit posuere quam, et tempor massa tincidunt ac. Integer rutrum porta eleifend. Phasellus lobortis non arcu vel tempor. Nunc suscipit ex ut posuere tincidunt. Aenean enim massa, fermentum ut auctor eget, tincidunt eu risus. Vivamus at nisi ut massa egestas auctor. Sed auctor, tortor vel ornare mattis, lacus ex consectetur felis, et ullamcorper libero neque a libero. Nulla mollis enim lectus, vel tincidunt mauris maximus non.
+#### Edit
+When you find that something isn't right or isn't covered that you think is interesting, suggest changes to the page and talk about it, even if you aren't an "expert" on the subject. All of us can probably pool our knowledge and make something useful out of it.
 
-### Sollicitudin dolor
-Vestibulum sit amet condimentum dui. Etiam scelerisque mattis nisi eu commodo. Vivamus volutpat tristique ligula, eget sollicitudin dolor tincidunt sit amet. Cras fringilla eros eget odio vehicula, sit amet suscipit elit facilisis. Aliquam in euismod massa. Phasellus vel bibendum tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at ante dui. Maecenas non lacus at dui rhoncus viverra non id nibh. Curabitur pulvinar dapibus sem, nec rhoncus odio luctus nec.
-
-### Risus elementum
-Aenean pharetra neque sed nunc placerat eleifend. Proin a pellentesque nibh. Nulla tempor, libero nec consectetur interdum, ex risus elementum purus, at rhoncus dui mi eget ante. Vivamus eget placerat urna. Fusce non tortor ut ante dignissim euismod. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas interdum mi luctus urna consequat, at sollicitudin ligula luctus. In placerat imperdiet mi ac eleifend.
-
-### Lorem Ipsum passage
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-### Ipsam voluptatem
-"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-
-### Finibus Bonorum
-At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
-
-### Adipisci velit
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-### Inventore veritatis
-"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
+#### Add
+We don't cover much third party modules, and some of them really rock.  If you've written a third party module, and want to talk about it, create a page for it, and add it to the _third-party_ directory in our [GitHub](https://github.com/webmin/webmin.com/tree/main/content/docs) repo. Even if you didn't write the module, if you use it and understand it, tell us about it!
