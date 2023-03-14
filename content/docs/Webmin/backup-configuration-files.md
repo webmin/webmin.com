@@ -33,7 +33,7 @@ Backups can also be made to a remote SSH or FTP server, provided you have a logi
 The "Module Config" page of this module provides options to use variables in the backup path and filename you configured. With the option for timestamp variables enabled, for example, 
 <pre>/backup-path/MyServer-Webmin-%y%m%d.tar.gz</pre> will add the date of the backup to the filename.
 
-#### Creating a scheduled backup
+#### Scheduled backups
 Once you have performed a manual backup, you can schedule it to run on a regular basis as follows :
 - Click on the **Scheduled backups** tab.
 - Click the **Add a new scheduled backup** link, which will open the form shown below.
