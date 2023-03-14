@@ -17,7 +17,7 @@ It is designed for saving the configuration of a single system, but not for migr
 ### How
 When this module (under the Webmin category) is opened, it will display a set of tabs with the form for making a backup selected by default, as in the image below. 
 
-[![](/images/docs/webmin/backup_configuration_files.png "Configuration Files screenshot")](/images/docs/webmin/backup_configuration_files.png)
+[![](/images/docs/screenshots/light/webmin/backup_configuration_files.png "Configuration Files Screenshot")](/images/docs/screenshots/light/webmin/backup_configuration_files.png)
 
 To perform an immediate config backup, follow these steps :
 
@@ -43,7 +43,7 @@ Once you have performed a manual backup, you can schedule it to run on a regular
 - In the **Scheduled backup enabled?** field select **Yes**, and choose the times and days for the backup to run from the Cron time selector below it.
 - Click the **Create** button.
 
-[![](/images/docs/webmin/backup_configuration_files_-_scheduled.png "Configuration Files and Scheduled backups screenshot")](/images/docs/webmin/backup_configuration_files_-_scheduled.png)
+[![](/images/docs/screenshots/light/webmin/backup_configuration_files_-_scheduled.png "Configuration Files and Scheduled backups Screenshot")](/images/docs/screenshots/light/webmin/backup_configuration_files_-_scheduled.png)
 
 Once a scheduled backup has been created, you can edit or remove it by clicking on the destination path in the table under the **Scheduled backups** tab.
 
