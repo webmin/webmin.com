@@ -1624,6 +1624,10 @@ html[class*="page-changelog"] .dark figure > img[src*="/light/"] {
     padding-left: 0.211rem;
 }
 
+.docs-menu-content a {
+    font-size: 94%;
+}
+
 .docs-toc a.active,
 .docs-menu-content a.active {
     font-weight: 700;
