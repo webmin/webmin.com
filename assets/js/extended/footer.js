@@ -144,8 +144,9 @@
     // Tweak screenshots to blend with palette
     const isDarkMode = function() { return localStorage.getItem("pref-theme") === 'dark' || document.body.classList.contains('dark') },
         screenshotType = function() { return isDarkMode() ? 'dark' : 'light' },
+        screenshotTypeRev = function() { return !isDarkMode() ? 'dark' : 'light' },
         updateScreenshots = function() {
-            const screenshots = document.querySelectorAll('figure > img');
+            const screenshots = document.querySelectorAll('figure > img, a > img[src*="/docs/screenshots"]');
             let screenshotsFound = false;
             if (screenshots.length) {
                 screenshots.forEach(function(screenshot) {
@@ -154,11 +155,12 @@
                         screenshot.classList.add('loading');
                         screenshot.setAttribute('onload', 'javascript: this.classList.add("loaded")');
                         screenshotsFound = true;
-                        const themeMode = screenshotType();
-                        if (screenshotType() === 'dark') {
-                            screenshot.src = screenshot.src.replace('/light/', '/' + themeMode + '/');
-                        } else {
-                            screenshot.src = screenshot.src.replace('/dark/', '/' + themeMode + '/');
+                        const themeMode = screenshotType(),
+                            themeModeRev = screenshotTypeRev();
+                        screenshot.src = screenshot.src.replace('/' + themeModeRev + '/', '/' + themeMode + '/');
+                        if (screenshot.parentElement.nodeName === 'A') {
+                            screenshot.parentElement.href =
+                                screenshot.parentElement.href.replace('/' + themeModeRev + '/', '/' + themeMode + '/');
                         }
                     }
                 });
@@ -169,7 +171,9 @@
     // We need to check it in another stack, because Safari
     // is just not reliable for anything complex
     setTimeout(function() {
-        if (document.querySelector('html[class*="page-index"]') || document.querySelector('html[class*="page-changelog"]')) {
+        if (document.querySelector('html[class*="page-index"]') ||
+            document.querySelector('html[class*="page-changelog"]') ||
+            document.querySelector('html[class*="page-docs"]')) {
             // On changing mode change screenshots palette
             if (updateScreenshots()) {
                 const themeToggle = document.querySelector('#theme-toggle');

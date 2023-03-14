@@ -1456,18 +1456,21 @@ body > footer.footer a {
  * themes, and also make previews work
  */
 html[class*="page-index"] figure > img.loading:not(.loaded),
-html[class*="page-changelog"] figure > img.loading:not(.loaded) {
+html[class*="page-changelog"] figure > img.loading:not(.loaded),
+html[class*="page-docs"] a > img.loading:not(.loaded) {
     visibility: hidden;
 }
 
 html[class*="page-index"] .dark figure > img,
-html[class*="page-changelog"] .dark  figure > img {
+html[class*="page-changelog"] .dark  figure > img,
+html[class*="page-docs"] .dark  a > img[src*="/docs/screenshots/light/"] {
     animation: 0.133s fadeIn;
     animation-fill-mode: forwards; 
     opacity: 0;
 }
 html[class*="page-index"] .dark figure > img[src*="/light/"],
-html[class*="page-changelog"] .dark figure > img[src*="/light/"] {
+html[class*="page-changelog"] .dark figure > img[src*="/light/"],
+html[class*="page-docs"] .dark a > img[src*="/docs/screenshots/light/"] {
     visibility: hidden;
 }
 
