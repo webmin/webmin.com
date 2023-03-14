@@ -25,8 +25,9 @@ tags: ["changelog", "webmin-changelog"]
 
 | File                       | Size | 
 | -------------------------- | -----| 
-|[webmin-2.020-1.noarch.rpm](https://github.com/webmin/webmin/releases/download/2.020/webmin-2.020-1.noarch.rpm) | 39.6 MB |
-|[webmin_2.020_all.deb](https://github.com/webmin/webmin/releases/download/2.020/webmin_2.020_all.deb)           | 32.5 MB |
-|[webmin-2.020.tar.gz](https://github.com/webmin/webmin/releases/download/2.020/webmin-2.020.tar.gz)             | 44.8 MB |
-|[webmin-2.020.pkg.gz](https://github.com/webmin/webmin/releases/download/2.020/webmin-2.020.pkg.gz)             | 44.2 MB |
+|[webmin-2.020-1.noarch.rpm](https://github.com/webmin/webmin/releases/download/2.020/webmin-2.020-1.noarch.rpm)     | 39.6 MB |
+|[webmin_2.020_all.deb](https://github.com/webmin/webmin/releases/download/2.020/webmin_2.020_all.deb)               | 32.5 MB |
+|[webmin-2.020.pkg.gz](https://github.com/webmin/webmin/releases/download/2.020/webmin-2.020.pkg.gz)                 | 44.2 MB |
+|[webmin-2.020.tar.gz](https://github.com/webmin/webmin/releases/download/2.020/webmin-2.020.tar.gz)                 | 44.8 MB |
+|[webmin-2.020-minimal.tar.gz](https://github.com/webmin/webmin/releases/download/2.020/webmin-2.020-minimal.tar.gz) | 4.1 MB |
 
