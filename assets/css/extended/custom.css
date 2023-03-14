@@ -1503,6 +1503,14 @@ html[class*="page-docs"] .dark a > img[src*="/docs/screenshots/light/"] {
     max-width: calc(var(--main-width) + var(--gap) * 2);
 }
 
+[class^="page-docs"] p:has(a[href*="/docs/screenshots/"]) {
+    padding: 0 0.211em 0 0.211em;
+}
+
+[class^="page-docs"] .alert {
+    font-size: 92%;
+}
+
 .docs-toc,
 .docs-menu {
     font-size: .975rem;
