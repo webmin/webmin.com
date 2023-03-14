@@ -1,7 +1,7 @@
 ---
 title: "Webmin Actions Log"
 date: 2023-03-14
-weight: 15
+weight: 125
 ---
 
 {{< alert secondary question "What this page about?" "This page explains how and what **Webmin logs**, and how those logs can be searched and viewed." >}}

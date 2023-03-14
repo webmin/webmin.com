@@ -1,7 +1,7 @@
 ---
 title: "Change Language and Theme"
 date: 2023-03-14
-weight: 11
+weight: 105
 ---
 
 {{< alert primary exclamation "Note" "All changes made in this module are user based and not affected by settings from the global configuration defined in the ****Webmin Configuration**** module." >}}
