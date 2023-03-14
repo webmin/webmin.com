@@ -71,7 +71,7 @@
                   {{ .LinkTitle }}
                 </a>
               </div>
-        {{ if eq (add $pageIndex 1) $pagesLen $sectionOpened }}
+        {{ if eq $pagesLen $sectionOpened }}
           {{ if and $sectionLast $sectionDetails $sectionOpened }}
             {{ $sectionOpened = 0 }}
             </details>
