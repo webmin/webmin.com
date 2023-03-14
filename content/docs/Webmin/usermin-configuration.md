@@ -9,5 +9,5 @@ Usermin provides web-access to user-based data and configuration the same way We
 ### About
 Usermin Configuration is very much alike as [Webmin Configuration](/docs/webmin/webmin-configuration) page.
 
-[![](/images/docs/screenshots/light/webmin/usermin-configuration.png "Change Language and Theme Screenshot")](/images/docs/screenshots/light/webmin/usermin-configuration.png)
+[![](/images/docs/screenshots/light/webmin/usermin-configuration.png "Usermin Configuration Screenshot")](/images/docs/screenshots/light/webmin/usermin-configuration.png)
 

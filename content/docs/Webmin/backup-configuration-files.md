@@ -8,7 +8,7 @@ weight: 10
 This page explains what the Backup Configuration Files module does, and how to use it.
 
 ### About
-Most Webmin modules work by editing configuration files on your system, like **`/etc/exports`** for NFS shares, **`/etc/passwd`** for users and **`/etc/fstab`** for filesystems.
+Most Webmin modules work by editing configuration files on your system, like `/etc/exports` for NFS shares, `/etc/passwd` for users and `/etc/fstab` for filesystems.
 Each module knows which configuration files it manages, and what commands need to be run to activate them. Not all modules actually deal with config files though - for example, the Database Server modules work by executing SQL commands. As such, it cannot participate in the configuration backup process.
 
 The Backup Configuration Files module can collect information about config files from other modules, and create and restore backups containing some or all of those files.
@@ -23,7 +23,7 @@ To perform an immediate config backup, follow these steps :
 
 - Click on the **Backup now** tab.
 - In the **Modules to backup** list, select the modules you want to backup config files for, such as ''Users and Groups''. Multiple modules can be selected by ctrl-clicking.
-- In the **Backup destination** field, select **Local file** and enter a path to write the backup to. This should be given a **`tar.gz`** extension, as that is the file format used.
+- In the **Backup destination** field, select **Local file** and enter a path to write the backup to. This should be given a `tar.gz` extension, as that is the file format used.
 - Click the **Backup Now** button.
 
 Assuming the path you entered is valid, a page should appear showing the list of modules whose configs were backed up, and the size of the resulting file.
