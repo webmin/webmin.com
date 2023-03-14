@@ -2,6 +2,7 @@
 (function() {
     const
         siteName = '{{ site.BaseURL }}',
+        postTargSel = 'body > .main > .post-single',
         headerTargSel = 'body > .header',
         menuLinkTargSel = '' + headerTargSel + ' > .nav #menu > li > a',
         themeToggleTargSel = '' + headerTargSel + ' #theme-toggle',
@@ -13,6 +14,9 @@
         outerlinksAll = [
             document.querySelectorAll('' + menuLinkTargSel + '[href$="Webmin/Main_Page"]'),
             document.querySelectorAll(postsLinksTargSel),
+        ],
+        screenShotLinks = [
+            document.querySelectorAll('' + postTargSel + ' [href*="/images/docs/"]'),
         ];
 
     // Search link as icon
@@ -86,6 +90,17 @@
                 if (outerlink.href &&
                     !outerlink.href.startsWith('mailto:') &&
                     !outerlink.href.startsWith(siteName)) {
+                    outerlink.setAttribute('target', '_blank');
+                }
+            });
+        }
+    });
+
+    // Outer links go to the new tab
+    screenShotLinks.forEach(function(outerlinks) {
+        if (outerlinks) {
+            outerlinks.forEach(function(outerlink) {
+                if (outerlink.href) {
                     outerlink.setAttribute('target', '_blank');
                 }
             });
