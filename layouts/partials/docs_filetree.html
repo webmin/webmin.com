@@ -67,8 +67,12 @@
             {{ end }}
           {{ end }}
               <div>
+                {{ $linkTitle := .LinkTitle }}
+                {{ if .Param "menuTitle" }}
+                {{ $linkTitle = .Params.menuTitle }}
+                {{ end }}
                 <a href="{{ .RelPermalink }}"{{ if $current }} class="active"{{ end }}>
-                  {{ .LinkTitle }}
+                  {{ $linkTitle }}
                 </a>
               </div>
         {{ if eq $pagesLen $sectionOpened }}
