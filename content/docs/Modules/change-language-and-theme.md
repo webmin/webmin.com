@@ -7,9 +7,9 @@ weight: 105
 {{< alert primary exclamation "Note" "All changes made in this module are user based and not affected by settings from the global configuration defined in the ****Webmin Configuration**** module." >}}
 
 ### Language
-As explained on [Webmin Configuration](/docs/webmin/webmin-configuration), Webmin supports multiple languages for its web interface.
+As explained on [Webmin Configuration](/docs/modules/webmin-configuration), Webmin supports multiple languages for its web interface.
 
-[![](/images/docs/screenshots/light/webmin/change-language-and-theme.png "Change Language and Theme Screenshot")](/images/docs/screenshots/light/webmin/change-language-and-theme.png)
+[![](/images/docs/screenshots/modules/light/change-language-and-theme.png "Change Language and Theme Screenshot")](/images/docs/screenshots/modules/light/change-language-and-theme.png)
 
 You can select a different language to be displayed for the currently logged in user as follows:
 - Open the ****Change Language and Theme**** module under the ****Webmin**** category.

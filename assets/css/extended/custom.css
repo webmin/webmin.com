@@ -1644,11 +1644,15 @@ html[class*="page-docs"] .dark a > img[src*="/docs/screenshots/light/"] {
     font-weight: 700;
 }
 
+.docs-menu-content a.active,
 .docs-toc a.active {
-    color: var(--link);
     letter-spacing: -0.012rem;
 }
+.docs-toc a.active {
+    color: var(--link);
+}
 @-moz-document url-prefix() {
+    .docs-menu-content a.active,
     .docs-toc a.active {
         letter-spacing: -0.033rem;
     }

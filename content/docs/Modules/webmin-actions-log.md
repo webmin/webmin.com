@@ -11,7 +11,7 @@ When logging is enabled, Webmin will record every action taken using it that has
 
 Most actions performed in Webmin change configuration files, run commands or execute SQL statements. When the recording of these file changes is enabled the details of each will be included in the actions log so that you can see exactly what Webmin did when you told it to create a Unix user or delete a DNS zone. This can be helpful for understanding what is really going on behind the scenes if you are new to system administration or want to see how actions are implemented. Not all modules perform action logging though, particularly those that are old or have been written by third-party developers. 
 
-As the Logging section of [Webmin Configuration](/docs/webmin/webmin-configuration) explains, logging can be turned on in the Webmin Configuration module. Basic action logging is enabled by default, but the recording of file changes is not. To gain the most benefit from the Webmin Actions Log modules, file changes should be logged as well. This will slow down the program slightly though, and consume more disk space for recording the changes. 
+As the Logging section of [Webmin Configuration](/docs/modules/webmin-configuration) explains, logging can be turned on in the Webmin Configuration module. Basic action logging is enabled by default, but the recording of file changes is not. To gain the most benefit from the Webmin Actions Log modules, file changes should be logged as well. This will slow down the program slightly though, and consume more disk space for recording the changes. 
 
 Some types of action will never have any associated file changes logged, even if this feature is enabled. Such actions might perform all their work with network connections, or modify a file so large that generating the differences between the old and new contents is impractical. Or file change logging may not have been implemented in the module at all. 
 
@@ -24,7 +24,7 @@ This simple module exists solely for viewing action logs created by Webmin. It c
 
 The module can be found under the Webmin category on the main menu, and clicking on its icon will bring up the search page shown in the image below. Before you can view the details of a particular action, it must be found using the search form.
 
-[![](/images/docs/screenshots/light/webmin/webmin-actions-log.png "Webmin Actions Log Screenshot")](/images/docs/screenshots/light/webmin/webmin-actions-log.png)
+[![](/images/docs/screenshots/modules/light/webmin-actions-log.png "Webmin Actions Log Screenshot")](/images/docs/screenshots/modules/light/webmin-actions-log.png)
 
 ### Usage
 The form on the module's main page lets you find actions using three different search criteria. Only actions that match all three will be displayed, rather than those that match any one of the criteria. You can find actions by the Webmin user that performed them, the module they were carried out in and the date and time that they occurred. 
