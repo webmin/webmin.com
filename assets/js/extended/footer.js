@@ -2,6 +2,7 @@
 (function() {
     const
         siteName = '{{ site.BaseURL }}',
+        pageHTMLSel = 'html',
         postTargSel = 'body > .main > .post-single',
         headerTargSel = 'body > .header',
         menuLinkTargSel = '' + headerTargSel + ' > .nav #menu > li > a',
@@ -34,6 +35,11 @@
                 hmenuDropDownTarg.style.right = hmenuRightOffsetPixel + "px";
                 hmenuDropDownTarg.style.top = "calc(" + (hmenuTopOffset + hmenuLinkText.offsetHeight) + "px - 4px)";
             }
+        },
+        menuHeightType = function() {
+            const pageHTML = document.querySelector(pageHTMLSel),
+                navMenu = document.querySelector(headerTargSel + ' > .nav');
+                pageHTML.dataset.nav = navMenu.offsetHeight > 10e1 ? 'lg' : 'sm';
         };
     hmenuLinkText.classList.add('wm', 'wm-md', 'wm-menu');
     hmenuLinkText.innerHTML = String();
@@ -64,7 +70,11 @@
     // Resize actions for the page
     window.onresize = function() {
         hmenuResize();
+        menuHeightType();
     }
+
+    // On load test menu height
+    setTimeout(menuHeightType, 10e1);
 
     // Click event
     window.onclick = function(evt) {
