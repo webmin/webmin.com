@@ -1463,14 +1463,14 @@ html[class*="page-docs"] a > img.loading:not(.loaded) {
 
 html[class*="page-index"] .dark figure > img,
 html[class*="page-changelog"] .dark  figure > img,
-html[class*="page-docs"] .dark  a > img[src*="/docs/screenshots/light/"] {
+html[class*="page-docs"] .dark  a > img[src*="/docs/screenshots/"][src*="/light/"] {
     animation: 0.133s fadeIn;
     animation-fill-mode: forwards; 
     opacity: 0;
 }
 html[class*="page-index"] .dark figure > img[src*="/light/"],
 html[class*="page-changelog"] .dark figure > img[src*="/light/"],
-html[class*="page-docs"] .dark a > img[src*="/docs/screenshots/light/"] {
+html[class*="page-docs"] .dark a > img[src*="/docs/screenshots/"][src*="/light/"] {
     visibility: hidden;
 }
 
