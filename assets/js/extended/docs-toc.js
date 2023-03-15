@@ -19,13 +19,75 @@
                 })[0]]
             }
             return null
-        }).filter(function(e) { return e !== null }));
+        }).filter(function(e) { return e !== null })),
+        isVisible = function(elem) {
+            if (!(elem instanceof Element)) throw Error('DomUtil: elem is not an element.');
+            const style = getComputedStyle(elem);
+            if (style.display === 'none') return false;
+            if (style.visibility !== 'visible') return false;
+            if (style.opacity === 0) return false;
+            if (elem.offsetWidth + elem.offsetHeight + elem.getBoundingClientRect().height +
+                elem.getBoundingClientRect().width === 0) {
+                return false;
+            }
+            var elementPoints = {
+                'center': {
+                    x: elem.getBoundingClientRect().left + elem.offsetWidth / 2,
+                    y: elem.getBoundingClientRect().top + elem.offsetHeight / 2
+                },
+                'top-left': {
+                    x: elem.getBoundingClientRect().left,
+                    y: elem.getBoundingClientRect().top
+                },
+                'top-right': {
+                    x: elem.getBoundingClientRect().right,
+                    y: elem.getBoundingClientRect().top
+                },
+                'bottom-left': {
+                    x: elem.getBoundingClientRect().left,
+                    y: elem.getBoundingClientRect().bottom
+                },
+                'bottom-right': {
+                    x: elem.getBoundingClientRect().right,
+                    y: elem.getBoundingClientRect().bottom
+                }
+            }
+
+            for (index in elementPoints) {
+                var point = elementPoints[index];
+                if (point.x < 0) return false;
+                if (point.x > (document.documentElement.clientWidth || window.innerWidth)) return false;
+                if (point.y < 0) return false;
+                if (point.y > (document.documentElement.clientHeight || window.innerHeight)) return false;
+                let pointContainer = document.elementFromPoint(point.x, point.y);
+                if (pointContainer !== null) {
+                    do {
+                        if (pointContainer === elem) return true;
+                    } while (pointContainer = pointContainer.parentNode);
+                }
+            }
+            return false;
+        };
     if (scrollTarget && labelTarget) {
         document.addEventListener("scroll", function(e) {
+            var $this = this;
+            if ($this.scrollTimer != -1) {
+                clearTimeout($this.scrollTimer);
+            }
+
             // Stop if hidden
             if (!document.querySelector(labelTargetSelStr).offsetParent) {
                 return;
             }
+
+            // Scroll direction
+            let scrollDirection = 'up',
+                st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > $this.lastScrollTop) {
+                scrollDirection = 'down';
+            }
+            $this.lastScrollTop = st <= 0 ? 0 : st;
+
             // Accomodate header offset
             const scrollOffset = document.querySelector('.header').clientHeight / 2,
                 scrollDifference = document.documentElement.scrollHeight - window.innerHeight,
@@ -37,13 +99,35 @@
                 labelTargetsClear();
                 labelTargets[labelTargets.length - 1][0].classList.add("active");
             } else {
+                let lastLabelElem;
                 for (const [curElem, labelElem, curID] of dataArray) {
                     if (window.scrollY + scrollOffset >= curElem.offsetTop) {
                         labelTargetsClear();
                         labelElem.classList.add("active");
+                        lastLabelElem = labelElem;
                         continue;
                     }
                     labelElem.classList.remove("active");
+                }
+
+                if ($this.scrollLastElem != -1) {
+                    clearTimeout($this.scrollLastElem);
+                }
+
+                // Scroll into view the content on main page scroll
+                if (lastLabelElem) {
+                    $this.scrollLastElem = window.setTimeout(function() {
+                        $this.scrollTimer = window.setTimeout(function() {
+                            let elemParent = lastLabelElem.parentNode,
+                                elemsCont = labelTarget.querySelector('ul'),
+                                elemsContTitle = labelTarget.querySelector('h4'),
+                                elemIndex = Array.prototype.indexOf.call(elemsCont.childNodes, elemParent);
+                            if (!isVisible(lastLabelElem)) {
+                                if (elemIndex === 0) elemParent = elemsContTitle;
+                                elemParent.scrollIntoView({ block: scrollDirection === 'down' ? "start" : "end", inline: "start" });
+                            }
+                        }, 1);
+                    }, 1);
                 }
 
             }
