@@ -4,6 +4,8 @@ date: 2023-03-14
 weight: 135
 ---
 
+### About
+
 The **Webmin Configuration** module exists to allow Webmin itself to be configured, unlike most other modules that are designed to configure some other server or service. It lets you do things like change the port and Webmin uses, limit the client addresses that can connect, change the theme and language that the user interface uses and install new modules. This section explains how to use the module to carry out these tasks. 
 
 When you click on the module's icon in the Webmin category, the menu of icons shown in the image below will be displayed. Each of the icons can be clicked on to display a configuration page or form on which some of the Webmin settings can be changed.
