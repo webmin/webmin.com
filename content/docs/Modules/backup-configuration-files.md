@@ -4,11 +4,8 @@ date: 2023-03-13
 weight: 95
 ---
 
-{{< alert secondary question "What this page about?" "This page explains what the Backup Configuration Files module does, and how to use it." >}}
-
-### About
-Most Webmin modules work by editing configuration files on your system, like `/etc/exports` for NFS shares, `/etc/passwd` for users and `/etc/fstab` for filesystems.
-Each module knows which configuration files it manages, and what commands need to be run to activate them. Not all modules actually deal with config files though - for example, the Database Server modules work by executing SQL commands. As such, it cannot participate in the configuration backup process.
+### Backups
+Most Webmin modules work by editing configuration files on your system. Each module knows which configuration files it manages, and what commands need to be run to activate them. Not all modules actually deal with config files though - for example, the Database Server modules work by executing SQL commands. As such, it cannot participate in the configuration backup process.
 
 The Backup Configuration Files module can collect information about config files from other modules, and create and restore backups containing some or all of those files.
 It is designed for saving the configuration of a single system, but not for migrating configs from one server to another - that would be far more complex. You can theoretically backup the configs from one system and restore them on another if they are running the exact same OS and version (like Fedora Core 5), but attempting this between systems of different types is almost certain to fail.

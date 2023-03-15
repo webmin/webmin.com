@@ -4,8 +4,6 @@ date: 2023-03-14
 weight: 125
 ---
 
-{{< alert secondary question "What this page about?" "This page explains how and what **Webmin logs**, and how those logs can be searched and viewed." >}}
-
 ### Logging
 When logging is enabled, Webmin will record every action taken using it that has some effect on your system, such as the creation of a user or the changing of an Apache setting. Pages that do not actually change anything on your system, such as those that just display icons, list users or show the current settings for some object will not write anything to the action log. In this way it is different to the separate CLF log file that Webmin writes to `/var/webmin/miniserv.log`, which records every single page visited and image loaded.
 

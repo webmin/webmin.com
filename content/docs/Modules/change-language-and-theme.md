@@ -17,7 +17,7 @@ You can select a different language to be displayed for the currently logged in 
 - Click ****Make Changes****.
 
 ### Locale
-Webmin supports numerous locales, which define how date and time is presented in Webmin UI. To change the locale for the currently logged in user do the following:
+Webmin supports numerous locales, which define how date and time are presented. To change the locale for the currently logged in user do the following:
 - Open the ****Change Language and Theme**** module under the ****Webmin**** category.
 - In the ****Locale**** field, select ****Personal choice**** and select a locale from the menu.
 - Click ****Make Changes****.
