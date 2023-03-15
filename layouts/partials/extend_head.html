@@ -26,3 +26,6 @@
 {{- $chocolatloader := resources.Get "js/extended/header-chocolat.js" | resources.ExecuteAsTemplate "js/extended/header-chocolat.js" . | resources.Minify }}
 <script defer crossorigin="anonymous" src="{{ $chocolatloader.RelPermalink }}?{{ now.Unix }}"></script>
 {{ end }}
+
+<meta data-product="webmin" data-version="webmin-{{ site.Params.version.webmin }}.tar.gz">
+<meta data-product="usermin" data-version="usermin-{{ site.Params.version.usermin }}.tar.gz">

@@ -40,6 +40,10 @@ enableRobotsTXT: true
 #robotsNoIndex: true
 
 params:
+  version: 
+    webmin: '2.020'
+    usermin: '1.861'
+
   env: production
 
   analytics:
