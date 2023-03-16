@@ -68,12 +68,10 @@
             }
             return false;
         };
+
+    let $this = {};
     if (scrollTarget && labelTarget) {
         document.addEventListener("scroll", function(e) {
-            var $this = this;
-            if ($this.scrollTimer != -1) {
-                clearTimeout($this.scrollTimer);
-            }
 
             // Stop if hidden
             if (!document.querySelector(labelTargetSelStr).offsetParent) {
@@ -110,28 +108,29 @@
                     labelElem.classList.remove("active");
                 }
 
-                if ($this.scrollLastElem != -1) {
-                    clearTimeout($this.scrollLastElem);
-                }
-
                 // Scroll into view the content on main page scroll
+                if (typeof $this.scrollTimer === 'number') clearTimeout($this.scrollTimer);
+                if (typeof $this.scrollLastElem === 'number') clearTimeout($this.scrollLastElem);
                 if (lastLabelElem) {
                     $this.scrollLastElem = window.setTimeout(function() {
+                        const isVisibleElem = isVisible(lastLabelElem);
                         $this.scrollTimer = window.setTimeout(function() {
                             let elemParent = lastLabelElem.parentNode,
                                 elemsCont = labelTarget.querySelector('ul'),
                                 elemsContTitle = labelTarget.querySelector('h4'),
                                 elemIndex = Array.prototype.indexOf.call(elemsCont.childNodes, elemParent);
-                            if (!isVisible(lastLabelElem)) {
-                                if (elemIndex === 0) elemParent = elemsContTitle;
-                                elemParent.scrollIntoView({ block: scrollDirection === 'down' ? "start" : "end", inline: "start" });
+                            if (!isVisibleElem) {
+                                if (elemIndex === 0) {
+                                    elemParent = elemsContTitle;
+                                }
+                                elemParent.scrollIntoView({ block: 'nearest', inline: 'nearest' });
                             }
-                        }, 1);
-                    }, 1);
+                        }, 3e1);
+                    }, 4e1);
                 }
 
             }
-        });
+        }, { passive: true });
         // On initial load trigger scroll
         // once to select the right link
         document.dispatchEvent(new Event("scroll"));
