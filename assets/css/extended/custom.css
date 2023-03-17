@@ -1654,6 +1654,7 @@ html[class*="page-docs"] .dark a > img[src*="/docs/screenshots/"][src*="/light/"
 .docs-toc a.active {
     letter-spacing: -0.012rem;
 }
+.docs-menu-content a.active,
 .docs-toc a.active {
     color: var(--link);
 }
