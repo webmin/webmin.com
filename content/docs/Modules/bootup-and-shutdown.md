@@ -1,6 +1,6 @@
 ---
 title: "Bootup and Shutdown"
-subSection: "Servers"
+subSection: "System"
 date: 2023-03-17
 weight: 165
 ---
