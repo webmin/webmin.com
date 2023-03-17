@@ -1704,6 +1704,19 @@ html[class*="page-docs"] .dark a > img[src*="/docs/screenshots/"][src*="/light/"
     margin-left: -0.433rem;
 }
 
+.docs-menu .docs-menu-content details > div.sub-section {
+    background-color: var(--border);
+    border-radius: 4px;
+    color: var(--primary);
+    cursor: default;
+    font-weight: 600;
+    margin-left: 0.2165rem;
+    margin-top: 0.6495rem;
+    opacity: 0.6;
+    padding: 0 4px 0 8px;
+    font-size: 92%;
+}
+
 /* Docs Menus. End. */
 /*
  * DOCS. End. 

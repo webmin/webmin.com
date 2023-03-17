@@ -66,6 +66,9 @@
               </details>
             {{ end }}
           {{ end }}
+              {{ if .Params.subSection }}
+              <div class="sub-section">{{ .Params.subSection }}</div>
+              {{ end }}
               <div>
                 {{ $linkTitle := .LinkTitle }}
                 {{ if .Param "menuTitle" }}
