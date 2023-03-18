@@ -70,6 +70,12 @@
         };
 
     let $this = {};
+    labelTarget.querySelectorAll('ul > li > a').forEach(function(elem) {
+        elem.addEventListener("click", function(e) {
+            $this.scrollDelay = 1;
+            e.preventDefault();
+        });
+    })
     if (scrollTarget && labelTarget) {
         document.addEventListener("scroll", function(e) {
 
@@ -125,8 +131,11 @@
                                 }
                                 elemParent.scrollIntoView({ block: 'nearest', inline: 'nearest' });
                             }
-                        }, 3e1);
-                    }, 4e1);
+                            setTimeout(function() {
+                                $this.scrollDelay = 0;
+                            }, 3e1 + 4e1);
+                        }, $this.scrollDelay ? 3e1 : 0);
+                    }, $this.scrollDelay ? 4e1 : 0);
                 }
 
             }
