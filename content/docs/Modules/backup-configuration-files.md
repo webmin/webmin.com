@@ -14,7 +14,7 @@ It is designed for saving the configuration of a single system, but not for migr
 ### How
 When this module (under the Webmin category) is opened, it will display a set of tabs with the form for making a backup selected by default, as in the image below. 
 
-[![](/images/docs/screenshots/modules/light/backup_configuration_files.png "Configuration Files Screenshot")](/images/docs/screenshots/modules/light/backup_configuration_files.png)
+[![](/images/docs/screenshots/modules/light/backup_configuration_files.png "Backup Configuration Files Screenshot")](/images/docs/screenshots/modules/light/backup_configuration_files.png)
 
 To perform an immediate config backup, follow these steps :
 
