@@ -21,7 +21,7 @@
             return null
         }).filter(function(e) { return e !== null })),
         isVisible = function(elem) {
-            if (!(elem instanceof Element)) throw Error('DomUtil: elem is not an element.');
+            if (!(elem instanceof Element)) return null;
             const style = getComputedStyle(elem);
             if (style.display === 'none') return false;
             if (style.visibility !== 'visible') return false;
