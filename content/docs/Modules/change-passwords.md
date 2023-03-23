@@ -10,10 +10,10 @@ This page explains how to change Unix users' passwords, using the aptly-named **
 ### Introduction to Unix Passwords
 On a typical Linux or Unix system, users' passwords are stored in the `/etc/shadow` file. They can be changed with the `passwd` command, or by editing that file directly.
 
-In Webmin, you can use the [Users and Groups](/docs/modules/users-and-groups)  module to edit all details of a user, including password. However, if you just need to change passwords on a regular basis, or want to give a less-trusted admin permissions to only change passwords, the Users and Groups module is un-necessarily complex.
+In Webmin, you can use the [Users and Groups](/docs/modules/users-and-groups) module to edit all details of a user, including password. However, if you just need to change passwords on a regular basis, or want to give a less-trusted admin permissions to only change passwords, the Users and Groups module is un-necessarily complex.
 
 ### The Change Passwords Module
-This module can be found under the **System** category. When opened, it displays a list of the names of all local users on your system (shown below) for which the current user has permissions to make password changes, which will be all users by default. To change a user's password, do the following :
+This module can be found under the System category. When opened, it displays a list of the names of all local users on your system (shown below) for which the current user has permissions to make password changes, which will be all users by default. To change a user's password, do the following :
 - Click on the user's name on the main menu.
 - Fill in the **New password** field, and the **New password again** field.
 - If you want the password change to be made in other modules which have separate password databases (usually a good idea), check the **Change password in other modules?** box.
