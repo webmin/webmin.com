@@ -17,6 +17,10 @@
     document.querySelector('html').classList.add("page-" + (location.pathname.replace(/\//g, '') || 'index'))
 </script>
 
+<!-- Load header scripts -->
+{{- $header := resources.Get "js/extended/header.js" | resources.ExecuteAsTemplate "js/extended/header.js" . | resources.Minify }}
+<script defer crossorigin="anonymous" src="{{ $header.RelPermalink }}?{{ now.Unix }}"></script>
+
 <!-- Load chocolat.js for Screenshots page -->
 {{- if .Param "loadGallery" }}
 {{- $chocolatjs := resources.Get "js/chocolat.js" | resources.Minify }}
