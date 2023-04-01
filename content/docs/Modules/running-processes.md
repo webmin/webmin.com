@@ -17,7 +17,7 @@ A process will run until it chooses to exit, or until it is killed by a signal f
 ### The Running Processes module
 This module can be used to view, kill, re-prioritize and run processes on your system. When you enter it for the first time from the System category, the main page will display a tree of processes as shown below. 
 
-[![](/images/docs/screenshots/modules/light/running-processes.png "Disk and Network Filesystems Screenshot")](/images/docs/screenshots/modules/light/running-processes.png)
+[![](/images/docs/screenshots/modules/light/running-processes.png "Running Processes Screenshot")](/images/docs/screenshots/modules/light/running-processes.png)
 
 
 The module has several different ways of viewing all the processes on your system, selectable by the **Display** links at the top of the main page. They are: 
@@ -31,7 +31,7 @@ The **Search** and **Run** options are for searching for processes and running n
 ### Viewing, killing or re-prioritizing a process
 You can see the full details of any running process by clicking on its **Process ID** column entry in any of the displays on the main page. This will take you to the process information page, shown in this screenshot.
 
-[![](/images/docs/screenshots/modules/light/running-processes-info.png "Disk and Network Filesystems Screenshot")](/images/docs/screenshots/modules/light/running-processes.png)
+[![](/images/docs/screenshots/modules/light/running-processes-info.png "Running Process Information Screenshot")](/images/docs/screenshots/modules/light/running-processes.png)
 
 The page displays all available information about the process, including its full command line, parent command and any sub-processes. You can just to the information page for the parent by clicking on its command, or to the page on any of the sub-processes by clicking on its process ID. A list of files that the process has open and network connections that it is currently using can be viewed by clicking the **Files and Connections** button. 
 
@@ -62,7 +62,7 @@ If you have a large number of processes running on your system and want to find 
  5. If you want to see additional information about a process, change its priority or send it alone a signal, click on its **Process ID** in the results. 
  6. To kill all matching processes, click the **Terminate Processes** or **Kill Processes** button. You can also send any signal to all processes by selecting it from the list next to the *Send Signal* button. A page will be displayed listing each process ID and whether it was signaled or killed successfully. 
 
-[![](/images/docs/screenshots/modules/light/running-processes-search.png "Disk and Network Filesystems Screenshot")](/images/docs/screenshots/modules/light/running-processes-search.png)
+[![](/images/docs/screenshots/modules/light/running-processes-search.png "Search Running Processes Screenshot")](/images/docs/screenshots/modules/light/running-processes-search.png)
 
 ### Running a process
 The module can also be used to run simple commands, either in the foreground so that their output is displayed, or in the background as daemons. This can be useful if you just want to run a command without having to login via telnet or SSH (or if a firewall is preventing a telnet or SSH login). The steps to follow are: 
@@ -72,7 +72,7 @@ The module can also be used to run simple commands, either in the foreground so 
 - Enter any input that you want fed to the command into the *Input to command* field. 
 - Click the **Run** button to run it. If the **Wait until complete** option was selected, any output from the command will be displayed.
 
-[![](/images/docs/screenshots/modules/light/running-processes-run.png "Disk and Network Filesystems Screenshot")](/images/docs/screenshots/modules/light/running-processes-run.png)
+[![](/images/docs/screenshots/modules/light/running-processes-run.png "Manually Running Process Screenshot")](/images/docs/screenshots/modules/light/running-processes-run.png)
 
 ### Module access control options
 By default, any Webmin user with access to this module can manage all processes running on the system, as though he were logged in as root. However, using the [Users and Groups](/docs/modules/users-and-groups) module you can limit a user's access so that he can only kill or re-nice processes owned by a particular Unix user. It is also possible to restrict a user to read-only mode, allowing him to only see processes by not change them in any way or start new ones. 
