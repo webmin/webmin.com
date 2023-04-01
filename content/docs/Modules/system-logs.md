@@ -94,13 +94,13 @@ Almost all versions of Unix use `syslog` to control the destinations that log me
 * On Solaris, the first time you use the module, Webmin may ask if you want to convert `syslog.conf` from M4 format. Unless you have made manual changes that use M4 macros, this is safe to do.
 * Logging to named pipes is not supported.
 * There is no option to sync after each write to a log file.
-* When selecting the priorities of messages to write to a log, the **At or above**, **Exactly**, **Below** and **All except**range types are not available. Instead, all message with priorities at or above the one you select will be logged. 
+* When selecting the priorities of messages to write to a log, the **At or above**, **Exactly**, **Below** and **All except** range types are not available. Instead, all message with priorities at or above the one you select will be logged. 
 
 #### FreeBSD, OpenBSD and NetBSD
 * On FreeBSD, logging to named pipes is not supported.
 * On OpenBSD and NetBSD logs can be sent directly to the input of command instead of to a named pipe.
 * There is no option to sync after each write to a log file.
-* When selecting the priorities of messages to write to a log, the **At or above**, **Exactly**, **Below** and **All except**range types are replaced with **>=**, **>*, *<=**, **<* and *<>** which have similar meanings. 
+* When selecting the priorities of messages to write to a log, the **At or above**, **Exactly**, **Below** and **All except** range types are replaced with **>=**, **>**, **<=**, **<** and **<>** which have similar meanings. 
 * Each log destination can be associated with a program, set using the optional **Only for program** field. If set, only log messages from the entered server or daemon will be written to this log file.
 
 #### SGI Irix
