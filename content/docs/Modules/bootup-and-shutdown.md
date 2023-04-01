@@ -52,7 +52,7 @@ Even though action scripts are normally started at boot time and stopped at shut
 - After you click the button for the function that you want to perform, a page showing the output from the action script will appear. This should indicate whether the action was performed successfully or not. 
 
 ### Adding a new action
-If you have a command that you want run at boot time, creating a new action script is the best way to set it up. Servers like [Apache Webserver](/docs/modules/postfix-mail-server) or [Postfix Mail Server](/docs/modules/postfix-mail-server) that have been compiled and installed manually do not have actions, so you will need to create one that runs whatever command is necessary to start the server. 
+If you have a command that you want run at boot time, creating a new action script is the best way to set it up. Servers like [Apache Webserver](/docs/modules/apache-webserver) or [Postfix Mail Server](/docs/modules/postfix-mail-server) that have been compiled and installed manually do not have actions, so you will need to create one that runs whatever command is necessary to start the server. 
 
 To create your own action, follow these steps: 
 - On the main page of the module, click the _Create a new bootup action_ link above or below the list of existing actions.
