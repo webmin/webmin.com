@@ -8,7 +8,7 @@ weight: 325
 The System Logs page provides a facility to control log files created by the operating system.
 
 ### Introduction to logging
-Many Linux servers and daemons generate log messages for errors, warnings, requests and diagnostic information. In most cases, these logs are not written directly to a file, instead they are passed to the Unix logging program `syslog` which decides what to do with each log message. Logs can be written to a file, sent to another server, passed to another program via a pipe or even broadcast to all users logged into the system. Different types of messages from different servers can be logged using each of these methods. 
+Many Linux servers and daemons generate log messages for errors, warnings, requests and diagnostic information. In most cases, these logs are not written directly to a file, instead they are passed to the Unix logging program `syslog` which decides what to do with each log message. Logs can be written to a file, sent to another server, passed to another program via a pipe or even broadcast to all users logged into the system. Different types of messages from different servers can be logged using each of these methods.
 
 Normally logs are written to files in the `/var/log` directory.  On most Linux distributions the file `/var/log/messages` contains general information, error and warning messages, the file `/var/log/mail` records incoming and outgoing mail, and `/var/log/secure` records successful and failed logins. However, your system may have a totally different `syslog` configuration and so use different logfiles. 
 
@@ -114,3 +114,4 @@ If your operating system is not on the list above, then it is not supported by t
 ### See also
 * [Log File Rotation](/docs/modules/log-file-rotation)
 * [System Logs NG](/docs/modules/system-logs-ng)
+* [syslog](https://en.wikipedia.org/wiki/Syslog) {{< icon external-link xs-sup fw>}}
