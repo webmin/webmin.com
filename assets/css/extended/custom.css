@@ -1485,6 +1485,17 @@ html[class*="page-docs"] .dark a > img[src*="/docs/screenshots/"][src*="/light/"
     visibility: hidden;
 }
 
+html[class*="page-docs"] article.post-single table tr > td,
+html[class*="page-docs"] article.post-single table tr > th {
+    vertical-align: top;
+    font-size: 17px;
+}
+html[class*="page-docs"] article.post-single table tr > th code,
+html[class*="page-docs"] article.post-single table tr > td code {
+    background-color: transparent;
+    font-size: 14.5px;
+}
+
 /* Animations */
 @keyframes fadeIn {
   0% {
