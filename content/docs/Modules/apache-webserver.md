@@ -99,9 +99,7 @@ The entire process for adding a virtual server, including the above steps, is:
  21. To make all your changes active, click the **Apply Changes** button at the top of any page. 
  22. You or the user who owns the virtual server can now start adding files to the document root directory. You can test it out by opening the URL (such as _http://www.example.com/_) in your web browser to make sure that everything is working properly. 
 
-[[File:Networking and addresses.png|frame|none|The global networking and addresses page]]
-
-[[File:Virtual Server Options.png|frame|none|The virtual server options page]]
+[![](/images/docs/screenshots/modules/light/apache-webserver-server-options.png "Apache Webserver Screenshot")](/images/docs/screenshots/modules/light/apache-webserver-server-options.png)
 
 When Apache receives an HTTP request, it must first work out which virtual server the request is for. It will first look for a name-based virtual server whose hostname matches the host requested by the client, and whose address and port are the same as the ones that the client connected to. If none is found, the first defined virtual server for the address and port will be used instead, or if there are none then the request will be handled by the default server. 
 
