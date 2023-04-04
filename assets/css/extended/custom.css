@@ -1546,6 +1546,10 @@ html[class*="page-docs"] a[href*="example.com"] {
     font-size: 92%;
 }
 
+[class^="page-docs"] .post-content code {
+    word-break: break-all;
+}
+
 .docs-toc,
 .docs-menu {
     font-size: .975rem;
