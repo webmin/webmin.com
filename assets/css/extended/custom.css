@@ -1548,6 +1548,8 @@ html[class*="page-docs"] a[href*="example.com"] {
 
 [class^="page-docs"] .post-content code {
     word-break: break-all;
+    font-size: 81%;
+    vertical-align: text-bottom;
 }
 
 .docs-toc,
