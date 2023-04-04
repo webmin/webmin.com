@@ -1276,6 +1276,14 @@ fieldset:disabled a.btn {
     height: 1px;
 }
 
+.post-content h3 code {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 96%;
+    letter-spacing: -0.96px;
+}
+
 /* Pagination */
 .pagination a {
     filter: brightness(0.8) contrast(1.4);
@@ -1656,6 +1664,11 @@ html[class*="page-docs"] a[href*="example.com"] {
 .docs-menu a,
 .docs-menu details {
     cursor: pointer;
+}
+
+.docs-toc .docs-toc-content ul li a code {
+    font-size: 94%;
+    letter-spacing: -0.96px;
 }
 
 .docs-menu details summary > span {
