@@ -1504,6 +1504,7 @@ html[class*="page-docs"] article.post-single table tr > td code {
     font-size: 14.5px;
 }
 
+html[class*="page-docs"] a[href*="isc.org"],
 html[class*="page-docs"] a[href*="openssl.org"],
 html[class*="page-docs"] a[href*="example.com"] {
     pointer-events: none;
