@@ -92,26 +92,61 @@ If you just want Webmin to be accessible via Apache gateway follow the steps bel
  ```
 Now all requests to `webmin.example.com` to the Apache virtual host will then be passed through to the Webmin server on `localhost` port `10000`.
 
-{{< alert warning question "Want to run under Apache sub-directory?" "The instructions are exactly the same with a few additional steps described below." >}}
+{{< alert warning question "Want to run under Apache sub-directory?" "Follow the instructions below below." >}}
 
-- Edit once again `/etc/webmin/config` file and add more directives mentioned below:
+- Edit `/etc/webmin/config` file and add the directives mentioned below:
 ```text
+referers=webmin.example.com
 webprefix=/webmin
 webprefixnoredir=1
 ```
-- Edit once again`/etc/webmin/miniserv.conf` file, add more directives mentioned below and restart Webmin afterwards by calling `/etc/webmin/restart` command:
+- Edit `/etc/webmin/miniserv.conf` file, add directives mentioned below and restart Webmin afterwards by calling `/etc/webmin/restart` command:
 ```
 redirect_prefix=/webmin
 cookiepath=/webmin
 ```
-- Edit once again `/etc/webmin/xterm/config` file and replace previously added `host` directive with the the following:
+- Edit `/etc/webmin/xterm/config` file and add the line:
 ```
 host=webmin.example.com/webmin
 ```
-- Edit previously created `VirtualHost` block directives, i.e. `ProxyPass` and `RewriteRule` on the Apache configuration with the following ones, and restart Apache afterwards:
+- Enable `mod_proxy` and `mod_proxy_wstunnel` for your Apache webserver
+- Create a `VirtualHost` block with the following directives to the Apache configuration, and restart Apache afterwards. Remember to replace `VirtualHost` IP address, `ServerName` and SSL certificates paths with your own:
 ```
-ProxyPass /webmin/ https://localhost:10000/
-RewriteRule ^/webmin/?(.*) "wss://localhost:10000/$1" [P,L]
+ <VirtualHost 1.2.3.4:443>
+    ServerName webmin.example.com
+
+    # Enable the usage of the SSL/TLS protocol engines
+    SSLEngine on
+    SSLProxyEngine on
+
+    # Point to files with SSL certificates for virtual host
+    SSLCertificateFile /etc/ssl/domains/example.com/ssl.combined
+    SSLCertificateKeyFile /etc/ssl/domains/example.com/ssl.key
+    
+    # Use only secure version of the TLS protocol (TLSv1.3)
+    SSLProtocol         all -SSLv3 -TLSv1 -TLSv1.1 -TLSv1.2
+    SSLHonorCipherOrder off
+    SSLSessionTickets   off
+
+    # Disables the remote server certificate checks
+    # (only needed for self-signed certificates)
+    SSLProxyCheckPeerCN     off
+    SSLProxyCheckPeerName   off
+    SSLProxyCheckPeerExpire off
+
+    # Disable proxying for all /.well-known requests. It will 
+    # only be useful, if a domain has "DocumentRoot" defined
+    ProxyPass /.well-known !
+
+    # Proxying both HTTP and websockets at the same time,
+    # where the websockets URL's are not websocket-only
+    # or not known in advance
+    ProxyPass /webmin/ https://localhost:10000/
+    RewriteEngine on
+    RewriteCond %{HTTP:Upgrade} websocket [NC]
+    RewriteCond %{HTTP:Connection} upgrade [NC]
+    RewriteRule ^/webmin/?(.*) "wss://localhost:10000/$1" [P,L]
+</VirtualHost>
 ```
 
 Now all requests to `webmin.example.com/webmin/` (pay attention to the trailing slash) to the Apache virtual host will then be passed through to the Webmin server on `localhost` port `10000`.
