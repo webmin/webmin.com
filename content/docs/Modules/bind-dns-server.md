@@ -5,7 +5,9 @@ weight: 365
 ---
 
 ### About
-On this page the DNS protocol and the **BIND DNS server** are explained, as is the Webmin module for creating and managing DNS domains. 
+On this page the DNS protocol and the **BIND DNS server** are explained, as is the Webmin module for creating and managing DNS domains.
+
+[![](/images/docs/screenshots/modules/light/bind-dns-server.png "BIND DNS Server")](/images/docs/screenshots/modules/light/bind-dns-server.png)
 
 ### Intro
 **DNS** short for **Domain name System** is a protocol used primarily for converting hostnames like www.example.com into IP addresses like _192.168.1.10_, and vice-versa. At the IP level, all hosts on the Internet refer to each other by IP addresses, not by the hostnames that users enter into programs like web browsers and telnet clients. This means that a system needs a way of finding out the IP address associated with a hostname before they can communicate. Although there are several ways this can be done (such as reading the `/etc/hosts` file or querying an [NIS Server](/docs/modules/nis-client-and-server)), DNS is the most common. 
@@ -68,7 +70,7 @@ BIND's primary configuration file is `/etc/named.conf`, which contains all of th
 
 Versions 9 of BIND has some features that version 8 does not. The most important one that is supported by this Webmin module is views. A view is a set of zones that are visible to only some DNS clients. Normally all clients see the same zones, but with BIND 9 you can restrict the visibility of some domains to only particular clients, identified by their IP addresses. This can be useful for creating zones that are only visible to systems on an internal network, even if your DNS server is connected to the Internet. 
 
-If you have never set up BIND on your system, when you enter the module for the first time the main page will display a form for setting up the DNS server, as shown below. This form is only shown if Webmin detects that the configuration file named.conf does not exist, or if the zone files directory that is specifies is non-existent. If you are certain that your BIND configuration is valid and that the DNS server is already running, do not click the **Create** button, as your named.conf file will be overwritten. Instead, click on the **Module Config** link and check that all the paths are correct for your system. 
+If you have never set up BIND on your system, when you enter the module for the first time the main page will display a form for setting up the DNS server, as shown below. This form is only shown if Webmin detects that the configuration file `named.conf` does not exist, or if the zone files directory that is specifies is non-existent. If you are certain that your BIND configuration is valid and that the DNS server is already running, do not click the **Create** button, as your `named.conf` file will be overwritten. Instead, click on the **Module Config** link and check that all the paths are correct for your system. 
 
 When BIND has been set up on your system, the main page will appear as shown in the screenshot below. At the top is a table of icons for setting global options that apply to your entire DNS server. Below them are icons for each of the zones your server hosts, followed by icons for views if you are running BIND version 9. At the very bottom are buttons for applying the current DNS configuration or starting the BIND server. 
 
@@ -80,7 +82,7 @@ A master zone is one for which your DNS server is the authoritative source of in
  - On the module's main page, click on the **Create a new master zone** link below the table of existing zones. This will take you to the page shown in the image below for entering the details of the new zone. 
  - If this is to be a forward zone like example.com or foo.com.au, leave the **Zone type** field set to **Forward**. However, if it is a reverse zone for looking up hostnames from IP addresses, set the field to **Reverse**. 
  - In the **Domain name / Network** field, enter the name of the zone without any trailing dot. For a reverse zone, just enter the network address like _192.168.1_. Webmin will automatically convert this to the in-addr.arpa format for you when the domain is created. 
- - The **Records file** field controls where the configuration file containing the zone's records is stored. If you leave it set to **Automatic**, the filename will be determined automatically based on the module's configuration and the directory setting in the named.conf file. This is usually the best option, as it will result in the records file being created in the same directory as any existing zones, such as `/var/named`. However, if you de-select the **Automatic** option and enter a filename instead, all records for the zone will be written to that file.  If you enter the name of an existing file, it will be overwritten when the domain is created. 
+ - The **Records file** field controls where the configuration file containing the zone's records is stored. If you leave it set to **Automatic**, the filename will be determined automatically based on the module's configuration and the directory setting in the `named.conf` file. This is usually the best option, as it will result in the records file being created in the same directory as any existing zones, such as `/var/named`. However, if you de-select the **Automatic** option and enter a filename instead, all records for the zone will be written to that file.  If you enter the name of an existing file, it will be overwritten when the domain is created. 
  - In the **Master server** field, enter the full domain name of the master DNS server for this zone. This must be the canonical name of your system, such as server.example.com, not a short name like server. This server (and the values from the next 
  - fields) are used to create the new zone's SOA record. 
  - In the **Email address** field, enter the address of the person responsible for this zone. You can use the @ symbol in the address, which Webmin will automatically convert to a dot for inclusion in the SOA record. 
@@ -91,14 +93,18 @@ A master zone is one for which your DNS server is the authoritative source of in
  - Click the **Create** button at the bottom of the page. As long as the form has been filled in correctly and the zone does not already exist on your server, you will be taken to a page for adding new records to the zone. 
  - Return to the module's main page which will now include an icon for your new zone, and click the **Apply Changes** button at the bottom to activate it. 
 
-:[[File:Bind - Create Master Zone.png|frame|none|Create Master Zone.png]]
+[![](/images/docs/screenshots/modules/light/bind-dns-server-create-master-zone.png "BIND Create Master Zone Screenshot")](/images/docs/screenshots/modules/light/bind-dns-server-create-master-zone.png)
 
 A newly created zone will contain only one record (unless you have set up a template). To add more, follow the instructions in the next section. Once you have set up the basic records in your domain, you can register it with the authority that manages the parent domain, such as .com or .com.au. Some domain authorities will not allow you to register zones that do not have at least two servers (one master and one slave), and name server records in 
 the zone for those servers. 
 
 ### Adding and editing records
-:[[File:Bind - Edit Master Zone.png|frame|none|Bind - Edit Master Zone]]
-The most useful feature of the BIND DNS Server module is the ability to add, edit and delete records in the master zones hosted by your server. For example, if you wanted to set up a webserver in your domain example.com, you would need to add an Address record for www.example.com with the IP address of the server. To add a new record like this, the steps to follow are: 
+
+The most useful feature of the BIND DNS Server module is the ability to add, edit and delete records in the master zones hosted by your server.
+
+[![](/images/docs/screenshots/modules/light/bind-edit-master-zone.png "BIND Edit Master Zone Screenshot")](/images/docs/screenshots/modules/light/bind-edit-master-zone.png)
+
+For example, if you wanted to set up a webserver in your domain example.com, you would need to add an Address record for www.example.com with the IP address of the server. To add a new record like this, the steps to follow are: 
  - On the module's main page, click on the icon for the zone that you want to add to. This will bring up the page shown below, at the top of which is a table of icons, one for each record type. 
  - Click on the icon for the type of record that you want to add.  The most common type is **Address**, which associates an IP address with a hostname. See the **[[#Record types]]** section below for a complete list of all the supported record types. 
  - Clicking on the icon will take you to a page listing all existing records of that type. Above the list is a form for entering a new record. 
@@ -109,7 +115,7 @@ The most useful feature of the BIND DNS Server module is the ability to add, edi
  - When you are done filling in the form, click the **Create** button at the bottom. As long as it is filled in correctly, the record will be added to the list below the form. When writing to the zone's records file, Webmin will use the full canonical format for the record name, such as www.example.com., even if you just enter www. 
  - To activate the new record so that it can be looked up by DNS clients and other servers, you will need to click the _Apply Changes_ button on the module's main page. If you are planning to add or edit several records, it is usually better to wait until all the changes are complete before hitting the apply button. If it is available, you can instead use the _Apply Changes_ button at the bottom of the master zone page shown below. This uses the ndc command to tell BIND to re-read only the file for this zone, which can be much faster on a system that hosts are large number of domains. 
 
-:[[File:Bind - Add Record to Zones.png|frame|none|Bind - Add Record to Zones]]
+[![](/images/docs/screenshots/modules/light/bind-edit-zone-record.png "BIND Edit Record to Zone Screenshot")](/images/docs/screenshots/modules/light/bind-edit-zone-record.png)
 
 Although the instructions above are focused on adding an Address record, the process of adding other record types to a forward zone is almost identical. The **Update reverse?** field does not exist, and the **Address** field is replaced with one or more different fields. The **Record types** section below explains in detail what fields are available for each type of record known to Webmin. 
 
@@ -162,7 +168,7 @@ This type of record is used for specifying the person or group responsible for a
 #### Location (LOC)
 Location records are used to specify the physical location in latitude and longitude of a host. They are hardly ever seen, and thus not used by many programs. However, they can be useful in large organizations that have hosts in many countries.  When adding or editing a Location record, the field **Latitude and Longitude** is displayed for entering the location of the host in the **Name** field. It must be formatted like _42 21 43.528 N 71 05 06.284 W 12.00m 30.00m 10000.00m 10.00m_.
 #### Service Address (SRV)
-Records of this type are used to associate a domain name, service name and protocol with a particular host.  They allow you to specify which server a client should contact for a particular service and hostname, instead of just connecting to the host. In a way, they are like Mail Server records but far  more flexible. For example, you can specify that the POP3 server for example.com is _mail.example.com_, but the webserver is _www.example.com_. At the time of writing, SRV records are mostly used by Windows client systems.  When adding or editing a Service Address record, the fields **Protocol** and **Service name** are displayed near the **Name** text box. For the protocol, you must select either TCP or UDP from the menu. For the service name, you must enter a well-known name from the `/etc/services` file, such as _pop3_ or _telnet_. To look up an SRV record, a client combines the service name, protocol and name to get a record name like ____telnet.___tcp.example.com_.  Webmin does this for you automatically when editing or adding a Service Address record, but you can see the combined name on the page listing records of this type. Webmin also automatically added the _s before the service and protocol, but hides them when a SRV record is being displayed or edited. This means that there is no need to enter then manually when creating or editing a record of this type. The **Priority** field must be used to enter a numeric priority for this server, which has the same meaning as the priority in a Mail Server record. The **Weight** field must contain a weighing for this particular server, or zero if there is only one record with the same name, protocol and service name. A higher weighting tells clients to try this server more often than one with a lower weight. The **Port** field must contain a port number for clients to connect to on the server, which does not necessarily have to be the standard port for the service. In the **Server** field, you must enter the hostname or IP address of the system that actually provides the service, and that clients actually connect to. 
+Records of this type are used to associate a domain name, service name and protocol with a particular host.  They allow you to specify which server a client should contact for a particular service and hostname, instead of just connecting to the host. In a way, they are like Mail Server records but far  more flexible. For example, you can specify that the POP3 server for example.com is _mail.example.com_, but the webserver is _www.example.com_. At the time of writing, SRV records are mostly used by Windows client systems.  When adding or editing a Service Address record, the fields **Protocol** and **Service name** are displayed near the **Name** text box. For the protocol, you must select either TCP or UDP from the menu. For the service name, you must enter a well-known name from the `/etc/services` file, such as _pop3_ or _telnet_. To look up an SRV record, a client combines the service name, protocol and name to get a record name like _\_telnet.\_tcp.example.com_.  Webmin does this for you automatically when editing or adding a Service Address record, but you can see the combined name on the page listing records of this type. Webmin also automatically added the _\_s_ before the service and protocol, but hides them when a SRV record is being displayed or edited. This means that there is no need to enter then manually when creating or editing a record of this type. The **Priority** field must be used to enter a numeric priority for this server, which has the same meaning as the priority in a Mail Server record. The **Weight** field must contain a weighing for this particular server, or zero if there is only one record with the same name, protocol and service name. A higher weighting tells clients to try this server more often than one with a lower weight. The **Port** field must contain a port number for clients to connect to on the server, which does not necessarily have to be the standard port for the service. In the **Server** field, you must enter the hostname or IP address of the system that actually provides the service, and that clients actually connect to. 
 
 The record types support by Webmin in reverse zones are: 
 #### Reverse Address (PTR)
@@ -183,7 +189,7 @@ Webmin uses the term zone parameters to refer to all information stored in the d
  - The **Refresh time**, **Transfer retry time**, **Expiry time** and **Default time-to-live** fields all have the same meanings as explained in the section on **Creating a new master zone**.  If records in your zone are going to be changing frequently in future, you may want to reduce some of these times. However, any changes, may not be detected by secondary servers and DNS clients until the old refresh or expiry time has elapsed, even if the new times are much lower. This is because they will wait for the old times to elapse before checking with the master server again to discovered the new ones. 
  - Click the **Save** button at the bottom of the page when you are done, and then the **Apply Changes** button back on the module's main page. The serial number in the SOA record will be automatically incremented when the form is saved, so that secondaries now that the zone has changed. 
 
-There is another set of options that you can edit for a master zone, stored in the named.conf file in the zone's section. These control which servers and clients are allowed to query records in the zone, do zone transfers and update records over the network. The most useful of these options specifies a list of slave DNS servers for the zone that should be notified when a change occurs, so that they can perform immediate zone transfers and thus remain synchronized. 
+There is another set of options that you can edit for a master zone, stored in the `named.conf` file in the zone's section. These control which servers and clients are allowed to query records in the zone, do zone transfers and update records over the network. The most useful of these options specifies a list of slave DNS servers for the zone that should be notified when a change occurs, so that they can perform immediate zone transfers and thus remain synchronized. 
 
 To edit these master zone options, the process to follow is: 
  - On the module's main page, click on the icon for the zone that you want to edit. This will take you to the form shown in Figure 30-4. 
@@ -205,13 +211,13 @@ If a master zone is no longer needed, you can use this Webmin module to totally 
  - Click on the **Delete Zone** button at the bottom of the page. 
  - When deleting a forward zone, the field **Delete reverse records in other zones?** controls whether matching Reverse Address records in hosted reverse zones for all of the Address records in this one should be removed as well. This is generally safe to set to **Yes**, as only records with the exact same IP address and hostname will be deleted. 
  - Similarly, when deleting a reverse zone the field **Delete forward records in other zones?** determines whether matching forward records should be deleted too. 
- - Once you have made your selection and are sure you want to go ahead with the deletion, click the **Delete** button. The zone's entry in the named.conf file will be removed, and its records file deleted. 
+ - Once you have made your selection and are sure you want to go ahead with the deletion, click the **Delete** button. The zone's entry in the `named.conf` file will be removed, and its records file deleted. 
 
 You can convert a master zone to a slave zone of the same name without needing to delete and re-create it. This can be useful if the new server is taking over as the master for some domain, or if the master and secondary servers are switching roles. The section on _Editing a slave zone_ explains how to carry out the reverse action of converting a slave zone to a master, which may be useful in this situation. 
 
 To convert a zone, the steps to follow are: 
  - On the module's main page, click on the icon for the zone that you want to edit, then on the **Edit Zone Options** icon. 
- - When you click on the **Convert to slave zone button**, zone's entry in named.conf will be immediately updated to convert it to a slave zone. The browser will then return to the module's main page. 
+ - When you click on the **Convert to slave zone button**, zone's entry in `named.conf` will be immediately updated to convert it to a slave zone. The browser will then return to the module's main page. 
  - Normally, every slave zone has a list of master server IP addresses that it can use to perform zone transfers from. In the case of converted zones, this list will be initially empty unless the **Default master server(s) for slave zones** module configuration option is set. Follow the instructions in the **Edit a slave zone** section to set the master servers addresses correctly. 
  - To activate the change, click on the **Apply Changes** button the module's main page. 
 
@@ -222,7 +228,7 @@ The secondary DNS server for a domain should not usually be located on the same 
 it up: 
  - On the main page of the BIND DNS Server module, click on the **Create a new slave zone** link above or below the list of existing zones. This will bring up the form shown below, for entering the details of the new domain. 
  - For a forward zone like _example.com_, set the **Zone type** field to **Forward** and enter the zone name into the **Domain name / Network** field. For a reverse zone that maps IP addresses to hostnames for a network, choose the **Reverse** option and enter the network address (like _192.168.1_) into the **Domain name / Network** text field. 
- - The **Records file** field determines if BIND keeps a cache of the records in this zone in a file, and if so where that file is located. If the option **None** is chosen, records that the DNS server transfers from the master will be kept in memory only, and lost when the server is re-started. This should only be chosen if there is a good network connect between the master and slave servers, as it will increase the number of zone transfers that your server must perform. If you choose **Automatic**, Webmin will generate a filename in the zone files directory specified in the named.conf file (usually `/var/named`). Whenever your server does a zone transfer, all records will be written to this file in the standard format.  If the final option is selected, you can enter the full path to a file in which records should be stored into the field next to. This can be useful if you want to separate the records files for master and slave zones. 
+ - The **Records file** field determines if BIND keeps a cache of the records in this zone in a file, and if so where that file is located. If the option **None** is chosen, records that the DNS server transfers from the master will be kept in memory only, and lost when the server is re-started. This should only be chosen if there is a good network connect between the master and slave servers, as it will increase the number of zone transfers that your server must perform. If you choose **Automatic**, Webmin will generate a filename in the zone files directory specified in the `named.conf` file (usually `/var/named`). Whenever your server does a zone transfer, all records will be written to this file in the standard format.  If the final option is selected, you can enter the full path to a file in which records should be stored into the field next to. This can be useful if you want to separate the records files for master and slave zones. 
  - In the **Master servers** field, enter the IP addresses of the master DNS server and any other secondary servers for the zone. BIND will try these servers in order when doing a zone transfer, so the master should be first on the list. You must enter at least one address, so that your server knows where to get records from. 
  - Click the **Create** button to have the new slave zone added to your server's configuration. Your browser will be re-directed to a page for editing options for the zone. 
  - Return to the module's main page, and click the **Apply Changes** button on the main page to make the addition active. 
@@ -230,10 +236,9 @@ it up:
  - Configure the master DNS server to notify this slave of any changes to records in the zone. The steps in the section on **Editing a master zone** explain how. 
  - If this is an Internet domain, notify the registrar for the parent zone of the new secondary server. Most provide online forms for editing the list of nameservers for a domain, to which you can add the secondary's IP. This is necessary so that other hosts on the Internet know to use the slave server is the master is down. 
 
-<img src=http://www.webmin.com/screenshots/chapter30/figure5.gif><br>
-The slave zone creation form
+[![](/images/docs/screenshots/modules/light/bind-create-slave-zone.png "BIND Create Slave Zone Screenshot")](/images/docs/screenshots/modules/light/bind-create-slave-zone.png)
 
-Another type of zone that is closely related to the slave zone is the stub. They are like slave zones, but only contain Name Server records that have been transferred from a master server, instead of all the records. Stub zones are rarely used, but can be useful for ensuring that the Name Server records in a zone for its sub-domains are the same as those use in the sub-domain itself. The steps for creating one are almost identical to those above, but in step 1 you must use the **Create a new stub zone** link on the main page instead. 
+Another type of zone that is closely related to the slave zone is the stub. They are like slave zones, but only contain Name Server records that have been transferred from a master server, instead of all the records. Stub zones are rarely used, but can be useful for ensuring that the Name Server records in a zone for its sub-domains are the same as those use in the sub-domain itself. The steps for creating one are almost identical to those above, but in first step you must use the **Create a new stub zone** link on the main page instead. 
 
 ### Editing a slave zone
 After a slave zone has been created, it is still possible to edit several options that apply to it. Naturally there is no way to add or edit the actual records within the zone, but you can still change the list of master servers, the records file and the clients that allowed to query it. To change these setting, the steps to follow are: 
@@ -248,8 +253,7 @@ After a slave zone has been created, it is still possible to edit several option
  - The other fields on the form such as **Check names?** and **Allow updates from?** are not really used for slave zones, and so can be left unchanged. 
  - When you are done making changes, click the Save button. As long as there were no syntax errors in your input, you will be returned to the module's main page. Click the **Apply Changes** button there to make the modifications active. Note that this will not always force a re-transfer of the zone, even if the master servers have changed. For slave zones that use records files, BIND will only do a transfer when it the zone expires or the server receives notification of a change. 
 
-<img src=http://www.webmin.com/screenshots/chapter30/figure6.gif><br>
-The slave zone editing form
+[![](/images/docs/screenshots/modules/light/bind-edit-slave-zone.png "BIND Edit Slave Zone Screenshot")](/images/docs/screenshots/modules/light/bind-edit-slave-zone.png)
 
 When editing a slave zones that uses a records file, it is possible to browse the records in Webmin. At the top of the page that appears when you click on the slave zone's icon is a table of record types, just like the one that appears on the master zone form. Each can be clicked on to list the names and values of records of that type in the zone, as known to the secondary server. Editing or adding to them is impossible of course, as any changes must be made on the master server which is the authoritative source of records for the domain. 
 
@@ -267,7 +271,7 @@ The final thing that you can do to a slave zone is convert it to a master. This 
 
 The steps to convert a zone are: 
  - Click on its icon on the module's main page. 
- - Scroll down to the bottom of the slave zone page, and hit the **Convert to master zone** button. This will immediately update the named.conf file to change the zone's type, but will not make any other changes. 
+ - Scroll down to the bottom of the slave zone page, and hit the **Convert to master zone** button. This will immediately update the `named.conf` file to change the zone's type, but will not make any other changes. 
  - To make the conversion active, click on the **Apply Changes** button on the module's main page. 
  - You can now edit records in the domain just as you would with any normal master zone, by following the instructions in the section on **Adding and editing records**. 
 
@@ -307,7 +311,7 @@ Once a root zone has been added, an icon representing it will appear on the main
 
 ### Editing zone defaults
 
-=### Defaults for new master zones=
+#### Defaults for new master zones
 If you add lots of zones that contain similar records, then it can be a lot of work to add them manually after creating each one. For example, in a web hosting company all of your domains might contain a www Address record for the IP address of your webserver, and an Mail Server record that directs mail to a central server. Fortunately, Webmin allows you to create a list of records that get added to all new domains, called a zone template. 
 
 A template consists of one or more records, each of which has a name, type and value. For Address records, the value can be option which indicates that it can be entered by the user at zone creation time. This is useful if one of the records (such as www) in the new domains does not have a fixed address, and you want to be able to easily set it when the zone is added. Templates can only be used when creating forward zones, as they do not make much sense for reverse zones. 
@@ -323,7 +327,7 @@ It is also possible to edit the default expiry, refresh, TTL and retry times for
 Now that you have created a template, you can choose whether or not to use it for each new master zone that you create. On the creation form (explained in the **Creating a new master zone** section) is a field labeled **Use zone template?**, which is set to **Yes** by default if there are any template records. Next to it is a field named **IP address for template records**, which used for entering the IP for records for which the **From form** option is selected. If you chose to use a template and if there are any records that do not have an IP address specified, then this field must be filled in. 
 
 
-=### Default zone settings=
+#### Default zone settings
 
 At the bottom of the **Zone Defaults** page you will find several options that apply to all existing domains, but can all be set or overridden on a per-zone basis as explained in the **Editing a master zone** section. You can control which clients are allowed to query the server, and what kind of checking is done for the records of various domain types. Being able to limit the allowed client hosts is particularly useful, so that you can stop non-internal clients using your DNS server. However, you should make sure that master Internet zones hosted by your server are accessible to everyone, so that other DNS servers on the Internet can look them up. 
 
@@ -378,7 +382,7 @@ Fortunately, there is a solution - the ISP can set up Name Alias (CNAME) records
 
 An example may make this clearer - imagine for example than an ISP had granted addresses in the range _192.168.1.100_ to _192.168.1.110_ to Example Corporation, which owns the example.com domain. The company already runs its own DNS server to host the example.com zone, but wants to control reverse address resolution for its IP range as well. The ISP would create Name Alias records in the _192.168.1_ zone pointing to the special sub-zone _192.168.1.100-110_, which will contain the actual Reverse Address records named like _192.168.1.100-100.101_. The ISP also needs to create a Name Server record for _192.168.1.100-110_ which tells other servers that Example Corporation's DNS server should be used to find records under that zone. 
 
-Webmin handles reverse address delegation well, and automatically converts special network zones like _192.168.1.100-110_ to and from the real zone names used by BIND such as 100-110.1.168.192.in-addr.arpa. The exact steps to follow on both the server that hosts the actual class C network zone and the server that a subset of it is being delegated to are : 
+Webmin handles reverse address delegation well, and automatically converts special network zones like _192.168.1.100-110_ to and from the real zone names used by BIND such as _100-110.1.168.192.in-addr.arpa_. The exact steps to follow on both the server that hosts the actual class C network zone and the server that a subset of it is being delegated to are : 
  - Decide on the range of addresses that are being delegated, such as _192.168.1.100_ to _192.168.1.110_. Typically, the sub-zone name is based on the range of addresses being delegated, but this does not have to be the case as long as it is under the parent network domain. 
  - On the server that hosts the class C network zone, add a Name Server record for _192.168.1.100-110_ with the server set to the IP address or name of the sub-zone's DNS server. 
  - For each address in the range, add a Name Alias record to the reverse zone named like _101.1.168.192.in-addr.arpa._ with the **Real Name** set like _101.100-110.1.168.192.in-addr.arpa_.  As you can see, the alias points to a record inside the zone for the sub-network. 
@@ -396,8 +400,8 @@ One inconvenience in setting up partial reverse delegation is the number of simi
  - Click on the **Record Generators** icon. This takes you to a page containing a table of existing generators, with a blank row for adding a new one. 
  - In the empty row, select **CNAME** from the menu under the **Type** column. 
  - Under the **Range** column, enter numbers for the start and end of the address range into the first two fields, such as _100_ and _110_. The third field is for entering the gap between each step, and should be left blank. If you were to enter 2, then the range would go _100_, _102_, _104_ and so on. 
- - In the **Address pattern** field, enter _$_ (a single dollar sign). When the records are created, the $ will be replaced with the number of each record, which will in turn resolve to an IP address in the range. You could also enter _$.1.168.192.in-addr.arpa._, which makes things more obvious but is longer to type. 
- - In the **Hostname pattern** field, enter _$.100-110_. Similarly, the $ will be replace with the number of each record, which will resolve to something like _101.100-110. 1.168.192.in-addr.arpa._. 
+ - In the **Address pattern** field, enter _$_ (a single dollar sign). When the records are created, the _$_ will be replaced with the number of each record, which will in turn resolve to an IP address in the range. You could also enter _$.1.168.192.in-addr.arpa._, which makes things more obvious but is longer to type. 
+ - In the **Hostname pattern** field, enter _$.100-110_. Similarly, the _$_ will be replace with the number of each record, which will resolve to something like _101.100-110. 1.168.192.in-addr.arpa._. 
  - If you like, enter a comment that describes what this generator is for into the **Comment** field. 
  - Click the **Save** button, return to the module's main page and click on **Apply Changes**. 
 
@@ -422,9 +426,9 @@ To add a new view to your BIND configuration, the steps to follow are:
 Once a view has been created, you can change the list of addresses and networks that it matches by clicking on its icon on the main page and updating the **Apply this view to clients** field. Then hit the **Save** button followed by **Apply Changes** to make the new client list active. 
 
 A view can be deleted by clicking the **Delete** button on the same form. This will bring up a confirmation page that allows you to choose what should happen to the zones that it contains, if any. The available options are: 
-:;Delete totally: All zones in the view are deleted, along with their records files. 
-:;Move out of views: Zones in the view are moved out to the top level.  This option should only be used when deleting the last view, for the reasons explained above.
-:;Move to view: Zones are moved to a different existing view.
+   * **Delete totally** -- All zones in the view are deleted, along with their records files. 
+   * **Move out of views** -- Zones in the view are moved out to the top level.  This option should only be used when deleting the last view, for the reasons explained above.
+   * **Move to view** -- Zones are moved to a different existing view.
 
 When one or more views have been defined on your system, you can choose which one to use when adding new zones. This is done using the **Create in view** field on the master, slave, forward and root zone creation forms, which allows you to select a view from its menu. Naturally, there is no option for creating a zone outside of any views as this is not allowed by BIND. 
 
@@ -441,11 +445,11 @@ Views can also be used to prevent clients outside your network looking up non-ho
  - Move all other zones to the _everyone_ view. 
 
 ### Module access control
-Like others, the BIND DNS Server module allows you to control which of its features are available to a particular Webmin user or group. This can be useful for giving people the rights to manage only records in their own zones and nobody else's. Even though this would normally require root access to the records files, with Webmin it can be granted to people without giving them level of power that a root login would allow. 
+Like others, the BIND DNS Server module allows you to control which of its features are available to a particular Webmin user or group. This can be useful for giving people the rights to manage only records in their own zones and nobody else's. Even though this would normally require _root_ access to the records files, with Webmin it can be granted to people without giving them level of power that a _root_ login would allow. 
 
 Once you have created a user with access to the module as explained on [Webmin Users](/docs/modules/webmin-users), the steps to limit his access to only certain zones are: 
  - Click on the BIND DNS Server next to the name of the user in the Webmin Users module. This will being up a page of access control options. 
- - Change the **Can edit module configuration?** field to **No**, so that the user is not allowed to change the paths that the module uses to named.conf and other files. 
+ - Change the **Can edit module configuration?** field to **No**, so that the user is not allowed to change the paths that the module uses to `named.conf` and other files. 
  - For the **Domains this user can edit** field, choose **Selected zones** and select the ones that you want him to have access to from the list to its right. If you want him to be able to edit almost all zones, it may be better to choose **All except selected** and select only those that he should not be allowed to manage records in. If your DNS server uses views, you can use the **Zones in view** options to allow or deny access to all zones in a view as well. 
  - Change the fields **Can create master zones?**, **Can create slave/stub zones?**, **Can create forward zones?** and **Can edit global options?** to **No**. 
  - If you want Reverse Address records in zones that the user does not have access to to be updated by changes to Address records in zones that he does, set the **Can update reverse addresses in any domain?** field to **Yes**. This may not be a good idea from a security point of view though, as he would be able to change almost any existing Reverse Address record on your system. For that reason, I suggest that this field be set to **No**. 
@@ -454,16 +458,10 @@ Once you have created a user with access to the module as explained on [Webmin U
  - Leave the **Can apply changes?** field set to **Yes**, so that he can use the **Apply Changes** button to make his additions and modifications active. 
  - Unless you want the user to be able to edit his records file manually, change the **Can edit records file?** field to **No**.  Most un-trusted users are not smart enough to perform manual editing. 
  - The **Can edit zone parameters?** field determines if the user can see and use the **Edit Zone Parameters** icon for his domains.  Setting this to **Yes** is quite safe, as the user can only harm his own zones by setting the parameters to silly values. 
- - Similarly, the **Can edit zone options?** field determines if the **Edit Zone Options** icon is visible or not. You should set this to **No**, as it is possible for a user to create a syntax error in named.conf by improper use of the zone options form. 
+ - Similarly, the **Can edit zone options?** field determines if the **Edit Zone Options** icon is visible or not. You should set this to **No**, as it is possible for a user to create a syntax error in `named.conf` by improper use of the zone options form. 
  - Unless you want the user to be able to delete his own domains, change the **Can delete zones?** field to **No**. Users should contact the master administrator instead if they can to delete zones. 
  - The **Can edit record generators?** field can be left set to **Yes**, as it simply allows the creation of multiple records at once. However, some users may get confused by this feature so it might be a good idea to change the field to **No**. 
  - The **Can lookup WHOIS information?** And **Can search for free IP numbers?** fields can also be left on **Yes**, as those features mere display information to the user. 
  - Change the **Can create and edit views?** field to **No**, so that the user cannot manage BIND 9 views. If the user is allowed to create zones, you can use the **Views this user can edit and add zones to** field to limit those that he can create zones in. 
  - **Can create slave zones on remote servers?** should be set to **No**, but this doesn't really matter as the user is not going to be allowed to create master or slave zones anyway. 
  - Finally, click the **Save** button to make the new restrictions for the user active.
-
-See also:
-* [[Resolution for Virtual Hosts]]
-
-
-[[Category:Bind]]
