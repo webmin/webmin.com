@@ -1564,6 +1564,10 @@ html[class*="page-docs"] a[href*="example.com"] {
     vertical-align: text-bottom;
 }
 
+[class^="page-docs"] .post-content h4 ~ h5 {
+    font-size: 18px;
+}
+
 .docs-toc,
 .docs-menu {
     font-size: .975rem;
