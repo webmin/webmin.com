@@ -26,7 +26,7 @@ Alternately, a single configuration file can be used, and Fetchmail can be run a
 
 In fact, it is possible for Fetchmail to be run on both individual users' configuration files and a global file at once. However, the Webmin module for configuring it expects you to use one mode or the other. 
 
-### The Fetchmail Mail Retrieval module
+### The module
 Webmin's module for managing Fetchmail can be found under the Servers category. When you click on its icon for the first time, the main page will display the Fetchmail configurations of all users on your system. For each user who has a `.fetchmailrc` in his home directory, the user's name and all servers from his file are displayed along with the protocol used to connect to each and the users to login as. 
 
 If Webmin cannot find the fetchmail program, then the main page will display an error message instead. This may be because it is not installed, or because the module is looking in the wrong place. Most Linux distributions come with a package for Fetchmail - check the CD or website, and use the [Software Packages](/docs/modules/software-packages) module to install it. 
