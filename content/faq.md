@@ -92,7 +92,7 @@ If you just want Webmin to be accessible via Apache gateway follow the steps bel
  ```
 Now all requests to `webmin.example.com` to the Apache virtual host will then be passed through to the Webmin server on `localhost` port `10000`.
 
-{{< alert warning question "Want to run under Apache sub-directory?" "Follow the instructions below below." >}}
+{{< alert warning question "Want to run under Apache sub-directory?" "Follow the instructions below instead." >}}
 
 - Edit `/etc/webmin/config` file and add the directives mentioned below:
 ```text
@@ -212,27 +212,65 @@ If you just want Webmin to be accessible via Nginx reverse proxy follow the step
  ```
 Now all requests to `webmin.example.com` to the Nginx virtual server will then be passed through to the Webmin server on `localhost` port `10000`.
 
-{{< alert warning question "Want to run under Nginx sub-directory?" "The instructions are exactly the same with a few additional steps described below." >}}
+{{< alert warning question "Want to run under Nginx sub-directory?" "Follow the instructions below instead." >}}
 
-- Edit once again `/etc/webmin/config` file and add more directives mentioned below:
+- Edit `/etc/webmin/config` file and add the directives mentioned below:
 ```text
+referers=webmin.example.com
 webprefix=/webmin
 webprefixnoredir=1
 ```
-- Edit once again`/etc/webmin/miniserv.conf` file, add more directives mentioned below and restart Webmin afterwards by calling `/etc/webmin/restart` command:
+- Edit`/etc/webmin/miniserv.conf` file, add the directives mentioned below and restart Webmin afterwards by calling `/etc/webmin/restart` command:
 ```
+redirect_ssl=1
+redirect_host=webmin.example.com
 redirect_prefix=/webmin
 cookiepath=/webmin
 ```
-- Edit once again `/etc/webmin/xterm/config` file and replace previously added `host` directive with the the following:
+- Edit `/etc/webmin/xterm/config` file and replace previously added `host` directive with the the following:
 ```
 host=webmin.example.com/webmin
 ```
-- Edit previously created `Server` block directive, i.e. `location` on the Nginx configuration with the following one, and restart Nginx afterwards:
-```
-location /webmin/ {
+- Create a `Server` block with the following directives to the Nginx configuration, and restart Nginx afterwards. Remember to replace `server_name`, `listen` IP address and SSL certificates paths with your own:
+ ```
+ server {
+    server_name webmin.example.com;
 
-```
+    # Enable SSL/TLS and HTTP2
+    listen 192.168.50.119:443 ssl http2;
+
+    # Point to files with SSL certificates for virtual host
+    ssl_certificate /etc/ssl/domains/example.com/ssl.cert;
+    ssl_certificate_key /etc/ssl/domains/example.com/ssl.key;
+
+    # Use only secure version of the TLS protocol (TLSv1.3)
+    ssl_protocols TLSv1.3;
+    ssl_prefer_server_ciphers off;
+
+    # Disable proxying for all /.well-known requests. It will 
+    # only be useful, if a domain has "root" defined
+    location ^~ /.well-known/ {
+        try_files $uri /;
+    }
+
+    # Proxying both HTTP and websockets
+    location /webmin/ {
+        proxy_pass https://localhost:10000/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection Upgrade;
+        proxy_set_header Host $host;
+
+        # Disable buffering to make progressive
+        # output work as expected
+        proxy_buffering off;
+        proxy_request_buffering off;
+
+        # Enable large file uploads
+        client_max_body_size 64g;
+    }
+}
+ ```
 
 Now all requests to `webmin.example.com/webmin/` to the Nginx virtual host will then be passed through to the Webmin server on `localhost` port `10000`.
 
