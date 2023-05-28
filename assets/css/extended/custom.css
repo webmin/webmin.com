@@ -1568,6 +1568,10 @@ html[class*="page-docs"] a[href*="example.com"] {
     font-size: 18px;
 }
 
+[class^="page-docs"] .post-content ul li > pre {
+    margin-inline-start: initial;
+}
+
 .docs-toc,
 .docs-menu {
     font-size: .975rem;
