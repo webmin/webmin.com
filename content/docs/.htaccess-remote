@@ -1,6 +1,8 @@
 
 RewriteRule ^Webmin/Usermin_Modules                    https://webmin.com/docs/ [R=301]
 
+RewriteRule ^Webmin/Usermin                            https://webmin.com/docs/usermin [R=301]
+
 RewriteRule ^Webmin/Backup_Configuration_Files         https://webmin.com/docs/MODULE/#developers [R=301,NE]
 RewriteRule ^Webmin/Change_Language_and_Theme          https://webmin.com/docs/MODULE/#developers [R=301,NE]
 RewriteRule ^Webmin/Usermin_Configuration              https://webmin.com/docs/MODULE/#developers [R=301,NE]
