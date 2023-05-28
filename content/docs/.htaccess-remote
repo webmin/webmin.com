@@ -47,7 +47,7 @@ RewriteRule ^Webmin/Postfix_Mail_Server                https://webmin.com/docs/M
 RewriteRule ^Webmin/PostgreSQL_Database_Server         https://webmin.com/docs/MODULE/#developers [R=301,NE]
 RewriteRule ^Webmin/ProFTPD_Server                     https://webmin.com/docs/MODULE/#developers [R=301,NE]
 RewriteRule ^Webmin/Procmail_Mail_Filter               https://webmin.com/docs/MODULE/#developers [R=301,NE]
-RewriteRule ^Webmin/QMail_Mail_Server                  https://webmin.com/docs/MODULE/#developers [R=301,NE]
+RewriteRule ^Webmin/QMail_Mail_Server                  https://webmin.com/docs/postfix-mail-server [R=301]
 RewriteRule ^Webmin/Read_User_Mail                     https://webmin.com/docs/MODULE/#developers [R=301,NE]
 RewriteRule ^Webmin/Samba_Windows_File_Sharing         https://webmin.com/docs/MODULE/#developers [R=301,NE]
 RewriteRule ^Webmin/Sendmail_Mail_Server               https://webmin.com/docs/MODULE/#developers [R=301,NE]
