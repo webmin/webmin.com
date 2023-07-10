@@ -16,7 +16,7 @@ Two versions of Virtualmin exist, under separate licenses:
 * **Virtualmin GPL**
     This is the freely downloadable version, licensed under the GPL. It is under active development, but does not contain all of the features of the Pro version.
 * **Virtualmin Pro**
-    This is the commerical version that you have to pay for. It includes [numerous features](https://www.virtualmin.com/professional/) not in the GPL version:
+    This is the commercial version that you have to pay for. It includes [numerous features](https://www.virtualmin.com/professional/) not in the GPL version:
       
     - 60+ installable scripts (Django, Drupal, Ghost, Grav, ionCube, Joomla, Magento, Matomo, Mautic, MediaWiki, Moodle, MyBB, Nextcloud, Node.js, phpBB, TikiWiki and many other)
     - Reseller accounts
