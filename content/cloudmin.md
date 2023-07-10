@@ -22,7 +22,7 @@ Two versions of Cloudmin exist, under separate licenses:
 * **Cloudmin GPL**
     This is the freely downloadable version, licensed under the GPL. It is under active development, but does not contain all of the features of the Pro version, and is limited to managing a single Xen or KVM host system.
 * **Cloudmin Pro**
-    This is the commerical version that you have to pay for. It includes numerous features not included in the GPL version:
+    This is the commercial version that you have to pay for. It includes numerous features not included in the GPL version:
 
     * Support for **Xen**, **OpenVZ**, **KVM**, **Solaris Zones** virtual systems
     * Can create and manage **GCE** and **EC2** accounts, instances, images, addresses and storage volumes
