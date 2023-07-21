@@ -17,10 +17,6 @@ sh setup-repos.sh
 
 This script will automatically setup our repository and install our GPG keys on your system, and provide **`webmin`** package for installation and easy upgrades in the future. The supported and tested systems are **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora** or **Debian**, **Ubuntu**, **Kali**.
 
-If you receive an error like `Hash algorithm SHA1 not available` on newer
-versions of RHEL, CentOS or related Linux distributions, you may need to run
-`update-crypto-policies --set DEFAULT:SHA1` before re-running `setup-repos.sh`.
-
 ### Install
 
 If Webmin repository was setup using our **`setup-repos.sh`** as [described above](#setup) then Webmin can be installed as easy as:
