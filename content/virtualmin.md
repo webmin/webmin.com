@@ -45,7 +45,7 @@ Virtualmin [changelog](/tags/virtualmin-changelog/) can be filtered out using ta
 
 Getting started with Virtualmin can be done with a few simple steps, using our [automated install](https://software.virtualmin.com/gpl/scripts/virtualmin-install.sh) script. The install script will setup your package manager, usually `apt-get` or `dnf` and then download our packages as well as all of the necessary dependencies for running Virtualmin.
 
-{{< alert success question "How to install?" "Documentation on supported systems and installation requirements is available on our official Virtualmin **[download](https://www.virtualmin.com/download/)** page." >}}
+{{< alert success question "How to install?" "Documentation on supported systems and installation requirements is available in our Virtualmin **[download](https://www.virtualmin.com/download/)** page." >}}
 
 ## Manual Installation
 
@@ -73,7 +73,7 @@ A plugin is a Webmin module that adds some functionality to Virtualmin. Typicall
 
 To use a plugin, first download and install it in the same way as you would for any other Webmin module. Then open up the **Features and Plugins** page in Virtualmin, and select the new plugin from the list of those available. Once this is done, the capabilities of the plugin can be enabled for some or all virtual servers, on the **Edit Virtual Server** page.
 
-The best place to find plugins in case of manual installation is in the official Virtualmin [repository](https://software.virtualmin.com/gpl/).
+The best place to find plugins in case of manual installation is in the Virtualmin [repository](https://software.virtualmin.com/gpl/).
 
 ## Developing Plugins
 
