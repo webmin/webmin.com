@@ -7,6 +7,7 @@ weight: 495
 ### About
 **SpamAssassin Mail Filter** is a powerful program for detecting un-wanted spam messages based on their headers and content. It uses a complex set of built-in rules to determine if an email is spam or not, and can also consult other databases of known spam message texts and mail servers used for sending spam. However, the `spamassassin` program itself does not perform any real filtering, instead it just takes email as input, adds special headers indicating if the message is spam or not and then writes it out again. This makes it ideal for use in a [Procmail Mail Filter](/docs/modules/procmail-mail-filter) action. 
 
+### Filtering Spam with SpamAssassin
 Assuming that you have SpamAssassin installed on your system, you can set it up to perform filtering for all users by following these steps:
 
 1. Create a new action that feeds mail to the program `/usr/bin/spamassassin` (or wherever it is located on your system). Make sure the **Wait for action program to finish, and check result** and **Action program is a filter** boxes are checked. No conditions should be entered, unless you want to turn off spam checking for certain messages. 
