@@ -5,6 +5,7 @@ tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 ---
 
 * Add full support for _NetworkManager_ in **Network Configuration** module
+* Add the **Terminal** module to Usermin
 * Add support for _WebGL_ in the **Terminal** module
 * Add screen reader support in **Terminal** module
 * Add significant improvements to read, reply and compose mail functionality
