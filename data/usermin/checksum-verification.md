@@ -1,5 +1,6 @@
-| File                        | sha256sum                                                        |
-| --------------------------- | ---------------------------------------------------------------- |
-| usermin-current.rpm         | 23356654b4a7bc616051d411f7c4b9a84768108ac513dd1af175deb1f766b6c1 |
-| usermin-current.deb         | 5d932491cee36520dc64b958aff1b1866ee8c96854eebaf0b4cc0172ae1b84c4 |
-| usermin-current.tar.gz      | c6d7dbd85c2a8ee680a3dfb2b00e788c1cfbe254658a3a7f94cf70cf32fed90b |
+| File | sha256sum |
+| ---- | --------- |
+| usermin_2.000_all.deb | 5bb70920931e810abf35cf143eed774e |
+| usermin-2.000-1.noarch.rpm | 7286bd918523d38da0fcedd63b3d6079 |
+| usermin-2.000-1.src.rpm | f37c98f222b3240e93cc330aa2fbda53 |
+| usermin-2.000.tar.gz | cb752367a3edd6262708f22174d0ba7a |
