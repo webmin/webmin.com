@@ -1,5 +1,5 @@
-| File | sha256sum |
-| ---- | --------- |
+| File | MD5 Checksum |
+| ---- | ------------ |
 | webmin_2.100_all.deb | 493d459b4b5334d4da1a57fa05d1a35a |
 | webmin-2.100-minimal.tar.gz | c205b01cb8c15cc9a9b840ef4a8d6095 |
 | webmin-2.100-1.noarch.rpm | e0d79c9755be0a1f8b003af39851829b |
