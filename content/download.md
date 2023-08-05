@@ -25,7 +25,7 @@ If Webmin repository was setup using our **`setup-repos.sh`** as [described abov
     dnf install webmin
 
    #### Debian and derivatives
-    apt-get install webmin
+    apt-get install webmin --install-recommends
 
 
 ## Manual
@@ -54,7 +54,7 @@ If Webmin package was downloaded manually it can be installed:
     dnf install ./webmin-current.rpm
 
    #### Debian and derivatives
-    apt-get install ./webmin-current.deb
+    apt-get install --install-recommends ./webmin-current.deb
 
    #### Solaris
     # The root user be switched from a role account to a normal account to logins to work
