@@ -9,7 +9,7 @@ Virtualmin is a Webmin module for managing multiple virtual hosts through a sing
 
 Virtualmin can also create a Webmin user for each virtual server, who is restricted to managing just his domain and its files. Webmin's existing module access control features are used, and are set up automatically to limit the user appropriately. These server administrators can also manage the mailboxes and mail aliases in their domain, via a web interface that is part of the module.
 
-## Licence
+## License
 
 Two versions of Virtualmin exist, under separate licenses:
 
