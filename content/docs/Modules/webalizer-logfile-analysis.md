@@ -7,7 +7,7 @@ weight: 525
 ### About
 This chapter explains how to create reports from your web or proxy server log files using the **Webalizer** package. 
 
-### The Webalizer Logfile Analysis module
+### The module
 Webalizer is a freely available program for analyzing and generating reports from [Apache Webserver](/docs/modules/apache-webserver) and Squid and ProFTPD log files. If you are running a website and want to see which pages are visited the most, at what times the most traffic comes or which countries it comes from, Webalizer is the tool to use. If you manage a [Squid Proxy Server](/docs/modules/squid-proxy-server) and want to see which sites clients most commonly access and when the proxy is most heavily used, it can generate reports showing that information as well. 
 
 Unlike many of the other servers that Webmin can configure, Webalizer is relatively simple. When the webalizer command is run, it reads in a log file and generates HTML pages and images based on the records in that log. It can also read statistics gathered in previous runs which from a history file, so that the report can include data that is no longer in the log file. The same history file is then updated with information from the latest report, for use in subsequent processing. This allows the system administrator to safely delete the original log file once it has been summarized. 
