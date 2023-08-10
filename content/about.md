@@ -6,7 +6,7 @@ showtoc: false
 
 ## Intro
 
-Webmin is a web-based system administration tool for Unix-like servers, and services with over 1,000,000 installations worldwide. Using it, it is possible to configure operating system internals, such as users, disk quotas, services or configuration files, as well as modify, and control open-source apps, such as **BIND** DNS Server, **Apache** HTTP Server, **PHP**, **MySQL**, and many more.
+Webmin is a web-based system administration tool for Unix-like servers, and services with over 1,000,000 installations worldwide. Using it, it is possible to configure operating system internals, such as users, disk quotas, services or configuration files, as well as modify, and control open-source apps, such as **BIND** DNS Server, **Apache** HTTP Server, **PHP**, **MariaDB/MySQL**, and many more.
 
 Webmin consists of a simple web server, and a number of sub-programs which directly update system files like `/etc/fstab` and `/etc/passwd`. The web server and all sub-programs are written in Perl version 5, and use no non-standard Perl modules.
 
