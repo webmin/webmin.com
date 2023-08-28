@@ -18,8 +18,8 @@ tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 | File                       | Size | File                       | Size |
 | -------------------------- | -----| -------------------------- | ---- |
 | **Webmin**                 |      | **Usermin**                |      |
-|[webmin-2.102-1.noarch.rpm](https://github.com/webmin/webmin/releases/download/2.102/webmin-2.102-1.noarch.rpm) | 40.8 MB | [usermin-2.001-1.noarch.rpm](https://github.com/webmin/usermin/releases/download/2.001/usermin-2.001-1.noarch.rpm)    | 16.3 MB |
-|[webmin_2.102_all.deb](https://github.com/webmin/webmin/releases/download/2.102/webmin_2.102_all.deb)           | 33.6 MB | [usermin-2.001_all.deb](https://github.com/webmin/usermin/releases/download/2.001/usermin_2.001_all.deb)              | 11.8 MB |
-|[webmin-2.102.pkg.gz](https://github.com/webmin/webmin/releases/download/2.102/webmin-2.102.pkg.gz)             | 45.7 MB | [usermin-2.001.tar.gz](https://github.com/webmin/usermin/releases/download/2.001/usermin-2.001.tar.gz)                | 18.3 MB |
+|[webmin-2.102-1.noarch.rpm](https://github.com/webmin/webmin/releases/download/2.102/webmin-2.102-1.noarch.rpm) | 40.8 MB | [usermin-2.002-1.noarch.rpm](https://github.com/webmin/usermin/releases/download/2.002/usermin-2.002-1.noarch.rpm)    | 16.3 MB |
+|[webmin_2.102_all.deb](https://github.com/webmin/webmin/releases/download/2.102/webmin_2.102_all.deb)           | 33.6 MB | [usermin-2.002_all.deb](https://github.com/webmin/usermin/releases/download/2.002/usermin_2.002_all.deb)              | 11.8 MB |
+|[webmin-2.102.pkg.gz](https://github.com/webmin/webmin/releases/download/2.102/webmin-2.102.pkg.gz)             | 45.7 MB | [usermin-2.002.tar.gz](https://github.com/webmin/usermin/releases/download/2.002/usermin-2.002.tar.gz)                | 18.3 MB |
 |[webmin-2.102.tar.gz](https://github.com/webmin/webmin/releases/download/2.102/webmin-2.102.tar.gz)             | 46.3 MB | | |
 |[webmin-2.102-minimal.tar.gz](https://github.com/webmin/webmin/releases/download/2.102/webmin-2.102-minimal.tar.gz) | 4.6 MB | |
