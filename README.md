@@ -1,13 +1,10 @@
 ### About 
 This repository is created for all users willing to contribute to improving [webmin.com](https://webmin.com) website.
 
-<p align="center">
-  <img width="1440" alt="webmin.com screenshot" src="https://github-production-user-asset-6210df.s3.amazonaws.com/4426533/265803170-b7e80d05-7203-4275-b639-5218b7df7959.png#gh-light-mode-only">
-  <img width="1440" alt="webmin.com screenshot" src="https://github-production-user-asset-6210df.s3.amazonaws.com/4426533/265803044-72466644-ae1e-414a-aca1-d04219af5097.png#gh-dark-mode-only">
-</p>
+![image](https://github.com/webmin/webmin.com/assets/4426533/e2587bd6-2ec2-4bee-aa9c-1e29bdf5be07#gh-light-mode-only)
+![image](https://github.com/webmin/webmin.com/assets/4426533/40511951-6ac1-4244-b790-b56fb6cf9c12#gh-dark-mode-only)
 
 The pages which have **Suggest Changes** link can be submitted for improvements via PR.
-
 
 ### How-tos
 
