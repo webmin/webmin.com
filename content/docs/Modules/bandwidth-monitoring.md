@@ -1,5 +1,6 @@
 ---
 title: "Bandwidth Monitoring"
+subSection: "Networking"
 date: 2023-09-10
 weight: 625
 ---
