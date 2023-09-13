@@ -84,6 +84,7 @@ RewriteRule ^Webmin/Network_Services_and_Protocols     https://webmin.com/docs/M
 RewriteRule ^Webmin/NFS_Exports                        https://webmin.com/docs/MODULE/#developers [R=301,NE]
 RewriteRule ^Webmin/NIS_Client_and_Server              https://webmin.com/docs/MODULE/#developers [R=301,NE]
 RewriteRule ^Webmin/Network_Configuration              https://webmin.com/docs/MODULE/#developers [R=301,NE]
+RewriteRule ^Webmin/Introduction_to_Linux_networking   https://webmin.com/docs/modules/network-configuration/#intro [R=301,NE]
 RewriteRule ^Webmin/PPP_Dialin_Server                  https://webmin.com/docs/MODULE/#developers [R=301,NE]
 RewriteRule ^Webmin/PPP_Dialup_Client                  https://webmin.com/docs/MODULE/#developers [R=301,NE]
 RewriteRule ^Webmin/PPTP_VPN_Client                    https://webmin.com/docs/MODULE/#developers [R=301,NE]
