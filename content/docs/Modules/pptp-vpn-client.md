@@ -9,9 +9,9 @@ The **PPTP VPN Client** Webmin module allows you to create VPN connections to ot
 
 Multiple tunnels may be defined, each of which must have a remote server to connect to, a login name and a password. A tunnel can also have several associated static routes, to be brought up when it is connected. By default, only a route to the server at the other end of the tunnel is created when it is activated.
 
-Once a tunnel has been created, it can be activated using the Connect to button at the bottom of the main page. Multiple tunnels can be active at any one time, and those that are active can be shut down with the Disconnect from button.
+Once a tunnel has been created, it can be activated using the **Connect to** button at the bottom of the main page. Multiple tunnels can be active at any one time, and those that are active can be shut down with the **Disconnect from** button.
 
-Also on the main page is the Edit Global PPP Options button for editing settings that apply to all tunnels. The most important are those related to MPPE, an encryption protocol using by Microsoft VPN servers to secure PPTP connections. However, support in both the PPP daemon and the kernel is needed for MPPE to work. PPPd versions 2.4.2 and above support MPPE natively, and a patch exists for older versions as well. 
+Also on the main page is the **Edit Global PPP Options** button for editing settings that apply to all tunnels. The most important are those related to MPPE, an encryption protocol using by Microsoft VPN servers to secure PPTP connections. However, support in both the PPP daemon and the kernel is needed for MPPE to work. PPPd versions 2.4.2 and above support MPPE natively, and a patch exists for older versions as well. 
 
 ### Intro
 PPTP (Point-to-Point Tunneling Protocol) is a method for implementing virtual private networks (VPNs). PPTP uses a control channel over TCP and a GRE tunnel operating to encapsulate PPP packets.
