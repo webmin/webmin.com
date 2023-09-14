@@ -15,7 +15,7 @@ To attach a new device, go to the **iSCSI Connections** page and enter the hostn
 
 Existing connections can be removed by checking the box next to their entries on the **iSCSI Connections** page, and clicking the **Disconnect** button. Removing a connection that is currently mounted or used in a RAID or LVM volume is not recommended. 
 
-### About iSCSI
+### About iSCSI Client
 iSCSI, which stands for Internet Small Computer Systems Interface, is a protocol that allows for the use of the SCSI protocol over TCP/IP networks. Essentially, it's a way of connecting storage devices over a network just like you would do with a local storage device.
 
 When we talk about an iSCSI Client, we are referring to the iSCSI initiator. In the iSCSI world, the terms "initiator" and "target" are frequently used.
@@ -42,8 +42,8 @@ If you're working on a Linux system, the `open-iscsi` package provides tools to 
 
 1. **Install open-iscsi**: 
    ```
-   sudo apt-get install open-iscsi  # For Debian/Ubuntu
-   sudo dnf install iscsi-initiator-utils  # For CentOS/RedHat
+   sudo apt-get install open-iscsi  # For Debian derivatives
+   sudo dnf install iscsi-initiator-utils  # For RHEL derivatives
    ```
 
 2. **Discover targets**: 
