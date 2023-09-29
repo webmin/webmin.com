@@ -5,7 +5,7 @@ weight: 275
 ---
 
 ### About
-*Scheduled Cron Jobs* lists jobs that are scheduled explicitly or implicitly by other modules like [Filesystem Backup](/docs/modules/filesystem-backup). In contrast to [Scheduled Commands](/docs/modules/scheduled-commands) which are executed just once, Scheduled Cron Jobs ar executed hourly, weekly or whateverly.
+The **Scheduled Cron Jobs** module lists jobs that are scheduled explicitly or implicitly by other modules like [Filesystem Backup](/docs/modules/filesystem-backup). In contrast to [Scheduled Commands](/docs/modules/scheduled-commands) which are executed just once, Scheduled Cron Jobs ar executed hourly, weekly or whateverly.
 
 [![](/images/docs/screenshots/modules/light/scheduled-cron-jobs.png "Scheduled Cron Jobs Screenshot")](/images/docs/screenshots/modules/light/scheduled-cron-jobs.png)
 
