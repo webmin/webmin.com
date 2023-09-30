@@ -1,5 +1,5 @@
 ---
-title: "Cron Jobs"
+title: "Cluster Cron Jobs"
 date: 2023-09-29
 weight: 885
 ---

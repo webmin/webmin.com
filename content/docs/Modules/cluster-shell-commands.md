@@ -1,5 +1,5 @@
 ---
-title: "Shell Commands"
+title: "Cluster Shell Commands"
 date: 2023-09-30
 weight: 895
 ---

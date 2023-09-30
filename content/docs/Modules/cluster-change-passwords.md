@@ -1,5 +1,5 @@
 ---
-title: "Change Passwords"
+title: "Cluster Change Passwords"
 date: 2023-09-29
 subSection: "Cluster"
 weight: 865
