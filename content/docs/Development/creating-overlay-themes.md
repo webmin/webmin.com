@@ -8,7 +8,7 @@ weight: 5010
 This page explains how to create overlay themes, which are a new feature in Webmin 1.450 and later. These allow you to easily modify the colors, icons and CSS of another theme, without having to create or duplicate its entire layout.
 
 ### Introduction to Overlay Themes
-Implementing a Webmin theme from scratch is a lot of work, as it involves creating icons, CSS, index CGI scripts and much more. Most theme developers only really want to change the appearance of one of the more common themes, like the default **Blue Framed Theme** (in the `gray-theme` directory), or the **Virtualmin Framed Theme**. Overlays provide an easy way to do this - in effect, they are meta-themes that are layered on top of an existing theme.
+Implementing a Webmin theme from scratch is a lot of work, as it involves creating icons, CSS, index CGI scripts and much more. Most theme developers only really want to change the appearance of one of the more common themes, like **Framed Theme** (in the `gray-theme` directory). Overlays provide an easy way to do this - in effect, they are meta-themes that are layered on top of an existing theme.
 
 Once an overlay theme is installed, it can be selected globally in the [Webmin Configuration](/docs/modules/webmin-configuration) module on the [Webmin Themes](/docs/modules/webmin-configuration/#webmin-themes) page, or in the [Change Language and Theme](/docs/modules/change-language-and-theme) module. Each overlay theme is typically designed to modify the appearance of one or more core themes, specified in its `theme.info` file.
 
