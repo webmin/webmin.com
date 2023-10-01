@@ -78,8 +78,8 @@ An example library file could look like:
 
 Functions for managing the Foobar webserver configuration file.
 
-  foreign_require("foobar", "foobar-lib.pl");
-  @sites = foobar::list_foobar_websites()
+  foreign_require("foobar");
+  my @sites = foobar::list_foobar_websites()
 
 =cut
 
