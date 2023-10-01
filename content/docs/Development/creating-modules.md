@@ -1,9 +1,8 @@
 ---
-title: "Intro"
+title: "Creating Modules"
 date: 2023-10-01
 weight: 5000
 ---
-
 
 This page should be read if you are planning to write your own Webmin module, as it explains all the requirements for creating a usable module. 
 
