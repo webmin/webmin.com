@@ -1668,6 +1668,9 @@ html[class*="page-docs"] a[href*="example.com"] {
         margin-left: -0.611rem;
     }
 }
+[class^="page-docs"][class*="api"] .post-content table tr a {
+  white-space: nowrap;
+}
 
 .docs-toc .docs-toc-content ul {
     padding: 0;
