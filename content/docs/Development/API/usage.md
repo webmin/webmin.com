@@ -4,7 +4,7 @@ date: 2023-10-01
 weight: 6000
 ---
 
-### API Libraries
+### API libraries
 The Webmin API has a set of core functions that are available to all modules, and functions exported by other modules that yours can optionally use.
 
 | API | Description |
@@ -25,7 +25,7 @@ The Webmin API has a set of core functions that are available to all modules, an
 
 The extensive Webmin API can also be called from your own Perl scripts that do not run under miniserv, as long as they run as root. The easiest way to do this is to install the `Webmin::API` Perl module, which takes care of a lot of the boilerplate code that would be otherwise required.
 
-### API in Standalone Perl Scripts
+### API in standalone Perl scripts
 The steps to install and use this module are:
 
 1. [Download](https://www.webmin.com/Webmin-API-1.0.tar.gz) the `Webmin::API` Perl module

@@ -6,7 +6,7 @@ weight: 5015
 
 Since Webmin 1.300, it has been possible to call Webmin API functions via XML-RPC. The base URL is `https://example.com:10000/xmlrpc.cgi`, which then selects the Webmin function to call based on its parameters. This can be invoked from any language that supports basic data structures like hashes and arrays.
 
-#### Code Example
+#### Code example
 
 ```perl
 #!/usr/bin/perl

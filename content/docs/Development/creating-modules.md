@@ -19,7 +19,7 @@ Modules written in other languages will not be displayed using the standard Webm
 
 At their simplest, modules are really just directories of CGI programs that Webmin's web server runs. However, there are certain rules that should be followed to make sure that they work with the Webmin API, main menu, and access control system. Even though you can just stick any existing CGI script into a module directory, this is not a good idea.
 
-### Required Files
+### Required files
 Every module has its own directory under the Webmin base directory, in which all the module's CGI programs and configuration files must be stored. For example, if the Webmin base was `/usr/libexec/webmin`,
 a module called foobar would be created or installed in `/usr/libexec/webmin/foobar`. 
 
@@ -262,7 +262,7 @@ No module should ever corrupt a service configuration file or remove options tha
 
 Webmin modules should be designed to be easy for novices to use, but still allow the user to do almost everything that could be done by editing the configuration file directly. However, in some cases configurations options will exist that very few users will need to edit or that do not lend themselves to be edited through a GUI. These kind of settings should be left out of your Webmin module if they would clutter up the user interface with' their presence. 
 
-### Online Help
+### Online help
 Webmin has support for context-sensitive help, both for an entire page or for individual elements. The `hlink` function outputs HTML for a link that displays a given help page. Help pages are stored in the `help` subdirectory under the module directory and are named simply `page.html` for those in English. So a call to `hlink` like:
 
 ```perl
@@ -290,7 +290,7 @@ Webmin modules can support multiple languages through the use of alternative tra
 Help pages can exist if more than one language as well, by creating files named like `page.language.html` in the help subdirectory. If such a file exists, it will be used in preference to `page.html`, which is assumed to be in English. For example, to add a Greek version of an existing `name.html` page you would need to create 
 `name.el.html`.
 
-### Module Packaging
+### Module packaging
 The [Webmin Configuration](/docs/modules/webmin-configuration) module allows the user to add a new module to their existing setup. Modules must be packaged as a
 compressed Unix TAR file containing one or more modules. Each module in the TAR file must have all its files in one subdirectory.
 

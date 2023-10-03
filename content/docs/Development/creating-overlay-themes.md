@@ -7,12 +7,12 @@ weight: 5010
 ### About
 This page explains how to create overlay themes, which are a new feature in Webmin 1.450 and later. These allow you to easily modify the colors, icons and CSS of another theme, without having to create or duplicate its entire layout.
 
-### Introduction to Overlay Themes
+### Introduction to overlay themes
 Implementing a Webmin theme from scratch is a lot of work, as it involves creating icons, CSS, index CGI scripts and much more. Most theme developers only really want to change the appearance of one of the more common themes, like **Framed Theme** (in the `gray-theme` directory). Overlays provide an easy way to do this - in effect, they are meta-themes that are layered on top of an existing theme.
 
 Once an overlay theme is installed, it can be selected globally in the [Webmin Configuration](/docs/modules/webmin-configuration) module on the [Webmin Themes](/docs/modules/webmin-configuration/#webmin-themes) page, or in the [Change Language and Theme](/docs/modules/change-language-and-theme) module. Each overlay theme is typically designed to modify the appearance of one or more core themes, specified in its `theme.info` file.
 
-### Overlay Theme Files
+### Overlay theme files
 Like regular themes, an overlay theme is simply a directory under the Webmin root. This is normally `/usr/libexec/webmin` or `/usr/share/webmin` , and can be found in the `root` line of the `/etc/webmin/miniserv.conf` file. If you want to create your own overlay, just create a sub-directory under the root, named something like `my-overlay-theme` . 
 
 This directory must contain a `theme.info` file, which uses the same text line by line **name=value** format seen in other Webmin configuration files. The only required names are:
@@ -69,7 +69,7 @@ body { background-color: #ffeeee; }
 html { background-color: #ffeeee; }
 ```
 
-### CSS Styling
+### CSS styling
 All Webmin UI elements have CSS classes, which can then be styled by a overlay theme's `.css` file. Some of the useful classes are:
 * `ui_table`
 
@@ -211,12 +211,12 @@ All Webmin UI elements have CSS classes, which can then be styled by a overlay t
 
    The `<center>` surrounding a confirmation form
 
-### Overlaying Files
+### Overlaying files
 An overlay theme can replace icons, CSS or other files in the base theme by simply including them in its directory using the same paths. For example, you could replace the Webmin logo that appears on the main page by creating the file `images/webmin-blue.png` under your theme's directory.
 
 Replacing CSS files is not recommended though, as this will break most existing UI elements. Instead, add to the base theme's CSS by using the `headhtml` option described above.
 
-### Example Overlay Theme
+### Example overlay theme
 To see a very simple overlay theme in action, install the example as follows:
 - Login to Webmin and go to **Webmin** ⇾ **Webmin Configuration** ⇾ **Webmin Themes**
 - Click on **Install theme**, and enter the URL `http://download.webmin.com/download/modules/overlay-theme.wbt.gz`
