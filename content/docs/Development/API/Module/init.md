@@ -1,5 +1,5 @@
 ---
-title: "Init"
+title: "init::"
 date: 2023-10-05
 weight: 6040
 ---
