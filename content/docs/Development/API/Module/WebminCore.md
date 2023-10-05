@@ -41,7 +41,7 @@ Converts `&`, `<` and `>` codes in text to HTML entities, and returns the new st
 Converts " and ' characters in a string into HTML entities, and returns it. Useful for outputing HTML tag values.
 
 ##### tempname([filename])
-Returns a mostly random temporary file name, typically under the /tmp/.webmin directory. If filename is given, this will be the base name used. Otherwise a unique name is selected randomly.
+Returns a mostly random temporary file name, typically under the `/tmp/.webmin` directory. If filename is given, this will be the base name used. Otherwise a unique name is selected randomly.
 
 ##### transname([filename])
 Behaves exactly like tempname, but records the temp file for deletion when the current Webmin script process exits.
@@ -215,7 +215,7 @@ Returns HTML for a button that will popup a chooser window of some kind. The par
 * `url` - Base URL of the popup window's contents
 * `width` - Width of the window in pixels
 * `height` - Height in pixels
-* `scrollbars` - Set to 1 if the window should have scrollbars<br />The field-mappings parameter is an array ref of array refs containing
+* `scrollbars` - Set to 1 if the window should have scrollbars. The field-mappings parameter is an array ref of array refs containing
 ** `Attribute` to assign field to in the popup window
 ** `Form` field name
 ** `CGI` parameter to URL for value, if any
@@ -226,13 +226,13 @@ Reads the Webmin acl file into the given hash references. The first is indexed b
 This function is deprecated in favour of foreign_available, which performs a more comprehensive check of module availability.
 
 ##### acl_filename
-Returns the file containing the webmin ACL, which is usually /etc/webmin/webmin.acl.
+Returns the file containing the webmin ACL, which is usually `/etc/webmin/webmin.acl`.
 
 ##### acl_check
 Does nothing, but kept around for compatability.
 
 ##### get_miniserv_config(&hash)
-Reads the Webmin webserver's (`miniserv.pl`) configuration file, usually located at /etc/webmin/miniserv.conf, and stores its names and values in the given hash reference.
+Reads the Webmin webserver's (`miniserv.pl`) configuration file, usually located at `/etc/webmin/miniserv.conf`, and stores its names and values in the given hash reference.
 
 ##### put_miniserv_config(&hash)
 Writes out the Webmin webserver configuration file from the contents of the given hash ref. This should be initially populated by get_miniserv_config, like so:
@@ -261,8 +261,8 @@ Returns 1 if some module is supported on the current operating system, or the OS
 Downloads data from a HTTP url to a local file or string. The parameters are:
 * `host` - The hostname part of the URL, such as www.google.com
 * `port` - The HTTP port number, such as 80
-* `page` - The filename part of the URL, like /index.html
-* `destfile` - The local file to save the URL data to, like /tmp/index.html. This can also be a scalar reference, in which case the data will be appended to that scalar
+* `page` - The filename part of the URL, like `/index.html`
+* `destfile` - The local file to save the URL data to, like `/tmp/index.html`. This can also be a scalar reference, in which case the data will be appended to that scalar
 * `error` - If set to a scalar ref, the function will store any error message in this scalar and return 0 on failure, or 1 on success. If not set, it will simply call the error function if the download fails
 * `callback` - If set to a function ref, it will be called after each block of data is received. This is typically set to \&progress_callback, for printing download progress
 * `sslmode` - If set to 1, an HTTPS connection is used instead of HTTP
@@ -326,7 +326,7 @@ Renders a 4-column table of icons. The useful parameters are:
 
 ##### replace_file_line(file, line, [newline]*)
 Replaces one line in some file with 0 or more new lines. The parameters are:
-* `file` - Full path to some file, like /etc/hosts
+* `file` - Full path to some file, like `/etc/hosts`
 * `line` - Line number to replace, starting from 0
 * `newline` - Zero or more lines to put into the file at the given line number. These must be newline-terminated strings
 
@@ -432,8 +432,8 @@ Updates the acl hash for some group and module. The parameters are:
 
 ##### init_config
 This function must be called by all Webmin CGI scripts, either directly or indirectly via a per-module `lib.pl` file. It performs a number of initialization and housekeeping tasks, such as working out the module name, checking that the current user has access to the module, and populating global variables. Some of the variables set include:
-* `$config_directory` - Base Webmin config directory, typically /etc/webmin
-* `$var_directory` - Base logs directory, typically /var/webmin
+* `$config_directory` - Base Webmin config directory, typically `/etc/webmin`
+* `$var_directory` - Base logs directory, typically `/var/webmin`
 * `%config` - Per-module configuration
 * `%gconfig` - Global configuration
 * `$scriptname` - Base name of the current perl script
@@ -515,7 +515,7 @@ Lock a file for exclusive access. If the file is already locked, spin until it i
 * `forcefile` - Force the file to be considered as a real file and not a symlink for Webmin actions logging purposes
 
 ##### unlock_file(filename)
-Release a lock on a file taken out by lock_file. If Webmin actions logging of file changes is enabled, then at unlock file a diff will be taken between the old and new contents, and stored under /var/webmin/diffs when webmin_log is called. This can then be viewed in the Webmin Actions Log module.
+Release a lock on a file taken out by lock_file. If Webmin actions logging of file changes is enabled, then at unlock file a diff will be taken between the old and new contents, and stored under `/var/webmin/diffs` when `webmin_log` is called. This can then be viewed in the Webmin Actions Log module.
 
 ##### test_lock(file)
 Returns 1 if some file is currently locked, 0 if not.
@@ -655,7 +655,7 @@ Returns HTML for a button that pops up a data chooser window. The parameters are
 Returns the path to a module's help file of some name, typically under the help directory with a .html extension.
 
 ##### seed_random
-Seeds the random number generator, if not already done in this script. On Linux this makes use of the current time, process ID and a read from /dev/urandom. On other systems, only the current time and process ID are used.
+Seeds the random number generator, if not already done in this script. On Linux this makes use of the current time, process ID and a read from `/dev/urandom`. On other systems, only the current time and process ID are used.
 
 ##### disk_usage_kb(directory)
 Returns the number of kB used by some directory and all subdirs. Implemented by calling the =du -k= command.
@@ -672,7 +672,7 @@ Opens a connection to some HTTP server, maybe through a proxy, and returns a han
 * `port` - HTTP port number to connect to
 * `ssl` - Set to 1 to connect in SSL mode
 * `method` - HTTP method, like GET or POST
-* `page` - Page to request on the webserver, like /foo/index.html
+* `page` - Page to request on the webserver, like `/foo/index.html`
 * `headers` - Array ref of additional HTTP headers, each of which is a 2-element array ref
 
 ##### read_http_connection(&handle, [bytes])
@@ -766,7 +766,7 @@ Saves the user's Usermin preferences for some module. The config parameter is an
 Converts a number of bytes into a number followed by a suffix like GB, MB or kB. Rounding is to two decimal digits. The optional min parameter sets the smallest units to use - so you could pass 1024*1024 to never show bytes or kB.
 
 ##### get_perl_path
-Returns the path to Perl currently in use, such as /usr/bin/perl.
+Returns the path to Perl currently in use, such as `/usr/bin/perl`.
 
 ##### get_goto_module([&mods])
 Returns the details of a module that the current user should be re-directed to after logging in, or undef if none. Useful for themes.
@@ -809,9 +809,9 @@ Returns a list of all known MIME types and their extensions, as a list of hash r
 Given a file name like xxx.gif or foo.html, returns a guessed MIME type. The optional default parameter sets a default type of use if none is found, which defaults to application/octet-stream.
 
 ##### open_tempfile([handle], file, [no-error], [no-tempfile], [safe?])
-Opens a file handle for writing to a temporary file, which will only be renamed over the real file when the handle is closed. This allows critical files like /etc/shadow to be updated safely, even if writing fails part way through due to lack of disk space. The parameters are:
+Opens a file handle for writing to a temporary file, which will only be renamed over the real file when the handle is closed. This allows critical files like `/etc/shadow` to be updated safely, even if writing fails part way through due to lack of disk space. The parameters are:
 * `handle` - File handle to open, as you would use in Perl's open function
-* `file` - Full path to the file to write, prefixed by >` or >`>` to indicate over-writing or appending. In append mode, no temp file is used
+* `file` - Full path to the file to write, prefixed by `>` or `>>` to indicate over-writing or appending. In append mode, no temp file is used
 * `no-error` - By default, this function will call error if the open fails. Setting this parameter to 1 causes it to return 0 on failure, and set `$!` with the error code
 * `no-tempfile` - If set to 1, writing will be direct to the file instead of using a temporary file
 * `safe` - Indicates to users in read-only mode that this write is safe and non-destructive
@@ -895,7 +895,7 @@ Returns 1 if the current Webmin instance is running in a Solaris zone. Used to d
 Returns 1 if the current Webmin instance is running in a Linux VServer. Used to disable modules and features that are not appropriate.
 
 ##### running_in_xen
-Returns 1 if Webmin is running inside a Xen instance, by looking at /proc/xen/capabilities.
+Returns 1 if Webmin is running inside a Xen instance, by looking at `/proc/xen/capabilities`.
 
 ##### list_categories(&modules, [include-empty])
 Returns a hash mapping category codes to names, including any custom-defined categories. The modules parameter must be an array ref of module hash objects, as returned by get_all_module_infos.
@@ -904,7 +904,7 @@ Returns a hash mapping category codes to names, including any custom-defined cat
 Returns 1 if the current user is in read-only mode, and thus all writes to files and command execution should fail.
 
 ##### command_as_user(user, with-env?, command, ...)
-Returns a command to execute some command as the given user, using the su statement. If on Linux, the /bin/sh shell is forced in case the user does not have a valid shell. If with-env is set to 1, the -s flag is added to the su command to read the user's .profile or .bashrc file.
+Returns a command to execute some command as the given user, using the su statement. If on Linux, the `/bin/sh` shell is forced in case the user does not have a valid shell. If with-env is set to 1, the -s flag is added to the su command to read the user's .profile or .bashrc file.
 
 ##### list_osdn_mirrors(project, file)
 Given a OSDN project and filename, returns a list of mirror URLs from which it can be downloaded. Mainly for internal use by the http_download function.
