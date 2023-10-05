@@ -6,7 +6,7 @@ weight: 6050
 
 ### Functions from passwd module
 
-#### passwd-lib.pl
+#### `passwd-lib.pl`
 Functions to support the change passwords module. Some example code:
 
 ```perl

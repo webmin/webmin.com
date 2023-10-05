@@ -5,7 +5,7 @@ weight: 6040
 ---
 
 ### Functions from init module
-#### init-lib.pl
+#### `init-lib.pl`
 
 Common functions for boot/shutdown sequences. Because each system uses a different format and semantics for bootup actions, there are separate functions for listing and managing each type. However, some functions like `enable_at_boot` and `disable_at_boot` can create actions regardless of the underlying boot system.
 
