@@ -4,7 +4,7 @@ date: 2023-10-01
 weight: 6010
 ---
 
-### Functions from module ACL
+### Functions from ACL module
 #### `acl-lib.pl`
 
 Library for editing webmin users, passwords and access rights.
