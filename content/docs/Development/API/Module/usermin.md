@@ -6,7 +6,7 @@ weight: 6100
 
 ### Functions from usermin module
 
-#### usermin-lib.pl
+#### `usermin-lib.pl`
 
 Functions for configuring Usermin running on this system.
 
