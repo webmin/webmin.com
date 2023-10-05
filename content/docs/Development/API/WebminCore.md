@@ -1,7 +1,7 @@
 ---
-title: "WebminCore"
+title: "Core"
 date: 2023-10-05
-weight: 6105
+weight: 6007
 ---
 
 ### Core Webmin API
