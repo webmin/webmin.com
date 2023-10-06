@@ -4,12 +4,12 @@ date: 2023-10-01
 weight: 15
 ---
 
-What **Webmin** is, why it was written and what you can expect from this documentation.
+What **Webmin** and **Usermin** are, why it was written and what you can expect from this documentation.
 
 ### What is Webmin?
-Webmin is a program that simplifies the process of managing a Linux or Unix system. Normally you need to manually edit configuration files and run commands to create accounts, set up a web server and manage email forwarding. Webmin lets you perform these tasks and many more through an easy to use web interface and automatically updates all required configuration files for you. This makes the job of administering your system much easier.
+**Webmin** is a program that simplifies the process of managing a Linux or Unix system. Normally you need to manually edit configuration files and run commands to create accounts, set up a web server and manage email forwarding. Webmin lets you perform these tasks and many more through an easy to use web interface and automatically updates all required configuration files for you. This makes the job of administering your system much easier.
 
-[![](/images/docs/screenshots/modules/light/intro-dashboard.png "Dashboard Screenshot")](/images/docs/screenshots/modules/light/intro-dashboard.png)
+[![](/images/docs/screenshots/modules/light/intro-dashboard.png "Webmin Dashboard Screenshot")](/images/docs/screenshots/modules/light/intro-dashboard.png)
 
 Some of the things you can do with Webmin are:
  - Create, edit and delete Unix [accounts](/docs/modules/users-and-groups) on your system.
@@ -34,7 +34,7 @@ While Webmin was developed for Linux users, Webmin can be used with many other f
 
 Webmin is a configuration tool, and so you must have programs installed for it to configure. For example, the Apache module requires that the actual Apache webserver be installed. Fortunately, all services and servers that Apache manages are either included with most standard Linux distributions or can be downloaded and installed freely.
 
-### Who should use Webmin?
+#### Who should use Webmin?
 Webmin was written for people with some Linux experience who might be unfamiliar with the intricacies of system administration. Even though it makes the process of creating Unix users or managing the [Squid Proxy Server](/docs/modules/squid-proxy-server) easy, you first must have some idea of what a Unix account is and what Squid does. The average user probably runs Webmin on a Linux system at home or on a company network.
 
 The program assumes you are familiar with basic [TCP/IP](/docs/modules/network-configuration) networking concepts, such as IP addresses, DNS servers and hostnames. It also assumes the user understands the layout of the [Unix filesystem](/docs/modules/file-manager), what users and groups are and where user files are located. If you use Webmin to manage some server like Apache or Sendmail, you should have some idea of what they can do and what kind of configuration you want.
@@ -47,8 +47,8 @@ Because Webmin runs with root privileges, you must be able to log in to your sys
 
 If you are an experienced system administrator, Webmin may not seem to be a good tool for you because using it generally is slower than directly editing configuration files and running commands. However, even experts can benefit from Webmin's automatic syntax checking and actions it performs automatically. You also can give different people different levels of access to Webmin so an experienced administrator safely can delegate responsibility to less-skilled subordinates. For example, you might want someone to be able to manage the BIND DNS server but nothing else, while giving yourself full access to the system and all of Webmin's functions.
 
-### How and why was it developed?
-Webmin was written by Jamie Cameron, author of _Managing Linux Systems with Webmin: System Administration and Module Development_. He released the first version of Webmin (version 0.1) in October 1997. Since then, its user interface, features and appearance have changed dramatically, and almost all of the code has been re-written. However, the basic concept of a web-based administration tool has been the same since that very first release.
+#### How and why was it developed?
+Webmin was written by Jamie Cameron, author of "Managing Linux Systems with Webmin: System Administration and Module Development". He released the first version of Webmin (version 0.1) in October 1997. Since then, its user interface, features and appearance have changed dramatically, and almost all of the code has been re-written. However, the basic concept of a web-based administration tool has been the same since that very first release.
 
 Jamie started writing Webmin when he was the administrator for a system running a [DNS Server](/docs/modules/bind-dns-server) and had to spend a lot of time updating the server's configuration files to add new host records requested by users. Giving them the _root_ password was not an option because they did not have the experience to properly edit the zone files and re-start the server. The solution was a simple web interface that would display existing DNS records and allow them to be edited, created and deleted. Users were given access to this interface to make the changes they needed safely.
 
@@ -56,7 +56,7 @@ DNS management was just the start, though. Once Jamie saw the possibilities for 
 
 Over the years, the program went through multiple user interfaces and dozens of modules, added support for non-English languages, advanced access control, supported a lot more operating systems and incorporated many other features. The Linux distribution companies Caldera and MSC.Linux have supported the project financially, and many users have made contributions of code patches, modules, translations and suggestions. Besides the standard modules, more than 100 others have been written by other users and can be added to Webmin on your system.
 
-### What is this wiki about?
+#### What is this wiki about?
 This wiki includes information that explains how to install Webmin, how to use almost all of its modules and how to write your own. For example:
 
 - [Webmin Modules](/docs/modules/backup-configuration-files)
@@ -84,6 +84,22 @@ This wiki includes information that explains how to install Webmin, how to use a
 
    These pages explain how to write your own modules and themes.
 
+### What is Usermin?
+**Usermin** is a web-based interface for webmail, password changing, mail filters, fetch mail and much more. 
+
+[![](/images/docs/screenshots/modules/light/intro-dashboard-usermin.png "Usermin Dashboard Screenshot")](/images/docs/screenshots/modules/light/intro-dashboard-usermin.png)
+
+It is designed for use by regular non-root users on a Unix system, and limits them to tasks that they would be able to perform if logged in via SSH or at the console.
+
+#### Who can use Usermin?
+Most users of Usermin are sysadmins looking for a simple webmail interface to offer their customers. Unlike most other webmail solutions, it can be used to change passwords, read email with no additional servers installed (like IMAP or POP3), and setup users' [Procmail Mail Filter](/docs/modules/procmail-mail-filter) for forwarding, spam filtering and auto-reponders.
+Usermin also provides web interfaces for viewing and managing data in [MySQL Database Server](/docs/modules/mysql-database-server) and [PostgreSQL Database Server](/docs/modules/postgresql-database-server) databases, editing Apache .htaccess configuration files, and running commands on the server. The administrator has full control over which of these modules are available to users.
+
+#### Usermin and Webmin integration
+By far the easiest way to configure Usermin is via the [Usermin Configuration](/docs/modules/usermin-configuration) module in Webmin. All functionality can be managed via a browser, and because both products come from the same developer the management user interface is always up to date.
+
+To be able to use Usermin port 20000 should be opened within the [FirewallD](/docs/modules/firewalld).
+
 ### Conventions
 The following special text styles are used in this wiki: 
 
@@ -101,3 +117,4 @@ The following special text styles are used in this wiki:
 
 ### Thanks to
 The book "Managing Linux Systems with Webmin: System Administration and Module Development", which serves as the foundation of this wiki, could not have been written without the support of Jill Harry and the others at Prentice Hall; Bob Kern for suggesting the idea; Jamie's wife, Foong Ching, for her constant support; and all the members of the Webmin mailing list for their ideas and suggestions over the years.
+
