@@ -1740,6 +1740,8 @@ html[class*="page-docs"] a[href*="example.com"] {
 
 .docs-menu .docs-menu-content details > div {
     margin-left: 1.033rem;
+    text-indent: -0.33rem;
+    padding-left: 0.33rem;  
 }
 
 .asideMobile .docs-menu-content details > div {
