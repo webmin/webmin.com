@@ -23,4 +23,4 @@ Now we need your help.
 
 
 #### Suggest Changes 
-If you find a mistake or omission, don't hesitate to and submit a PR to the [Webmin.com Github repository](https://github.com/webmin/webmin.com). 
+If you find a mistake or omission, don't hesitate to submit a PR to the [Webmin.com Github repository](https://github.com/webmin/webmin.com). 
