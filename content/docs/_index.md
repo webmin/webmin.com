@@ -22,11 +22,5 @@ Many folks in the Webmin community have discussed the documentation problem, and
 Now we need your help.
 
 
-#### Don't be shy
-If you find a mistake or omission, don't hesitate but hit the *Suggest Changes* button at the top of the page, start editing and submit a PR to us later. 
-
-#### Edit
-When you find that something isn't right or isn't covered that you think is interesting, suggest changes to the page and talk about it, even if you aren't an "expert" on the subject. All of us can probably pool our knowledge and make something useful out of it.
-
-#### Add
-We don't cover much third party modules, and some of them really rock.  If you've written a third party module, and want to talk about it, create a page for it, and add it to the _third-party_ directory in our [GitHub](https://github.com/webmin/webmin.com/tree/main/content/docs) repo. Even if you didn't write the module, if you use it and understand it, tell us about it!
+#### Suggest Changes 
+If you find a mistake or omission, don't hesitate to submit a PR to the [Webmin.com Github repository](https://github.com/webmin/webmin.com). 
