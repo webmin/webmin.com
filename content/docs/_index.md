@@ -6,7 +6,7 @@ weight: 0
 
 ### Intro
 
-This wiki is intended to be a complete set of documentation for Webmin and all of its modules. We've seeded it with imported content from **Jamie Cameron**'s book _Managing Linux Systems with Webmin: System Administration & Module Development_ and **Joe Cooper**'s book _The Book of Webmin or: How I Learned to Stop Worrying & Love UNIX_, and various FAQs and articles previously written by Jamie and Joe.
+This wiki is intended to be a complete set of documentation for Webmin and all of its modules. We've seeded it with imported content from **Jamie Cameron**'s book "Managing Linux Systems with Webmin: System Administration & Module Development" and **Joe Cooper**'s book "The Book of Webmin or: How I Learned to Stop Worrying & Love UNIX", and various FAQs and articles previously written by Jamie and Joe.
 
 All told, it's about 1,000 printed pages worth of documentation. But, it's not finished. In fact, it's just begun! Now, it's your turn. Get Involved!
 
@@ -23,4 +23,4 @@ Now we need your help.
 
 
 #### Suggest Changes 
-If you find a mistake or omission, don't hesitate to submit a PR to the [Webmin.com Github repository](https://github.com/webmin/webmin.com). 
+If you find a mistake or omission, don't hesitate to submit a PR to the [webmin/webmin.com](https://github.com/webmin/webmin.com) GitHub repository.
