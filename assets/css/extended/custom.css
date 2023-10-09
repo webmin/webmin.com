@@ -1574,8 +1574,8 @@ html[class*="page-docs"] a[href*="example.com"] {
 
 .docs-toc,
 .docs-menu {
-    font-size: .975rem;
-    position: relative;
+  font-size: .975rem;
+  position: relative;
 }
 
 .docs-toc {
@@ -1708,6 +1708,11 @@ html[class*="page-docs"] a[href*="example.com"] {
     font-size: 94%;
 }
 
+/* Single, top level link in docs */
+.docs-menu-content > div > a {
+    font-size: 100%;
+}
+
 .docs-toc a.active,
 .docs-menu-content a.active {
     font-weight: 700;
@@ -1739,9 +1744,17 @@ html[class*="page-docs"] a[href*="example.com"] {
 }
 
 .docs-menu .docs-menu-content details > div {
-    margin-left: 1.033rem;
-    text-indent: -0.33rem;
-    padding-left: 0.33rem;  
+  margin-left: 1.033rem;
+  margin-top: 0.411rem;
+}
+
+.docs-menu .docs-menu-content details > div > a {
+  display: inline-block;
+  padding-bottom: 0.411rem;
+}
+
+.docs-menu .docs-menu-content details > div:not(.sub-section) {
+  border-bottom: 1px solid var(--border);
 }
 
 .asideMobile .docs-menu-content details > div {
@@ -1771,16 +1784,20 @@ html[class*="page-docs"] a[href*="example.com"] {
 }
 
 .docs-menu .docs-menu-content details > div.sub-section {
-    background-color: var(--border);
-    border-radius: 4px;
-    color: var(--primary);
-    cursor: default;
-    font-weight: 600;
-    margin-left: 0.2165rem;
-    margin-top: 0.6495rem;
-    opacity: 0.6;
-    padding: 0 4px 0 8px;
-    font-size: 92%;
+  background-color: var(--border);
+  border-radius: 4px;
+  color: var(--primary);
+  cursor: default;
+  font-weight: 600;
+  margin-left: 0.2165rem;
+  margin-top: 0.6495rem;
+  opacity: 0.6;
+  padding: 0 4px 0 8px;
+  font-size: 94%;
+}
+
+.docs-menu .docs-menu-content details > summary + div.sub-section {
+  margin-top: 0.411rem;
 }
 
 /* Docs Menus. End. */
