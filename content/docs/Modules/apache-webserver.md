@@ -2,13 +2,14 @@
 title: "Apache Webserver"
 subSection: "Servers"
 date: 2023-04-01
+author: "Jamie Cameron, Joe Cooper"
 weight: 355
 ---
 
 ### About
 This page explains how to use Webmin to configure the **Apache Webserver**. It covers virtual hosts, IP access control, password restrictions and much more. 
 
-### Introduction to Apache
+### Apache introduction
 Apache is the Internet's most popular HTTP server, due to its zero cost, wide availability and large feature set. All Linux distributions include it as a standard package, and it can be installed on or compiled for every other Unix variant supported by Webmin. However, it has a very large number of option directives defined in a text configuration file, and so can be hard for an inexperienced administrator to set up. 
 
 Over the years since it was first introduced, many versions of Apache have been released, where each version has included more features and options. The basic webserving functionality and configuration file layout has remained essentially the same throughout, even though the internal implementation has changed significantly. 
@@ -17,13 +18,67 @@ Apache has a modular design, in which each module is responsible for some part o
 
 Apache takes its configuration from multiple text files, each of which contains a series of directives, usually one per line. Each directive has a name and one or more values, and sets an option such as the path to a log file or the MIME type for some file. The directives that Apache recognizes are dependant on the modules in use. Most modules add support for several directives to configure the functions they provide. 
 
-Often, you will want to host more that one website on a single server. Apache can be configured to use a different configuration depending on the web site that was requested by a browser. Each one of these sites is called a virtual host, and is defined in the configuration file with a special `<Virtualhost>` section. All directives inside this virtual host section apply only to requests that match its IP address or hostname. 
+Often, you will want to host more that one website on a single server. Apache can be configured to use a different configuration depending on the web site that was requested by a browser. Each one of these sites is called a virtual host, and is defined in the configuration file with a special `<VirtualHost>` section. All directives inside this virtual host section apply only to requests that match its IP address or hostname. 
 
 Similarly, `<Directory>` and `<Files>` sections can be defined in the configuration file to contain directives that apply to only a certain directory or to files matching some pattern. These are often used to deny access to certain files on your system, to password protect them, or to control the way that they are displayed to clients. 
 
 Another method of creating directives that apply to only to a single directory is to put them in a special configuration file named `.htaccess` that resides in the directory itself. Often these files will be created by regular users, so that they can configure their own websites without needing full access to the master configuration file. This is very useful on a system that hosts multiple sites that are each owned by a different Unix user, rather than on a system with only one website that is set up by the server's owner. 
 
-### The Apache Webserver module 
+#### Apache basic configuration
+**Apache Webserver** is an extremely large and feature-rich piece of software. Approaching it for the first time can be daunting. Luckily, it is extremely easy to install, configure, and maintain as long as you proceed with care and pay attention to the documentation relevant to your installation and environment.
+
+Installation of Apache is may be done from within the module [Software Packages](/docs/modules/software-packages).
+
+Install-details are well-documented on the Apache website, and it is also very likely that your OS vendor provides a suitable package to make installation automatic.
+
+What will be covered is the initial hurdle of setting up Apache to serve HTML web pages. The next section will take the configuration one step further to configuring virtual hosting service. [Resolution for Virtual Hosts](/docs/modules/bind-dns-server#resolution-for-virtual-hosts) covers the process of configuring name service for your web server with [BIND DNS Server](/docs/modules/bind-dns-server).
+
+##### Configuring Apache paths
+If you've installed Apache webserver from a package from your OS vendor or if your vendor does not provide a package and it has been installed in the default location selected by the program, you can probably skip this section and proceed to the next section covering initial module selection. For any supported OS, Webmin has a configuration file that includes sensible default paths for the programs that it administers. These configurations assume an installation in the default location for your operating system. So, for example, on a Red Hat Linux system, Webmin will expect to find the `httpd.conf` file in the `/etc/httpd/conf` directory, while on Solaris it is expected to be in `/usr/local/apache/conf`.
+
+Webmin works directly with the Apache configuration files, and so must know where to find them. When you browse to the Apache webserver module of Webmin for the first time you may be greeted with an error stating that the configuration file could not be found. You'll need to locate the configuration files, as well as the Apache binary, and possibly startup and shutdown scripts for your system, and configure Webmin to search the appropriate locations. The most important paths are probably Apache server _root_ directory and the _path_ to `httpd` executable.
+
+##### Module selection
+Apache is extremely modular, and the vast majority of its available functionality is broken out into small modules that can be loaded at run-time depending on the needs of the specific environment in which it runs. Webmin needs to know about the modules that are available to your Apache so that it can provide configuration options for options that are available and hide options that are not. So, the first time you visit the Webmin Apache webserver module, you'll be presented a list of Apache modules with check boxes beside them. If you've built your Apache from scratch with customizations, you'll need to choose the modules that you have made available in your installation.
+
+##### Adding content
+Believe it or not, we're now very nearly ready to serve up content with Apache. Once you've reached the primary Apache webserver module page in Webmin, you'll see a set of icons for the global server options as well as a single virtual server configuration section labeled **Default server**. The default server is the server that will answer a request when no other virtual servers do. Because we have no virtual servers configured on our system yet, the default server will answer all HTTP requests that reach our machine. Take note of the path in the **Document root** field, as this is where we'll be placing our first web page.
+
+On my system the **Document root** for the default server is `/var/www/html`, which was automatically created during the installation process. So I will create a web page called `index.html` and drop it into that directory, making sure the page has permissions that will allow the Apache process to read it. The name `index.html` is significant, and you must use the correct filename for your default page, or else Apache won't serve it without having the file specified after the address in the URL. Other common names for the index page are `index.htm` and `default.htm`.
+
+##### Starting Apache
+Now all that is left is to startup your Apache server. Assuming Webmin has been configured correctly for your installation it can even be started from within Webmin with the click of a button. Simply browse to the Apache module main page, and click the Start Apache link in the upper right corner of the page.
+
+To test your new website browse to the IP on which your server resides with your favorite browser. For example, my testing server is located on IP _192.168.1.1_, so I would enter _http://192.168.1.1_ into my browser URL field. Assuming everything went right, you'll see your new web page.
+
+#### Name-based virtual hosting
+
+{{< alert primary exclamation "Easier with the Virtualmin hosting control panel!" "Virtualmin automates all of the following tasks, as well as many others commonly needed in a virtual hosting environment, such as setting up email, name service, and databases. Virtualmin is available for free download from [virtualmin.com/download](https://www.virtualmin.com/download) page." >}}
+
+In the real world, it is rare to only operate one website on a machine. For all but the most demanding websites, it would be a waste of resources to do so, because a single modest computer can serve hundreds or thousands of web requests every minute without much effort. It would also be a waste of the finite IP space on the Internet, as there is a fixed number of IP addresses available and large swaths of them are already in use. To solve both problems Apache provides a feature known as name-based virtual hosts. With name-based virtual hosts, you may serve hundreds or thousands of websites, each with their own domain name, from a single machine running on a single IP!
+
+{{< alert warning exclamation "Terms virtual host and virtual server are interchangeable" "The terminology is constantly shifting, however, and you may hear the terms used differently in different contexts. In our case, the terms have the same meaning, but the term virtual host may be used to indicate a concept, while the term virtual server will generally be used to indicate a specific configuration detail." >}}
+
+In this short tutorial we will convert our existing default server into a virtual server, and create a new server that can be hosted alongside our first website on a different domain name. With the mention of domain names, you may have realized we won't be able to test our new virtual servers until domain name service has been configured. Luckily, there is a short tutorial for that as well in the BIND page to which you can refer when you are ready to try out your new virtual hosts.
+
+##### Converting a default server to a virtual server
+The first step to using virtual servers in a generic, and thus easily scalable and flexible manner, is to convert our already configured default server to a virtual server. Though this isn't strictly necessary to make this change, it is common practice to instead provide an appropriate error page, or a page of links to all of the virtual hosts on the machine using a traditional URL syntax for web clients that are incompatible with name-based hosts (however extremely rare such clients may be). Because the default server will be used in the event no virtual servers match, it could also be left as-is, with all other hosts being configured using the virtual hosts mechanism.
+
+To create a new virtual server, fill in the form at the bottom of the primary Apache webserver module page. You may leave the address and port empty and select the **Any** option for the address, unless your server has many IP addresses and you only want this virtual host to respond on one of them or you want this virtual host to respond on one ore more non-standard ports. For our example setup, we'll just leave them empty.
+
+The **Document Root** can be any directory on your system to which the Apache process has read access, however there are some conventions that you can follow in order to make your server more immediately comprehensible to subsequent administrators. If all of the virtual servers on your system are to be under the control of your company, and you will be administering all of them yourself, it is wise to place all of the document roots into subdirectories of whatever the default server document roots parent directory is. For example, on my system the default document root is `/var/www/html`, so it makes good sense for my virtual server document roots to reside in subdirectories of `/var/www`. The more common convention, however, is used in environments where many users will be maintaining many websites, and none of the users should have access to the other users website directories directly. In this case, the normal practice is to place the document root into the users home directory, in a sub-directory called `htdocs` or `www`.
+
+Finally, fill in the server name, which is the domain name on which you'd like this server to answer. If you don't happen to own a domain that can be used for experimenting, you can simply make one up. We'll be configuring our own local domain name server later on, so there are no rules about how you have to name it. You could call it _google.com_, or _whitehouse.gov_, or just _joe_, if you wanted to. However, since it is likely you intend to put the server online for production use at some point in the future, you'll likely just name it whatever domain name it will be at that point. In my case, I'd call it _swelljoe.com_.
+
+##### Creating a new virtual host
+Click **Create**. Now move your content from your default server document root directory into your new document root. In my case it is `/var/www/swelljoe.com`. After applying the changes to your server, your Apache configuration should be finished, though we'll tackle a few more small issues before calling it done.
+
+{{< alert primary question "How to test your new virtual server locally?" "You can't simply browse to your IP as you did in the previous tutorial. The browser request must contain the domain name for the virtual host in the URL. There are a couple of ways to achieve this. The first is to configure a local name server to temporarily provide name service for your new domain, the second is to setup your system hosts file to point to the appropriate IP for the domain name. The easiest is obviously to add it to your hosts file. You can do this in Webmin, using the [Network Configuration](/docs/modules/network-configuration) module. The more interesting and educational method is to configure BIND to serve your new address, and then configure your client to get name service from the newly configured BIND. This is documented later in the [BIND DNS Server](/docs/modules/bind-dns-server) module page." >}}
+
+##### Adding other virtual server names
+Perhaps you noticed when we configured the above virtual server, it was named simply _swelljoe.com_. Did you wonder why I didn't call it _www&#46;swelljoe.com_ instead? The reason is simple. I'd like for users to be able to browse to either address and get the same website. So I named the virtual server _swelljoe.com_, and now a new server alias can be added to cause it to answer on both names. To add a new virtual server name to an existing virtual server, click on the icon for the virtual server on the main Apache webserver module page. Then click the **Networking and Addresses** icon. Now fill in all of the other domain names on which you'd like your website to appear. Note that these names must each have their own [DNS](/docs/modules/bind-dns-server) records for people to be able to use them, just like the original _swelljoe.com_ name. Every additional host name in the domain is a new address, so _www&#46;swelljoe.com_ and _mail.swelljoe.com_ have to have their own name record in the name server even if they are on the same machine.
+
+### The Apache webserver module 
 This is one of the most complex and powerful Webmin modules, as it allows you to configure almost every feature of Apache. It can determine the version of Apache that is installed on your system and the modules that it uses, and adjusts its user interface accordingly so that you can edit only those directives that the webserver understands. However, the interface is generally the same for all versions of Apache. 
 
 Because there are so many directives and the module attempts to allow configuration of all of them, it groups directives into categories like Processes and Limits, Networking and Addresses and CGI Programs. These categories are represented by icons that will appear when you open a virtual server, directory or options file in the module. In all cases, you can view and edit the settings under each category by clicking on its icon. 
@@ -49,7 +104,7 @@ The module's user interface is quite complex and has a large number of pages, fo
 
 The sections below explain in more detail exactly which icons to click and which tables to fill in when doing things like enabling CGI scripts and setting MIME types.
 
-### Starting and stopping Apache 
+#### Starting and stopping Apache 
 Before browsers can connect to the Apache webserver on your system, its server process must be started. You can check if it is currently running by looking at the top of any of the pages in the module. If links labelled **Apply Changes** and **Stop Apache** appear, then it is currently active. However, if only the link *Start Apache* appears them it is not yet running. 
 
 To start it, click the **Start Apache** link. If all goes well, the page that you are currently on will be re-displayed and the links at the top should change to indicate that it is now running. Otherwise, an error message will appear explaining what went wrong - most likely the cause will be an error in the configuration file. 
@@ -59,7 +114,7 @@ To stop the webserver once it is running, click the **Stop Apache** link on any 
 When Apache is active, every page will have an **Apply Changes** link at the top that can be used to signal the webserver to re-load its current configuration. After you make any changes in this module (except those in `.htaccess` files), this link must be clicked to make them active. Unlike other Webmin modules that have an Apply button on the main page, this one has it on every page so that 
 you do not have to return to the index every time you make a change. 
 
-### Editing pages on your webserver 
+#### Editing pages on your webserver 
 This section explains how to find and edit the files on your system that are displayed when a client connects to your Apache webserver. If you already know how to do this, feel free to skip it and move on to the next section. 
 
 When Apache is first installed from a package or from source, its initial configuration will typically not have any virtual servers set up. Instead just the default server will exist, serving pages to any client that connects on port 80. You can view the default pages by running a web browser and going to the URL _http://yourhostname/_, or _http://localhost/_ if you are running the browser on the 
@@ -72,7 +127,7 @@ will go to _http://yourserver/_ first, `the index.html` page will be the first o
 
 To make editing easier, you may want to change the ownership of the document root directory and all its files to a non-root user. However, you must make sure that they are still readable by the user that the Apache server process runs as, which is typically named httpd. The easiest way to do this is to make all files and directories world-readable and world-executable. 
 
-### Creating a new virtual host 
+#### Creating a new virtual host 
 If you want to host multiple websites on your system, then you will need to create an Apache virtual host for each one. Before you can add a site, its address must first be registered in the DNS, either on a DNS server on your system or on another host. If the site's files are to be owned by a different Unix user to the one who owns the document root directory, then he must be created first as well. 
 
 The entire process for adding a virtual server, including the above steps, is: 
@@ -113,7 +168,7 @@ Once a virtual server has been created, you can edit its settings or delete it b
 
 You cannot change the settings for the default server, nor can you delete it.
 
-### Setting per-directory options 
+#### Setting per-directory options 
 Apache allows you to specify different options for certain directories, either for all virtual servers or just to a single one. Including directories, you can actually set options that apply to three 
 types of object on your Apache server: 
 - **Directory** The options apply to a specified directory and all files in it or in sub-directories that it contains. 
@@ -167,7 +222,7 @@ On the directory options page there are many more icons that you can click on to
 
 You can change the directory, filenames or URL location that settings apply to using the **Options apply to** form at the bottom of the directory options page. It has the exact same fields as the creation form described at the start of this section. If you make any changes, click the **Save** button to update the Apache configuration and then the **Apply Changes** link to make them active. Or to remove the directory configuration and all its options, click on **Delete** instead.
 
-### Creating aliases and redirects 
+#### Creating aliases and redirects 
 Normally, there is a direct relationship between the path in URL and the file that is returned by the webserver. For example, if a browser requests _http://www.example.com/images/foo.gif_
 and the document root for _www.example.com_ is _/home/example/www_, then the file _/home/example/www/images/foo.gif_ would be read by the webserver and returned to the client. 
 
@@ -221,7 +276,7 @@ To set up this URL mapping, the steps to follow are :
 You can test it out by going to the mapped URL path on your system, and you should see pages that have been requested from the remote server. The process is not totally transparent though, because it does not convert HTML files in any way. So if in the example above the remote server contained an HTML page with a link like `<a href=/foo.html>`, following it would take the browser to `/foo.html` on your system, 
 not `/webmin/foo.html` as you might expect. There is no solution to this problem, apart from making sure that the remote server always uses relative links and image paths.
 
-### Running CGI programs 
+#### Running CGI programs 
 CGI stands for Common Gateway Interface, and is a standard method for webservers to run external programs, pass them details of a browser's request, and read back any content that the program generates. CGI programs are one of the simplest way of adding dynamic pages to your webserver, and are relatively easy to set up and develop. Server-side includes (covered in the next section) are even simpler, but very limited in what they can do. 
 
 A CGI program can be written in any language as long as it follows certain rules. The most common is Perl, but C, Python, PHP or any other language that can access environment variables and produce output can be used. You can even write shell scripts that are valid CGI programs. This section is not going to explain the details of how to write them though - there are plenty of books that cover that already. 
@@ -271,7 +326,7 @@ The biggest problem with CGI programs is that the webserver has to launch a new 
 
 For this reason, optional modules have been developed that allow the webserver to run Perl and PHP scripts using an interpreter that is part of the Apache process. These modules are called `mod_perl` and mod_php, and are included in the Apache package in many Linux distributions. Installing and configuring them is not covered in this chapter though.
 
-### Setting up server-side includes 
+#### Setting up server-side includes 
 Server-side includes allow you to create simple dynamic web pages without the complexity of writing an entire CGI program in a language like Perl. When active, some of the HTML files served by Apache are checked for special tags starting with `<!--` . The contents of each tag is then replaced by dynamically generated text that depends on the tag's parameters, and the resulting page sent to the web browser. 
 
 The most common use of server-side includes is including the contents of one HTML page into another. This can be useful if you have a common header or footer that you want to share among multiple pages without repeating it over and over again. Where a special tag like `<!--include file="something.html" -->` appears in the HTML of page, it is replaced with the contents of the file _something.html_. 
@@ -300,7 +355,7 @@ There is another method of indicating to Apache that certain HTML files should h
 
 You should now be able to set execute permissions on HTML files in the directory, and Apache will parse them for server-side include tags when they are requested. This allows you to selectively turn on include processing, while avoiding the problem of having to rename a file (and break links) just because it now contains include tags.
 
-### Configuring logging 
+#### Configuring logging 
 By default, every request that Apache finishes processing is written to a log file in a standard format. For each request the client IP address, website username, date, time, URL path, status code and number of bytes transferred is logged. In the default Apache configuration, there is only a single log file that is used for all virtual servers. However, you can re-configure the webserver to use different files for different virtual osts, 
 and even to log additional information for each request. 
 
@@ -335,7 +390,7 @@ in each log line. To set this up, the steps are:
 - In the **Access log files** table, find the row for your server's main logfile, and make sure that the **Format** field is set to common, not to **Default** or some other named format. 
 - Click the **Save** button, and then the **Apply Changes** link.  All entries written to the logfile from now on will include the additional information.
 
-### Setting up custom error messages 
+#### Setting up custom error messages 
 When a browser attempts to access a page that does not exist, a directory that is password protected or a CGI program that is malfunctioning, Apache returns one of its built-in error messages. Because these error message pages are not always friendly or nice to look at, you can configure the webserver to use your own pages instead. This can be set up to apply to all virtual servers, a single server or just one directory. The steps to follow are: 
 - On the module's main page, click on either a virtual server or the **Default Server** icon if you want to define a custom error message that applies to all servers. 
 - If you only want the custom message to be displayed for requests to a particular directory, URL path or filename, click on its icon on the server options page. If no icon for the directory exists yet, you will need to define one by following the steps in the section on **Setting per-directory options**. 
@@ -349,7 +404,7 @@ When a browser attempts to access a page that does not exist, a directory that i
 - Click the **Save** button at the bottom of the page. If you want to add another custom error message, click on the **Error Handing** icon again and fill in the new blank row in the table. 
 - Click the **Apply Changes** button on any page to make the new custom error message active. 
 
-### Adding and editing MIME types 
+#### Adding and editing MIME types 
 [MIME Type Programs](/docs/modules/mime-type-programs) are the method used by Apache, mail clients and many other programs to indicate the type of files and other date. A MIME type consists of two words separated by a slash, such as text/html, 
 image/gif or video/mpeg. As those examples show, the first word is the general category of type, while the second is the actual type name. 
 
@@ -377,7 +432,7 @@ On the MIME Types page, there is a useful field labelled *Default MIME type*. If
 
 There is a similar field on the MIME Types page for directories, URL paths and filenames labelled **Treat all files as MIME type**. When it is set, Apache will identify all files in that directory as the specified type, no matter what their extension. This can be used to forcibly set the types of files that have names that do not follow the normal convention of ending with a type extension.
 
-### Password protecting a directory 
+#### Password protecting a directory 
 The HTTP protocol has a standard method of indicating that a directory or site requires a username and password to be supplied before it can be accessed. Apache can be configured to force users to login before being able to view some or all of the pages on your system. Logins are typically checked against a separate password file, instead of the Unix user list. 
 
 Password protection can be useful for securing a directory that only some people should be allowed to access, or for setting up a website that uses CGI programs to display different content to different users. To protect a directory, the steps to follow are : 
@@ -428,14 +483,14 @@ If you want to turn off authentication for a directory so that any browser can a
 - Change the **Authentication realm name**, *Authentication type*, **Restrict access by login**, **User text file** and **Group text file** fields all back to **Default**. If you are using DBM files instead of text, change the **User DBM file** and **Group DBM file** fields to **Default** as well. 
 - Click the **Save** button, and then the **Apply Changes** link back on the directory options page.
 
-### Restricting access by client address 
+#### Restricting access by client address 
 Apache can also be configured to limit access to a directory, URL location or filename to certain client systems. The webserver knows the IP address of every browser that connects to it, and can use that address to determine whether the browser is allowed to request certain pages or not. In some situations, the client's real IP address will not be available to the webserver. If the client is accessing the web through a proxy server or a firewall doing NAT, then the IP address that the request appears to come from will be that of the proxy or firewall system. There is way to get the real address, but generally it is not a problem because all clients behind the proxy or firewall are usually treated the same from an access control point of view. 
 
 Apache determines whether a client is allowed access or not by checking its IP address and hostname against a list of rules. There are two types of rule - those that allow access, and those that deny it. Depending on its configuration, the webserver will either check all of the `allow` rules before the `deny` rules, or vice-versa. The first one to match determines if the client is denied or not, and no further rules are checked. 
 
 Most people who set up IP access control want to allow access from certain addresses and networks, and deny everyone else. For example, you might want to give hosts on your company LAN access to your intranet, but prevent others on the Internet from accessing it. To set up this kind of access control, the steps to follow are: 
 - On the module's main page, click on the icon for the virtual server that you want IP access control to be enabled under. 
-- Click on the icon for the directory, URL location or filename that you want to restrict access to. If one does not exist yet, follow the steps in the **Setting per-directory options** section earlier in this chapter to create it. 
+- Click on the icon for the directory, URL location or filename that you want to restrict access to. If one does not exist yet, follow the steps in the **Setting per-directory options** section earlier in this page to create it. 
 - Click on the **Access Control** icon, which will bring you to the page shown above. 
 - Scroll down to the **Restrict access** table, and change the **Access checking order** field to **Allow then deny**. This tells Apache that any request which is not specifically allowed by access control rules should be denied, and that all rules that allow access should be checked before rules that deny.  If the alternative **Deny then allow** option is chosen, requests that do not match any rule will be allowed, and deny rules will be checked before allow rules. The **Mutual failure** option has the same effect as **Allow then deny**, and should not be used. 
 - At first, this table will contain only one empty row for entering your first access control rule. Because you are going to allow only certain clients and block the rest, select **Allow** from the menu in the **Action** column. The menu and field under the **Condition** column determine what kind of check is done to see if the client is allowed or not. The available condition types are :
@@ -453,7 +508,7 @@ It is possible to combine both IP address restrictions and username/password acc
 
 The mode that Apache uses is determined by the **Clients must satisfy** field on the Access Control form. If you set it to **All access controls** then they must pass both password and IP checks. However, if *Any access control* is selected then a password will only be prompted for if the IP checks fail. This can be useful for granting access to a directory to everyone on your internal network, and to people on the Internet who have a valid username and password.
 
-### Encodings, character sets and languages 
+#### Encodings, character sets and languages 
 As the **Adding and editing MIME types** section explains, Apache attempts to determine a MIME type for every file that it sends to a browser. In addition to the type, files can also have an encoding that is usually used to indicate how they were compressed. The encoding is determined by the file extension (such `.gz` for gzipped data), and can be used by the browser to uncompress the file before displaying it. 
 
 For example, this would allow you to create a file called `foo.html.gz` which contains compressed HTML data and is identified by the webserver as such. For large files, sending them in compressed format can save bandwidth and reduce the time it takes for them to be downloaded. Unfortunately, not all browsers support the common `.gz` and `.Z` encoding formats, so this feature is not always useful. At the time of writing, Mozilla and Netscape supported 
@@ -501,9 +556,9 @@ To view and edit the languages and file extensions recognized by Apache, the ste
 
 As with encodings and character sets, Apache does not care about the ordering of extensions in a filename when working out its type and language. So both the files foo.html.de and foo.de.html would be identified as HTML documents written in German.
 
-### Editing `.htaccess` files 
+#### Editing `.htaccess` files 
 As explained in the introduction, Apache options can be set for a directory by creating a file named `.htaccess` in the directory. These are often created by normal users who do not have permissions to edit the master webserver configuration file, and want to change the way Apache behaves when accessing their directories. `.htaccess` files can be used to set almost all of the options that 
-you can configure on a per-directory basis, as explains in other sections of this chapter. 
+you can configure on a per-directory basis, as explains in other sections of this page. 
 
 The options in one of these files apply to all the files in its directory and in any subdirectories. However, they can be overridden by another such file lower down in the directory tree. Per-directory options in the main Apache configuration will be overridden by those in a `.htaccess` file for the same directory, but directory options for a subdirectory will override those in a parent `.htaccess` file! 
 
@@ -518,14 +573,14 @@ You can also create a new `.htaccess` file by entering the path to the directory
 
 To delete an per-directory options file, click on the **Delete File** link that appears at the top of the page that appears when you click on its name from the list. As soon as it is removed, Apache will cease using any options that it defines in it for the directory it was in. 
 
-The **Setting Per-Directory Options** section earlier in this chapter explains how to set options that apply only to files of a particular name, no matter which directory they are in. It is also possible for a `.htaccess` file to contain options that apply to only some of the files in the directory that contains it. This can be useful to do things like denying access to all files matching the pattern `*.c` in the directory `/usr/local/src,` which you cannot do just using per-directory or per-file options. 
+The **Setting Per-Directory Options** section earlier in this page explains how to set options that apply only to files of a particular name, no matter which directory they are in. It is also possible for a `.htaccess` file to contain options that apply to only some of the files in the directory that contains it. This can be useful to do things like denying access to all files matching the pattern `*.c` in the directory `/usr/local/src,` which you cannot do just using per-directory or per-file options. 
 
 To set options like this, the steps to follow are: 
 - On the module's main page, click on the **Per-Directory Options Files** icon. Then click on the `.htaccess` file in the directory that you want the options to apply to. If it doesn't exist yet, use the **Create Options File** button to create it as explained above. 
 - Scroll down to the **Create Per-File Options** form, and enter the filename or pattern into the **Path** field. Patterns can only use shell wildcard characters like `*` and `?`, unless you change the **Regexp?** field to **Match regexp**, in which case you can enter a Perl regular expression using characters like `|`, `[, ]` and `+`.
 - When you click the **Create** button, the same page will be re-displayed but with an additional icon for the filename or name pattern that you just entered. 
 - Click on the new icon, which will bring up another page of icons for different categories of options that can be applied to files whose names match the specified filename or pattern.  This page is very similar to the directory options page shown in above, and the pages that it links to are mostly identical. 
-- The instructions in other sections of this chapter for creating redirects, custom error messages or IP access control can be followed on this page as well to set the same options for matching files in the directory. The only difference is that there is no need to click on the **Apply Changes** link to made new settings active. 
+- The instructions in other sections of this page for creating redirects, custom error messages or IP access control can be followed on this page as well to set the same options for matching files in the directory. The only difference is that there is no need to click on the **Apply Changes** link to made new settings active. 
 
 You can change the filename or pattern that the options are for by editing the **Path** field in the **Options apply to** form, and then clicking Save. Or you can remove them altogether so that the options for the directory apply instead by clicking on the **Delete** button in the same form. 
 
@@ -545,7 +600,7 @@ You can restrict the directives that can be used in `.htaccess` files on a per-d
 
 Whenever a user tries to use directives that he is not allowed to, Apache will display an error message when files in the directory containing the `.htaccess` file are requested. It will not simply ignore the disallowed directives.
 
-### Setting up user web directories 
+#### Setting up user web directories 
 On a system with many Unix users, you may want to allow each user to create his own set of web pages. Instead of creating a subdirectory for each user under some document root directory, you can instead designate a subdirectory in each user's home directory as a location for web page files. Typically this subdirectory is called `public_html`, and its contents are made available at a URL like _http://www.example.com/~username/_. 
 
 The special `~username` path in the URL is converted by Apache to a directory under the home of the user _username_, no matter what document root directory is being used for the rest of the files on the website. It is also possible for files in the user's actual home directory to be made available instead, so that `~username` actually maps to the user's home directory and not a subdirectory. However, this is a bad idea as it makes all of the user's files available to anyone with access to the website. 
@@ -571,7 +626,7 @@ Even though the above are sufficient to enable user web directories, there are s
 - Click the **Save** button and then the **Apply Changes** link to save and activate the restrictions. 
 - If you want to turn on server-side includes, set some custom MIME types or IP access controls for user web directories, you can do it by following the instructions in the appropriate sections for this directory. Because server-side includes are quite harmless with the ability to execute external programs disabled, they can be safely enabled for users by setting the right content handler for `.html` or `.shtml` files as the **Setting up server-side includes** section explains.
 
-### Configuring Apache as a proxy server 
+#### Configuring Apache as a proxy server 
 An HTTP proxy is a server that accepts requests for web pages from browsers, retrieves the requested pages from their servers and returns them to the browser. They are often used on networks on which clients are not allowed to connect to webservers directly, so that restrictions on who can access the web and what sites they can view can be enforced. A proxy can also cache commonly accessed pages, so that if many clients visit the same site its pages only have to be downloaded once. This speeds up web access and reduces bandwidth utilization. 
 
 Apache is not the best proxy server available for Unix systems - [Squid Proxy Server](/docs/modules/squid-proxy-server) takes that honour. Squid has many more configurable options, is more efficient and can deal with much larger caches. However, if you want to set up a proxy on a system that is already running Apache, then it may make sense to use the existing webserver as a proxy instead of installing and running a separate server process for Squid. 
@@ -613,10 +668,10 @@ If you set up username and password authentication for your proxy server, then a
 
 It is also possible to set up IP or password restrictions that apply only to some protocols or sites accessed through the proxy, by creating them for special directories like `proxy:http` or `proxy:http://www.example.com/`. Only requests for URLs that start with the text after `proxy:` will be effected by restrictions like these. They can be useful for blocking or limiting access to certain sites, or preventing the proxy from being used to request certain protocols like http or ftp.
 
-### Setting up SSL
+#### Setting up SSL
 SSL is a protocol for making secure, authenticated connections across an insecure network like the Internet. It encrypts network traffic, so that an attacker cannot listen in on the network and capture sensitive information such as passwords and credit card numbers. It allows servers to authenticate themselves to clients, so that a web browser can be sure that it is connecting to the website that is thinks it is. It also allows clients to authenticate themselves to servers, which can be used to replace usernames and passwords with digital certificates. 
 
-The SSL protocol can be used to encrypt any kind of data that would normally travel over an unencrypted TCP connection. However, in this chapter we are only concerned with the encryption of web page requests and responses, which is done by encrypting HTTP protocol data with SSL. The result is a new protocol called HTTPS, which is used by all websites that want to operate securely. Almost every browser supports the HTTPS protocol, and uses it when retrieving URLs that start with `https://` instead of the normal `http://`. Whereas the normal HTTP protocol use TCP port 80, the HTTPS protocol uses port 443. 
+The SSL protocol can be used to encrypt any kind of data that would normally travel over an unencrypted TCP connection. However, in this tutorial we are only concerned with the encryption of web page requests and responses, which is done by encrypting HTTP protocol data with SSL. The result is a new protocol called HTTPS, which is used by all websites that want to operate securely. Almost every browser supports the HTTPS protocol, and uses it when retrieving URLs that start with `https://` instead of the normal `http://`. Whereas the normal HTTP protocol use TCP port 80, the HTTPS protocol uses port 443. 
 
 You can configure Apache to use HTTPS on a per-virtual server basis, or to use it for all servers. However, this depends on having the `mod_ssl` Apache module compiled in or available for dynamic loading, which is not always the case. The **Configuring Apache as a proxy server** section explains how to check for and possibly enable the `mod_proxy` module, and you can follow those same instructions for `mod_ssl` as well. Most modern Linux distributions include SSL support in their Apache package as standard though. 
 
@@ -688,7 +743,7 @@ The exact steps to follow for generating a CSR are :
 
 If you have over-written existing self-signed private key and certificate files, it is best to stop and re-start Apache to force the new ones to be used. You should now be able to connect to your webserver in SSL mode with no warning displayed in the browser.
 
-### Viewing and editing directives 
+#### Viewing and editing directives 
 The Apache Webserver module can be used to view and edit directives manually, instead of the usual method of editing them through the module's forms and pages. Manual editing is only recommended if you are familiar with the configuration file format, as no checking will be done to make sure that you have entered valid directives or parameters. However, it is often faster to configure the webserver in this way, especially if you are an experienced Apache administrator. 
 
 On the options page for every virtual server, directory, URL location, filename and `.htaccess` file there is an icon labelled **Show Directives**. When clicked on, it will display all of the directives inside that virtual server or directory. Any directive that the module knows how to edit will be linked to the appropriate form for editing it, which will be one of those that can be reached by clicking on another icon on the virtual server or directory's options page. Next to each directive is the name of the file that it is located in and the line number in that file, so that you can use another program like vi or emacs to edit it manually if you wish. 
@@ -703,7 +758,7 @@ This page is the only place that you can view and manually edit directives that 
 
 If you change any of the directives in the text box, click the **Save** button below it to have the configuration file re-written. No validation will be done, so be careful with your changes - a mistake with a container directive like `<Directory>` or `</IfModule>` may make it impossible for Webmin to parse some or all of the file. As usual, to make the changes active you will need to click on the **Apply Changes** link back on the module's main page. 
 
-### Module access control 
+#### Module access control 
 You can use the [Webmin Users](/docs/modules/webmin-users) module to give a user limited access to some modules. In the case of the Apache Webserver module, a Webmin user or group can be restricted so that he can only edit a subset of the available virtual servers. This can be very useful in a virtual hosting environment in which you want to give people the rights to edit the settings for their own servers, but not those belonging to everyone else. 
 
 It is also possible to restrict the pages in the module that the user is allowed to edit, as some allow the setting of directives that could be used to subvert security on your system. For example, you would not want a user to be able to change the user and group that CGI programs on his virtual server run as. 
