@@ -1751,12 +1751,14 @@ html[class*="page-docs"] a[href*="example.com"] {
 
 .docs-menu .docs-menu-content details > div > a {
   display: inline-block;
-  padding-bottom: 0.411rem;
+  /* padding-bottom: 0.333rem; */
+  line-height: 1.6;
 }
 
+/* 
 .docs-menu .docs-menu-content details > div:not(.sub-section) {
   border-bottom: 1px solid var(--border);
-}
+} */
 
 .asideMobile .docs-menu-content details > div {
     margin-left: 2.191rem;    
