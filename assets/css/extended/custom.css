@@ -1284,6 +1284,7 @@ fieldset:disabled a.btn {
     letter-spacing: -0.96px;
 }
 
+.post-content h5 code,
 .post-content h4 code {
     background-color: transparent;
     padding-left: 0;
