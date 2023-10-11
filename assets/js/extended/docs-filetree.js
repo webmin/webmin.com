@@ -21,9 +21,9 @@
     // Scroll filetree into view
     const closestDetails = document.querySelector('.docs-menu details .active');
     closestDetails && closestDetails.closest('details').setAttribute('open', 'open');
-    setTimeout(function() {
-        if (closestDetails && !isVisible(closestDetails)) {
-            closestDetails.scrollIntoView({ behavior: "instant", block: 'center', inline: 'nearest' });
-        }
-    }, (3e1 + 4e1) * 3)
+    // setTimeout(function() {
+    // }, (3e1 + 4e1) * 3)
+    if (closestDetails && !isVisible(closestDetails)) {
+        closestDetails.scrollIntoView({ behavior: "instant", block: 'center', inline: 'nearest' });
+    }
 })();
