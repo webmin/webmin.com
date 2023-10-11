@@ -81,7 +81,7 @@
                                 if (elemIndex === 0) {
                                     elemParent = elemsContTitle;
                                 }
-                                elemParent.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+                                elemParent.scrollIntoView({ behavior: "instant", block: 'nearest', inline: 'nearest' });
                             }
                             setTimeout(function() {
                                 $this.scrollDelay = 0;

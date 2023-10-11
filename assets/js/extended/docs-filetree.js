@@ -23,7 +23,7 @@
     closestDetails && closestDetails.closest('details').setAttribute('open', 'open');
     setTimeout(function() {
         if (closestDetails && !isVisible(closestDetails)) {
-            closestDetails.scrollIntoView({ behavior: "smooth", block: 'nearest', inline: 'nearest' });
+            closestDetails.scrollIntoView({ behavior: "instant", block: 'center', inline: 'nearest' });
         }
     }, (3e1 + 4e1) * 3)
 })();
