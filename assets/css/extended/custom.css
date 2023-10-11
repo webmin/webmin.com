@@ -1607,7 +1607,7 @@ html[class*="page-docs"] a[href*="example.com"] {
     padding: 1rem;
     background: var(--body-background);
     position: sticky;
-    top: calc(60px);
+    top: calc(5.411em);
     bottom: 0;
     overflow-x: hidden;
     overflow-y: auto;
@@ -1740,8 +1740,28 @@ html[class*="page-docs"] a[href*="example.com"] {
     margin: 0.211rem auto;
 }
 
-.docs-menu .docs-menu-content > div#searchbox {
-    margin-bottom: 1.333rem;
+.docs-menu .docs-menu-content > div#searchbox #searchInput {
+  margin-bottom: 0.333em;
+}
+
+.docs-menu .docs-menu-content > div#searchbox .searchInput {
+  padding-top: 6.111rem;
+  padding-bottom: 0.111rem;
+  margin-top: -6.333rem;
+  margin-left: -0.211rem;
+  z-index: 1;
+  background-color: var(--main-bg);
+  top: 100px;
+  position: fixed;
+  width: 10rem;
+}
+
+.docs-menu .docs-menu-content > div#searchbox #searchInput[type="search"]::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.docs-menu .docs-menu-content > div#searchbox #searchResults {
+  margin-top: 3.333rem;
 }
 
 .docs-menu .docs-menu-content details > div {
