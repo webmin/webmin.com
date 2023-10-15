@@ -175,7 +175,7 @@ Other top-level domains, like _.net_ and _.org_, or other country domains, may h
 
 #### Resolution for virtual hosts
 
-{{< alert warning exclamation "Note" "Webmin can be used for virtual hosting most easily with the Virtualmin hosting control panel.  It automates all of the following tasks, as well as many others commonly needed in a virtual hosting environment, such as setting up email, name service, and databases." >}}
+{{< alert primary exclamation "Easier with the Virtualmin hosting control panel!" "Virtualmin automates all of the following tasks, as well as many others commonly needed in a virtual hosting environment, such as setting up email, name service, and databases. Virtualmin is available for free download from [virtualmin.com/download](https://www.virtualmin.com/download) page." >}}
 
 As discussed earlier in the [Apache Webserver](/docs/modules/apache-webserver) page, a name-based virtual host has to have a name mapped to an IP address before you can even access its contents with a browser. BIND, of course, will be our means of providing lookup of those names. Because we're only concerned with web service for this tutorial, we only need to concern ourselves with the creation of a forward zone (a forward zone maps names to addresses).
 

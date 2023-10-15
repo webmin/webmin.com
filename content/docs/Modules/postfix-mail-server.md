@@ -29,7 +29,7 @@ If postfix has to work together with some other mail interface like [Dovecot IMA
 option.
 
 ### Postfix virtual hosting
-{{< alert warning exclamation "Note" "Webmin can be used for virtual hosting most easily with the Virtualmin hosting control panel.  It automates all of the following tasks, as well as many others commonly needed in a virtual hosting environment, such as setting up email, name service, and databases." >}}
+{{< alert primary exclamation "Easier with the Virtualmin hosting control panel!" "Virtualmin automates all of the following tasks, as well as many others commonly needed in a virtual hosting environment, such as setting up email, name service, and databases. Virtualmin is available for free download from [virtualmin.com/download](https://www.virtualmin.com/download) page." >}}
 
 #### Virtual hosting email with Postfix
 At this point, if you've performed the configuration in the previous tutorial, you'll be able to accept mail for any number of domains. However, this is not the same as providing independent virtual hosting support with Postfix, because you can only have one user of a given name and mail sent to that user name at any of the domains for which you accept mail will be delivered to that user. So, for example, if you hosted `example1.com`, `example2.com`, and `example3.com` on the same server, and mail was sent to user `joe` at each of those domains, all three mails would end up in the same mailbox. Therefore, you have to introduce another layer to solve this problem.
