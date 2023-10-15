@@ -7,7 +7,34 @@ weight: 485
 ### About
 On this page a basic introduction to email is given, followed by a description of the **Sendmail mail server** and the Webmin module for configuring it.
 
-### The Sendmail Configuration module
+### Sendmail basic configuration
+When first installed Sendmail will only need a few small changes in order to begin providing service for sending and receiving mail. The first step is to specify for whom mail will be accepted, which you will specify in the **Local Domains** page, while the second step will be to permit local network users to send, or relay, email through the server, which will be specified in the **Spam Control** page.
+
+This tutorial assumes you have already configured [DNS service](/docs/modules/bind-dns-server) for your network, including an MX record for your domain. If you haven't already done so, refer back to the BIND chapter, and configure name resolution before attempting the steps in this tutorial.
+
+#### Configuring domains to receive mail for
+By default, Sendmail is not configured to receive mail for any host or network other than the machine on which it is running. So you must first configure Sendmail to permit anyone to send mail for delivery to your domain through your server. Open the **Local Domains** page, and enter the domains for which your server will accept mail. In my case, I would enter _swelljoe.com_. Any number of domains can be entered here, as can host names, so I could also enter _www&#46;swelljoe.com_ if ever I expected mail to be delivered to that address.
+
+Click the **Save** button to update the `sendmail.cf` file. This will add new `Cw` lines to include your specified domains.
+
+#### Permitting Local Users to Relay
+The next step to achieving a simple mail server is to permit your local users to send mail through your server. Click on the **Spam Control** icon, and create one or more rules matching your local networks. To create a new rule, first select a **Mail source of Network**, and specify the **IP of the network** you'd like to relay for. For example, on a local network using private IP addresses, one might enter _192.168.1_ to specify all of the hosts in the _192.168.1.0/24_ network. Then, select **Allow relaying**, and click **Create** button to add the new rule to the access file.
+
+Finally, return to the primary Sendmail page, and click the **Start Sendmail** button. It is usually useful to keep an eye on the logs when starting a daemon so that problems will be immediately obvious. Sendmail logs to the `maillog` on most systems, which is likely located in `/var/log` directory. You can use the Webmin [System Logs](/docs/modules/system-logs) module to view this log. 
+
+#### Sendmail virtual hosting
+{{< alert primary exclamation "Easier with the Virtualmin hosting control panel!" "Virtualmin automates all of the following tasks, as well as many others commonly needed in a virtual hosting environment, such as setting up email, name service, and databases. Virtualmin is available for free download from [virtualmin.com/download](https://www.virtualmin.com/download) page." >}}
+
+Virtual hosting is a rather broad term applied to many network services to specify that the server in question provides service to two or more network domains with some degree of separation. Specifically, in the case of a mail server, it means that the mail server will deliver to a unique local user based on the user name and the domain in the to field of the received email. For example, an email to _joe@swelljoe.com_ would be treated differently from an email sent to _joe@notswelljoe.com_ and would be delivered to a different mailbox.
+
+As with most open source software there are many ways to accomplish our goal, but here you'll learn the simplest method provided by Sendmail mail server. Configuring Sendmail for virtual mail hosting is a three step process. First, DNS must be appropriately configured for each domain being served including an MX record, as documented in [BIND DNS Server](/docs/modules/bind-dns-server). Second, the new domain is added to the Local **Domains** table. Finally, one or more entries are added to the **Address Mapping** table. As DNS has its own chapter, and adding an entry to the **Local Domains** table was covered in the preceding tutorial, you'll only learn the final step here.
+
+##### Adding address mapping entries
+Click on the **Address Mapping** icon, and create new mappings as appropriate for your environment. To create a new entry, select **Address** and fill in the address on which mail will be received in the **Mail for** field. This will include the name and domain name of the recipient, so for example, I might enter _joe@virtualhost.com_ in this field. Next, select the **Address** option and enter the destination mailbox for this user in the, which needs to be an existing user, into the **Send to** field. For example, I might enter a user name of _virtualhost-joe_ here. The user name must be created on the system, as well, which can be done using the the section called [Users and Groups](/docs/modules/users-and-groups).
+
+Click the **Create** button, and test your work by sending mail to your newly created virtual user. 
+
+### The Sendmail configuration module
 Sendmail is the most popular MTA in use on the Internet today, and has been since it was first developed. It is included as standard with almost all variants of the Unix operating system, and works the same on all of them. It has many useful features for routing and processing email, such as aliases, domain routing and user-creatable forward files. 
 
 Sendmail has a one-to-one mapping between Unix users and mailboxes. Each user has his own mail file, typically in the `/var/mail` or `/var/spool/mail` directory. Each time a message is delivered to a user, it is appended to the file with the same name as the user in that directory, such as `/var/mail/jcameron`. Sendmail has no concept of "mail users" - if you want to create a new mailbox, you will need to add a new Unix user as explained in [Users and Groups](/docs/modules/users-and-groups) module.
