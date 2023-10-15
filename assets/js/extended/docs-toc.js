@@ -44,7 +44,7 @@
             }
             $this.lastScrollTop = st <= 0 ? 0 : st;
 
-            // Accomodate header offset
+            // Accommodate header offset
             const scrollOffset = document.querySelector('.header').clientHeight / 2,
                 scrollDifference = document.documentElement.scrollHeight - window.innerHeight,
                 scrollposition = document.documentElement.scrollTop,
