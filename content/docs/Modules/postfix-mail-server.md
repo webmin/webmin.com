@@ -11,7 +11,7 @@ weight: 425
 
 The Postfix project, originally named VMailer (fortunately for everyone, the name was changed before release due to legal entanglements of the VMailer name), is designed as a group of related but separate executable components, providing security through segmentation. Smaller parts are easier to debug, as well. The Internet home of Postfix is [www.postfix.org](https://www.postfix.org). Postfix is an ideal mail server choice for new mail administrators, and even experienced Sendmail administrators might find its simplicity appealing. Because it provides a quite compatible Sendmail-ish exterior, and provides programs of the same names (such as `sendmail` for sending mail, `mailq` for managing the queue, etc.), and can utilize the same type of aliases and forwarding files that Sendmail uses, it is possible to replace Sendmail without reconfiguring existing mail-related tools, or rewriting local scripts. After such a switch, local users may not even notice the difference.
 
-### Postfix Basic Configuration
+### Postfix basic configuration
 
 As with most of the server software documented here, Postfix has an intimidatingly large number of options and features. But, as we've already seen with [BIND DNS Server](/docs/modules/bind-dns-server) and [Apache Webserver](/docs/modules/apache-webserver), even complex software can be easy and quick to setup if you know just what to do to get started. Postfix is no different. At the end of this short section you'll have a fully functioning mail server, capable of sending and receiving mail on behalf of one or more domains.
 
@@ -28,10 +28,10 @@ Click the **Save and Apply** button to make your changes take effect. It is, of 
 If postfix has to work together with some other mail interface like [Dovecot IMAP/POP3 Server](/docs/modules/dovecot-imap-pop3-server) you have to make sure that both interfaces use the same mail homedir type. Select **Local Delivery** and choose the appropriate mail directory type using **Home-relative pathname of user mailbox file**
 option.
 
-### Postfix Virtual Hosting
+### Postfix virtual hosting
 {{< alert warning exclamation "Note" "Webmin can be used for virtual hosting most easily with the Virtualmin hosting control panel.  It automates all of the following tasks, as well as many others commonly needed in a virtual hosting environment, such as setting up email, name service, and databases." >}}
 
-#### Virtual Hosting email with Postfix
+#### Virtual hosting email with Postfix
 At this point, if you've performed the configuration in the previous tutorial, you'll be able to accept mail for any number of domains. However, this is not the same as providing independent virtual hosting support with Postfix, because you can only have one user of a given name and mail sent to that user name at any of the domains for which you accept mail will be delivered to that user. So, for example, if you hosted `example1.com`, `example2.com`, and `example3.com` on the same server, and mail was sent to user `joe` at each of those domains, all three mails would end up in the same mailbox. Therefore, you have to introduce another layer to solve this problem.
 
 Postfix has two commonly used methods for solving this problem. The first is the native Postfix method, using a virtual table to direct mail to the correct destination. The second method is modeled after the way Sendmail handles the problem, and is therefore a lot more complex. Because simplicity is better than complexity, you'll learn the native Postfix mechanism exclusively. The Postfix virtual man page covers both methods in moderate detail. If you have an older [Sendmail Mail Server](/docs/modules/sendmail-mail-server) installation that is being converted to Postfix you may wish to use the second method and maintain your current virtual mail configuration. If you will be running an extremely large number of virtual domains, it is likely preferable to use the second method, as well.
@@ -49,12 +49,12 @@ Finally, you're ready to start adding your virtual domain users to the table. On
 
 Now, **Save and Apply** your changes, and test it out! The virtual maps can be handled by various database types, or exported to an [LDAP Server](/docs/modules/ldap-server) database. There is no reasonable limit to the number of virtual users and domains you can have.
 
-### General Options
+### General options
 The **General Options** page configures a number of options regarding the general behavior of Postfix. Specifically, most of the configuration options that impact all users and all messages are configured here. Postfix, keeping with its philosophy of simplicity, usually requires only a few configuration file changes to get a mail server running efficiently and securely.
 
 The **General Options** page is divided into two parts. The upper section is labeled **Most Useful General Options** and the lower section **Other General Options**. In many standard installations, it may be possible to start up a Postfix installation with just configuration of one or more of the three directives in the upper section. Unless otherwise stated, all of the options on this page correspond to directives in the `main.cf` file in the Postfix configuration directory.
 
-#### Most Useful General Options
+#### Most iseful general options
 The three options in this section are, in some installations, the only options that need to be altered to get Postfix running for both sending and receiving email.
 
 ##### What domain to use in outbound mail
@@ -73,7 +73,7 @@ Postfix provides the ability to select what types of error messages will be mail
 
 This option correlates to the `notify_classes` directive, and defaults to reporting only problems that usually indicate a misconfiguration or serious problem (specifically `resource` and `software`). In some high load environments, altering this to include bounce notifications could lead to a large number of notices. This option rarely needs to be changed, except for troubleshooting problems..
 
-#### Other General Options
+#### Other general options
 The lower section of this page is devoted to global options which are less likely to need to be altered. In many installations these options will remain at their defaults.
 
 ##### Send outgoing mail via
@@ -160,7 +160,7 @@ Address masquerading is a method whereby hosts behind the gateway mail server ma
 #### Masquerade exceptions
 It is possible to skip over the masquerade rules define above for some user names. The names to be excepted from those rules can be entered here. This option corresponds to the  `masquerade_exceptions` directive and by default no exceptions are made.
 
-### Mail Aliases
+### Mail aliases
 Mail aliases provide a means to redirect mail to local recipients. Specifically, it allows mail destined for a number of different addresses to be delivered to a single mailbox. A common use for this is to direct mail for users like `postmaster` to a real person. This page is divided into two sections. The upper section labeled **Aliases Options** contains the location and format of the alias files that Postfix should use to construct its alias databases and specifies the type of database to use. The lower section provides a list of all configured aliases on the system, and what the alias maps to.
 
 #### Alias databases used by the local delivery agent
@@ -173,32 +173,32 @@ This section of the page provides a list of all configured aliases. To edit an a
 
 {{< alert primary question "Note" "If adding aliases from the command line, it is possible to regenerate the aliases database using the command  `postalias`. The man page for this command is a useful resource for understanding how aliases databases are handled in Postfix." >}}
 
-### Canonical Mapping
+### Canonical mapping
 Canonical mapping in Postfix is used for modifying mail in the incoming queue, and it alters both the message headers and the message envelope information for local or remote mail. This mapping can be useful to replace login names with *Firstname.Lastname* style addresses, or to clean up odd addresses produced by legacy mail systems.
 
-#### Canonical Mapping Tables
+#### Canonical mapping tables
 If you use any canonical mapping tables, they must be specified in the first section of the **Canonical Mapping** module. After defining them, you can edit them from the second section of the module.
 #### Address mapping lookup tables
 This option specifies the location of the optional canonical address mapping table file. This mapping is applied to both sender and recipient addresses, in both envelopes and headers. This option configures the  `canonical_maps` directive and is disabled by default. Much like the aliases files discussed in the last section, canonical mapping files are specified by a database type and a filename. The accepted database types depend on your operating system, and installed components. Usually `hash` and `dbm` are used as the database type. A common choice for this value, then, might be `hash:/etc/postfix/canonical`.
-#### Tables for RECIPIENT addresses
+#### Tables for `RECIPIENT` addresses
 This parameter configures address mapping only on recipient addresses, and not sender addresses. Mapping is performed on both envelopes and headers. These lookups are performed before the above configured **Address mapping lookup tables**. This option correlates to the  `recipient_canonical_maps` directive and is disabled by default.
-#### Tables for SENDER addresses
+#### Tables for `SENDER` addresses
 Similar to the previous option, this configures mapping for sender addresses only, and not recipient addresses. Both envelope and header information is modified. This option correlates to the  `sender_canonical_maps` directive and by default is disabled.
 
-#### Editing Canonical Mappings
+#### Editing canonical mappings
 Once a filename is selected for any of the canonical mapping tables, it may be edited by clicking the appropriate **Edit...** buttons. A new page will open, listing any existing mappings and allowing creation of new mappings. The format of mappings in all files is the same.
 
 Canonical mappings may seem, on the surface, to be similar to aliases or virtual domains. However, they are quite distinct and are useful for other purposes. While aliases merely make a decision about which user will receive an email, and virtual domains only impact the envelope address, the canonical mapping alters both the envelope address and the SMTP header address. This change can be used to make mail appear to come from a different user or domain, or direct mail to a different user or domain by changing the address on the message.
 
 For example, if I have a number of local subdomains, but would like all mail to appear to originate from a single domain, it is possible to create a canonical mapping to make the translations. In the **Edit a Map** page, the **Name** will be a subdomain that is to be mapped to the domain, such as `@sub.example.com`. The `Mapts to...` value will simply be the domain I'd like this subdomain converted to, `@example.com`. After saving the mapping and applying changes, all outgoing mail from `sub.example.com` will appear to originate from `example.com`.
 
-### Virtual Domains
+### Virtual domains
 Virtual domains functionality in Postfix provides a means to redirect messages to different locations by altering the message envelope address. The header address is not altered by a virtual domain mapping. While some functionality of virtual domains overlaps with features available in aliases, virtual domains can be used for local or non-local addresses, while aliases can only be used for local address.
 
 #### Domain mapping lookup tables
 Much like aliases tables and canonical mapping tables discussed in the previous sections, this is simply the path to a file containing the mapping tables for virtual domains. This is usually something along the lines of `hash:/etc/postfix/virtual`, and must be converted to a database format for use in Postfix. Webmin will perform the database generation step for you.
 
-### Transport Mapping
+### Transport mapping
 The term transport refers to the mechanism used to deliver a piece of email. Specifically, SMTP and UUCP are mail transports that are supported by Postfix. Transport mapping can be used for a number of purposes, including SMTP to UUCP gatewaying, operating Postfix on a firewall with forwarding to an internal mail server, etc.
 
 #### Transport mapping lookup tables
@@ -206,7 +206,7 @@ This option configures the path to a file containing one or more transport mappi
 
 To create a new mapping, first define the mapping file. Then click **Add a mapping**. If your goal is to redirect mail to an protected internal host from Postfix running on a firewall, for example, you could enter the outside domain name into the **Name** field, `example.com` and then enter into the **Maps to...** field the address of the internal machine, `smtp:privatehost.example.com`. To further improve upon this, local delivery on this machine could be disabled, and increased controls over where and to whom mail should be accepted. There are more examples of such a configuration in the tutorial section of this chapter.
 
-### Relocated Mapping
+### Relocated mapping
 Using this option it is possible to notify senders if a local user has moved to another address. For example, if a user leaves an organization but still receives occasional mail at her local address, it may be convenient to notify anyone sending mail to the user of the move and new contact information for that user. Usage is just like the previous types of mappings and so won't be documented specifically here, though and example of a relocated mapping will be given to display the types of information that can be provided by this feature.
 
 As an example, let's say I move from my current company to the far more relaxed atmosphere of the Oval Office. To make sure all of my friends and clients can keep in touch with me, I could provide a relocated mapping with a **Name** of `joe@example.com` with a **Maps to...** of `president@whitehouse.gov`. While this won't redirect mail to me at my new home, it will notify the people trying to contact me that I've changed email addresses. Hopefully they will all update their address books and resend their mail to my new address.
