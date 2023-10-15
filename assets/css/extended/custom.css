@@ -1641,7 +1641,7 @@ html[class*="page-docs"] a[href*="example.com"] {
   outline: 1px solid var(--border);
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 901px) {
     [class^="page-docs"] .post-single > .top-link {
         bottom: 4.666rem;
         position: sticky;
@@ -1654,7 +1654,7 @@ html[class*="page-docs"] a[href*="example.com"] {
 
 }
 
-@media screen and (max-width: 899px) {
+@media screen and (max-width: 900px) {
     .docs-menu .docs-menu-content  {
         top: calc(8rem);
         height: 74vh;

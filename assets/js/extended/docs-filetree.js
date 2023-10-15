@@ -26,4 +26,11 @@
     if (closestDetails && !isVisible(closestDetails)) {
         closestDetails.scrollIntoView({ behavior: "instant", block: 'center', inline: 'nearest' });
     }
+    // When searching control related content
+    document.getElementById('searchInput').addEventListener('keyup', function(event) {
+        document.querySelector('.docs-menu-content').scrollTop = 0;
+        if (!this.value && !window.matchMedia("(max-width: 900px)").matches) {
+            closestDetails.scrollIntoView({ behavior: "instant", block: 'center', inline: 'nearest' });
+        }
+    });    
 })();
