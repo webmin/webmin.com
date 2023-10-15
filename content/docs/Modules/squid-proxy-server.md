@@ -7,7 +7,7 @@ weight: 505
 ### About
 This article explains what an HTTP or FTP proxy server is, and then explains how Webmin can be used to configure the popular Squid proxy server.
 
-### Introduction to Proxying and Squid
+### Introduction to proxying and Squid
 An HTTP proxy server is basically a program that accepts requests  from clients for URLs, fetches them on behalf of the client, and returns the results  to the client. Proxies are used on networks where clients do not  have direct access to the Internet but still need to be able to  view web pages. A proxy is also used for caching commonly requested pages so that  if more than one client wants to view the same page it only has to  be downloaded once.
 
 Many companies and organizations have their firewalls set up  to block all incoming and outgoing traffic by systems on internal  LANs. This may be done for security reasons, or to limit what employees  can access on the Internet. Because being able to view web pages  is extremely useful, a proxy is often set up so that websites can  be accessed through it.
@@ -29,6 +29,64 @@ Cached web pages are stored in files in a multi-level directory  structure for i
 The actual program that handles client requests is a permanently  running server process called squid. It may also start several  other sub-processes for tasks such as DNS lookups or client authentication,  but all the actual HTTP protocol processing is done in the single  master process. Unlike other similar servers such as Apache  or Sendmail, Squid does not start or use sub-processes to handle  client requests.
 
 Squid can be compiled on all the flavors of Unix that Webmin supports,  and works almost identically on all of them. This means that the  Webmin module's user interface is the same across operating  systems as well, with the exception of the default paths that  it uses for the Squid programs and configuration files. 
+
+#### Squid basic configuration
+Squid is almost entirely pre-configured for traditional proxying as soon as it is installed from source distribution or from a binary package. It can be up and running in just a few minutes, if your needs are simple. This tutorial covers the first changes you'll need to make to get your caching proxy up and running quickly.
+
+{{< alert primary exclamation "Note" "This tutorial assumes you have already installed Squid, and have configured Webmin to know where to find all of the appropriate Squid files. If you've installed from a vendor supplied package, Webmin will probably already know where to find everything." >}}
+
+##### Opening access to local clients
+The only change that must be made before using your Squid proxy server installation is to open access for your local users. By default Squid denies access to all users from any source. This is to prevent your proxy from being used for illicit purposes by users outside of your local network (and you'd be amazed at how many nasty things someone can do with an open proxy).
+
+Click on the **Access Control** icon to edit the access control lists and access rules for your proxy. First, create a new ACL by selecting **Client Address** from the drop-down list, and then clicking **Create new ACL**. This will open a new page where you can define your ACL. First, enter a name, like **localnet**, in the **Name** field. Next, specify your network either in terms of a network range, or by specifying a network and netmask. If you have only 10 addresses for example that you would like to be permitted to use your proxy you could enter, for example, a **From IP** of _192.168.1.20_ and a **To IP** of _192.168.1.30_. Or if you have a whole network to which you would like to allow proxy access, you could enter a **From IP** of _192.168.1.0_ and a Netmask of _255.255.255.0_. Click **Save** button.
+
+Next, you need to add a proxy restriction to permit the clients matched by the **localnet** ACL to use the proxy. So click the **Add proxy restriction** link. On the proxy selection page, choose the **Allow option for the Action**, and select **localnet** in the **Match ACLs** selection box. Click **Save** button.
+
+Then use the arrow icons to the right of the list of proxy restrictions to move the rule you've just created above the **Deny all** rule.
+
+##### Initializing the cache directory
+You may have noticed, on the front page of the Webmin Squid module, there is a warning that the configured cache directory has not been initialized. Before starting Squid, you'll want to make sure it gets initialized. Webmin, of course, will do this for you. Just click the **Initialize Cache** button. If you plan to alter your cache directories to something other than the default. you'll likely want to do so in the **Cache Options** page before initializing the directories. Details are covered earlier in this chapter.
+
+##### Starting Squid and testing
+To start Squid, click on the **Start Squid** link in the upper right corner of the main module page. It is worthwhile to then check the information provided by Squid during its startup in the `cache.log`. You can use the Webmin file manager, or you can add this log to the System Logs module for viewing there (read the section covering that module for information on adding non-syslog log files to make them viewable). Squid is usually quite forthcoming about problems that might prevent it from starting or operating correctly.
+
+To test your new Squid, configure a browser on your local network to use the Squid server as its proxy. Doing this is browser dependent. In Chrome and Firefox, the proxy options are located under the **Proxy Settings** preferences. Squid can act as a proxy for HTTP, HTTPS, FTP, Gopher, and WAIS protocols. Socks is not supported by Squid, though there are a few good open source Socks proxies available.
+
+Now, just browse for a bit to be sure your caching proxy is working. Take a look in the `access.log` for information about whether a request was served with a cache hit or a cache miss. If Calamaris is installed on your system, Webmin will generate an access report on demand whenever you click the **Calamaris** icon on the Squid module main page.
+
+#### Squid interception proxying
+Ordinarily, when using Squid on a network to cache web traffic, browsers must be configured to use the Squid system as a proxy. This type of configuration is known as traditional proxying. In many environments, this is simply not an acceptable method of implementation. Therefore Squid provides a method to operate as an interception proxy, or transparently, which means users do not even need to be aware that a proxy is in place. Web traffic is redirected from port _80_ to the port where Squid resides, and Squid acts like a standard web server for the browser.
+
+Using Squid transparently is a two part process, requiring first that Squid be configured properly to accept non-proxy requests, and second that web traffic gets redirected to the Squid port. The first part of configuration is performed in the Squid module, while the second part can be performed in the [Linux Firewall](/docs/modules/linux-firewall) module. That is, assuming you are using Linux, otherwise you should consult the Squid FAQ for transparent caching.
+
+##### Configuring Squid for transparency
+In order for Squid to operate as a transparent proxy, it must be configured to accept normal web requests rather than (or in addition to) proxy requests. Here, you'll learn about this part of the process.
+
+As _root_, open the `squid.conf` file in your favorite text editor. This file will be located in one of a few different locations depending on your operating system and the method of installation. Usually it is found in either `/usr/local/squid/etc`, when installed from source, or `/etc/squid`, on Red Hat style systems. First you'll notice the `http_port` option. This tells you what port Squid will listen on. By default, this is port _3128_, but you may change it if you need to for some reason. Next you should configure the following options:
+
+```
+httpd_accel_host virtual
+httpd_accel_port 80
+httpd_accel_with_proxy on
+httpd_accel_uses_host_header on
+```
+
+These options, configures Squid as follows. `httpd_accel_host virtual` causes Squid to act as an accelerator for any number of web servers, meaning that Squid will use the request header information to figure out what server the user wants to access, and that Squid will behave as a web server when dealing with the client. `httpd_accel_port 80` configures Squid to send out requests to origin servers on port _80_, even though it may be receiving requests on another port, _3128_ for example. `httpd_accel_with_proxy on` allows you to continue using Squid as a traditional proxy as well as a transparent proxy. This isn't always necessary, but it does make testing a lot easier when you are trying to get transparency working, which is discussed a bit more later in the troubleshooting section. Finally, `httpd_accel_uses_host_header on` tells Squid that it should figure out what server to fetch content from based on the host name found in the header. This option must be configured this way for transparency.
+
+##### Linux firewall configuration for transparent proxying
+The `iptables` portion of your transparent configuration is equally simple. The goal is to hijack all outgoing network traffic that is on the HTTP port (that's port 80, to be numerical about it). `iptables`, in its incredible power and flexibility allows you to do this with a single command line or a single rule. Again, the configuration is shown and discussed for both the Webmin interface and the console configuration.
+
+When first entering the [Linux Firewall](/docs/modules/linux-firewall) module, the **Packet filtering rules** will be displayed. For your purposes you need to edit the **Network address translation** rules. So, select it from the drop-down list beside the **Showing IPtable** button, and click the button to display the NAT rules.
+
+Now, add a new rule to the `PREROUTING` chain by clicking the **Add rule** button to the right of the `PREROUTING` section of the page.
+
+Fill in the following fields. The **Action to take** should be **Redirect**, and the **Target ports for redirect** set to **3128**. Next you'll need to specify what clients should be redirected to the Squid port. If you know all port _80_ traffic on a single interface should be redirected, it is simplest to specify an Incoming interface, but you could instead specify a **Source address or network**. Next, set the **Network protocol** to **Equals TCP**. Finally, set the **Destination TCP or UDP port** to **80**. Click **Create** button to add the new rule to the configuration. Once on the main page again, click the **Apply Configuration** button to make the new rule take effect. Finally, set the firewall to be activated at boot so that redirection will continue to be in effect on reboots.
+
+```
+  iptables -t nat -I PREROUTING 1 -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3128
+```
+
+While a detailed description of the `iptables` tool is beyond the scope of this section, it should briefly be explained what is happening in this configuration. First, you are inserting a rule into the first `PREROUTING` chain of the NAT routing path, with the `-t nat -I PREROUTING 1` portion of the command. Next you're defining whose requests will be acted upon, in this case `iptables` will work on all packets originating from the network attached to device `eth0`. This is defined by the `-i eth0` portion of the rule. Then comes the choice of protocol to act upon; here you've chosen TCP with the `-p tcp` section. Then, the last match rule specifies the destination port you would like for your redirect to act upon with the `--dport 80` section. Finally, `iptables` is told what to do with packets that match the prior defined criteria, specifically, it will `REDIRECT` the packets `--to-port 3128`.
 
 ### The Squid Proxy Server module
 
@@ -57,7 +115,7 @@ Because each version of Squid has introduced new configuration  directives, this
 
 When you are using this module, make sure your browser is configured  not to use the Squid proxy to access your Webmin server. Otherwise  you run the risk of cutting off your own access to the module if  you make a configuration mistake or shut down the server process.  All browsers that can use a proxy have a field for listing hosts  to connect to directly, into which you can enter the hostname  of your Webmin server.
 
-### Changing the proxy ports and addresses
+#### Changing the proxy ports and addresses
 
 By default, Squid listens for proxy requests on TCP port `3128` on all of your system's IP addresses. Because this is not the usual  port that proxies are run on (`8000` and `8080` seem to be the most common),  you may want to change it. You might also want to edit the listening  address so that only clients on your internal network can connect,  if your system has more than one network interface.
 
@@ -71,7 +129,7 @@ To specify the ports that Squid uses, follow these steps :
 
 [![](/images/docs/screenshots/modules/light/squid-proxy-server-ports-and-networking.png "Squid Proxy Server - Ports and Networking Screenshot")](/images/docs/screenshots/modules/light/squid-proxy-server-ports-and-networking.png)
 
-### Adding cache directories
+#### Adding cache directories
 
 In its usual default configuration, Squid uses a single directory  for storing cached pages. At most 100 MB of data will be stored  in this directory, which is not likely to be enough if serving  a large number of active clients. If your system has more than  one hard drive, it makes sense to spread the cache across multiple  disks to improve performance. This can be done by specifying  multiple directories, each with its own maximum size.
 
@@ -92,7 +150,7 @@ To add a new cache directory and specify the maximum size for the  existing one,
 re-started when it is complete.  
  - After initialization is complete, click on the **Apply Changes** link on any page to start using your new directories.
 
-### Editing caching and proxy options
+#### Editing caching and proxy options
 
 Squid has numerous settings that limit the size of cached objects,  the size of client requests and the types of pages to cache. They  can be used to stop the server storing enormous files (such as  downloaded ISO images), to limit the size of files that clients  can upload or download, and to prevent the cache of pages that  change frequently (such as those generated by CGI scripts).  The defaults will generally work fine though, with the possible  exception of the maximum upload size which is only 1 MB.
 
@@ -110,7 +168,7 @@ To edit caching options, follow these steps :
  - To prevent the caching of huge files, fill in the **Maximum cached object size** field. The default is only 4 MB, so if you have plenty of disk space it should definitely be increased.  
  - Hit the **Save** button at the bottom of the form and then the **Apply Changes** link on the main page to activate all of your new settings.
 
-### Introduction to access control lists
+#### Introduction to access control lists
 
 ACLs (access control lists) are possibly Squid's most powerful  feature. An ACL is simply a test that is applied to a client request  to see if it matches or not. Then, based on the ACLs that each request  matches you can choose to block it, prevent caching, force it  into a delay pool, or hand it off to another proxy server. Many  different types of ACL exist - for example, one type checks a client's  IP address, another matches the URL being requested, while others check the destination port, web server hostname, authenticated  user and so on.
 
@@ -145,7 +203,7 @@ Before clients can use your proxy you will need to configure it  to allow access
 
 These instructions assume that you are starting with the default  Squid configuration. If the proxy has already been configured  to allow access from anywhere (by changing the **Deny all** restriction  to **Allow all**), you should change it back again to block clients  from outside your network. To learn more about the types of ACL  available and how to use them, read the next two sections.
 
-### Creating and editing ACLs
+#### Creating and editing ACLs
 
 Before you can block or allow requests from some address, to some  server or for some page you will need to create an appropriate  ACL. The basic steps to do this are :
 
@@ -161,7 +219,7 @@ Squid has an amazing number of ACL types, although not all are  available in all
 
 Many types of ACL are inappropriate for certain situations.  For example, if a client sends a CONNECT request the URL path is  unavailable, and thus a **URL Path Regexp** ACL will not work. In  cases like this the ACL is automatically assumed not to match.
 
-### Creating and editing proxy restrictions
+#### Creating and editing proxy restrictions
 
 Once you have created some ACLs, they can be put into use by creating,  editing and moving around proxy restrictions. Squid will compare  every request to all defined restrictions in order, stopping  when it finds one that matches. The action set for that restriction  then determines if the request is allowed or denied. This processing  system combined with the power of ACLs allows you to set up some  incredibly complex access control rules - for example, you could  deny all access to sites with `quake` in the URL between 9 AM and  5 PM Monday to Friday, except for certain client addresses.
 
@@ -180,7 +238,7 @@ After a proxy restriction has been created you can edit it by clicking  on the l
 
 Also on the access control page is a table for editing and creating  restrictions that apply to ICP requests. As the [Connecting to other proxies](#connecting-to-other-proxies) section explains, ICP is a protocol used by  Squid proxies in a cluster or hierarchy to determine what URLs  other servers have cached. You can add to and edit entries in the  **ICP restrictions** table in exactly the same way as you would  for proxy restrictions. If you really are running a cluster of  proxies, it may make sense to block ICP requests from sources  other than your own network. If not, the default setup that allows  all ICP packets is fine.
 
-### Setting up proxy authentication
+#### Setting up proxy authentication
 
 Even though it is possible to configure Squid to allow access  only from certain IP addresses, you may want to force clients  to authenticate themselves to the proxy as well. This might make  sense if you want to give only certain people access to the web,  and cannot use IP address validation due to the use of dynamically  assigned addresses on your network. It is also handy for keeping  track of who has requested what through the proxy, as usernames  are recorded in the Squid logs.
 
@@ -222,7 +280,7 @@ The module’s user management feature will only work if you choose **Webmin def
  - As their names suggest, the **Create proxy users when creating system users, Update proxy users when updating system users, and Delete proxy users when deleting system users** fields control the automatic creation, modification, and deletion of proxy users when the same thing happens to a UNIX user. For each one, you can either select **Yes** or **No**. You should probably turn on synchronization for updates and deletions, but leave it off for creations so that you can explicitly control who gets access to the proxy. 
  - Hit the **Save** button at the bottom of the form to activate the new settings. From now on, actions performed in Webmin’s Users and Groups module will also affect the Squid user list in the ways you have chosen. Adding a user at the command line with useradd or changing a password with the passwd command, however, will not.
 
-### Configuring Logging
+#### Configuring Logging
 
 Squid writes to three separate log files—one for recording client access requests, one for cache events, and one for debugging information.  Logging is enabled by default to paths compiled into Squid, and thus is dependant upon your operating system—but you can change the destinations
 for log files and some details of the access log format.
@@ -241,7 +299,7 @@ should ideally create a special Client Address ACL that matches only UNIX hosts 
 
 Many Linux packages of Squid include a configuration file for the `logrotate` program to have the log files rotated, compressed, and eventually deleted when they become too old. If you change the paths to the log files using the instructions above, rotation will no longer be done and the logs will consume an unlimited amount of disk space. On a busy system, this could lead to a shortage of space on the logging filesystem that would be avoided if rotation were in effect.
 
-### Connecting to Other Proxies
+#### Connecting to Other Proxies
 
 Instead of retrieving requested web pages directly, Squid can be configured to connect to another proxy server instead and forward some or all requests to it. This feature is useful if your organization has one proxy for each department and a master cache for the entire network, and you want to have all department proxies query the master for requests that they cannot serve from their own caches. It may also be necessary if your ISP runs a proxy server and you want to set up Squid for your home network as well, yet still make use of the ISP’s cache.
 
@@ -288,7 +346,7 @@ On the module’s main page, click on the **Other Caches** icon.To set up two or
 
 The end result should be that each proxy in the cluster has entries for all the other proxies, so that it knows to contact them for requests not in its own cache. You can, however, set up ACLs to avoid the use of ICP and force the direct fetching of certain requests, just as you can when forwarding requests to a master cache.
 
-### Clearing the Cache
+#### Clearing the Cache
 
 Sometimes it may be necessary to remove all of the files in your Squid cache, perhaps to free up disk space or force the reloading of pages from their originating web servers.
 
@@ -298,7 +356,7 @@ This can be done easily using Webmin by following these steps:
 2. To continue, hit the **Clear and Rebuild Cache** button. Because the server will be stopped during the clearing process, it should not be done when the proxy is in use.
 3. A page showing Webmin’s progress will be displayed as it shuts down Squid, deletes all cached files, reinitializes the directories, and finally restarts Squid. This may take quite some time if you have a large cache or are using a filesystem that is slow to delete files (such as UFS on Solaris).
 
-### Setting Up a Transparent Proxy
+#### Setting Up a Transparent Proxy
 
 A transparent proxy is one that clients connect to without being aware of it, due to the use of firewall rules that redirect connections on port 80 to the proxy system. The advantage of this setup is that you do not have to manually configure all web clients to use the proxy. Instead, they will be connected to it without their knowledge. It also means that users cannot get around the cache and thus avoid its access control rules by not configuring it in their browsers.
 
@@ -308,7 +366,7 @@ Most networks have a router that connects an internal LAN to the Internet. For t
 
 Because most of the work is actually done by the firewall rules that redirect outgoing packets.
 
-### Module Access Control
+#### Module Access Control
 
 It can be very useful to give someone the rights to configure Squid without letting them harm or change anything else on the system. This can be done in Webmin by creating a Webmin user with access to the module and then restricting what he can do with it. This section here covers restricting access to the Squid module in particular.
 
@@ -324,7 +382,7 @@ To create a user who can only configure Squid, follow these steps:
 6. To prevent the user from shutting down Squid, change the **Can start and stop Squid?** field to **No**. A user will still be able to apply changes, however, and reconfigure the server so it is unusable.
 7. Hit the **Save** button to activate the restrictions.
 
-### Module Configuration
+#### Module Configuration
 
 Like most modules, this one has several settings that you can edit to configure the user interface and the paths that it uses for Squid programs and configuration files. They can all be accessed by clicking on the **Module Config** link on the main page. The user interface fields are listed under **Configurable options** on the form that appears, while those related to program paths are under **System configuration**.
 
