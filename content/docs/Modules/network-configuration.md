@@ -1,6 +1,7 @@
 ---
 title: "Network Configuration"
 date: 2023-09-12
+author: "Jamie Cameron, Joe Cooper"
 weight: 695
 ---
 

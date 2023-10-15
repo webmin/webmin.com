@@ -1,6 +1,7 @@
 ---
 title: "BIND DNS Server"
 date: 2023-04-11
+author: "Jamie Cameron, Joe Cooper"
 weight: 365
 ---
 

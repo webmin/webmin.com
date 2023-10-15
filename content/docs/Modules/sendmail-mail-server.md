@@ -1,6 +1,7 @@
 ---
 title: "Sendmail Mail Server"
 date: 2023-07-25
+author: "Jamie Cameron, Joe Cooper"
 weight: 485
 ---
 

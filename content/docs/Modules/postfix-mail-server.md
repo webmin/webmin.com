@@ -1,6 +1,7 @@
 ---
 title: "Postfix Mail Server"
 date: 2023-05-20
+author: "Jamie Cameron, Joe Cooper"
 weight: 425
 ---
 
