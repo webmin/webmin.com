@@ -60,7 +60,7 @@ if (!-r $f) {
 my @fl = read_file_lines($f);
 my @nfl;
 foreach my $l (@fl) {
-    my ($file, $hash) = $l =~ /^\|\s+([\w_-]+\.(?:rpm|deb|tar.gz|pkg.gz))\s+\|\s+([a-h0-9]+)/;
+    my ($file, $hash) = $l =~ /^\|\s+([\w_-]+\.[\w]+)\s+\|\s+([a-h0-9]+)/;
     if ($file && $hash) {
         my $tfile = $file;
         $tfile =~ s/-current/-$cver/;
@@ -78,7 +78,9 @@ foreach my $l (@fl) {
             $tfile =~ s/_$cver/_${cver}${drel}_all/;
             }
         # PKG and TAR formats
-        #
+        if ($tfile =~ /\.(pkg|tar)$/) {
+            $tfile .= ".gz";
+            }
         if (!-f "$cdir/$tfile") {
             die("Error: Cannot find '$tfile' in source '$cdir' directory\n");
             }
@@ -88,7 +90,7 @@ foreach my $l (@fl) {
             my ($nhash) = $output =~ /^([a-h0-9]+)/;
             if ($nhash) {
                 my $nl = $l;
-                $nl =~ s/^(\|\s+[\w_-]+\.(?:rpm|deb|tar.gz|pkg.gz)+\s+\|\s+)([a-h0-9]+)/$1$nhash/;
+                $nl =~ s/^(\|\s+[\w_-]+\.[\w]+\s+\|\s+)([a-h0-9]+)/$1$nhash/;
                 push(@nfl, $nl);
                 }
             else {

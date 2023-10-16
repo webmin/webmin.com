@@ -9,14 +9,14 @@ Virtualmin is a Webmin module for managing multiple virtual hosts through a sing
 
 Virtualmin can also create a Webmin user for each virtual server, who is restricted to managing just his domain and its files. Webmin's existing module access control features are used, and are set up automatically to limit the user appropriately. These server administrators can also manage the mailboxes and mail aliases in their domain, via a web interface that is part of the module.
 
-## Licence
+## License
 
 Two versions of Virtualmin exist, under separate licenses:
 
 * **Virtualmin GPL**
     This is the freely downloadable version, licensed under the GPL. It is under active development, but does not contain all of the features of the Pro version.
 * **Virtualmin Pro**
-    This is the commerical version that you have to pay for. It includes [numerous features](https://www.virtualmin.com/professional/) not in the GPL version:
+    This is the commercial version that you have to pay for. It includes [numerous features](https://www.virtualmin.com/professional/) not in the GPL version:
       
     - 60+ installable scripts (Django, Drupal, Ghost, Grav, ionCube, Joomla, Magento, Matomo, Mautic, MediaWiki, Moodle, MyBB, Nextcloud, Node.js, phpBB, TikiWiki and many other)
     - Reseller accounts
@@ -45,7 +45,7 @@ Virtualmin [changelog](/tags/virtualmin-changelog/) can be filtered out using ta
 
 Getting started with Virtualmin can be done with a few simple steps, using our [automated install](https://software.virtualmin.com/gpl/scripts/virtualmin-install.sh) script. The install script will setup your package manager, usually `apt-get` or `dnf` and then download our packages as well as all of the necessary dependencies for running Virtualmin.
 
-{{< alert success question "How to install?" "Documentation on supported systems and installation requirements is available on our official Virtualmin **[download](https://www.virtualmin.com/download/)** page." >}}
+{{< alert success question "How to install?" "Documentation on supported systems and installation requirements is available in our Virtualmin **[download](https://www.virtualmin.com/download/)** page." >}}
 
 ## Manual Installation
 
@@ -59,9 +59,9 @@ These GPL packages should _not_ be installed directly unless you _really_ know w
 
 | File                       | Size |
 | -------------------------- | -----|
-|[wbm-virtual-server-current.gpl-1.noarch.rpm](https://download.webmin.com/download/virtualmin/wbm-virtual-server-7.5.gpl-1.noarch.rpm) | 6.1 MB |
-|[webmin-virtual-server_current.gpl_all.deb](https://download.webmin.com/download/virtualmin/webmin-virtual-server_7.5.gpl_all.deb)     | 3.9 MB |
-|[virtual-server-current.gpl.wbm.gz](https://download.webmin.com/download/virtualmin/virtual-server-7.5.gpl.wbm.gz)                     | 6.4 MB |
+|[wbm-virtual-server-current.gpl-1.noarch.rpm](https://download.webmin.com/download/virtualmin/wbm-virtual-server-7.7.gpl-1.noarch.rpm) | 6.4 MB |
+|[webmin-virtual-server_current.gpl_all.deb](https://download.webmin.com/download/virtualmin/webmin-virtual-server_7.7.gpl_all.deb)     | 4.2 MB |
+|[virtual-server-current.gpl.wbm.gz](https://download.webmin.com/download/virtualmin/virtual-server-7.7.gpl.wbm.gz)                     | 6.8 MB |
 
 {{< details-end >}}
 
@@ -73,7 +73,7 @@ A plugin is a Webmin module that adds some functionality to Virtualmin. Typicall
 
 To use a plugin, first download and install it in the same way as you would for any other Webmin module. Then open up the **Features and Plugins** page in Virtualmin, and select the new plugin from the list of those available. Once this is done, the capabilities of the plugin can be enabled for some or all virtual servers, on the **Edit Virtual Server** page.
 
-The best place to find plugins in case of manual installation is in the official Virtualmin [repository](https://software.virtualmin.com/gpl/).
+The best place to find plugins in case of manual installation is in the Virtualmin [repository](https://software.virtualmin.com/gpl/).
 
 ## Developing Plugins
 

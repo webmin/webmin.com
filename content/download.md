@@ -8,7 +8,7 @@ showtoc: true
 ## Repository
 
 ### Setup
-The simplest and best way to get [**Webmin**](/about/) is to use automatic [**`setup-repos.sh`**](https://github.com/webmin/webmin/blob/master/setup-repos.sh) script to configure official repositories on your **RHEL** or **Debian** derivative systems. It can be done in two easy steps:
+The simplest and best way to get [**Webmin**](/about/) is to use automatic [**`setup-repos.sh`**](https://github.com/webmin/webmin/blob/master/setup-repos.sh) script to configure repositories on your **RHEL** or **Debian** derivative systems. It can be done in two easy steps:
 
 ```
 curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
@@ -25,7 +25,7 @@ If Webmin repository was setup using our **`setup-repos.sh`** as [described abov
     dnf install webmin
 
    #### Debian and derivatives
-    apt-get install webmin
+    apt-get install webmin --install-recommends
 
 
 ## Manual
@@ -54,7 +54,7 @@ If Webmin package was downloaded manually it can be installed:
     dnf install ./webmin-current.rpm
 
    #### Debian and derivatives
-    apt-get install ./webmin-current.deb
+    apt-get install --install-recommends ./webmin-current.deb
 
    #### Solaris
     # The root user be switched from a role account to a normal account to logins to work
@@ -77,9 +77,11 @@ If Webmin package was downloaded manually it can be installed:
 
    The source package can be installed on any of the supported OS, such as **FreeBSD**, **macOS**, **HP/UX**, **AIX**, and all other flavors of Linux. However, if your system supports one of the other package formats like **`rpm`** or **`deb`** packages, it is *recommended* to install it from that type of package.
 
+## Older Versions
+Older versions of Webmin can be downloaded from [Sourceforge](https://sourceforge.net/projects/webadmin/files/webmin/).
+
 ## Standard Modules
 The standard modules that you may have deleted from Webmin on your system can be re-installed by downloading using [this](https://download.webmin.com/download/modules/) link.
-
 
 ## Development Builds
 There are development pre-release and nightly builds available for testing purposes only. These builds may be unstable or lack certain features. Use them at your own risk!

@@ -19,7 +19,7 @@ The easiest way to configure Usermin is via the **Webmin ⇾ Usermin Configurati
 ## Repository
 
 ### Setup
-The simplest and best way to get **Usermin** is to use automatic [**`setup-repos.sh`**](https://github.com/webmin/webmin/blob/master/setup-repos.sh) script to configure official repositories on your **RHEL** or **Debian** derivative systems. It can be done in two easy steps:
+The simplest and best way to get **Usermin** is to use automatic [**`setup-repos.sh`**](https://github.com/webmin/webmin/blob/master/setup-repos.sh) script to configure repositories on your **RHEL** or **Debian** derivative systems. It can be done in two easy steps:
 
 ```
 curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
@@ -35,7 +35,7 @@ If Usermin repository was setup using our **`setup-repos.sh`** as [described ear
     dnf install usermin
 
    #### Debian and derivatives
-    apt-get install usermin
+    apt-get install usermin --install-recommends
 
 ## Manual
 The latest Usermin distribution is available in various package formats for download:
@@ -57,7 +57,7 @@ If Usermin package was downloaded manually it can be installed:
     dnf install ./usermin-current.rpm
 
    #### Debian and derivatives
-    apt-get install ./usermin-current.deb
+    apt-get install --install-recommends ./usermin-current.deb
 
    #### FreeBSD and any other Linux installation from source
     # Change directory
