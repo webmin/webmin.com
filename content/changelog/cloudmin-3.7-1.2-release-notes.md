@@ -110,7 +110,7 @@ showtoc: true
     - CPU and drive temperatures are now collected from systems running Virtualmin Pro 3.69 or later, and can be plotted on the System Statistics page.
     - Virtual systems can be reset to their original state using the new Reset From Image page, or the reset-image API command.
     - Virtual systems on Xen can now have their root filesystem on an LVM logical volume on the host system. Additional disks can also be added on LVM, and logical volumes can be expanded if needed.
-    - Virtualmin Pro licence expiry dates are shown on the Edit System and Virtualmin Pro Licences page.
+    - Virtualmin Pro license expiry dates are shown on the Edit System and Virtualmin Pro Licenses page.
     - Virtual system images copied to host systems can now be cached up to some maximum total size, using the 'System image cache' section on the 'Edit Xen Host' page. This prevents un-necessary data transfers between the Cloudmin master and host systems.
     - Account plans which define limits on system, disk, RAM and CPU use for system owners can now be created. Each owner's limits, virtual system types, actions and host systems are now inherited from their plan, and plan changes update all owners at once.
     - System owners can now create new virtual systems, up to the limits defined in their plans. They can also manage CPU, disk and memory use on virtual systems, if allowed in the plan.

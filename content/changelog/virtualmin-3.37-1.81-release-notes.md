@@ -174,7 +174,7 @@ showtoc: true
 - #### 2.90
     - When disabling a virtual server, the accounts for any mail users are locked too.
     - The 'Home directory' and 'Unix users' are now always enabled, unless you select to make them optional on the Module Config page. These are needed for almost all virtual servers, so it makes little sense to show the option.
-    - Added a button for re-checking the licence immediately if a problem was detected during a regularly scheduled check.
+    - Added a button for re-checking the license immediately if a problem was detected during a regularly scheduled check.
     - Mail users can have their logins temporarily enabled or disabled, using the web or command-line interfaces.
     - Limits can now be placed on the number of aliases a virtual server can have, at the server owner and reseller levels. In addition, plugins can specify that certain aliases should not count towards this limit (or be displayed to the user).
     - The method by which the domain name is appended or prepended to a mail user's name can now be set on a per-template basis.
@@ -402,7 +402,7 @@ showtoc: true
     - Added preloading for the main virtual-server-lib.pl library, to speed up Virtualmin CGI programs.
     - The creation date and creator (if available) is shown when editing a virtual server.
     - MySQL backups are now compressed with gzip, to save on disk space from the original SQL format.
-    - The licence expired message is only displayed to the master administrator, rather than all users.
+    - The license expired message is only displayed to the master administrator, rather than all users.
     - When log rotation is set to always enabled, it will follow the virtual website setting.
     - Added options to the Spam and Virus Delivery page to write spam to ~/Maildir/spam/.
     - Changed default Apache log format to combined.
