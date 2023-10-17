@@ -2,6 +2,8 @@
 (function() {
     const
         siteName = '{{ site.BaseURL }}',
+        pageHTMLSel = 'html',
+        postTargSel = 'body > .main > .post-single',
         headerTargSel = 'body > .header',
         menuLinkTargSel = '' + headerTargSel + ' > .nav #menu > li > a',
         themeToggleTargSel = '' + headerTargSel + ' #theme-toggle',
@@ -13,6 +15,9 @@
         outerlinksAll = [
             document.querySelectorAll('' + menuLinkTargSel + '[href$="Webmin/Main_Page"]'),
             document.querySelectorAll(postsLinksTargSel),
+        ],
+        screenShotLinks = [
+            document.querySelectorAll('' + postTargSel + ' [href*="/images/docs/"]'),
         ];
 
     // Search link as icon
@@ -30,6 +35,11 @@
                 hmenuDropDownTarg.style.right = hmenuRightOffsetPixel + "px";
                 hmenuDropDownTarg.style.top = "calc(" + (hmenuTopOffset + hmenuLinkText.offsetHeight) + "px - 4px)";
             }
+        },
+        menuHeightType = function() {
+            const pageHTML = document.querySelector(pageHTMLSel),
+                navMenu = document.querySelector(headerTargSel + ' > .nav');
+                pageHTML.dataset.nav = navMenu.offsetHeight > 10e1 ? 'lg' : 'sm';
         };
     hmenuLinkText.classList.add('wm', 'wm-md', 'wm-menu');
     hmenuLinkText.innerHTML = String();
@@ -60,7 +70,11 @@
     // Resize actions for the page
     window.onresize = function() {
         hmenuResize();
+        menuHeightType();
     }
+
+    // On load test menu height
+    setTimeout(menuHeightType, 10e1);
 
     // Click event
     window.onclick = function(evt) {
@@ -79,13 +93,24 @@
         }
     }
 
-    // Outer links to new thw tab
+    // Outer links go to the new tab
     outerlinksAll.forEach(function(outerlinks) {
         if (outerlinks) {
             outerlinks.forEach(function(outerlink) {
                 if (outerlink.href &&
                     !outerlink.href.startsWith('mailto:') &&
                     !outerlink.href.startsWith(siteName)) {
+                    outerlink.setAttribute('target', '_blank');
+                }
+            });
+        }
+    });
+
+    // Outer links go to the new tab
+    screenShotLinks.forEach(function(outerlinks) {
+        if (outerlinks) {
+            outerlinks.forEach(function(outerlink) {
+                if (outerlink.href) {
                     outerlink.setAttribute('target', '_blank');
                 }
             });
@@ -105,6 +130,14 @@
         }
     }
 
+    if (isLocation('docs')) {
+        const docsMenuLink =
+            document.querySelector('' + menuLinkTargSel + '[href$="docs/"] > span');
+        if (docsMenuLink) {
+            docsMenuLink.classList.add('active');
+        }
+    }
+
     // Main page tweaks
     const mainPageSocials = document.querySelector('.main > article > .entry-footer > .social-icons'),
         ghStarsHTML = '<iframe src="https://ghbtns.com/github-btn.html?user=webmin&repo=webmin&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>',
@@ -121,8 +154,9 @@
     // Tweak screenshots to blend with palette
     const isDarkMode = function() { return localStorage.getItem("pref-theme") === 'dark' || document.body.classList.contains('dark') },
         screenshotType = function() { return isDarkMode() ? 'dark' : 'light' },
+        screenshotTypeRev = function() { return !isDarkMode() ? 'dark' : 'light' },
         updateScreenshots = function() {
-            const screenshots = document.querySelectorAll('figure > img');
+            const screenshots = document.querySelectorAll('figure > img, a > img[src*="/docs/screenshots"]');
             let screenshotsFound = false;
             if (screenshots.length) {
                 screenshots.forEach(function(screenshot) {
@@ -131,11 +165,12 @@
                         screenshot.classList.add('loading');
                         screenshot.setAttribute('onload', 'javascript: this.classList.add("loaded")');
                         screenshotsFound = true;
-                        const themeMode = screenshotType();
-                        if (screenshotType() === 'dark') {
-                            screenshot.src = screenshot.src.replace('/light/', '/' + themeMode + '/');
-                        } else {
-                            screenshot.src = screenshot.src.replace('/dark/', '/' + themeMode + '/');
+                        const themeMode = screenshotType(),
+                            themeModeRev = screenshotTypeRev();
+                        screenshot.src = screenshot.src.replace('/' + themeModeRev + '/', '/' + themeMode + '/');
+                        if (screenshot.parentElement.nodeName === 'A') {
+                            screenshot.parentElement.href =
+                                screenshot.parentElement.href.replace('/' + themeModeRev + '/', '/' + themeMode + '/');
                         }
                     }
                 });
@@ -146,7 +181,9 @@
     // We need to check it in another stack, because Safari
     // is just not reliable for anything complex
     setTimeout(function() {
-        if (document.querySelector('html[class*="page-index"]') || document.querySelector('html[class*="page-changelog"]')) {
+        if (document.querySelector('html[class*="page-index"]') ||
+            document.querySelector('html[class*="page-changelog"]') ||
+            document.querySelector('html[class*="page-docs"]')) {
             // On changing mode change screenshots palette
             if (updateScreenshots()) {
                 const themeToggle = document.querySelector('#theme-toggle');
