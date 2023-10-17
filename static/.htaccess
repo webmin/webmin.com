@@ -179,4 +179,3 @@ RedirectMatch /modules-.*.html http://doxfer.webmin.com/Webmin/ModuleDevelopment
 
 # Block clickjacking
 Header set X-Frame-Options "SAMEORIGIN"
-
