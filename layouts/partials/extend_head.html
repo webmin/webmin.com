@@ -21,12 +21,22 @@
 {{- $header := resources.Get "js/extended/header.js" | resources.ExecuteAsTemplate "js/extended/header.js" . | resources.Minify }}
 <script defer crossorigin="anonymous" src="{{ $header.RelPermalink }}?{{ now.Unix }}"></script>
 
-<!-- Load chocolat.js for Screenshots page -->
-{{- if .Param "loadGallery" }}
+<!-- Set chocolat.js and chocolat.css vars references -->
 {{- $chocolatjs := resources.Get "js/chocolat.js" | resources.Minify }}
 {{- $chocolatcss := resources.Get "css/chocolat.css" | resources.Minify }}
+
+<!-- Load chocolat.js for Screenshots page -->
+{{- if .Param "loadGallery" }}
 <script type="text/javascript" src="{{ $chocolatjs.RelPermalink }}?{{ now.Unix }}"></script>
 <link rel="stylesheet" href="{{ $chocolatcss.RelPermalink }}?{{ now.Unix }}" type="text/css" media="screen">
 {{- $chocolatloader := resources.Get "js/extended/header-chocolat.js" | resources.ExecuteAsTemplate "js/extended/header-chocolat.js" . | resources.Minify }}
 <script defer crossorigin="anonymous" src="{{ $chocolatloader.RelPermalink }}?{{ now.Unix }}"></script>
+{{ end }}
+
+<!-- Load chocolat.js for Documentation page -->
+{{ if in .RelPermalink "/docs/" }}
+<script type="text/javascript" src="{{ $chocolatjs.RelPermalink }}?{{ now.Unix }}"></script>
+<link rel="stylesheet" href="{{ $chocolatcss.RelPermalink }}?{{ now.Unix }}" type="text/css" media="screen">
+{{- $chocolatloaderdocs := resources.Get "js/extended/header-chocolat-docs.js" | resources.ExecuteAsTemplate "js/extended/header-chocolat-docs.js" . | resources.Minify }}
+<script defer crossorigin="anonymous" src="{{ $chocolatloaderdocs.RelPermalink }}?{{ now.Unix }}"></script>
 {{ end }}
