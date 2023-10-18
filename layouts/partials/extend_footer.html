@@ -1,5 +1,5 @@
 {{- $footer := resources.Get "js/extended/footer.js" | resources.ExecuteAsTemplate "js/extended/footer.js" . | resources.Minify }}
 <script defer crossorigin="anonymous" src="{{ $footer.RelPermalink }}?{{ now.Unix }}"></script>
 <footer class="footer">
-    <span>&copy; 1997 - {{ now.Year }} <a href="/">{{ site.Title }}</a>&nbsp;&nbsp;|<wbr>&nbsp;&nbsp;Made with&nbsp;&nbsp;<i class="wm wm-heart"></i>&nbsp;&nbsp;by <a href="/about/#developers">@iliajie</a>&nbsp;&nbsp;|<wbr>&nbsp;&nbsp;Powered by Hugo & Papermod</span>
+    <span>&copy; 1997 - {{ now.Year }} <a href="/">{{ site.Title }}</a>&nbsp;&nbsp;|<wbr>&nbsp;&nbsp;Made with&nbsp;&nbsp;<i class="wm wm-heart"></i>&nbsp;&nbsp;by <a href="/about/#developers">Ilia Ross</a>&nbsp;&nbsp;|<wbr>&nbsp;&nbsp;Powered by Hugo & Papermod</span>
 </footer>

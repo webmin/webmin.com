@@ -32,7 +32,8 @@ Because Webmin supports the concept of modules (like Photoshop plugins), anyone 
 ## Developers
 [Jamie Cameron](/about-jamie) &mdash; Author and the lead developer.
 
-[@iliajie](https://github.com/iliajie) &mdash; Author of [Authentic Theme](https://github.com/webmin/authentic-theme), [language manager](https://github.com/webmin/webmin/blob/master/bin/language-manager) script and multiple continuous code contributions.
+[Ilia Ross](https://github.com/iliajie) &mdash; Author of the [Authentic Theme](https://github.com/webmin/authentic-theme) and [language manager](https://github.com/webmin/webmin/blob/master/bin/language-manager) script, and a consistent contributor to numerous code advancements.
+
 {{< details-start post-content-indent-details "<i class='wm wm-users-cog'></i>"  >}}
 Webmin provides an excellent platform for programs that configure Linux and Unix systems. Interfaces for backup servers, spam and virus filtering, SOHO servers, firewalls and much more have been built on top of Webmin, typically as custom modules and/or themes. Many businesses have created modules to configure specialized or in-house applications, such as for satellite control, medical devices and tape loaders.
 
