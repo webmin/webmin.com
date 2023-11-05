@@ -32,7 +32,7 @@
     --main-bg-overlay: rgb(29, 30, 32, .6);
     --border: rgb(63, 63, 63);
 
-    --header: #2e2e33ee;
+    --header: #0c0c0cea;
     
     --link: #1d74ff;
 
@@ -158,6 +158,10 @@ strong code {
 .header .logo>a {
     line-height: calc(var(--header-height) - 0.111rem);
     filter: saturate(1.666);
+}
+
+.dark .header .logo>a {
+    filter: saturate(1.666) contrast(0.3) brightness(1.2);
 }
 
 button#theme-toggle {
