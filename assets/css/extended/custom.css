@@ -107,6 +107,7 @@ strong pre,
 strong code {
     font-weight: 600;
 }
+.page-search .page-header > h1,
 .post-title {
     font-size: 32px;
 }
@@ -1262,6 +1263,11 @@ fieldset:disabled a.btn {
 /* 
  * Content
  */
+.page-search .page-header h1 > svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.25rem;
+}
 
 /* Tricky and lazy-dazy way but seems to work perfectly fine */
 .dark .main > article > .entry-footer > .social-icons {
