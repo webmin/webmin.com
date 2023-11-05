@@ -1648,6 +1648,7 @@ html[class*="page-docs"] a[href*="example.com"] {
 .docs-toc .docs-toc-content,
 .docs-menu .docs-menu-content  {
     scrollbar-width: thin;
+    overscroll-behavior: contain;
 }
 
 .docs-toc .docs-toc-content::-webkit-scrollbar,
