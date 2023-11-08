@@ -162,7 +162,7 @@ strong code {
 }
 
 .dark .header .logo>a {
-    filter: saturate(1.666) contrast(0.3) brightness(1.2);
+    filter: saturate(1.666) contrast(0.33) brightness(1.22);
 }
 
 button#theme-toggle {
