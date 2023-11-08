@@ -182,6 +182,7 @@
     // is just not reliable for anything complex
     setTimeout(function() {
         if (document.querySelector('html[class*="page-index"]') ||
+            document.querySelector('html[class^="page-page"]') ||
             document.querySelector('html[class*="page-changelog"]') ||
             document.querySelector('html[class*="page-docs"]')) {
             // On changing mode change screenshots palette

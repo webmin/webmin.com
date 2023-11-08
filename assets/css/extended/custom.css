@@ -32,6 +32,8 @@
     --main-bg-overlay: rgb(29, 30, 32, .6);
     --border: rgb(63, 63, 63);
 
+    --entry: rgb(41, 42, 44);
+    
     --header: #0c0c0cea;
     
     --link: #1d74ff;
@@ -1292,6 +1294,14 @@ fieldset:disabled a.btn {
     padding: 0 14px;
 }
 
+.post-tags a {
+  line-height: 30px;
+}
+
+.terms-tags a {
+  padding: 1px 10px 6px 10px;
+}
+
 /*  */
 .post-content hr {
     height: 1px;
@@ -1495,12 +1505,14 @@ body > footer {
     border-top: 1px solid var(--border);
 }
 
-body > footer .wm-heart{
-    color: red;
+body > footer .wm-heart {
+    color: #dc143c;
 }
-body.dark > footer .wm-heart{
-    color: crimson;
+
+body.dark > footer .wm-heart {
+    color: #dc143cdd;
 }
+
 body > footer.footer a {
     border-bottom: none
 }
