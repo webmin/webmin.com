@@ -9,6 +9,7 @@
     --code-bg: rgb(235, 235, 235);
 
     --header: #043babf0;
+    --header-height: 59px;
     
     --link: #043bab;
     
@@ -144,6 +145,10 @@ strong code {
     top: 0;
     z-index: 1000;
     font-family: "Roboto Condensed", -apple-system, BlinkMacSystemFont, segoe ui, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    min-width: 304px;
 }
 
 .header.no-z-index {
@@ -161,6 +166,7 @@ strong code {
 .header .logo>a {
     line-height: calc(var(--header-height) - 0.111rem);
     filter: saturate(1.666);
+    margin-top: 2px;
 }
 
 .dark .header .logo>a {
@@ -188,6 +194,9 @@ button#theme-toggle {
 
 
 /* Header logos */
+body .logo .logo-switches svg {
+  vertical-align: -1%;
+}
 body .logo .logo-switches svg path,
 body .logo>a>svg path {
     fill: #fff;
@@ -1087,16 +1096,19 @@ fieldset:disabled a.btn {
 }
 
 #menu span {
-    padding: 0.311em 0.511em;
-    border-right: 1px solid transparent;
+    padding: 0.233em 0.511em 0.311em 0.511em;
+    border: 1px solid transparent;
 }
 
 #menu span.active {
-    background-color: var(--menu-active);
-    border-bottom: none;
-    border-radius: calc(var(--radius) / 2);
-    color: var(--primary);
-    font-weight: 700;
+  background-color: var(--menu-active);
+  border-bottom: none;
+  border-radius: calc(var(--radius) / 2);
+  color: var(--primary);
+  font-weight: 700;
+}
+#menu span.active.wm-menu {
+  border-radius: calc(var(--radius) / 2) calc(var(--radius) / 2) 0 0;
 }
 
 #menu a span.wm.wm-search {
@@ -1105,10 +1117,13 @@ fieldset:disabled a.btn {
 
 #menu span.wm.wm-menu {
     vertical-align: -4%;
+    position: relative;
+    z-index: 9999;
 }
 #menu span.wm.wm-menu.active {
-    border-right-color: var(--tertiary);
-    padding-bottom: 0.711em;
+    border-color: var(--tertiary);
+    padding-top: 0.333em;
+    padding-bottom: 0.599em
 }
 #menu > li:nth-last-child(1) > a {
     padding-left: 0.133em;
@@ -1153,8 +1168,7 @@ fieldset:disabled a.btn {
 }
 .hmenu-panel .hmenu-drop-down {
     border: 1px solid var(--tertiary);
-    border-top: none;
-    border-radius: calc(var(--radius)/2);
+    border-radius: calc(var(--radius)/2) 0 calc(var(--radius)/2) calc(var(--radius)/2);
     border-top-right-radius: 1px;
     box-shadow: 0 12px 12px rgba(0,0,0,0.15);
     background-color: var(--menu-active);
@@ -1176,7 +1190,6 @@ fieldset:disabled a.btn {
 .dark .hmenu-panel .hmenu-drop-down {
     background-color: var(--theme);
     border: 1px solid var(--border);
-    border-top: none;
 }
 .hmenu-panel .hmenu-drop-down .hmenu-body {
     max-height: calc(100vh - 100px);
@@ -1691,6 +1704,72 @@ html[class*="page-docs"] a[href*="example.com"] {
     }
 
 }
+.hmenu-panel .hmenu-drop-down .hmenu-body-contents > .hmenu-container:first-child > .hmenu-links > li,
+.hmenu-panel .hmenu-drop-down .hmenu-body-contents > .hmenu-container:first-child {
+  display: none;
+}
+@media screen and (max-width: 900px) {
+  .hmenu-panel .hmenu-drop-down .hmenu-body-contents > .hmenu-container:first-child {
+    display: initial;
+  }
+  .hmenu-panel .hmenu-drop-down .hmenu-body-contents > .hmenu-container:first-child > .hmenu-links > li:nth-child(4) {
+    display: initial;
+  }
+
+  #menu > li:nth-child(4) {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  .hmenu-panel .hmenu-drop-down .hmenu-body-contents > .hmenu-container:first-child > .hmenu-links > li:nth-child(3) {
+    display: initial;
+  }
+
+  #menu > li:nth-child(3) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .hmenu-panel .hmenu-drop-down .hmenu-body-contents > .hmenu-container:first-child > .hmenu-links > li:nth-child(2) {
+    display: initial;
+  }
+
+  #menu > li:nth-child(2) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 517px) {
+  .hmenu-panel .hmenu-drop-down .hmenu-body-contents > .hmenu-container:first-child > .hmenu-links > li:nth-child(1) {
+    display: initial;
+  }
+
+  #menu > li:nth-child(1) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  :root {
+    --gap: 8px
+  }
+  .hmenu-panel .hmenu-drop-down .hmenu-body-contents > .hmenu-container:first-child > .hmenu-links > li:nth-child(5) {
+    display: initial;
+  }
+
+  #menu > li:nth-child(5) {
+    display: none;
+  }
+  #menu {
+    margin: auto -0.333em auto 0;
+  }
+  .hmenu-panel .hmenu-drop-down {
+    width: 304px;
+  }
+}
 
 @media screen and (max-width: 900px) {
     .docs-menu .docs-menu-content  {
@@ -1704,13 +1783,6 @@ html[class*="page-docs"] a[href*="example.com"] {
     [class^="page-docs"] .post-single > .top-link {
         right: 1.166rem;
         bottom: 6.366rem;
-    }
-    #menu a {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    #menu > li:nth-last-child(1) > a {
-        margin-left: -0.611rem;
     }
 }
 [class^="page-docs"][class*="api"] .post-content table tr a {

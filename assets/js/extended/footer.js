@@ -33,7 +33,7 @@
                 hmenuDropDownTarg = hmenuLink.querySelector(hmenuDropDownTargSel);
             if (hmenuDropDownTarg) {
                 hmenuDropDownTarg.style.right = hmenuRightOffsetPixel + "px";
-                hmenuDropDownTarg.style.top = "calc(" + (hmenuTopOffset + hmenuLinkText.offsetHeight) + "px - 4px)";
+                hmenuDropDownTarg.style.top = "calc(" + (hmenuTopOffset + hmenuLinkText.offsetHeight) + "px - 1px)";
             }
         },
         menuHeightType = function() {
