@@ -27,7 +27,12 @@ If Webmin repository was setup using our **`setup-repos.sh`** as [described abov
    #### Debian and derivatives
     apt-get install webmin --install-recommends
 
+### Visit
+After installation completed you can access to **Webmin** from browser
 
+   #### in browser
+    https://localhost:10000
+    
 ## Manual
 
 The latest full Webmin distribution is available in various package formats for download:
@@ -92,3 +97,4 @@ Pre-release builds can be found on [devel.webmin.com](https://download.webmin.co
 ### Nightly Builds
 Nightly builds can be found on [builds.webmin.dev](https://builds.webmin.dev/) page.
 
+10000 
