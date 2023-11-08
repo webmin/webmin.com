@@ -1174,7 +1174,7 @@ fieldset:disabled a.btn {
     background-color: var(--menu-active);
     z-index: 1000;
     padding: 0.466em;
-    width: 333px;
+    width: 340px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
