@@ -1302,8 +1302,10 @@ fieldset:disabled a.btn {
     max-width: calc(var(--main-max-width) + var(--gap) * 2);
   }
 }
-
 @media screen and (min-width: 1151px) {
+  html[class*="page-docs"] {
+    --main-max-width: 894px;
+  }
   html[class*="page-docs"] .main {
     min-width: calc(var(--main-min-width) + var(--gap) * 2) !important;
   }
@@ -1829,6 +1831,9 @@ html[class*="page-docs"] a[href*="example.com"] {
     [class^="page-docs"] .post-single > .top-link {
         right: 1.166rem;
         bottom: 6.366rem;
+    }
+    [class^="page-docs"] body > .main .post-single {
+      padding: 0;
     }
 }
 [class^="page-docs"][class*="api"] .post-content table tr a {
