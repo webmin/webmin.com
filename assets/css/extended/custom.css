@@ -1,5 +1,6 @@
 /* Variables */
 :root {
+    --main-width: 900px;
     --main-max-width: 900px;
     --main-min-width: 93.5vw;
     --main-bg: rgb(245, 245, 245);
