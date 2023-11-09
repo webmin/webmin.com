@@ -13,7 +13,7 @@
         hmenuLink = document.querySelector('' + menuLinkTargSel + '[href$="/hmenu/"]'),
         hmenuLinkText = hmenuLink.querySelector('span'),
         outerlinksAll = [
-            document.querySelectorAll('' + menuLinkTargSel + '[href$="Webmin/Main_Page"]'),
+            document.querySelectorAll('' + menuLinkTargSel + '[href*="forum.virtualmin.com"]'),
             document.querySelectorAll(postsLinksTargSel),
         ],
         screenShotLinks = [
@@ -29,10 +29,12 @@
         hmenuResize = function() {
             const hmenuRightOffset = document.documentElement.clientWidth - hmenuLinkText.getBoundingClientRect().right,
                 hmenuRightOffsetPixel = devicePixelRatio >= 1 ? (Math.ceil(hmenuRightOffset / 0.25) * 0.25) : hmenuRightOffset,
+                // hmenuRightOffsetPixelViewPort = window.matchMedia('(min-width: 1280px)').matches ? 32 : 4,
+                hmenuRightOffsetPixelViewPort = 0,
                 hmenuTopOffset = hmenuLinkText.getBoundingClientRect().top,
                 hmenuDropDownTarg = hmenuLink.querySelector(hmenuDropDownTargSel);
             if (hmenuDropDownTarg) {
-                hmenuDropDownTarg.style.right = hmenuRightOffsetPixel + "px";
+                hmenuDropDownTarg.style.right = (hmenuRightOffsetPixel - hmenuRightOffsetPixelViewPort) + "px";
                 hmenuDropDownTarg.style.top = "calc(" + (hmenuTopOffset + hmenuLinkText.offsetHeight) + "px - 1px)";
             }
         },

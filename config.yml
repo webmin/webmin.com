@@ -16,7 +16,7 @@ menu:
       name: Changelog
       url: /archives/
       weight: 20
-    - identifier: Security
+    - identifier: faq
       name: FAQ
       url: /faq/
       weight: 30
@@ -24,14 +24,18 @@ menu:
       name: 'Documentation'
       url: /docs/
       weight: 40
+    - identifier: forum
+      name: 'Forum'
+      url: https://forum.virtualmin.com/c/webmin/12
+      weight: 50
     - identifier: search
       name: ' '
       url: /search/
-      weight: 50
+      weight: 60
     - identifier: hmenu
       name: ' '
       url: /hmenu/
-      weight: 60
+      weight: 70
 
 minify:
   minifyOutput: true
