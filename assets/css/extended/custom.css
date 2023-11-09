@@ -1,7 +1,7 @@
 /* Variables */
 :root {
     --main-max-width: 900px;
-    --main-min-width: 800px;
+    --main-min-width: 93.5vw;
     --main-bg: rgb(245, 245, 245);
     --main-bg-overlay: rgb(245, 245, 245, .6);
     --content: rgb(21, 21, 21);
@@ -112,6 +112,9 @@ strong pre,
 strong code {
     font-weight: 600;
 }
+
+.page-tags .page-header > h1,
+.page-archives .page-header > h1,
 .page-search .page-header > h1,
 .post-title {
     font-size: 32px;
@@ -1295,8 +1298,14 @@ fieldset:disabled a.btn {
  * Content
  */
  @media screen and (min-width: 768px) {
-  .main {
+  html:not(.page-archives):not(.page-tags) .main {
     max-width: calc(var(--main-max-width) + var(--gap) * 2);
+  }
+}
+
+@media screen and (min-width: 1151px) {
+  html[class*="page-docs"] .main {
+    min-width: calc(var(--main-min-width) + var(--gap) * 2) !important;
   }
 }
 
@@ -1719,7 +1728,7 @@ html[class*="page-docs"] a[href*="example.com"] {
   box-shadow: none;
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1151px) {
     [class^="page-docs"] .post-single > .top-link {
         bottom: 4.666rem;
         position: sticky;
@@ -1808,7 +1817,7 @@ html[class*="page-docs"] a[href*="example.com"] {
   }
 }
 
-@media screen and (max-width: 1151px) {
+@media screen and (max-width: 1150.99px) {
     .docs-menu .docs-menu-content  {
         top: calc(8rem);
         height: 74vh;
