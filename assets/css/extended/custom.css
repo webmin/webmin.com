@@ -1,6 +1,6 @@
 /* Variables */
 :root {
-    --main-width: 900px;
+    /* --main-width: 900px; */
     --main-max-width: 900px;
     --main-min-width: 93.5vw;
     --main-bg: rgb(245, 245, 245);
@@ -1560,6 +1560,9 @@ body.dark > footer .wm-heart {
     color: #dc143cdd;
 }
 
+body > footer.footer {
+  max-width: calc(var(--main-max-width) + var(--gap) * 2);
+}
 body > footer.footer a {
     border-bottom: none
 }
