@@ -1823,7 +1823,7 @@ html[class*="page-docs"] a[href*="example.com"] {
   }
 }
 
-@media screen and (max-width: 1150.99px) {
+@media screen and (max-width: 1150.98px) {
     .docs-menu .docs-menu-content  {
         top: calc(8rem);
         height: 74vh;
