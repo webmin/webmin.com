@@ -1498,7 +1498,8 @@ a.screenshot-entry {
   box-shadow: 1.5px 1.5px 0 1.5px #000, -1px 0 28px 0 rgba(20, 20, 20, 0.01), 28px 28px 28px 0 rgba(20, 20, 20, 0.25);
   filter: none;
 }
-
+/* On hover no perspective */
+/* 
 @media screen and (min-width: 1280px) {
   a.screenshot-entry:hover {
     transform: translate3d(0px, 0, 0px) rotateX(0) rotateZ(0);
@@ -1507,7 +1508,7 @@ a.screenshot-entry {
   .dark a.screenshot-entry:hover {
     box-shadow: 1.5px 1.5px 0 1.5px #000, -1px 0 28px 0 rgba(20, 20, 20, 0.01), 54px 54px 28px -10px rgba(20, 20, 20, 0.15);
   }
-}
+} */
 
 /* Community */
 .page-community .badge-container {
