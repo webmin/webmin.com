@@ -1468,7 +1468,7 @@ details > summary > .details {
 }
 
 a.screenshot-entry {
-  aspect-ratio: 16 / 8.4;
+  aspect-ratio: 16 / 8.88;
 
   background-image: url('/images/screenshots/light/1-dashboard.png');
   background-repeat: no-repeat;
