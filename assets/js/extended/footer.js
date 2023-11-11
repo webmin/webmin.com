@@ -151,6 +151,10 @@
         bmenu_elem.classList.add('main-buttons-container');
         bmenu_elem.innerHTML = `{{ partial "main-buttons.html" . }}`;
         mainPageSocials.after(bmenu_elem);
+        const img_elem = document.createElement("a");
+        img_elem.classList.add('screenshot-entry');
+        img_elem.href = '/screenshots/';
+        mainPageSocials.after(img_elem);
     }
 
     // Tweak screenshots to blend with palette
