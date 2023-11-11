@@ -1470,11 +1470,14 @@ details > summary > .details {
 a.screenshot-entry {
   aspect-ratio: 16 / 8.88;
 
-  background-image: url('/images/screenshots/light/1-dashboard.png');
+  background-image: url('/images/screenshots/light/1-dashboard.png'), url('/images/screenshots/light/1-dashboard-preload.png');
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #bfbfbf;
   
   display:block;
+
+  filter: saturate(1.14) brightness(1.01)contrast(0.99) hue-rotate(4deg);
 
   transform: perspective(var(--main-max-width)) rotateY(-15deg);
   transition: 0.4s ease-in-out transform, 0.4s ease-in-out box-shadow;
@@ -1490,8 +1493,10 @@ a.screenshot-entry {
 }
 
 .dark a.screenshot-entry {
-  background-image: url('/images/screenshots/dark/1-dashboard.png');
+  background-image: url('/images/screenshots/dark/1-dashboard.png'), url('/images/screenshots/dark/1-dashboard-preload.png');
+  background-color: #0a0a0a;
   box-shadow: 1.5px 1.5px 0 1.5px #000, -1px 0 28px 0 rgba(20, 20, 20, 0.01), 28px 28px 28px 0 rgba(20, 20, 20, 0.25);
+  filter: none;
 }
 
 @media screen and (min-width: 1280px) {
