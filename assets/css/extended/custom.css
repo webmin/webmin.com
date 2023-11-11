@@ -7,6 +7,7 @@
     --main-bg-overlay: rgb(245, 245, 245, .6);
     --content: rgb(21, 21, 21);
     --primary: rgb(20, 20, 20);
+    --secondary-strong: rgb(78, 78, 78);
 
     --border: rgb(221, 221, 221);
     --code-bg: rgb(235, 235, 235);
@@ -35,6 +36,7 @@
     --main-bg: rgb(29, 30, 32);
     --main-bg-overlay: rgb(29, 30, 32, .6);
     --border: rgb(63, 63, 63);
+    --secondary-strong: rgb(185, 186, 187);
 
     --entry: rgb(41, 42, 44);
     
@@ -1433,6 +1435,9 @@ details > summary > .details {
  */
 
 /* Index page */
+body:not(.dark) .entry-content {
+  color: var(--secondary-strong);
+}
 .first-entry {
     margin-bottom: 2em;
 }
