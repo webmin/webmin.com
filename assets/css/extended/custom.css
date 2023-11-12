@@ -1472,14 +1472,14 @@ body:not(.dark) .entry-content {
     filter: brightness(.75)contrast(1.37) opacity(0.97) saturate(1.17);
 }
 
-@keyframes perspectiveAnimation {
+/* @keyframes perspectiveAnimation {
   0% {
     transform: perspective(var(--main-max-width)) rotateY(-10deg) translateX(-2.5px) translateY(2.5px);
   }
   100% {
     transform: perspective(var(--main-max-width)) rotateY(-15deg) translateX(0) translateY(0);
   }
-}
+} */
 
 a.screenshot-entry {
   aspect-ratio: 16 / 8.88;
@@ -1493,7 +1493,8 @@ a.screenshot-entry {
 
   filter: saturate(1.14) brightness(1.01)contrast(0.99) hue-rotate(4deg);
 
-  animation: perspectiveAnimation 5s ease-in-out forwards;
+  /* animation: perspectiveAnimation 5s ease-in-out forwards; */
+  transform: perspective(var(--main-max-width)) rotateY(-12.5deg);
 
   border-radius: 2px;
   box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(33, 32, 80, 0.01), 28px 28px 28px 0 rgba(33, 32, 80, 0.25);
