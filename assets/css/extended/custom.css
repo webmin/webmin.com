@@ -1515,6 +1515,10 @@ a.screenshot-entry {
   }
 } */
 
+.social-icons > a[target="_blank"] {
+  display: none;
+}
+
 /* Community */
 .page-community .badge-container {
     text-align: center;

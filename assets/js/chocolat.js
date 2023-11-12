@@ -3553,7 +3553,7 @@
           _newArrowCheck(this, _this3);
 
           this.elems.loader.classList.add('chocolat-visible');
-        }.bind(this), 1000);
+        }.bind(this), 10); // default loader show timeout was 1000
         var fadeOutPromise;
         var image;
         var fadeOutTimer = setTimeout(function () {
