@@ -210,4 +210,11 @@
             }
         });
     }
+
+    // Clear accesskey attrs
+    const elementsWithAccessKey = document.querySelectorAll('[accesskey]');
+    elementsWithAccessKey.forEach(function(element) {
+        element.removeAttribute('accesskey');
+        element.removeAttribute('title');
+    });
 })();
