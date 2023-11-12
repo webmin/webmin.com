@@ -37,6 +37,9 @@ If Usermin repository was setup using our **`setup-repos.sh`** as [described ear
    #### Debian and derivatives
     apt-get install usermin --install-recommends
 
+### Access
+After successful Usermin installation, you can access its interface by entering **`https://<Your-Server-IP>:20000`** in your browser. Check that your firewall configuration allows access through port **20000**.
+
 ## Manual
 The latest Usermin distribution is available in various package formats for download:
 

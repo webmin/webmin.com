@@ -27,6 +27,8 @@ If Webmin repository was setup using our **`setup-repos.sh`** as [described abov
    #### Debian and derivatives
     apt-get install webmin --install-recommends
 
+### Access
+After successful Webmin installation, you can access its interface by entering **`https://<Your-Server-IP>:10000`** in your browser. Check that your firewall configuration allows access through port **10000**.
 
 ## Manual
 
