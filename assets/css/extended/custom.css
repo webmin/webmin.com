@@ -1507,7 +1507,7 @@ a.screenshot-entry {
   margin-top: calc(var(--gap) / 2.7);
   margin-right: calc(var(--gap) * 3.6);
   margin-bottom: var(--gap);
-  margin-left: calc(var(--gap) * -1.8);
+  margin-left: calc(var(--gap) * -1.35);
 }
 
 .dark a.screenshot-entry {
