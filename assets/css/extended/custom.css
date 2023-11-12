@@ -1504,10 +1504,10 @@ a.screenshot-entry {
   box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(33, 32, 80, 0.01), 28px 28px 28px 0 rgba(33, 32, 80, 0.25);
   
   max-width: calc(var(--main-max-width) + var(--gap) * 2);
-  margin-top: calc(var(--gap) / 3.5);
-  margin-right: calc(var(--gap) * 3.5);
+  margin-top: calc(var(--gap) / 2.7);
+  margin-right: calc(var(--gap) * 3.6);
   margin-bottom: var(--gap);
-  margin-left: calc(var(--gap) * -1.5);
+  margin-left: calc(var(--gap) * -1.8);
 }
 
 .dark a.screenshot-entry {
