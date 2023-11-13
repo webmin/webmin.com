@@ -1497,19 +1497,32 @@ a.screenshot-entry {
   filter: saturate(1.14) brightness(1.01)contrast(0.99) hue-rotate(4deg);
 
   /* animation: perspectiveAnimation 5s ease-in-out forwards; */
-  transform: perspective(var(--main-max-width)) rotateY(-12.5deg);
+
+  /* No transform: perspective - no one likes it ! :--( X1555 */
+  /* transform: perspective(var(--main-max-width)) rotateY(-12.5deg); */
 
   border-radius: var(--radius);
 
   box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(33, 32, 80, 0.01), 28px 28px 28px 0 rgba(33, 32, 80, 0.25);
   
   max-width: calc(var(--main-max-width) + var(--gap) * 2);
-  margin-top: calc(var(--gap) / 2.7);
-  margin-right: calc(var(--gap) * 3.6);
+  /* Perspective margin-top. X1555 */
+  /* margin-top: calc(var(--gap) / 2.7); */
+  margin-top: calc(var(--gap) / 3.6);
+  /* Perspective margin-right. X1555 */
+  /* margin-right: calc(var(--gap) * 3.6); */
+  margin-right: calc(var(--gap) * 0.6);
   margin-bottom: var(--gap);
-  margin-left: calc(var(--gap) * -1.35);
+  /* Perspective margin-left. X1555 */
+  /* margin-left: calc(var(--gap) * -1.35); */
+  margin-left: calc(var(--gap) * 0.6);
 }
-
+@media screen and (max-width: 767.98px) {
+  a.screenshot-entry {
+    margin-right: calc(var(--gap) * 0.8);
+    margin-left: calc(var(--gap) * 0.8);
+  }
+}
 .dark a.screenshot-entry {
   background-image: url('/images/screenshots/dark/1-dashboard.png'), url('/images/screenshots/dark/1-dashboard-preload.png');
   background-color: #0a0a0a;
