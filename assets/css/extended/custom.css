@@ -289,6 +289,9 @@ body.dark .logo>a>svg path {
     font-size: 86%;
     vertical-align: 10%;
 }
+.alert > i + strong:empty + br {
+  display: none;
+}
 .alert + details.post-content-details,
 .alert + details.post-content-indent-details {
     margin-top: -14px;
