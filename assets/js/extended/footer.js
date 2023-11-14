@@ -54,12 +54,14 @@
         if (isHmenu) {
             isHmenu.remove();
             hmenuLinkText.classList.remove('active');
+            document.querySelector(headerTargSel).classList.remove('no-overflow');
         }
         // Append new
         else {
             hmenuLink.insertAdjacentHTML('beforeend', hmenu_html);
             hmenuLinkText.classList.add('active');
             hmenuResize();
+            document.querySelector(headerTargSel).classList.add('no-overflow');
 
             // Add selected class if any
             const hmenuActiveLink =

@@ -161,6 +161,10 @@ strong code {
     min-width: 310px;
 }
 
+.header:not(.no-overflow) {
+    overflow: hidden;
+}
+
 .header.no-z-index {
     z-index: 0;
 }
