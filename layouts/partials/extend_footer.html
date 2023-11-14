@@ -1,4 +1,5 @@
 {{- $footer := resources.Get "js/extended/footer.js" | resources.ExecuteAsTemplate "js/extended/footer.js" . | resources.Minify }}
+{{- $footer := resources.Get "js/extended/footer_.js" | resources.ExecuteAsTemplate "js/extended/footer_.js" . | resources.Minify }}
 <script defer crossorigin="anonymous" src="{{ $footer.RelPermalink }}?{{ now.Unix }}"></script>
 <footer class="footer">
     <span>&copy; 1997 - {{ now.Year }} <a href="/about/#developers">{{ site.Title }}</a></span>
