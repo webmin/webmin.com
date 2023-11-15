@@ -1396,13 +1396,14 @@ fieldset:disabled a.btn {
   font-weight: 400;
 }
 
-#menu>li:nth-last-child(1)>a {
+#menu>li.menu-item--search>a {
+  padding-right: 0.133em;
+}
+
+#menu>li.menu-item--dropdown-menu>a {
   padding-left: 0.133em;
 }
 
-#menu>li:nth-last-child(2)>a {
-  padding-right: 0.133em;
-}
 
 /* Hamburger Menu */
 #menu .hmenu-panel {
