@@ -28,14 +28,6 @@ menu:
       name: 'Forum'
       url: https://forum.virtualmin.com/c/webmin/12
       weight: 50
-    - identifier: search
-      name: ' '
-      url: /search/
-      weight: 60
-    - identifier: hmenu
-      name: ' '
-      url: /hmenu/
-      weight: 70
 
 minify:
   minifyOutput: true

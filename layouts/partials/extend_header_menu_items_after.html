@@ -1,0 +1,3 @@
+{{- $currentPage := . }}
+<li><a href="/search/"><span class="wm wm-search{{ with $currentPage.File }}{{ if eq $currentPage.File.LogicalName "search.md" }} active{{ end }}{{ end }}"></span></a></li>
+<li><a href="javascript:;" class="dropdown-menu"><span class="wm wm-md wm-menu"></span></a></li>
