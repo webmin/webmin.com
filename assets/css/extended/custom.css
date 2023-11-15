@@ -1353,6 +1353,7 @@ fieldset:disabled a.btn {
   border-radius: var(--radius);
   color: var(--primary);
   font-weight: 700;
+  letter-spacing: -0.0025em;
 }
 
 #menu span.active.wm-menu {
@@ -1361,18 +1362,32 @@ fieldset:disabled a.btn {
 
 #menu a span.wm.wm-search {
   padding: 0.451em 0.511em;
+  font-size: 1.066em;
+}
+#menu .menu-item--search {
+  padding-left: 1.022em;
+}
+#menu .menu-item--search>a>.wm {
+  font-weight: 400;
+}
+
+#menu .menu-item--dropdown-menu {
+  max-width: 55px;
 }
 
 #menu span.wm.wm-menu {
   vertical-align: -4%;
   position: relative;
   z-index: 9999;
+  font-size: 1.233em;
 }
 
 #menu span.wm.wm-menu.active {
   border-color: var(--tertiary);
   padding-top: 0.333em;
-  padding-bottom: 0.599em
+  padding-bottom: 0.599em;
+  letter-spacing: -0.0025em;
+  font-weight: 400;
 }
 
 #menu>li:nth-last-child(1)>a {
@@ -1577,6 +1592,7 @@ fieldset:disabled a.btn {
   width: 1.5rem;
   height: 1.5rem;
   margin-left: 0.25rem;
+  vertical-align: -5%;
 }
 
 /* Tricky and lazy-dazy way but seems to work perfectly fine */
