@@ -162,7 +162,7 @@
                     // After scrolling for a 
                     // while, update the TOC
                     this.scrollCounter++;
-                    if (this.scrollCounter > 100) {
+                    if (this.scrollCounter > 50) {
                         this.scrollCounter = 1;
                         execScroll();
                     }
