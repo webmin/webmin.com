@@ -182,7 +182,7 @@
                         screenshot.classList.add("loading");
                         screenshot.setAttribute(
                             "onload",
-                            'javascript: this.classList.add("loaded")'
+                            'javascript: this.classList.add("loaded");this.style.aspectRatio=""+this.naturalWidth+"/"+this.naturalHeight+"";'
                         );
                         screenshotsFound = true;
                         const themeMode = screenshotType(),
