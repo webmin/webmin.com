@@ -2103,6 +2103,7 @@ html,
 .docs-menu .docs-menu-content {
   scrollbar-width: thin;
   overscroll-behavior: contain;
+  padding-bottom: calc(var(--gap) * 4);
 }
 
 .docs-toc .docs-toc-content::-webkit-scrollbar,

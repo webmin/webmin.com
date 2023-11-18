@@ -1,99 +1,178 @@
 // Custom made TOC SpyScroll
-(function() {
+(function () {
     const scrollTarget = document.querySelector(".post-content"),
-        labelTargetSelStr = '.docs-toc-content',
+        labelTargetSelStr = ".docs-toc-content",
         labelTarget = document.querySelector(labelTargetSelStr),
-        labelTargets = ([...labelTarget.querySelectorAll(`a[href^="#"]`)]
-            .map(function(e) {
-                const m = e.href.match(/.*#(.*)/)
+        labelTargets = [...labelTarget.querySelectorAll(`a[href^="#"]`)]
+            .map(function (e) {
+                const m = e.href.match(/.*#(.*)/);
                 if (m) {
-                    return [e, m[1]]
+                    return [e, m[1]];
                 }
                 return null;
-            }).filter(function(e) { return e !== null })),
-        hrefArray = labelTargets.map(function([e, href]) { return href }),
-        dataArray = ([...scrollTarget.querySelectorAll(`[id]`)].map(function(e) {
-            if (hrefArray.includes(e.id)) {
-                return [e, ...labelTargets.filter(function([elem, href]) {
-                    return href === e.id
-                })[0]]
-            }
-            return null
-        }).filter(function(e) { return e !== null }));
+            })
+            .filter(function (e) {
+                return e !== null;
+            }),
+        hrefArray = labelTargets.map(function ([e, href]) {
+            return href;
+        }),
+        dataArray = [...scrollTarget.querySelectorAll(`[id]`)]
+            .map(function (e) {
+                if (hrefArray.includes(e.id)) {
+                    return [
+                        e,
+                        ...labelTargets.filter(function ([elem, href]) {
+                            return href === e.id;
+                        })[0],
+                    ];
+                }
+                return null;
+            })
+            .filter(function (e) {
+                return e !== null;
+            });
 
     let $this = {};
-    labelTarget.querySelectorAll('ul > li > a').forEach(function(elem) {
-        elem.addEventListener("click", function(e) {
+    labelTarget.querySelectorAll("ul > li > a").forEach(function (elem) {
+        elem.addEventListener("click", function (e) {
             $this.scrollDelay = 1;
             e.preventDefault();
         });
-    })
+    });
     if (scrollTarget && labelTarget) {
-        document.addEventListener("scroll", function(e) {
+        document.addEventListener(
+            "scroll",
+            function (e) {
+                const execScroll = function () {
+                        // Stop if hidden
+                        if (!document.querySelector(labelTargetSelStr).offsetParent) {
+                            return;
+                        }
 
-            // Stop if hidden
-            if (!document.querySelector(labelTargetSelStr).offsetParent) {
-                return;
-            }
+                        // Scroll direction
+                        let scrollDirection = "up",
+                            st = window.pageYOffset || document.documentElement.scrollTop;
+                        if (st > $this.lastScrollTop) {
+                            scrollDirection = "down";
+                        }
+                        $this.lastScrollTop = st <= 0 ? 0 : st;
 
-            // Scroll direction
-            let scrollDirection = 'up',
-                st = window.pageYOffset || document.documentElement.scrollTop;
-            if (st > $this.lastScrollTop) {
-                scrollDirection = 'down';
-            }
-            $this.lastScrollTop = st <= 0 ? 0 : st;
-
-            // Accommodate header offset
-            const scrollOffset = document.querySelector('.header').clientHeight / 2,
-                scrollDifference = document.documentElement.scrollHeight - window.innerHeight,
-                scrollposition = document.documentElement.scrollTop,
-                labelTargetsClear = function() {
-                    labelTargets.forEach(function(e) { e[0].classList.remove('active') });
-                };
-            if (scrollDifference - scrollposition <= 2) {
-                labelTargetsClear();
-                labelTargets[labelTargets.length - 1][0].classList.add("active");
-            } else {
-                let lastLabelElem;
-                for (const [curElem, labelElem, curID] of dataArray) {
-                    if (window.scrollY + scrollOffset >= curElem.offsetTop) {
-                        labelTargetsClear();
-                        labelElem.classList.add("active");
-                        lastLabelElem = labelElem;
-                        continue;
-                    }
-                    labelElem.classList.remove("active");
-                }
-
-                // Scroll into view the content on main page scroll
-                if (typeof $this.scrollTimer === 'number') clearTimeout($this.scrollTimer);
-                if (typeof $this.scrollLastElem === 'number') clearTimeout($this.scrollLastElem);
-                if (lastLabelElem) {
-                    $this.scrollLastElem = window.setTimeout(function() {
-                        const isVisibleElem = isVisible(lastLabelElem);
-                        $this.scrollTimer = window.setTimeout(function() {
-                            let elemParent = lastLabelElem.parentNode,
-                                elemsCont = labelTarget.querySelector('ul'),
-                                elemsContTitle = labelTarget.querySelector('h4'),
-                                elemIndex = Array.prototype.indexOf.call(elemsCont.childNodes, elemParent);
-                            if (!isVisibleElem) {
-                                if (elemIndex === 0) {
-                                    elemParent = elemsContTitle;
+                        // Accommodate header offset
+                        const scrollOffset = document.querySelector(".header").clientHeight / 2,
+                            scrollDifference =
+                                document.documentElement.scrollHeight - window.innerHeight,
+                            scrollposition = document.documentElement.scrollTop,
+                            labelTargetsClear = function () {
+                                labelTargets.forEach(function (e) {
+                                    e[0].classList.remove("active");
+                                });
+                            };
+                        if (scrollDifference - scrollposition <= 2) {
+                            labelTargetsClear();
+                            labelTargets[labelTargets.length - 1][0].classList.add("active");
+                        } else {
+                            let lastLabelElem;
+                            for (const [curElem, labelElem, curID] of dataArray) {
+                                if (window.scrollY + scrollOffset >= curElem.offsetTop) {
+                                    labelTargetsClear();
+                                    labelElem.classList.add("active");
+                                    lastLabelElem = labelElem;
+                                    continue;
                                 }
-                                elemParent.scrollIntoView({ behavior: "instant", block: 'nearest', inline: 'nearest' });
+                                labelElem.classList.remove("active");
                             }
-                            setTimeout(function() {
-                                $this.scrollDelay = 0;
-                            }, 3e1 + 4e1);
-                        }, $this.scrollDelay ? 3e1 : 0);
-                    }, $this.scrollDelay ? 4e1 : 0);
-                }
 
-            }
-        }, { passive: true });
+                            // Scroll into view the content on main page scroll
+                            if (typeof $this.scrollTimer === "number")
+                                clearTimeout($this.scrollTimer);
+                            if (typeof $this.scrollLastElem === "number")
+                                clearTimeout($this.scrollLastElem);
+                            if (lastLabelElem) {
+                                $this.scrollLastElem = window.setTimeout(
+                                    function () {
+                                        const isVisibleElem = isVisible(lastLabelElem);
+                                        $this.scrollTimer = window.setTimeout(
+                                            function () {
+                                                let elemParent = lastLabelElem.parentNode,
+                                                    elemsCont = labelTarget.querySelector("ul"),
+                                                    elemsContTitle =
+                                                        labelTarget.querySelector("h4"),
+                                                    elemIndex = Array.prototype.indexOf.call(
+                                                        elemsCont.childNodes,
+                                                        elemParent
+                                                    );
+                                                if (!isVisibleElem) {
+                                                    if (elemIndex === 0) {
+                                                        elemParent = elemsContTitle;
+                                                    }
+                                                    elemParent.scrollIntoView({
+                                                        behavior: "instant",
+                                                        block:
+                                                            scrollDirection === "up"
+                                                                ? "end"
+                                                                : "start",
+                                                        inline: "center",
+                                                    });
+                                                }
+                                                setTimeout(function () {
+                                                    $this.scrollDelay = 0;
+                                                }, 3e1 + 4e1);
+                                            },
+                                            $this.scrollDelay ? 3e1 : 0
+                                        );
+                                    },
+                                    $this.scrollDelay ? 4e1 : 0
+                                );
+                            }
+                        }
+                        // Set correct link hash
+                        const activeLink = labelTarget.querySelector("a.active");
+                        if (activeLink) {
+                            const activeLinkHash = activeLink.getAttribute("href");
+                            if (activeLinkHash && activeLinkHash !== window.location.hash) {
+                                window.history.replaceState(
+                                    null,
+                                    null,
+                                    window.location.pathname + activeLinkHash
+                                );
+                            }
+                        }
+                    };
+                // When scrolling stopped
+                if ($this.scrollDelay) {
+                    if (this.debounceTimer) {
+                        $this.scrollDelay = 1;
+                        clearTimeout(this.debounceTimer);
+                    }
+                    this.debounceTimer = setTimeout(function () {
+                        execScroll();
+                    }, 10e1);
+                    
+                } else {
+                    execScroll();
+                }
+            },
+            { passive: true }
+        );
         // On initial load trigger scroll
         // once to select the right link
         document.dispatchEvent(new Event("scroll"));
     }
+
+    // Adjust initial scroll position
+    window.onload = function () {
+        setTimeout(function () {
+            const hash = window.location.hash;
+            if (hash) {
+                const anchoredElement = document.querySelector(hash);
+                if (anchoredElement) {
+                    const offset = anchoredElement.getBoundingClientRect().top + window.scrollY,
+                        fixedHeaderHeight = 80,
+                        adjustedPosition = offset - fixedHeaderHeight;
+                    window.scrollTo(0, adjustedPosition);
+                }
+            }
+        }, 100);
+    };
 })();
