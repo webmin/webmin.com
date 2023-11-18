@@ -2103,6 +2103,10 @@ html,
 .docs-menu .docs-menu-content {
   scrollbar-width: thin;
   overscroll-behavior: contain;
+}
+
+.docs-toc .docs-toc-content,
+.docs-menu .docs-menu-content {
   padding-bottom: calc(var(--gap) * 4);
 }
 
