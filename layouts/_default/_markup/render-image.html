@@ -1,0 +1,5 @@
+{{ $image := .Destination | safeURL }}
+{{ $staticDir := "static" }}
+{{ $filePath := path.Join $staticDir .Destination }}
+{{ $config := imageConfig $filePath }}
+<img loading="lazy" src="{{ $image }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}" {{ end }} style="aspect-ratio: {{ $config.Width }} / {{ $config.Height }};">
