@@ -59,7 +59,7 @@
                     $this.lastScrollTop = st <= 0 ? 0 : st;
 
                     // Accommodate header offset
-                    const scrollOffset = document.querySelector(".header").clientHeight / 2,
+                    const scrollOffset = document.querySelector(".header").clientHeight * 4,
                         scrollDifference =
                             document.documentElement.scrollHeight - window.innerHeight,
                         scrollposition = document.documentElement.scrollTop,
@@ -170,24 +170,15 @@
             },
             { passive: true }
         );
-        // On initial load trigger scroll
-        // once to select the right link
-        document.dispatchEvent(new Event("scroll"));
     }
 
     // Adjust initial scroll position
     window.addEventListener('load', function() {
         setTimeout(function () {
             document.body.dataset.loaded = true;
-            const hash = window.location.hash;
-            if (hash) {
-                const anchoredElement = document.querySelector(hash);
-                if (anchoredElement) {
-                    const offset = anchoredElement.getBoundingClientRect().top + window.scrollY,
-                        fixedHeaderHeight = 80,
-                        adjustedPosition = offset - fixedHeaderHeight;
-                    window.scrollTo(0, adjustedPosition);
-                }
+            const currLabel = labelTarget.querySelector("a.active");
+            if (currLabel) {
+                currLabel.click();
             }
         }, 300);
     });

@@ -2255,6 +2255,10 @@ html,
 [class^="page-docs"][class*="api"] .post-content table tr a {
   white-space: nowrap;
 }
+[class^="page-docs"] .post-content a>img {
+  width: 100%;
+  height: 100%;
+}
 
 .docs-toc .docs-toc-content ul {
   padding: 0;
