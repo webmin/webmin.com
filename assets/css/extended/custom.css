@@ -2356,10 +2356,10 @@ html,
   margin-left: 1.033rem;
   margin-top: 0.411rem;
 }
-
+.docs-toc-content>ul>li>a,
 .docs-menu .docs-menu-content details>div>a {
   display: inline-block;
-  line-height: 1.33;
+  line-height: 21px;
 }
 
 /* 
