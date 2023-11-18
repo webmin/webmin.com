@@ -2359,8 +2359,7 @@ html,
 
 .docs-menu .docs-menu-content details>div>a {
   display: inline-block;
-  /* padding-bottom: 0.333rem; */
-  line-height: 1.6;
+  line-height: 1.33;
 }
 
 /* 
