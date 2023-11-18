@@ -176,7 +176,7 @@
     }
 
     // Adjust initial scroll position
-    window.onload = function () {
+    window.addEventListener('load', function() {
         setTimeout(function () {
             document.body.dataset.loaded = true;
             const hash = window.location.hash;
@@ -190,5 +190,5 @@
                 }
             }
         }, 300);
-    };
+    });
 })();
