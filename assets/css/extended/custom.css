@@ -84,6 +84,12 @@
   vertical-align: -15%
 }
 
+.wm-xl {
+  font-size: 1.666666666em;
+  line-height: .75em;
+  vertical-align: -15%
+}
+
 .wm-2x {
   font-size: 2em
 }
@@ -2419,3 +2425,4 @@ html,
 /*
  * DOCS. End. 
  */
+ 
