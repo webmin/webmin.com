@@ -23,7 +23,7 @@
     closestDetails && closestDetails.closest('details').setAttribute('open', 'open');
     // setTimeout(function() {
     // }, (3e1 + 4e1) * 3)
-    if (closestDetails && !isVisible(closestDetails)) {
+    if (closestDetails && !isVisibleInContainer(closestDetails, document.querySelector('.docs-menu-content'))) {
         closestDetails.scrollIntoView({ behavior: "instant", block: 'center', inline: 'nearest' });
     }
     // When searching control related content

@@ -258,6 +258,7 @@ html {
   overflow-y: auto;
   font-display: swap;
   scroll-behavior: auto;
+  overflow-anchor: none;
 }
 
 html.overflow-hidden {
@@ -2287,7 +2288,7 @@ html,
 
 .docs-toc .docs-toc-content ul li a code {
   font-size: 94%;
-  letter-spacing: -0.96px;
+  letter-spacing: -1px;
 }
 
 .docs-menu details summary>span {
