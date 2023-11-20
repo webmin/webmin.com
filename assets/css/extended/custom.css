@@ -15,7 +15,7 @@
   --code-bg: rgb(235, 235, 235);
 
   --header: #043babf0;
-  --header-height: 59px;
+  --header-height: 58px;
 
   --link: #043bab;
 
@@ -382,7 +382,11 @@ strong code {
 .header .logo>a {
   line-height: calc(var(--header-height) - 0.111rem);
   filter: saturate(1.666);
-  margin-top: 2px;
+  /* margin-top: 2px; */
+}
+
+.header .logo>a>svg {
+  vertical-align: -25%;
 }
 
 .dark .header .logo>a {
@@ -411,7 +415,7 @@ button#theme-toggle {
 
 /* Header logos */
 body .logo .logo-switches svg {
-  vertical-align: -2%;
+  vertical-align: -3%;
 }
 
 body .logo .logo-switches svg path,
@@ -1354,7 +1358,7 @@ fieldset:disabled a.btn {
 }
 
 #menu span {
-  padding: 0.233em 0.511em 0.311em 0.511em;
+  padding: 0.277em 0.5em 0.366em 0.5em;
   border: 1px solid transparent;
 }
 
@@ -1374,6 +1378,7 @@ fieldset:disabled a.btn {
 #menu a span.wm.wm-search {
   padding: 0.451em 0.511em;
   font-size: 1.066em;
+  vertical-align: -6%;
 }
 
 #menu .menu-item--search {
@@ -1389,7 +1394,7 @@ fieldset:disabled a.btn {
 }
 
 #menu span.wm.wm-menu {
-  vertical-align: -4%;
+  vertical-align: -8%;
   position: relative;
   z-index: 9999;
   font-size: 1.233em;
