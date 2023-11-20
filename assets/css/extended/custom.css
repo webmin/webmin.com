@@ -411,7 +411,7 @@ button#theme-toggle {
 
 /* Header logos */
 body .logo .logo-switches svg {
-  vertical-align: -1%;
+  vertical-align: -2%;
 }
 
 body .logo .logo-switches svg path,
@@ -1589,6 +1589,10 @@ fieldset:disabled a.btn {
 /* 
  * Content
  */
+.main {
+  z-index: 1;
+}
+
 @media screen and (min-width: 768px) {
   html:not(.page-archives):not(.page-tags) .main {
     max-width: calc(var(--main-max-width) + var(--gap) * 2);
