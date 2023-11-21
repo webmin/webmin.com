@@ -1962,6 +1962,7 @@ body.dark>footer .wm-heart {
 
 body>footer.footer {
   max-width: calc(var(--main-max-width) + var(--gap) * 2);
+  font-size: 15px;
 }
 
 body>footer.footer a {
