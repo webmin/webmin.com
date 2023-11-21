@@ -1286,6 +1286,16 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
 }
 
+.dark .btn-outline-dark {
+  filter: invert(1) brightness(1.1);
+}
+
+.dark .btn-outline-dark:active,
+.dark .btn-outline-dark:focus,
+.dark .btn-outline-dark:hover {
+  filter: invert(1)brightness(1.25)contrast(1.25);
+}
+
 .btn-link {
   font-weight: 400;
   color: #007bff;
@@ -1310,8 +1320,16 @@ fieldset:disabled a.btn {
 
 .btn-lg,
 .btn-group-lg>.btn {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.4rem;
   font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: var(--radius);
+}
+
+.btn-md,
+.btn-group-md>.btn {
+  padding: 0.4rem 1.2rem;
+  font-size: 1.05rem;
   line-height: 1.5;
   border-radius: var(--radius);
 }
@@ -1331,6 +1349,18 @@ fieldset:disabled a.btn {
 
 .btn-block+.btn-block {
   margin-top: 0.5rem;
+}
+
+.btn-rounded {
+  border-radius: 50px;
+}
+
+.btn>.btn-text {
+  margin-left: 0.411rem;
+}
+
+a.btn {
+  box-shadow: none;
 }
 
 /* Bootstrap components. End */
@@ -2272,6 +2302,7 @@ html,
 [class^="page-docs"][class*="api"] .post-content table tr a {
   white-space: nowrap;
 }
+
 [class^="page-docs"] .post-content a>img {
   width: 100%;
   height: 100%;
@@ -2377,6 +2408,7 @@ html,
   margin-left: 1.033rem;
   margin-top: 0.411rem;
 }
+
 .docs-toc-content>ul>li>a,
 .docs-menu .docs-menu-content details>div>a {
   display: inline-block;
@@ -2435,4 +2467,3 @@ html,
 /*
  * DOCS. End. 
  */
- 

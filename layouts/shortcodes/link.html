@@ -1,0 +1,30 @@
+{{ if .Get 0}}
+{{ $class :=  .Get 0 }}
+{{ $classes :=  "" }}
+{{ $attributes :=  "" }}
+{{ $classList := split $class "|" }}
+{{ range $index, $value := $classList }}
+  {{ if eq $index 0 }}
+    {{ if strings.Contains $class "outline" }}
+      {{ $classes = print " btn-outline-" $value }}
+    {{ else }}
+        {{ $classes = print " btn-" $value }}
+    {{ end }}
+  {{ end }}
+  {{ if eq $value "small" }}
+    {{ $classes = print $classes " btn-sm" }}
+  {{ else if eq $value "medium" }}
+    {{ $classes = print $classes " btn-md" }}
+  {{ else if eq $value "large" }}
+    {{ $classes = print $classes " btn-lg" }}
+  {{ else if eq $value "rounded" }}
+    {{ $classes = print $classes " btn-rounded" }}
+  {{ else if eq $value "blank" }}
+    {{ $attributes = print " target=\"_blank\"" | safeHTMLAttr }}
+  {{ end }}
+{{ end }}
+{{ $icon :=  .Get 1 }}
+{{ $href := .Get 2 | safeURL }}
+{{ $text :=  .Get 3 }}
+<a href="{{ $href }}" {{with $attributes }}{{ $attributes }}{{ end }} class="btn {{ $classes }}">{{ with $icon }}<i class="wm wm-fw wm-{{ $icon }}"></i>{{ end }}<span class="btn-text">{{ $text | markdownify }}</span></a>
+{{ end }}
