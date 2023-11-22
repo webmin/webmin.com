@@ -349,6 +349,10 @@ strong code {
   font-size: .88em
 }
 
+.post-content>pre {
+  display: grid;
+}
+
 /* Header */
 .header {
   background-color: var(--header);
