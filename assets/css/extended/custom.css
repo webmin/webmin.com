@@ -263,7 +263,6 @@ html {
   scroll-padding-top: 80px;
   overflow-y: auto;
   font-display: swap;
-  scroll-behavior: auto;
   overflow-anchor: none;
 }
 
