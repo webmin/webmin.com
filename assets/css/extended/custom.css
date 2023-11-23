@@ -1580,6 +1580,16 @@ details.details-no-marker > summary {
   list-style: none;
 }
 
+details.details-margin-bottom {
+  margin-bottom: var(--content-gap);
+}
+
+details.details-small-inner > .inner > table > thead > tr > th,
+details.details-small-inner > .inner > table > tbody > tr > td,
+details.details-small-inner > .inner {
+  font-size: 93% !important;
+}
+
 /* 
  * Pages related
  */
