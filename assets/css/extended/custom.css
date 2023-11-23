@@ -67,6 +67,7 @@ html {
   font-display: swap;
   overflow-anchor: none;
   scroll-behavior: auto;
+  scrollbar-width: thin;
 }
 
 html.overflow-hidden {
@@ -1973,7 +1974,6 @@ html[class*="page-docs"] a[href*="example.com"] {
   max-width: 15rem;
 }
 
-html,
 .main,
 .docs-toc .docs-toc-content,
 .docs-menu .docs-menu-content {
