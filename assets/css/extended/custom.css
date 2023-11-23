@@ -118,6 +118,10 @@ strong code {
   font-weight: 600;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .page-tags .page-header>h1,
 .page-archives .page-header>h1,
 .page-search .page-header>h1,
