@@ -26,7 +26,7 @@
                     hmenuLinkText.getBoundingClientRect().right,
                 hmenuRightOffsetPixel =
                     devicePixelRatio >= 1
-                        ? Math.ceil(hmenuRightOffset / 0.25) * 0.25
+                        ? hmenuRightOffset
                         : hmenuRightOffset,
                 hmenuRightOffsetPixelViewPort = 0,
                 hmenuTopOffset = hmenuLinkText.getBoundingClientRect().top,
