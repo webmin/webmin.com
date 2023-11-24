@@ -209,6 +209,12 @@ button#theme-toggle {
   font-size: 24px;
 }
 
+.wm-xl {
+  font-size: 1.666666666em;
+  line-height: .75em;
+  vertical-align: -15%
+}
+
 .wm-xs-sup {
   font-size: 0.666em;
   vertical-align: text-top;
