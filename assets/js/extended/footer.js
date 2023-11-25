@@ -4,36 +4,30 @@
         pageHTMLSel = "html",
         postTargSel = "body > .main > .post-single",
         headerTargSel = "body > .header",
-        menuLinkTargSel = "" + headerTargSel + " > .nav #menu > li > a",
-        themeToggleTargSel = "" + headerTargSel + " #theme-toggle",
+        menuLinkTargSel = headerTargSel + " > .nav #menu > li > a",
+        themeToggleTargSel = headerTargSel + " #theme-toggle",
         postsLinksTargSel = ".main .post-content a",
         hmenuDropDownTargSel = ".hmenu-panel > .hmenu-drop-down",
-        hmenuLink = document.querySelector("" + menuLinkTargSel + '.dropdown-menu'),
+        hmenuLink = document.querySelector(menuLinkTargSel + ".dropdown-menu"),
         hmenuLinkText = hmenuLink.querySelector("span"),
         outerlinksAll = [
-            document.querySelectorAll("" + menuLinkTargSel + '[href*="forum.virtualmin.com"]'),
+            document.querySelectorAll(menuLinkTargSel + '[href*="forum.virtualmin.com"]'),
             document.querySelectorAll(postsLinksTargSel),
         ],
         screenShotLinks = [
-            document.querySelectorAll("" + postTargSel + ' [href*="/images/docs/"]'),
+            document.querySelectorAll(postTargSel + ' [href*="/images/docs/"]'),
         ];
 
     // Custom dropdown menu offsets calcs
     const hmenu_html = `{{ partial "nav_menu.html" . }}`,
         hmenuResize = function () {
             const hmenuRightOffset =
-                    document.documentElement.clientWidth -
+                    document.documentElement.getBoundingClientRect().width -
                     hmenuLinkText.getBoundingClientRect().right,
-                hmenuRightOffsetPixel =
-                    devicePixelRatio >= 1
-                        ? hmenuRightOffset
-                        : hmenuRightOffset,
-                hmenuRightOffsetPixelViewPort = 0,
                 hmenuTopOffset = hmenuLinkText.getBoundingClientRect().top,
                 hmenuDropDownTarg = hmenuLink.querySelector(hmenuDropDownTargSel);
             if (hmenuDropDownTarg) {
-                hmenuDropDownTarg.style.right =
-                    hmenuRightOffsetPixel - hmenuRightOffsetPixelViewPort + "px";
+                hmenuDropDownTarg.style.right = hmenuRightOffset + "px";
                 hmenuDropDownTarg.style.top =
                     "calc(" + (hmenuTopOffset + hmenuLinkText.offsetHeight) + "px - 1px)";
             }
@@ -141,8 +135,8 @@
     };
     if (isLocation("changelog") || isLocation("archives")) {
         const archivesMenuLink =
-            document.querySelector("" + menuLinkTargSel + '[href$="archives/"] > span') ||
-            document.querySelector("" + menuLinkTargSel + '[href$="changelog/"] > span');
+            document.querySelector(menuLinkTargSel + '[href$="archives/"] > span') ||
+            document.querySelector(menuLinkTargSel + '[href$="changelog/"] > span');
         if (archivesMenuLink) {
             archivesMenuLink.classList.add("active");
         }
@@ -150,7 +144,7 @@
 
     if (isLocation("docs")) {
         const docsMenuLink = document.querySelector(
-            "" + menuLinkTargSel + '[href$="docs/"] > span'
+            menuLinkTargSel + '[href$="docs/"] > span'
         );
         if (docsMenuLink) {
             docsMenuLink.classList.add("active");
