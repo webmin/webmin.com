@@ -373,19 +373,49 @@ body.dark .logo>a>svg path {
   vertical-align: 5%;
 }
 
+.text-note > .text-note-title {
+  text-transform: uppercase;
+  letter-spacing: -0.2px;
+}
+
 .text-note > i.text-note-icon,
 .text-note > .text-note-title {
   font-weight: 500;
+  font-size: 97%;
+}
+
+.text-note > i.text-note-icon {
+  font-size: 95%;
 }
 
 .text-note > i.text-note-icon.danger,
 .text-note > .text-note-title.danger {
-  color: crimson;
+  color: #d91e6f;
 }
 
 .dark .text-note > i.text-note-icon.danger,
 .dark .text-note > .text-note-title.danger {
-  color: #ed143de0;
+  color: #d51f74;
+}
+
+.text-note > i.text-note-icon.warning,
+.text-note > .text-note-title.warning {
+  color: #af6400;
+}
+
+.dark .text-note > i.text-note-icon.warning,
+.dark .text-note > .text-note-title.warning {
+  color: #ff9e29e0;
+}
+
+.text-note > i.text-note-icon.primary,
+.text-note > .text-note-title.primary {
+  color: #0128b6;
+}
+
+.dark .text-note > i.text-note-icon.primary,
+.dark .text-note > .text-note-title.primary {
+  color: #2957ff;
 }
 
 .text-note > .text-note-body {

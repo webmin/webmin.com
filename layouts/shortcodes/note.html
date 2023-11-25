@@ -4,7 +4,7 @@
 {{ $icon :=  .Get 2 }}
 {{ $stressColor :=  .Get 3 }}
       <p class="text-note">
-        {{with $icon }}<i class="text-note-icon wm wm-fw wm-sm wm-notification{{with $stressColor }} {{ $stressColor }}{{ end }}"></i> {{ end }}<span class="text-note-title{{with $stressColor }} {{ $stressColor }}{{ end }}">{{ $title }}</span>
+        {{with $icon }}<i class="text-note-icon wm wm-fw wm-sm wm-{{ $icon }}{{with $stressColor }} {{ $stressColor }}{{ end }}"></i> {{ end }}<span class="text-note-title{{with $stressColor }} {{ $stressColor }}{{ end }}">{{ $title }}</span>
         <span class="text-note-body">{{ $body | markdownify }}</span>
       </p>
 {{ end }}
