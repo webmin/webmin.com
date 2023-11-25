@@ -90,7 +90,8 @@ This product was developed to address the complexities and inefficiencies of oth
 *   [ipset](http://ipset.netfilter.org/) support for large IP lists
 *   Integrated with the CloudFlare firewall
 
-**Note:** Any OS that is EOL will not be supported and newer versions may no longer work as new functionality is added.
+{{< alert warning notification "Note" "Any OS that is EOL will not be supported and newer versions may no longer work as new functionality is added." >}}
+
 
 #### ConfigServer firewall (csf)
 
