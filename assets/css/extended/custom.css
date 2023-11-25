@@ -335,6 +335,14 @@ body.dark .logo>a>svg path {
   vertical-align: 10%;
 }
 
+.alert>i:has(+strong:empty) {
+  vertical-align: 9%;
+}
+
+.alert>i+strong:empty {
+  margin-right: 0.133em;
+}
+
 .alert>i+strong:empty+br {
   display: none;
 }
