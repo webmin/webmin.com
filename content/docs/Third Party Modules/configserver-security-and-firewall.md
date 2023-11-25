@@ -92,7 +92,6 @@ This product was developed to address the complexities and inefficiencies of oth
 
 {{< alert warning notification "Note" "Any OS that is EOL will not be supported and newer versions may no longer work as new functionality is added." >}}
 
-
 #### ConfigServer firewall (csf)
 
 A comprehensive, straight-forward, and flexible SPI _iptables_ firewall.
