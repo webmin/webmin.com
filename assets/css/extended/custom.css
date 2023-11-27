@@ -2003,6 +2003,10 @@ html[class*="page-docs"] a[href*="example.com"] {
   margin-inline-start: initial;
 }
 
+[class^="page-docs"] .post-content ul>li>ol>li>ul {
+  margin-bottom: 0;
+}
+
 .docs-toc,
 .docs-menu {
   font-size: .975rem;
