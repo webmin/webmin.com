@@ -161,6 +161,7 @@
                         // Update URL hash
                         if (document.body.dataset.page_loaded) {
                             const activeLink = labelTarget.querySelector("a.active");
+                            // Update hash if active link
                             if (activeLink) {
                                 const activeLinkHash = activeLink.getAttribute("href");
                                 if (activeLinkHash && activeLinkHash !== window.location.hash) {
@@ -170,6 +171,14 @@
                                         window.location.pathname + activeLinkHash
                                     );
                                 }
+                            }
+                            // Remove hash if no active link
+                            else {
+                                window.history.replaceState(
+                                    null,
+                                    null,
+                                    window.location.pathname
+                                );
                             }
                         }
                     }, time);
