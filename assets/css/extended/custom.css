@@ -369,10 +369,6 @@ body.dark .logo>a>svg path {
   padding-left: 0.211em;
 }
 
-.text-note > i.text-note-icon {
-  vertical-align: 5%;
-}
-
 .text-note > .text-note-title {
   text-transform: uppercase;
   letter-spacing: -0.2px;
@@ -386,6 +382,8 @@ body.dark .logo>a>svg path {
 
 .text-note > i.text-note-icon {
   font-size: 95%;
+  vertical-align: 5%;
+  margin-right: -0.111em;
 }
 
 .text-note > i.text-note-icon.danger,
