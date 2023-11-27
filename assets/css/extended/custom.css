@@ -2064,8 +2064,7 @@ html[class*="page-docs"] a[href*="example.com"] {
   overscroll-behavior: contain;
 }
 
-.docs-toc .docs-toc-content,
-.docs-menu .docs-menu-content {
+.main {
   padding-bottom: calc(var(--gap) * 4);
 }
 
