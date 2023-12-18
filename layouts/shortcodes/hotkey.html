@@ -1,0 +1,5 @@
+{{ if .Get 1}}
+{{ $macKey :=  .Get 0 }}
+{{ $stdKey :=  .Get 1 }}
+        <span data-hotkey="mac">{{ $macKey }}</span><span data-hotkey="std">{{ $stdKey }}</span>
+{{ end }}

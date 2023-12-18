@@ -39,6 +39,16 @@
 </script>
 {{- end }}
 
+<script>
+    // Detect platform and add data-platform attribute to HTML tag
+    try {
+        document.documentElement.setAttribute("data-platform",
+            navigator.userAgent.toLowerCase().includes("mac") ? "mac" : "std");
+    } catch (error) {
+        document.documentElement.setAttribute("data-platform", "std");
+    }
+</script>
+
 <header class="header">
     {{ if templates.Exists "partials/extend_header_before.html" }}
     {{- partial "extend_header_before.html" . -}}

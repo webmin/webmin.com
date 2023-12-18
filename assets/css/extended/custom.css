@@ -1593,6 +1593,22 @@ a.btn {
   font-size: 90% !important;
   vertical-align: baseline !important;
 }
+/* Hotkeys. Start. */
+/* Hotkeys aren't shown until platform is detected */
+html:not([data-platform]) [data-hotkey] {
+  display: none;
+}
+
+/* Show mac keys only */
+html[data-platform="mac"] [data-hotkey="std"] {
+  display: none;
+}
+
+/* Show std (win/lin) keys only */
+html[data-platform="std"] [data-hotkey="mac"] {
+  display: none;
+}
+/* Hotkeys. End. */
 
 /* Pagination */
 .pagination a {
