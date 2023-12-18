@@ -156,6 +156,8 @@ strong code {
   font-size: .88em
 }
 
+.post-content>ul>li>pre,
+.post-content>ol>li>pre,
 .post-content>.highlight>pre,
 .post-content>pre {
   display: grid;
