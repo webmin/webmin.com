@@ -163,6 +163,10 @@ strong code {
   display: grid;
 }
 
+.post-content>.highlight + p {
+  margin-top: var(--content-gap);
+}
+
 /* Header */
 .header {
   background-color: var(--header);
