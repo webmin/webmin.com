@@ -23,10 +23,13 @@
     const closestDetails = document.querySelector(".docs-menu details .active"),
         scrollToElementInContainer = function (element, container) {
             const containerRect = container.getBoundingClientRect(),
+                containerStyle = window.getComputedStyle(container),
                 elementRect = element.getBoundingClientRect(),
                 relativeTop = elementRect.top - containerRect.top,
-                scrollPosition = relativeTop + container.scrollTop;
-
+                scrollPosition =
+                    relativeTop +
+                    container.scrollTop -
+                    (parseInt(containerStyle.paddingTop) + containerRect.top);
             // Scroll to the element
             container.scrollTop = scrollPosition;
         };
