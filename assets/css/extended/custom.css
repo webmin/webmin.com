@@ -1609,6 +1609,11 @@ a.btn {
   height: 1px;
 }
 
+/* FAQ / License */
+.post-content blockquote > h5 {
+  font-size: 18px;
+}
+
 .post-content h3 code {
   background-color: transparent;
   padding: 0;
