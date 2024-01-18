@@ -152,6 +152,8 @@ host=webmin.example.com/webmin
 Now all requests to `webmin.example.com/webmin/` (pay attention to the trailing slash) to the Apache virtual host will then be passed through to the Webmin server on `localhost` port `10000`.
 
 {{< alert primary exclamation "Usermin via Apache gateway?" "The instructions are exactly the same as for Webmin with the only difference that Usermin default port is `20000` and configuration files are located in `/etc/usermin` directory." >}}
+{{< alert danger exclamation-triangle "Getting permission denied error?" "This could be due to SELinux restrictions. Check the SELinux configuration for web server network connections." >}}
+
 {{< details-end >}}
 {{< details-start post-content-details "<strong>Nginx</strong>" >}}
 
@@ -275,7 +277,7 @@ host=webmin.example.com/webmin
 Now all requests to `webmin.example.com/webmin/` to the Nginx virtual host will then be passed through to the Webmin server on `localhost` port `10000`.
 
 {{< alert primary exclamation "Usermin via Nginx reverse proxy?" "The instructions are exactly the same as for Webmin with the only difference that Usermin default port is `20000` and configuration files are located in `/etc/usermin` directory." >}}
-
+{{< alert danger exclamation-triangle "Getting permission denied error?" "This could be due to SELinux restrictions. Check the SELinux configuration for web server network connections." >}}
 
 {{< details-end >}}
 
