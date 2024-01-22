@@ -160,6 +160,7 @@ strong code {
 .post-content>ol>li>pre,
 .post-content>ol>li>.highlight>pre,
 .post-content>ol>li>ul>li>.highlight>pre,
+.post-content>ol>li>ul>li>pre,
 .post-content>ul>li>.highlight>pre,
 .post-content>.highlight>pre,
 .post-content>pre {
