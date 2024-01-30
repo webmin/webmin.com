@@ -164,7 +164,9 @@
                             // Update hash if active link
                             if (activeLink) {
                                 const activeLinkHash = activeLink.getAttribute("href");
-                                if (activeLinkHash && activeLinkHash !== window.location.hash) {
+                                if (activeLinkHash &&
+                                    activeLinkHash !== window.location.hash &&
+                                    activeLinkHash !== "#") {
                                     window.history.replaceState(
                                         null,
                                         null,
