@@ -8,15 +8,16 @@
         themeToggleTargSel = headerTargSel + " #theme-toggle",
         postsLinksTargSel = ".main .post-content a",
         hmenuDropDownTargSel = ".hmenu-panel > .hmenu-drop-down",
+        hmenuDropDownPaletteTargSel = hmenuDropDownTargSel + " .hmenu-link-button",
         hmenuLink = document.querySelector(menuLinkTargSel + ".dropdown-menu"),
         hmenuLinkText = hmenuLink.querySelector("span"),
         outerlinksAll = [
             document.querySelectorAll(menuLinkTargSel + '[href*="forum.virtualmin.com"]'),
             document.querySelectorAll(postsLinksTargSel),
         ],
-        screenShotLinks = [
-            document.querySelectorAll(postTargSel + ' [href*="/images/docs/"]'),
-        ];
+        screenShotLinks = [document.querySelectorAll(postTargSel + ' [href*="/images/docs/"]')];
+    
+    let themeToggleRef;
 
     // Custom dropdown menu offsets calcs
     const hmenu_html = `{{ partial "nav_menu.html" . }}`,
@@ -63,6 +64,13 @@
                     hmenuDropDownTargSel + ' a[href="' + (location.pathname + location.hash) + '"]'
                 );
             hmenuActiveLink && hmenuActiveLink.classList.add("active");
+
+            // Detach and reattach palette switcher preserving original event listeners
+            themeToggleRef = themeToggleRef || document.querySelector(themeToggleTargSel),
+            paletteLink = document.querySelector(hmenuDropDownPaletteTargSel);
+            if (themeToggleRef && paletteLink) {
+                paletteLink.appendChild(themeToggleRef);
+            }
         }
     });
 
@@ -143,9 +151,7 @@
     }
 
     if (isLocation("docs")) {
-        const docsMenuLink = document.querySelector(
-            menuLinkTargSel + '[href$="docs/"] > span'
-        );
+        const docsMenuLink = document.querySelector(menuLinkTargSel + '[href$="docs/"] > span');
         if (docsMenuLink) {
             docsMenuLink.classList.add("active");
         }

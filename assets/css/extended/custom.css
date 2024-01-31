@@ -265,6 +265,11 @@ body.dark .logo>a>svg path {
   stroke: #3164b4
 }
 
+/* Hidden by default as cloned in dropdown menu */
+body .logo .logo-switches {
+  display: none;
+}
+
 /* Bootstrap components. Start */
 /*!
  * Bootstrap v4.6.2 (https://getbootstrap.com/)
@@ -1480,6 +1485,21 @@ a.btn {
   width: 50%;
   float: left;
   line-height: 2em;
+}
+
+#menu .hmenu-panel .hmenu-drop-down .hmenu-body-contents ul.hmenu-links.hmenu-buttons>li {
+  width: 100%;
+  text-align: right;
+  line-height: 0;
+}
+
+#menu .hmenu-panel .hmenu-drop-down .hmenu-body-contents ul.hmenu-links.hmenu-buttons>li>button{
+  width: 34px;
+  height: 34px;
+}
+
+#menu .hmenu-panel .hmenu-drop-down .hmenu-body-contents ul.hmenu-links.hmenu-buttons>li>button:hover{
+  background-color: var(--code-bg);
 }
 
 #menu .hmenu-panel .hmenu-drop-down .hmenu-body-contents ul.hmenu-links>li>a {
