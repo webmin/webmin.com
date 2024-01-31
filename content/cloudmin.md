@@ -60,8 +60,7 @@ The KVM install script will replace the systems existing `eth0` network interfac
 
 [**`deb-xen`**](http://cloudmin.virtualmin.com/gpl/scripts/cloudmin-gpl-debian-install.sh) **|** [**`deb-kvm`**](http://cloudmin.virtualmin.com/gpl/scripts/cloudmin-kvm-debian-install.sh) — **Debian and Ubuntu**
 
-Downloaded install script, once you have it on the Linux system you want to run Cloudmin on, can be executed with the folowing command:
-
+Download the install script and, once you have it on the Linux system where you want to run Cloudmin, execute it with the following command:
 
 ```shell
 sh cloudmin-install.sh
