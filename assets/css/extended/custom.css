@@ -204,7 +204,7 @@ strong code {
 }
 
 .header .logo>a {
-  line-height: calc(var(--header-height) - 0.111rem);
+  line-height: calc(var(--header-height) - 0.466rem);
   filter: saturate(1.666);
   /* margin-top: 2px; */
 }
