@@ -1459,11 +1459,11 @@ a.btn {
 }
 
 #menu .hmenu-panel .hmenu-drop-down .hmenu-body {
-  max-height: calc(100vh - 100px);
+  /* max-height: calc(100vh - 100px); */
   overflow-y: auto;
   display: flex;
   touch-action: pan-y pinch-zoom;
-  overflow: hidden;
+  overflow: auto;
   height: 100%;
 }
 
