@@ -116,7 +116,9 @@
                     !outerlink.href.startsWith("mailto:") &&
                     !outerlink.href.startsWith(siteName)
                 ) {
-                    outerlink.setAttribute("target", "_blank");
+                    if (outerlink.target !== "_self") {
+                        outerlink.setAttribute("target", "_blank");
+                    }
                 }
             });
         }
