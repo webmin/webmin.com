@@ -48,7 +48,9 @@
         document.documentElement.setAttribute("data-platform", "std");
     }
 </script>
-
+{{ if templates.Exists "partials/extend_header_pre.html" }}
+    {{- partial "extend_header_pre.html" . -}}
+{{ end }}
 <header class="header">
     {{ if templates.Exists "partials/extend_header_before.html" }}
     {{- partial "extend_header_before.html" . -}}
