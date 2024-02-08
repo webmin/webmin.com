@@ -1364,10 +1364,21 @@ a.btn {
   font-size: 1.233em;
 }
 
-#menu span.wm.wm-menu.active {
+#menu span.wm.wm-menu.active:not(.top) {
   border-color: var(--tertiary);
-  padding-top: 0.333em;
-  padding-bottom: 0.599em;
+  padding-top: 8px;
+  padding-bottom: 12px;
+  letter-spacing: -0.0025em;
+  font-weight: 400;
+}
+
+#menu span.wm.wm-menu.active.top {
+  border-radius: 0 0 var(--radius) var(--radius);
+  border-top-width: 0;
+  border-left: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding-top: 12px;
+  padding-bottom: 8px;
   letter-spacing: -0.0025em;
   font-weight: 400;
 }
@@ -1446,6 +1457,10 @@ a.btn {
   position: absolute;
   right: 0;
   max-height: 80vh;
+}
+
+#menu span.wm.wm-menu.active.top + .hmenu-panel .hmenu-drop-down {
+  border-radius: var(--radius) var(--radius) 0 var(--radius);
 }
 
 .dark #menu span.wm.wm-menu.active {

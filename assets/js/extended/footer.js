@@ -16,21 +16,58 @@
             document.querySelectorAll(postsLinksTargSel),
         ],
         screenShotLinks = [document.querySelectorAll(postTargSel + ' [href*="/images/docs/"]')];
-    
+
     let themeToggleRef;
 
     // Custom dropdown menu offsets calcs
     const hmenu_html = `{{ partial "nav_menu.html" . }}`,
         hmenuResize = function () {
-            const hmenuRightOffset =
+            const headerElemHeight = document
+                    .querySelector(headerTargSel)
+                    .getBoundingClientRect().height,
+                headerElemTopOffset = document
+                    .querySelector(headerTargSel)
+                    .getBoundingClientRect().top,
+                hmenuRightOffset =
                     document.documentElement.getBoundingClientRect().width -
                     hmenuLinkText.getBoundingClientRect().right,
-                hmenuTopOffset = hmenuLinkText.getBoundingClientRect().top,
                 hmenuDropDownTarg = hmenuLink.querySelector(hmenuDropDownTargSel);
             if (hmenuDropDownTarg) {
+                const hmenuDropDownHeight = parseInt(
+                    hmenuDropDownTarg.getBoundingClientRect().height
+                );
                 hmenuDropDownTarg.style.right = hmenuRightOffset + "px";
-                hmenuDropDownTarg.style.top =
-                    "calc(" + (hmenuTopOffset + hmenuLinkText.offsetHeight) + "px - 1px)";
+                if (
+                    headerElemTopOffset - headerElemHeight > hmenuDropDownHeight ||
+                    (document.querySelector(headerTargSel).getBoundingClientRect().top !== 0 &&
+                        window.scrollY < 10 &&
+                        window.innerHeight ===
+                            Math.round(
+                                document.querySelector(headerTargSel).getBoundingClientRect().bottom
+                            ))
+                ) {
+                    hmenuLinkText.classList.add("top");
+                    hmenuDropDownTarg.style.top = null;
+                    hmenuDropDownTarg.style.bottom =
+                        "calc(" +
+                        ((
+                            hmenuLinkText.getBoundingClientRect().height +
+                            parseFloat(window.getComputedStyle(hmenuLinkText).paddingTop) -
+                            2.5
+                        ).toFixed(2) +
+                            "px)");
+                } else {
+                    hmenuLinkText.classList.remove("top");
+                    hmenuDropDownTarg.style.bottom = null;
+                    hmenuDropDownTarg.style.top =
+                        "calc(" +
+                        ((
+                            hmenuLinkText.getBoundingClientRect().height +
+                            parseFloat(window.getComputedStyle(hmenuLinkText).paddingBottom) -
+                            4.5
+                        ).toFixed(2) +
+                            "px)");
+                }
             }
         },
         menuHeightType = function () {
@@ -66,8 +103,8 @@
             hmenuActiveLink && hmenuActiveLink.classList.add("active");
 
             // Detach and reattach palette switcher preserving original event listeners
-            themeToggleRef = themeToggleRef || document.querySelector(themeToggleTargSel),
-            paletteLink = document.querySelector(hmenuDropDownPaletteTargSel);
+            (themeToggleRef = themeToggleRef || document.querySelector(themeToggleTargSel)),
+                (paletteLink = document.querySelector(hmenuDropDownPaletteTargSel));
             if (themeToggleRef && paletteLink) {
                 paletteLink.appendChild(themeToggleRef);
             }
