@@ -1732,10 +1732,6 @@ details.post-content-details .inner {
   margin-top: -10px;
 }
 
-details > summary > .details {
-  cursor: pointer !important;
-}
-
 details.post-content-details>summary>.details {
   margin-left: 4px;
 }
@@ -1770,6 +1766,18 @@ details.details-small-inner > .inner > table > thead > tr > th,
 details.details-small-inner > .inner > table > tbody > tr > td,
 details.details-small-inner > .inner {
   font-size: 93% !important;
+}
+
+details[open] > summary {
+  cursor: zoom-out !important;
+}
+
+details > summary {
+  cursor: zoom-in !important;
+}
+
+details > summary > span {
+  padding-left: 0.211rem;
 }
 
 /* 
@@ -1861,7 +1869,7 @@ a.screenshot-entry {
   /* Perspective margin-right. X1555 */
   /* margin-right: calc(var(--gap) * 3.6); */
   margin-right: calc(var(--gap) * 0.6);
-  margin-bottom: var(--gap);
+  margin-bottom: calc(var(--gap) / 0.6);
   /* Perspective margin-left. X1555 */
   /* margin-left: calc(var(--gap) * -1.35); */
   margin-left: calc(var(--gap) * 0.6);
@@ -2456,6 +2464,7 @@ html[class*="page-docs"] a[href*="example.com"] {
   margin-left: -0.433rem;
 }
 
+.toc .inner .sub-section,
 .docs-menu .docs-menu-content details>div.sub-section {
   background-color: var(--border);
   border-radius: var(--radius);
@@ -2467,6 +2476,11 @@ html[class*="page-docs"] a[href*="example.com"] {
   opacity: 0.6;
   padding: 0 4px 0 8px;
   font-size: 94%;
+}
+
+.toc .inner .sub-section {
+  margin-left: 1.499rem;
+  margin-top: 0.233rem;
 }
 
 .docs-menu .docs-menu-content details>summary+div.sub-section {
