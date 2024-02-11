@@ -211,7 +211,7 @@
         },
         updateScreenshots = function () {
             const screenshots = document.querySelectorAll(
-                'figure > img, a > img[src*="/docs/screenshots"]'
+                'figure > img, a > img[src*="/images/screenshots"], a > img[src*="/docs/screenshots"]'
             );
             let screenshotsFound = false;
             if (screenshots.length) {
