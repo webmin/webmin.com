@@ -43,3 +43,11 @@
 {{- $chocolatloaderdocs := resources.Get "js/extended/header-chocolat-docs.js" | resources.ExecuteAsTemplate "js/extended/header-chocolat-docs.js" . | resources.Minify }}
 <script defer crossorigin="anonymous" src="{{ $chocolatloaderdocs.RelPermalink }}?{{ now.Unix }}"></script>
 {{ end }}
+
+<!-- Load chocolat.js for Index page -->
+{{ if and (eq .RelPermalink "/") (.Param "loadIndexGallery") }}
+<script type="text/javascript" src="{{ $chocolatjs.RelPermalink }}?{{ now.Unix }}"></script>
+<link rel="stylesheet" href="{{ $chocolatcss.RelPermalink }}?{{ now.Unix }}" type="text/css" media="screen">
+{{- $chocolatloaderindex := resources.Get "js/extended/header-chocolat-index.js" | resources.ExecuteAsTemplate "js/extended/header-chocolat-index.js" . | resources.Minify }}
+<script defer crossorigin="anonymous" src="{{ $chocolatloaderindex.RelPermalink }}?{{ now.Unix }}"></script>
+{{ end }}
