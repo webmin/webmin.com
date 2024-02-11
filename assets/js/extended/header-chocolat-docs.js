@@ -10,11 +10,11 @@ window.addEventListener("DOMContentLoaded", () => {
             imageSize: "scale-down",
             afterInitialize: function afterInitialize() {
                 document.documentElement.classList.add("overflow-hidden");
-                document.querySelector(".header").classList.add("no-z-index");
+                document.querySelector(".header").classList.add("no-z-index", "filter-grayscale");
             },
             afterClose: function afterClose() {
                 document.documentElement.classList.remove("overflow-hidden");
-                document.querySelector(".header").classList.remove("no-z-index");
+                document.querySelector(".header").classList.remove("no-z-index", "filter-grayscale");
             },
         });
         document.addEventListener("keydown", function (event) {
