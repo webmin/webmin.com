@@ -408,12 +408,12 @@ body .logo .logo-switches {
 
 .text-note > i.text-note-icon.danger,
 .text-note > .text-note-title.danger {
-  color: #d91e6f;
+  color: #c43939;
 }
 
 .dark .text-note > i.text-note-icon.danger,
 .dark .text-note > .text-note-title.danger {
-  color: #d51f74;
+  color: #b92e2e;
 }
 
 .text-note > i.text-note-icon.warning,
