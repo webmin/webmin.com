@@ -69,14 +69,6 @@
   overflow: hidden;
 }
 
-.filter-grayscale {
-  filter: grayscale(1);
-}
-
-.filter-blur-1px {
-  filter: blur(1px);
-}
-
 html {
   scroll-padding-top: 80px;
   overflow-y: auto;
@@ -204,6 +196,10 @@ strong code {
 
 .header.no-z-index {
   z-index: 2;
+}
+
+body:has(.chocolat-overlay.chocolat-visible) header.filter-grayscale {
+  filter: grayscale(1);
 }
 
 .header a {
