@@ -30,7 +30,7 @@ window.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#theme-toggle").addEventListener(
             "click",
             function () {
-                location.reload();
+                document.querySelector(".post-content img.loading") && location.reload();
             },
             false
         );
