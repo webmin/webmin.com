@@ -1951,10 +1951,9 @@ a.screenshot-entry {
 .chocolat-overlay {
   background-color: var(--main-bg-overlay) !important;
 }
-
-.page-screenshots.chocolat-fullscreen .chocolat-wrapper .screen-full-container,
+.chocolat-fullscreen .chocolat-wrapper .screen-full-container,
 .chocolat-wrapper .chocolat-bottom .chocolat-fullscreen,
-.page-screenshots:not(.chocolat-fullscreen) .chocolat-close {
+html:not(.chocolat-fullscreen) .chocolat-close {
   display: none;
 }
 
@@ -1990,26 +1989,27 @@ body.dark .chocolat-wrapper .chocolat-bottom {
   margin-bottom: 0.333rem;
 }
 
-.page-screenshots:not(.chocolat-fullscreen) .chocolat-wrapper .screen-full-container {
+.chocolat-wrapper .screen-full-container {
   position: absolute;
   bottom: 10px;
   left: 10px;
-  padding: 0.143em 0.233em 0.233em 0.376em;
+  padding: 0.177em 0.4em;
+  line-height: 1.5;
   background-color: var(--primary-soft);
   z-index: 1;
   cursor: pointer;
   border-radius: 10em;
-  width: 2.144rem;
-  height: 2.144rem;
-  min-width: 2.144rem;
-  min-height: 2.144rem;
-  max-width: 2.144rem;
-  max-height: 2.144rem;
+  width: 2.133rem;
+  height: 2.133rem;
+  min-width: 2.133rem;
+  min-height: 2.133rem;
+  max-width: 2.133rem;
+  max-height: 2.133rem;
 }
 
-.page-screenshots:not(.chocolat-fullscreen) .chocolat-wrapper .screen-full-container>i {
+.chocolat-wrapper .screen-full-container>i {
   color: #ffffffee;
-  font-size: .911em;
+  font-size: .866em;
 }
 
 
