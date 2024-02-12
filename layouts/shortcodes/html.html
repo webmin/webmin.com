@@ -1,0 +1,19 @@
+{{/* Usage: {{< html "div" "myClass" "This is the content" "myId" "data-custom='value'" "aria-label='description'" >}} */}}
+
+{{ if .Get 0 }}
+  {{ $tag := .Get 0 }}
+  {{ $class := "" }}
+  {{ if .Get 1 }}{{ $class = printf " class=\"%s\"" (.Get 1) }}{{ end }}
+  {{ $id := "" }}
+  {{ if .Get 3 }}{{ $id = printf " id=\"%s\"" (.Get 3) }}{{ end }}
+  {{ $content := .Get 2 | safeHTML }}
+
+  {{ $attrs := "" }}
+  {{ if gt (len .Params) 4 }}
+    {{ range $i, $v := .Params }}
+      {{ if ge $i 4 }}{{ $attrs = print $attrs " " $v }}{{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ printf "<%s%s%s%s>%s</%s>" $tag $class $id $attrs $content $tag | safeHTML }}
+{{ end }}
