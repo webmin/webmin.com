@@ -499,7 +499,7 @@ window.addEventListener("DOMContentLoaded", () => {
     );
 
     // On resize accommodate Chocolat viewer
-    window.onresize = function () {
+    window.addEventListener("resize", function () {
         const targetClassList = document.querySelector("html").classList;
         if (
             document.fullscreenElement ||
@@ -513,5 +513,5 @@ window.addEventListener("DOMContentLoaded", () => {
             chocolat.api.position();
         }
         fixChocolatDrop();
-    };
+    });
 });

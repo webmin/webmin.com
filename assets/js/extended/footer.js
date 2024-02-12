@@ -112,10 +112,10 @@
     });
 
     // Resize actions for the page
-    window.onresize = function () {
+    window.addEventListener("resize", function () {
         hmenuResize();
         menuHeightType();
-    };
+    });
 
     // On load test menu height
     setTimeout(menuHeightType, 10e1);
