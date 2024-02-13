@@ -44,8 +44,13 @@
 <script defer crossorigin="anonymous" src="{{ $chocolatloaderdocs.RelPermalink }}?{{ now.Unix }}"></script>
 {{ end }}
 
+<!-- Load latest Bootstrap for index page -->
+{{ if .Param "loadBootstrapGrid" }}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap-grid.min.css" integrity="sha384-bZqD+vefBhdDLnswZwYYwZH5f/OSS3QAF8dEQg5ePHsbijtQaGg44Gvg4QucLTH1" rel="stylesheet" crossorigin="anonymous">
+{{ end }}
+
 <!-- Load chocolat.js for Index page -->
-{{ if and (eq .RelPermalink "/") (.Param "loadIndexGallery") }}
+{{ if .Param "loadGalleryIndex" }}
 <script type="text/javascript" src="{{ $chocolatjs.RelPermalink }}?{{ now.Unix }}"></script>
 <link rel="stylesheet" href="{{ $chocolatcss.RelPermalink }}?{{ now.Unix }}" type="text/css" media="screen">
 {{- $chocolatloaderindex := resources.Get "js/extended/header-chocolat-index.js" | resources.ExecuteAsTemplate "js/extended/header-chocolat-index.js" . | resources.Minify }}
