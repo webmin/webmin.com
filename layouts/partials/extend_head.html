@@ -17,7 +17,13 @@
 
 <!-- Mark page to be accessible in JavaScript -->
 <script type="text/javascript">
-    document.querySelector('html').classList.add("page-" + (location.pathname.replace(/\//g, '') || 'index'))
+  document.documentElement.classList.add("page-" + (location.pathname.replace(/\//g, '') || 'index'));
+  document.documentElement.setAttribute('data-os',
+    /iPad|iPhone|iPod/.test(navigator.userAgent) ? 'ios' :
+      /Android/.test(navigator.userAgent) ? 'android' :
+        /Win/.test(navigator.platform) ? 'windows' :
+          /Mac/.test(navigator.platform) ? 'mac' :
+            /Linux/.test(navigator.platform) ? 'linux' : 'unknown');
 </script>
 
 <!-- Load header scripts -->
