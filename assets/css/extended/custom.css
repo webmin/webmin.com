@@ -1613,10 +1613,6 @@ a.btn {
 }
 
 @media screen and (min-width: 1151px) {
-  html[class*="page-docs"] {
-    --main-max-width: 894px;
-  }
-
   html[class*="page-docs"] .main {
     min-width: calc(var(--main-min-width) + var(--gap) * 2) !important;
   }
