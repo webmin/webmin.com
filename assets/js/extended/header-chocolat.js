@@ -498,8 +498,17 @@ window.addEventListener("DOMContentLoaded", () => {
         false
     );
 
-    // On resize accommodate Chocolat viewer
     window.addEventListener("resize", function () {
+        // Reload the page if going to full screen mode and
+        // using Chocolat in full screen mode already (super
+        // rare case scenario)
+        const fullScreen = screen.height === window.outerHeight;
+        this.setTimeout(function () {
+            if (fullScreen && !(screen.height === window.outerHeight) && document.fullscreenElement) {
+                location.reload();
+            }
+        }, 120);
+        // On resize accommodate Chocolat viewer
         const targetClassList = document.documentElement.classList;
         if (
             (document.fullscreenElement ||
