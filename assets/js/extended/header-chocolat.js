@@ -500,11 +500,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // On resize accommodate Chocolat viewer
     window.addEventListener("resize", function () {
-        const targetClassList = document.querySelector("html").classList;
+        const targetClassList = document.documentElement.classList;
         if (
-            document.fullscreenElement ||
+            (document.fullscreenElement ||
             document.webkitCurrentFullScreenElement ||
-            document.webkitFullscreenElement
+            document.webkitFullscreenElement) && screen.height !== window.outerHeight
         ) {
             targetClassList.add("chocolat-fullscreen");
         } else {

@@ -117,7 +117,9 @@
         menuHeightType();
         
         // Browser in fullscreen mode (OS) or not?
-        document.documentElement.setAttribute("data-fullscreen", screen.height === window.outerHeight);
+        this.setTimeout(function () {
+            document.documentElement.setAttribute("data-fullscreen", screen.height === window.outerHeight && !document.fullscreenElement);
+        }, 150);
     });
     window.dispatchEvent(new Event("resize"));
 
