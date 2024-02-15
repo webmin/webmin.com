@@ -467,9 +467,7 @@ window.addEventListener("DOMContentLoaded", () => {
         chocolatOptions = {
             container: document.querySelector("body > .chocolat-drop"),
             loop: false,
-            // firstImageIndex: 12,
-            // fullScreen: true,
-            // allowZoom: false,
+            closeOnBackgroundClick: true,
             imageSize: "scale-down",
             afterClose: function () {
                 setTimeout(function () {
@@ -499,21 +497,13 @@ window.addEventListener("DOMContentLoaded", () => {
     );
 
     window.addEventListener("resize", function () {
-        // Reload the page if going to full screen mode and
-        // using Chocolat in full screen mode already (super
-        // rare case scenario)
-        const fullScreen = screen.height === window.outerHeight;
-        this.setTimeout(function () {
-            if (fullScreen && !(screen.height === window.outerHeight) && document.fullscreenElement) {
-                location.reload();
-            }
-        }, 120);
         // On resize accommodate Chocolat viewer
         const targetClassList = document.documentElement.classList;
         if (
-            (document.fullscreenElement ||
-            document.webkitCurrentFullScreenElement ||
-            document.webkitFullscreenElement) && screen.height !== window.outerHeight
+            document.fullscreenElement ||
+            document.webkitFullscreenElement ||
+            document.mozFullScreenElement ||
+            document.msFullscreenElement
         ) {
             targetClassList.add("chocolat-fullscreen");
         } else {
@@ -523,4 +513,26 @@ window.addEventListener("DOMContentLoaded", () => {
         }
         fixChocolatDrop();
     });
+
+    // On exit full screen, resize Chocolat viewer to avoid image overflow
+    document.addEventListener("fullscreenchange", function () {
+        window.dispatchEvent(new Event("resize"));
+        // Re-try when animation is complete
+        setTimeout(function () {
+            window.dispatchEvent(new Event("resize"));
+        }, 120);
+    });
+
+    // On pressing escape key, do not close Chocolat viewer
+    document.addEventListener(
+        "keydown",
+        function (event) {
+            if (event.key === "Escape") {
+                event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation();
+            }
+        },
+        true
+    );
 });

@@ -1949,10 +1949,12 @@ a.screenshot-entry {
 }
 .chocolat-fullscreen .chocolat-wrapper .screen-full-container,
 .chocolat-wrapper .chocolat-bottom .chocolat-fullscreen,
+html[data-fullscreen="false"]:not(.chocolat-fullscreen) .chocolat-close,
 html:not(.chocolat-fullscreen) .chocolat-close {
   display: none;
 }
 
+html[data-fullscreen="false"]:not(.chocolat-fullscreen) .chocolat-wrapper .chocolat-bottom,
 html:not(.chocolat-fullscreen) .chocolat-wrapper .chocolat-bottom {
   visibility: hidden;
 }
