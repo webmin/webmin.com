@@ -115,7 +115,11 @@
     window.addEventListener("resize", function () {
         hmenuResize();
         menuHeightType();
+        
+        // Browser in fullscreen mode (OS) or not?
+        document.documentElement.setAttribute("data-fullscreen", screen.height === window.outerHeight);
     });
+    window.dispatchEvent(new Event("resize"));
 
     // On load test menu height
     setTimeout(menuHeightType, 10e1);
