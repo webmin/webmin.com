@@ -1973,11 +1973,17 @@ body.dark .chocolat-wrapper .chocolat-bottom {
 .dark .chocolat-wrapper {
   color: var(--primary);
 }
+
+.chocolat-img[style="margin: 0px;"] {
+  margin-top: 1rem !important;
+}
+
 .chocolat-img {
   filter: saturate(1.14) brightness(1.01)contrast(0.99) hue-rotate(4deg);
   border-radius: var(--radius);
   box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px #21201e03, 14px 14px 14px #4d4d4d40;
 }
+
 .dark .chocolat-img {
   box-shadow: 1px 1px 0 1px #000, -1px 0 28px #12121203, 14px 14px 14px #17171740;
   filter: none;
