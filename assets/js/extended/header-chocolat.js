@@ -467,6 +467,7 @@ window.addEventListener("DOMContentLoaded", () => {
         chocolatOptions = {
             container: document.querySelector("body > .chocolat-drop"),
             loop: false,
+            allowZoom: false,
             closeOnBackgroundClick: true,
             imageSize: "scale-down",
             afterClose: function () {

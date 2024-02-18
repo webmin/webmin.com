@@ -1970,12 +1970,32 @@ body.dark .chocolat-wrapper .chocolat-bottom {
   color: var(--primary);
 }
 
+.chocolat-wrapper .screen-full-container,
+.chocolat-wrapper .chocolat-right,
+.chocolat-wrapper .chocolat-left {
+    transform: scale(0.9);
+}
+
 .dark .chocolat-wrapper {
   color: var(--primary);
 }
 
+.chocolat-overlay.chocolat-visible ~ .chocolat-layout .chocolat-img[style="margin: 0px;"],
+.chocolat-overlay.chocolat-visible ~ .chocolat-layout .chocolat-img,
 .chocolat-img[style="margin: 0px;"] {
-  margin-top: 1rem !important;
+  margin: 1rem 0 !important;
+}
+
+.page-screenshots:not(.chocolat-fullscreen) .chocolat-overlay.chocolat-visible ~ .chocolat-layout .chocolat-img,
+.page-screenshots:not(.chocolat-fullscreen) .chocolat-overlay.chocolat-visible ~ .chocolat-layout .chocolat-img[style="margin: 0px;"],
+.page-screenshots:not(.chocolat-fullscreen) .chocolat-img[style="margin: 0px;"] {
+  margin: 0 !important;
+}
+
+.chocolat-fullscreen .chocolat-overlay.chocolat-visible ~ .chocolat-layout .chocolat-img[style="margin: 0px;"],
+.chocolat-fullscreen .chocolat-overlay.chocolat-visible ~ .chocolat-layout .chocolat-img,
+.chocolat-fullscreen .chocolat-img {
+  margin-top: -1% !important;
 }
 
 .chocolat-img {
@@ -1987,6 +2007,16 @@ body.dark .chocolat-wrapper .chocolat-bottom {
 .dark .chocolat-img {
   box-shadow: 1px 1px 0 1px #000, -1px 0 28px #12121203, 14px 14px 14px #17171740;
   filter: none;
+}
+
+.chocolat-overlay.chocolat-visible ~ .chocolat-layout .chocolat-img,
+html.chocolat-fullscreen .chocolat-img {
+  box-shadow: -1.5px -1.5px 0 1.5px #f9f9fb,1.5px -1.5px 0 1.5px #f9f9fb,-1.5px 1.5px 0 1.5px #f9f9fb,1.5px 1.5px 0 1.5px #f9f9fb,-1px 0 28px #21201e03,14px 14px 14px #4d4d4d40;
+}
+
+.dark .chocolat-overlay.chocolat-visible ~ .chocolat-layout .chocolat-img,
+html.chocolat-fullscreen .dark .chocolat-img {
+  box-shadow: -1.5px -1.5px 0 1.5px #0a0a0a,1.5px -1.5px 0 1.5px #0a0a0a,-1.5px 1.5px 0 1.5px #0a0a0a,1.5px 1.5px 0 1.5px #0a0a0a,-1px 0 28px #12121203,14px 14px 14px #17171740;
 }
 
 .chocolat-in-container {
