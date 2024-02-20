@@ -15,7 +15,10 @@
             document.querySelectorAll(menuLinkTargSel + '[href*="forum.virtualmin.com"]'),
             document.querySelectorAll(postsLinksTargSel),
         ],
-        screenShotLinks = [document.querySelectorAll(postTargSel + ' [href*="/images/docs/"]')];
+        screenShotLinks = [document.querySelectorAll(postTargSel + ' [href*="/images/docs/"]')],
+        isMac = navigator.userAgent.includes("Mac"),
+        altKey = isMac ? "⌥" : "Alt",
+        concatKey = isMac ? " " : " + ";
 
     let themeToggleRef;
 
@@ -76,6 +79,13 @@
             pageHTML.dataset.nav = navMenu.offsetHeight > 10e1 ? "lg" : "sm";
         };
 
+    // Add event listener for Alt+T to toggle palette
+    document.addEventListener("keydown", function (e) {
+        if (e.altKey && e.code === "KeyT") {
+            (themeToggleRef = themeToggleRef || document.querySelector(themeToggleTargSel)).click();
+        }
+    });
+
     // On click open the menu
     hmenuLink.addEventListener("click", function () {
         var isHmenu = hmenuLink.querySelector(".hmenu-panel");
@@ -106,6 +116,10 @@
             (themeToggleRef = themeToggleRef || document.querySelector(themeToggleTargSel)),
                 (paletteLink = document.querySelector(hmenuDropDownPaletteTargSel));
             if (themeToggleRef && paletteLink) {
+                themeToggleRef.setAttribute(
+                    "title",
+                    "Switch Palette (" + altKey + concatKey + "T)"
+                );
                 paletteLink.appendChild(themeToggleRef);
             }
         }
@@ -115,10 +129,13 @@
     window.addEventListener("resize", function () {
         hmenuResize();
         menuHeightType();
-        
+
         // Browser in fullscreen mode (OS) or not?
         this.setTimeout(function () {
-            document.documentElement.setAttribute("data-fullscreen", screen.height === window.outerHeight && !document.fullscreenElement);
+            document.documentElement.setAttribute(
+                "data-fullscreen",
+                screen.height === window.outerHeight && !document.fullscreenElement
+            );
         }, 150);
     });
     window.dispatchEvent(new Event("resize"));
