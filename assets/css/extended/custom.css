@@ -1943,14 +1943,22 @@ a.screenshot-entry {
   left: 0;
 }
 
+.chocolat-image-wrapper {
+  cursor: zoom-in;
+}
+
+.chocolat-fullscreen .chocolat-image-wrapper {
+  cursor: zoom-out;
+}
+
 .chocolat-wrapper,
 .chocolat-overlay {
   background-color: var(--main-bg-overlay) !important;
 }
 .chocolat-fullscreen .chocolat-wrapper .screen-full-container,
 .chocolat-wrapper .chocolat-bottom .chocolat-fullscreen,
-html[data-fullscreen="false"]:not(.chocolat-fullscreen) .chocolat-close,
-html:not(.chocolat-fullscreen) .chocolat-close {
+html[data-fullscreen="false"]:not(.chocolat-fullscreen):not(.overflow-hidden) .chocolat-close,
+html:not(.chocolat-fullscreen):not(.overflow-hidden) .chocolat-close {
   display: none;
 }
 
