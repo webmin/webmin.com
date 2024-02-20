@@ -84,6 +84,12 @@
         if (e.altKey && e.code === "KeyT") {
             (themeToggleRef = themeToggleRef || document.querySelector(themeToggleTargSel)).click();
         }
+        if (e.altKey && e.code === "KeyF") {
+            const fullScreenToggle = document.querySelector(".chocolat-image-wrapper .screen-full-container > i");
+            if (fullScreenToggle) {
+                fullScreenToggle.click();
+            }
+        }
     });
 
     // On click open the menu

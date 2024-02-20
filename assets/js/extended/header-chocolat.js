@@ -1,7 +1,10 @@
 // Chocolat for screenshots page
 window.addEventListener("DOMContentLoaded", () => {
     // Add container
-    const chocolat_drop = document.createElement("div");
+    const chocolat_drop = document.createElement("div"),
+        isMac = navigator.userAgent.includes("Mac"),
+        altKey = isMac ? "⌥" : "Alt",
+        concatKey = isMac ? " " : " + ";
     chocolat_drop.classList.add("chocolat-drop");
     document.querySelector("body > .header").before(chocolat_drop);
 
@@ -451,7 +454,11 @@ window.addEventListener("DOMContentLoaded", () => {
             const fullscreenCont = document.createElement("div"),
                 fullscreenIcon = document.createElement("i");
             fullscreenCont.classList.add("screen-full-container");
-            fullscreenCont.setAttribute("aria-label", "Enter Full Screen");
+            fullscreenCont.setAttribute(
+                "aria-label",
+                "Enter Full Screen (" + altKey + concatKey + "F)"
+            );
+            fullscreenCont.setAttribute("title", "Enter Full Screen (" + altKey + concatKey + "F)");
             fullscreenIcon.classList.add("wm", "wm-sm", "wm-fw", "wm-expand");
             fullscreenCont.appendChild(fullscreenIcon);
             document.querySelector(".chocolat-image-wrapper").appendChild(fullscreenCont);
