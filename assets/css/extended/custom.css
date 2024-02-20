@@ -1943,11 +1943,11 @@ a.screenshot-entry {
   left: 0;
 }
 
-.chocolat-image-wrapper {
+.chocolat-image-wrapper:has(.screen-full-container) {
   cursor: zoom-in;
 }
 
-.chocolat-fullscreen .chocolat-image-wrapper {
+.chocolat-fullscreen .chocolat-image-wrapper:has(.screen-full-container) {
   cursor: zoom-out;
 }
 
