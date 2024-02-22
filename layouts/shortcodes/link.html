@@ -19,6 +19,8 @@
     {{ $classes = print $classes " btn-lg" }}
   {{ else if eq $value "rounded" }}
     {{ $classes = print $classes " btn-rounded" }}
+  {{ else if eq $value "block" }}
+    {{ $classes = print $classes " btn-block" }}
   {{ else if eq $value "blank" }}
     {{ $attributes = print " target=\"_blank\"" | safeHTMLAttr }}
   {{ end }}
