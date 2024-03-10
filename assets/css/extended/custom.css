@@ -204,8 +204,8 @@ body.chocolat-open header.disabled {
   z-index: 2;
 }
 
-body.chocolat-open .main.disabled .docs-menu a,
-body.chocolat-open .main.disabled .docs-toc {
+body.chocolat-open>.main.disabled .docs-menu a,
+body.chocolat-open>.main.disabled .docs-toc {
   filter: grayscale(1) opacity(0.75);
 }
 
@@ -1602,18 +1602,18 @@ a.btn {
 /* 
  * Content
  */
-.main {
+body > .main {
   z-index: 1;
 }
 
 @media screen and (min-width: 768px) {
-  html:not(.page-archives):not(.page-tags) .main {
+  html:not(.page-archives):not(.page-tags) body > .main {
     max-width: calc(var(--main-max-width) + var(--gap) * 2);
   }
 }
 
 @media screen and (min-width: 1151px) {
-  html[class*="page-docs"] .main {
+  html[class*="page-docs"] body > .main {
     min-width: calc(var(--main-min-width) + var(--gap) * 2) !important;
   }
 }
@@ -1626,7 +1626,7 @@ a.btn {
 }
 
 /* Tricky and lazy-dazy way but seems to work perfectly fine */
-.dark .main>article>.entry-footer>.social-icons {
+.dark>.main>article>.entry-footer>.social-icons {
   filter: invert(1) contrast(0.7)
 }
 
@@ -2228,14 +2228,14 @@ html[class*="page-docs"] a[href*="example.com"] {
   max-width: 15rem;
 }
 
-.main,
+body>.main,
 .docs-toc .docs-toc-content,
 .docs-menu .docs-menu-content {
   scrollbar-width: thin;
   overscroll-behavior: contain;
 }
 
-.main {
+body>.main {
   padding-bottom: calc(var(--gap) * 4);
 }
 
