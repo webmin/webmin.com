@@ -2224,11 +2224,6 @@ html[class*="page-docs"] a[href*="example.com"] {
   height: 86vh;
 }
 
-.docs-toc .docs-toc-content {
-  min-width: 14rem;
-  max-width: 15rem;
-}
-
 body>.main,
 .docs-toc .docs-toc-content,
 .docs-menu .docs-menu-content {
