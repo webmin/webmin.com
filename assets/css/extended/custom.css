@@ -78,6 +78,20 @@ html {
   scrollbar-width: thin;
 }
 
+html *:focus,
+html * {
+  outline: none;
+}
+
+html *:focus-visible {
+  outline: 2px solid var(--menu-border, var(--border));
+  outline-offset: -2px;
+}
+
+html .main *:focus-visible {
+  outline-color: var(--link);
+}
+
 html[data-nav="lg"] {
   scroll-padding-top: 140px;
 }
