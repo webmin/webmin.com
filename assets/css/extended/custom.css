@@ -558,7 +558,7 @@ body .logo .logo-switches {
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.51;
   border-radius: var(--radius);
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
