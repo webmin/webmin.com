@@ -322,7 +322,7 @@ body .logo .logo-switches {
 }
 
 .alert-primary a {
-  color: #004085;
+  color: #004085 !important;
 }
 
 .alert-secondary {
@@ -332,7 +332,7 @@ body .logo .logo-switches {
 }
 
 .alert-secondary a {
-  color: #383d41;
+  color: #383d41 !important;
 }
 
 .alert-success {
@@ -342,7 +342,7 @@ body .logo .logo-switches {
 }
 
 .alert-success a {
-  color: #155724;
+  color: #155724 !important;
 }
 
 .alert-danger {
@@ -352,7 +352,7 @@ body .logo .logo-switches {
 }
 
 .alert-danger a {
-  color: #721c24;
+  color: #721c24 !important;
 }
 
 .alert-warning {
@@ -362,7 +362,7 @@ body .logo .logo-switches {
 }
 
 .alert-warning a {
-  color: #856404;
+  color: #856404 !important;
 }
 
 .alert-info {
@@ -372,7 +372,7 @@ body .logo .logo-switches {
 }
 
 .alert-info a {
-  color: #0c5460;
+  color: #0c5460 !important;
 }
 
 .post-content .alert code {
