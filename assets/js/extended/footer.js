@@ -111,9 +111,17 @@
             location.href = "/";
         }
         // Slash or Alt+S to go to search page or focus
-        // search input if available (documentation page)
+        // search input if available (documentation page).
+        // If Shift key is held down and Slash key pressed,
+        // open the documentation page.
         if (e.code === "Slash" || (e.altKey && e.code === "KeyS")) {
             e.preventDefault();
+            // Shift key held down, representing the "?" key,
+            // so open the documentation page
+            if (e.shiftKey && !e.altKey) {
+                location.href = "/docs/";
+                return;
+            }
             const searchInput = document.querySelector("#searchInput");
             if (searchInput) {
                 searchInput.focus();
