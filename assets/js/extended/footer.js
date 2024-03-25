@@ -9,6 +9,7 @@
         postsLinksTargSel = ".main .post-content a",
         hmenuDropDownTargSel = ".hmenu-panel > .hmenu-drop-down",
         hmenuDropDownPaletteTargSel = hmenuDropDownTargSel + " .hmenu-link-button",
+        hmenuDropDownIconButtons = hmenuDropDownTargSel + " .hmenu-links button",
         hmenuLink = document.querySelector(menuLinkTargSel + ".dropdown-menu"),
         hmenuLinkText = hmenuLink.querySelector("span"),
         outerlinksAll = [
@@ -82,9 +83,11 @@
     // Add event listener for Alt+T to toggle palette
     document.addEventListener("keydown", function (e) {
         // Check first if no input or textarea is focused
-        if (document.activeElement.tagName === 'INPUT' ||
-            document.activeElement.tagName === 'TEXTAREA' ||
-            document.activeElement.contentEditable === 'true') {
+        if (
+            document.activeElement.tagName === "INPUT" ||
+            document.activeElement.tagName === "TEXTAREA" ||
+            document.activeElement.contentEditable === "true"
+        ) {
             return;
         }
         // Alt+T to toggle palette
@@ -94,7 +97,9 @@
         }
         // Alt+F to toggle fullscreen for images (if available)
         if (e.altKey && e.code === "KeyF") {
-            const fullScreenToggle = document.querySelector(".chocolat-image-wrapper .screen-full-container > i");
+            const fullScreenToggle = document.querySelector(
+                ".chocolat-image-wrapper .screen-full-container > i"
+            );
             e.preventDefault();
             if (fullScreenToggle) {
                 fullScreenToggle.click();
@@ -103,17 +108,17 @@
         // Alt+H to go to homepage
         if (e.altKey && e.code === "KeyH") {
             e.preventDefault();
-            location.href = '/';
+            location.href = "/";
         }
         // Slash or Alt+S to go to search page or focus
         // search input if available (documentation page)
-        if (e.code === "Slash" || e.altKey && e.code === "KeyS") {
+        if (e.code === "Slash" || (e.altKey && e.code === "KeyS")) {
             e.preventDefault();
             const searchInput = document.querySelector("#searchInput");
             if (searchInput) {
                 searchInput.focus();
             } else {
-                this.location.href = '/search/';
+                this.location.href = "/search/";
             }
         }
     });
@@ -154,6 +159,19 @@
                 );
                 paletteLink.appendChild(themeToggleRef);
             }
+
+            // Dynamically update title with hotkey of all buttons with data-hotkey attribute
+            document.querySelectorAll(hmenuDropDownIconButtons).forEach((btn) => {
+                const hotkey = btn.getAttribute("data-hotkey");
+                if (hotkey) {
+                    btn.setAttribute(
+                        "title",
+                        `${btn.getAttribute(
+                            "data-title"
+                        )} (${altKey}${concatKey}${hotkey.toUpperCase()})`
+                    );
+                }
+            });
         }
     });
 
