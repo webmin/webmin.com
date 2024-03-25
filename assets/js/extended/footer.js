@@ -81,6 +81,12 @@
 
     // Add event listener for Alt+T to toggle palette
     document.addEventListener("keydown", function (e) {
+        // Check first if no input or textarea is focused
+        if (document.activeElement.tagName === 'INPUT' ||
+            document.activeElement.tagName === 'TEXTAREA' ||
+            document.activeElement.contentEditable === 'true') {
+            return;
+        }
         // Alt+T to toggle palette
         if (e.altKey && e.code === "KeyT") {
             e.preventDefault();
@@ -92,6 +98,22 @@
             e.preventDefault();
             if (fullScreenToggle) {
                 fullScreenToggle.click();
+            }
+        }
+        // Alt+H to go to homepage
+        if (e.altKey && e.code === "KeyH") {
+            e.preventDefault();
+            location.href = '/';
+        }
+        // Slash or Alt+S to go to search page or focus
+        // search input if available (documentation page)
+        if (e.code === "Slash" || e.altKey && e.code === "KeyS") {
+            e.preventDefault();
+            const searchInput = document.querySelector("#searchInput");
+            if (searchInput) {
+                searchInput.focus();
+            } else {
+                this.location.href = '/search/';
             }
         }
     });
