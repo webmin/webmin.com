@@ -81,10 +81,12 @@
 
     // Add event listener for Alt+T to toggle palette
     document.addEventListener("keydown", function (e) {
+        // Alt+T to toggle palette
         if (e.altKey && e.code === "KeyT") {
             e.preventDefault();
             (themeToggleRef = themeToggleRef || document.querySelector(themeToggleTargSel)).click();
         }
+        // Alt+F to toggle fullscreen for images (if available)
         if (e.altKey && e.code === "KeyF") {
             const fullScreenToggle = document.querySelector(".chocolat-image-wrapper .screen-full-container > i");
             e.preventDefault();
