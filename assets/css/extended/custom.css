@@ -34,6 +34,10 @@
   --chocolat-icon-right: url("data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 32 32%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22%3E    %3Ccircle cx%3D%2216%22 cy%3D%2216%22 r%3D%2216%22 fill-opacity%3D%22.51%22%2F%3E    %3Cpath d%3D%22m16.7 11.3 4.6 4.7-4.6 4.7M9.3 16h12%22 fill%3D%22none%22 stroke%3D%22%23fff%22 stroke-width%3D%222.8%22%2F%3E%3C%2Fsvg%3E") !important;
   --chocolat-icon-close: url("data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox%3D%220 0 32 32%22 stroke-linecap%3D%22round%22%3E    %3Ccircle cx%3D%2216%22 cy%3D%2216%22 r%3D%2216%22 fill-opacity%3D%22.51%22%2F%3E    %3Cpath d%3D%22m12 12 8 8m0-8-8 8%22 fill%3D%22none%22 stroke%3D%22%23fff%22 stroke-width%3D%222.8%22%2F%3E%3C%2Fsvg%3E") !important;
   --chocolat-icon-loader: url("data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width%3D%2238%22 height%3D%2238%22%3E  %3Cg transform%3D%22translate(1 1)%22 stroke-width%3D%222.51%22 fill%3D%22none%22 fill-rule%3D%22evenodd%22%3E    %3Ccircle stroke-opacity%3D%22.42%22 stroke%3D%22%23000%22 cx%3D%2218%22 cy%3D%2218%22 r%3D%2218%22%2F%3E    %3Cpath d%3D%22M36 18C36 8 28 0 18 0%22 stroke%3D%22%23fff%22%3E      %3CanimateTransform attributeName%3D%22transform%22 type%3D%22rotate%22 from%3D%220 18 18%22 to%3D%22360 18 18%22 dur%3D%221s%22 repeatCount%3D%22indefinite%22%2F%3E    %3C%2Fpath%3E  %3C%2Fg%3E%3C%2Fsvg%3E") !important;
+
+  .main {
+    --border: rgb(214, 214, 214);
+  }
 }
 
 .dark {
@@ -58,7 +62,11 @@
   --primary-strong: rgb(243, 243, 244);
   --primary-soft: rgba(30, 30, 30, .9);
 
-  --chocolat-icon-loader: url("data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width%3D%2238%22 height%3D%2238%22%3E  %3Cg transform%3D%22translate(1 1)%22 stroke-width%3D%222.51%22 fill%3D%22none%22 fill-rule%3D%22evenodd%22%3E    %3Ccircle stroke-opacity%3D%22.6%22 stroke%3D%22%23000%22 cx%3D%2218%22 cy%3D%2218%22 r%3D%2218%22%2F%3E    %3Cpath d%3D%22M36 18C36 8 28 0 18 0%22 stroke%3D%22%23fff%22%3E      %3CanimateTransform attributeName%3D%22transform%22 type%3D%22rotate%22 from%3D%220 18 18%22 to%3D%22360 18 18%22 dur%3D%221s%22 repeatCount%3D%22indefinite%22%2F%3E    %3C%2Fpath%3E  %3C%2Fg%3E%3C%2Fsvg%3E") !important
+  --chocolat-icon-loader: url("data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width%3D%2238%22 height%3D%2238%22%3E  %3Cg transform%3D%22translate(1 1)%22 stroke-width%3D%222.51%22 fill%3D%22none%22 fill-rule%3D%22evenodd%22%3E    %3Ccircle stroke-opacity%3D%22.6%22 stroke%3D%22%23000%22 cx%3D%2218%22 cy%3D%2218%22 r%3D%2218%22%2F%3E    %3Cpath d%3D%22M36 18C36 8 28 0 18 0%22 stroke%3D%22%23fff%22%3E      %3CanimateTransform attributeName%3D%22transform%22 type%3D%22rotate%22 from%3D%220 18 18%22 to%3D%22360 18 18%22 dur%3D%221s%22 repeatCount%3D%22indefinite%22%2F%3E    %3C%2Fpath%3E  %3C%2Fg%3E%3C%2Fsvg%3E") !important;
+
+  .main {
+    --border: rgb(63, 63, 63);
+  }
 }
 
 /* Custom built (fortawesome) tiny fontpack with icons */
