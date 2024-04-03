@@ -152,6 +152,7 @@ strong code {
 }
 
 .page-tags .page-header>h1,
+.page-changelog .page-header>h1,
 .page-archives .page-header>h1,
 .page-search .page-header>h1,
 .post-title {
@@ -1632,8 +1633,14 @@ body > .main {
 }
 
 @media screen and (min-width: 768px) {
-  html:not(.page-archives):not(.page-tags) body > .main {
+  html body > .main {
     max-width: calc(var(--main-max-width) + var(--gap) * 2);
+  }
+
+  html.page-changelog body > .main,
+  html.page-archives body > .main,
+  html.page-tags body > .main {
+    max-width: calc(720px + var(--gap) * 2);
   }
 }
 
