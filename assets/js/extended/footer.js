@@ -238,6 +238,10 @@
                     if (outerlink.target !== "_self") {
                         outerlink.setAttribute("target", "_blank");
                     }
+                    // Forum link needs to have special handling
+                    if (!outerlink.getAttribute("onclick") && outerlink.href.includes("forum.virtualmin.com")) {
+                        outerlink.setAttribute("onclick", "themeLink(event, this)");
+                    }
                 }
             });
         }

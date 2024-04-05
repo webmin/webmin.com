@@ -19,3 +19,23 @@ const isVisibleInContainer = (elem, container) => {
         elemRect.right <= containerRect.right
     );
 };
+
+const themeLink = function (event, element) {
+    // Prevent the default link behavior
+    event.preventDefault();
+
+    // Check if the body has the class 'dark'
+    const theme = document.body.classList.contains("dark") ? "dark" : "light",
+
+    // Modify the link based on the theme
+    newHref = element.href + "?theme=" + theme;
+
+    // Check if the link is meant to be opened in a new window/tab
+    if (element.target === "_blank") {
+        // Open in a new tab
+        window.open(newHref, "_blank");
+    } else {
+        // Navigate in the current tab
+        window.location.href = newHref;
+    }
+};
