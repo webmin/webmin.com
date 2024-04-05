@@ -19,6 +19,16 @@
 {{- else }}
 {{- /* theme is auto */}}
 <script>
+    try {
+        const url = new URL(window.location.href),
+              params = url.searchParams;
+        if (params.has('theme')) {
+            const theme = params.get('theme');
+            if (theme === 'dark' || theme === 'light') {
+                localStorage.setItem("pref-theme", theme);
+            }
+        }
+    } catch (error) {}
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
     } else if (localStorage.getItem("pref-theme") === "light") {
