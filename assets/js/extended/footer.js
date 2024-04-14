@@ -87,7 +87,8 @@
             document.activeElement.tagName === "INPUT" ||
             document.activeElement.tagName === "TEXTAREA" ||
             document.activeElement.contentEditable === "true" ||
-            e.ctrlKey || e.metaKey
+            e.ctrlKey ||
+            e.metaKey
         ) {
             return;
         }
@@ -371,36 +372,6 @@
         element.removeAttribute("title");
     });
 
-    // Implement the top bouncy loader on each link click
-    const links = document.querySelectorAll("a");
-    links.forEach(function (link) {
-        if (
-            link.href &&
-            !link.href.startsWith("mailto:") &&
-            !link.href.startsWith("#") &&
-            !link.href.startsWith("javascript:")
-        ) {
-            link.addEventListener("click", function () {
-                progress.end();
-                progress.start();
-            });
-        }
-    });
-    
-    // Implement the top bouncy loader on each form submit
-    const forms = document.querySelectorAll("form");
-    forms.forEach(function (form) {
-        form.addEventListener("submit", function () {
-            progress.end();
-            progress.start();
-        });
-    });
-
-    // On history back force-remove loader
-    window.addEventListener("popstate", function () {
-        progress.end();
-    });
-
     // Progress bouncy top bar
     const progress = {
         target: "body",
@@ -421,4 +392,39 @@
             }
         },
     };
+
+    // Implement the top bouncy loader on each link click
+    const links = document.querySelectorAll("a");
+    links.forEach(function (link) {
+        if (
+            link.href &&
+            !link.href.startsWith("mailto:") &&
+            !link.href.startsWith("#") &&
+            !link.href.startsWith("javascript:")
+        ) {
+            link.addEventListener("click", function () {
+                progress.end();
+                progress.start();
+            });
+        }
+    });
+
+    // Implement the top bouncy loader on each form submit
+    const forms = document.querySelectorAll("form");
+    forms.forEach(function (form) {
+        form.addEventListener("submit", function () {
+            progress.end();
+            progress.start();
+        });
+    });
+
+    // On page accessed via back/forward button
+    try {
+        if (
+            window.performance &&
+            window.performance.getEntriesByType("navigation")[0].type === "back_forward"
+        ) {
+            progress.end();
+        }
+    } catch (e) {}
 })();
