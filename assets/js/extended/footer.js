@@ -386,6 +386,15 @@
             });
         }
     });
+    
+    // Implement the top bouncy loader on each form submit
+    const forms = document.querySelectorAll("form");
+    forms.forEach(function (form) {
+        form.addEventListener("submit", function () {
+            progress.end();
+            progress.start();
+        });
+    });
 
     // Progress bouncy top bar
     const progress = {
