@@ -426,7 +426,16 @@
         ) {
             setTimeout(function () {
                 progress.end();
-            }, 333);
+            }, 1);
         }
     } catch (e) {}
+
+    // On page loaded from BFCache (Back-Forward Cache)
+    window.addEventListener("pageshow", function (event) {
+        if (event.persisted) {
+            setTimeout(function () {
+                progress.end();
+            }, 1);
+        }
+    });
 })();
