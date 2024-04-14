@@ -239,7 +239,10 @@
                         outerlink.setAttribute("target", "_blank");
                     }
                     // Forum link needs to have special handling
-                    if (!outerlink.getAttribute("onclick") && outerlink.href.includes("forum.virtualmin.com")) {
+                    if (
+                        !outerlink.getAttribute("onclick") &&
+                        outerlink.href.includes("forum.virtualmin.com")
+                    ) {
                         outerlink.setAttribute("onclick", "themeLink(event, this)");
                     }
                 }
@@ -367,4 +370,41 @@
         element.removeAttribute("accesskey");
         element.removeAttribute("title");
     });
+
+    // Implement the top bouncy loader on each link click
+    const links = document.querySelectorAll("a");
+    links.forEach(function (link) {
+        if (
+            link.href &&
+            !link.href.startsWith("mailto:") &&
+            !link.href.startsWith("#") &&
+            !link.href.startsWith("javascript:")
+        ) {
+            link.addEventListener("click", function () {
+                progress.end();
+                progress.start();
+            });
+        }
+    });
+
+    // Progress bouncy top bar
+    const progress = {
+        target: "body",
+        element: "progress-bouncy",
+        start: function () {
+            const targetEl = document.querySelector(this.target);
+            if (!targetEl.querySelector("." + this.element)) {
+                const div = document.createElement("div");
+                div.className = this.element;
+                targetEl.appendChild(div);
+            }
+        },
+        end: function () {
+            const targetEl = document.querySelector(this.target),
+                elementToRemove = targetEl.querySelector("." + this.element);
+            if (elementToRemove) {
+                targetEl.removeChild(elementToRemove);
+            }
+        },
+    };
 })();
