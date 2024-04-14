@@ -396,6 +396,11 @@
         });
     });
 
+    // On history back force-remove loader
+    window.addEventListener("popstate", function () {
+        progress.end();
+    });
+
     // Progress bouncy top bar
     const progress = {
         target: "body",
