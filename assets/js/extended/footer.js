@@ -424,7 +424,9 @@
             window.performance &&
             window.performance.getEntriesByType("navigation")[0].type === "back_forward"
         ) {
-            progress.end();
+            setTimeout(function () {
+                progress.end();
+            }, 333);
         }
     } catch (e) {}
 })();
