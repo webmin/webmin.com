@@ -2582,3 +2582,68 @@ body>.main {
 /*
  * DOCS. End. 
  */
+
+/*
+ * Top progress. Start.
+ */
+.progress-bouncy {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+
+  overflow: hidden;
+
+  width: 100%;
+  height: 3px;
+
+  background-color: transparent;
+}
+
+.progress-bouncy:before {
+  position: absolute;
+
+  display: block;
+
+  height: 3px;
+
+  content: '';
+  animation: bouncy 4s forwards, taswing 4s forwards infinite;
+  animation-delay: 0s, 4s;
+
+  background-color: #dc143c;
+}
+
+.dark .progress-bouncy:before {
+  background-color: #7f9edb;
+}
+
+@keyframes bouncy {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes taswing {
+  0% {
+    left: 0;
+  }
+
+  25% {
+    left: 100%;
+  }
+
+  75% {
+    left: -100%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+/*
+ * Top progress. End.
+ */

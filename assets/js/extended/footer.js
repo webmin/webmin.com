@@ -87,7 +87,8 @@
             document.activeElement.tagName === "INPUT" ||
             document.activeElement.tagName === "TEXTAREA" ||
             document.activeElement.contentEditable === "true" ||
-            e.ctrlKey || e.metaKey
+            e.ctrlKey ||
+            e.metaKey
         ) {
             return;
         }
@@ -239,7 +240,10 @@
                         outerlink.setAttribute("target", "_blank");
                     }
                     // Forum link needs to have special handling
-                    if (!outerlink.getAttribute("onclick") && outerlink.href.includes("forum.virtualmin.com")) {
+                    if (
+                        !outerlink.getAttribute("onclick") &&
+                        outerlink.href.includes("forum.virtualmin.com")
+                    ) {
                         outerlink.setAttribute("onclick", "themeLink(event, this)");
                     }
                 }
@@ -366,5 +370,72 @@
     elementsWithAccessKey.forEach(function (element) {
         element.removeAttribute("accesskey");
         element.removeAttribute("title");
+    });
+
+    // Progress bouncy top bar
+    const progress = {
+        target: "body",
+        element: "progress-bouncy",
+        start: function () {
+            const targetEl = document.querySelector(this.target);
+            if (!targetEl.querySelector("." + this.element)) {
+                const div = document.createElement("div");
+                div.className = this.element;
+                targetEl.appendChild(div);
+            }
+        },
+        end: function () {
+            const targetEl = document.querySelector(this.target),
+                elementToRemove = targetEl.querySelector("." + this.element);
+            if (elementToRemove) {
+                targetEl.removeChild(elementToRemove);
+            }
+        },
+    };
+
+    // Implement the top bouncy loader on each link click
+    const links = document.querySelectorAll("a");
+    links.forEach(function (link) {
+        if (
+            link.href &&
+            !link.href.startsWith("mailto:") &&
+            !link.href.startsWith("#") &&
+            !link.href.startsWith("javascript:")
+        ) {
+            link.addEventListener("click", function () {
+                progress.end();
+                progress.start();
+            });
+        }
+    });
+
+    // Implement the top bouncy loader on each form submit
+    const forms = document.querySelectorAll("form");
+    forms.forEach(function (form) {
+        form.addEventListener("submit", function () {
+            progress.end();
+            progress.start();
+        });
+    });
+
+    // On page accessed via back/forward button
+    try {
+        if (
+            window.performance &&
+            window.performance.getEntriesByType("navigation")[0].type === "back_forward"
+        ) {
+            setTimeout(function () {
+                progress.end();
+            }, 1);
+        }
+    } catch (e) {}
+
+    // On page loaded from BFCache (Back-Forward Cache)
+    window.addEventListener("pageshow", function (event) {
+        if (event.persisted) {
+            setTimeout(function () {
+                progress.end();
+            }, 1);
+        }
     });
 })();
