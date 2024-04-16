@@ -244,7 +244,7 @@
                         !outerlink.getAttribute("onclick") &&
                         outerlink.href.includes("forum.virtualmin.com")
                     ) {
-                        outerlink.setAttribute("onclick", "themeLink(event, this)");
+                        outerlink.setAttribute("onclick", "__.themeLink(event, this)");
                     }
                 }
             });
@@ -372,27 +372,6 @@
         element.removeAttribute("title");
     });
 
-    // Progress bouncy top bar
-    const progress = {
-        target: "body",
-        element: "progress-bouncy",
-        start: function () {
-            const targetEl = document.querySelector(this.target);
-            if (!targetEl.querySelector("." + this.element)) {
-                const div = document.createElement("div");
-                div.className = this.element;
-                targetEl.appendChild(div);
-            }
-        },
-        end: function () {
-            const targetEl = document.querySelector(this.target),
-                elementToRemove = targetEl.querySelector("." + this.element);
-            if (elementToRemove) {
-                targetEl.removeChild(elementToRemove);
-            }
-        },
-    };
-
     // Implement the top bouncy loader on each link click
     const links = document.querySelectorAll("a");
     links.forEach(function (link) {
@@ -403,8 +382,8 @@
             !link.href.startsWith("javascript:")
         ) {
             link.addEventListener("click", function () {
-                progress.end();
-                progress.start();
+                __.themeProgress.end();
+                __.themeProgress.start();
             });
         }
     });
@@ -413,8 +392,8 @@
     const forms = document.querySelectorAll("form");
     forms.forEach(function (form) {
         form.addEventListener("submit", function () {
-            progress.end();
-            progress.start();
+            __.themeProgress.end();
+            __.themeProgress.start();
         });
     });
 
@@ -425,7 +404,7 @@
             window.performance.getEntriesByType("navigation")[0].type === "back_forward"
         ) {
             setTimeout(function () {
-                progress.end();
+                __.themeProgress.end();
             }, 1);
         }
     } catch (e) {}
@@ -434,7 +413,7 @@
     window.addEventListener("pageshow", function (event) {
         if (event.persisted) {
             setTimeout(function () {
-                progress.end();
+                __.themeProgress.end();
             }, 1);
         }
     });

@@ -103,7 +103,7 @@
                             if (lastLabelElem) {
                                 $this.scrollLastElem = window.setTimeout(
                                     function () {
-                                        const isVisibleElem = isVisibleInContainer(
+                                        const isVisibleElem = __.isVisibleInContainer(
                                             lastLabelElem,
                                             labelTarget
                                         );

@@ -36,7 +36,7 @@
     closestDetails && closestDetails.closest("details").setAttribute("open", "open");
     if (
         closestDetails &&
-        !isVisibleInContainer(closestDetails, document.querySelector(".docs-menu-content"))
+        !__.isVisibleInContainer(closestDetails, document.querySelector(".docs-menu-content"))
     ) {
         scrollToElementInContainer(closestDetails, document.querySelector(containerSelector));
     }
