@@ -193,6 +193,7 @@
                     if (
                         (link.href &&
                             link.href.includes(location.hostname) &&
+                            link.target !== '_blank' &&
                             !link.href.startsWith("#") &&
                             !link.href.startsWith("javascript:")) ||
                         link.getAttribute("onclick")
@@ -400,6 +401,7 @@
             if (
                 link.href &&
                 link.href.includes(location.hostname) &&
+                link.target !== '_blank' &&
                 !link.href.startsWith("mailto:") &&
                 !link.href.startsWith("#") &&
                 !link.href.startsWith("javascript:")
