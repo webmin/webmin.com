@@ -192,7 +192,7 @@
                 .forEach(function (link) {
                     if (
                         (link.href &&
-                            link.href.includes(location.host) &&
+                            link.href.includes(location.hostname) &&
                             !link.href.startsWith("#") &&
                             !link.href.startsWith("javascript:")) ||
                         link.getAttribute("onclick")
@@ -399,7 +399,7 @@
         document.querySelectorAll("a").forEach(function (link) {
             if (
                 link.href &&
-                link.href.includes(location.host) &&
+                link.href.includes(location.hostname) &&
                 !link.href.startsWith("mailto:") &&
                 !link.href.startsWith("#") &&
                 !link.href.startsWith("javascript:")
