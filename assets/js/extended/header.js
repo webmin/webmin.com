@@ -44,7 +44,7 @@ __.themeLink = function (event, element) {
 };
 
 __.themeProgress = {
-    target: "body",
+    target: "body > .header",
     element: "progress-bouncy",
     start: function () {
         const targetEl = document.querySelector(this.target);
