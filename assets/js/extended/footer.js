@@ -182,6 +182,24 @@
                     );
                 }
             });
+
+            document
+                .querySelectorAll(
+                    hmenuDropDownTargSel + " a, " + hmenuDropDownTargSel + " button[onclick]"
+                )
+                .forEach(function (link) {
+                    if (
+                        link.href &&
+                        link.href.includes(location.host) &&
+                        !link.href.startsWith("#") &&
+                        !link.href.startsWith("javascript:")
+                    ) {
+                        link.addEventListener("click", function () {
+                            __.themeProgress.end();
+                            __.themeProgress.start();
+                        });
+                    }
+                });
         }
     });
 
@@ -372,49 +390,52 @@
         element.removeAttribute("title");
     });
 
-    // Implement the top bouncy loader on each link click
-    const links = document.querySelectorAll("a");
-    links.forEach(function (link) {
-        if (
-            link.href &&
-            !link.href.startsWith("mailto:") &&
-            !link.href.startsWith("#") &&
-            !link.href.startsWith("javascript:")
-        ) {
-            link.addEventListener("click", function () {
+    // Wait for DOM ready to include footer
+    document.addEventListener("DOMContentLoaded", function () {
+        // Implement the top bouncy loader on each link click
+        document.querySelectorAll("a").forEach(function (link) {
+            if (
+                link.href &&
+                link.href.includes(location.host) &&
+                !link.href.startsWith("mailto:") &&
+                !link.href.startsWith("#") &&
+                !link.href.startsWith("javascript:")
+            ) {
+                link.addEventListener("click", function () {
+                    __.themeProgress.end();
+                    __.themeProgress.start();
+                });
+            }
+        });
+
+        // Implement the top bouncy loader on each form submit
+        const forms = document.querySelectorAll("form");
+        forms.forEach(function (form) {
+            form.addEventListener("submit", function () {
                 __.themeProgress.end();
                 __.themeProgress.start();
             });
-        }
-    });
-
-    // Implement the top bouncy loader on each form submit
-    const forms = document.querySelectorAll("form");
-    forms.forEach(function (form) {
-        form.addEventListener("submit", function () {
-            __.themeProgress.end();
-            __.themeProgress.start();
         });
-    });
 
-    // On page accessed via back/forward button
-    try {
-        if (
-            window.performance &&
-            window.performance.getEntriesByType("navigation")[0].type === "back_forward"
-        ) {
-            setTimeout(function () {
-                __.themeProgress.end();
-            }, 1);
-        }
-    } catch (e) {}
+        // On page accessed via back/forward button
+        try {
+            if (
+                window.performance &&
+                window.performance.getEntriesByType("navigation")[0].type === "back_forward"
+            ) {
+                setTimeout(function () {
+                    __.themeProgress.end();
+                }, 1);
+            }
+        } catch (e) {}
 
-    // On page loaded from BFCache (Back-Forward Cache)
-    window.addEventListener("pageshow", function (event) {
-        if (event.persisted) {
-            setTimeout(function () {
-                __.themeProgress.end();
-            }, 1);
-        }
+        // On page loaded from BFCache (Back-Forward Cache)
+        window.addEventListener("pageshow", function (event) {
+            if (event.persisted) {
+                setTimeout(function () {
+                    __.themeProgress.end();
+                }, 1);
+            }
+        });
     });
 })();
