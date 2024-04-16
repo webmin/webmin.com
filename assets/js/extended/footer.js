@@ -193,12 +193,25 @@
                     if (
                         (link.href &&
                             link.href.includes(location.hostname) &&
-                            link.target !== '_blank' &&
+                            link.target !== "_blank" &&
                             !link.href.startsWith("#") &&
                             !link.href.startsWith("javascript:")) ||
                         link.getAttribute("onclick")
                     ) {
-                        link.addEventListener("click", function () {
+                        link.addEventListener("click", function (event) {
+                            // Skip if it's the same page, and just a hash change
+                            if (link.tagName === "A") {
+                                const targetUrl = new URL(link.href);
+                                if (targetUrl.hash) {
+                                    const currentUrl = new URL(window.location.href);
+                                    // Normalize URLs by removing any hash
+                                    targetUrl.hash = "";
+                                    currentUrl.hash = "";
+                                    if (targetUrl.toString() === currentUrl.toString()) {
+                                        return;
+                                    }
+                                }
+                            }
                             __.themeProgress.end();
                             __.themeProgress.start();
                         });
@@ -401,12 +414,25 @@
             if (
                 link.href &&
                 link.href.includes(location.hostname) &&
-                link.target !== '_blank' &&
+                link.target !== "_blank" &&
                 !link.href.startsWith("mailto:") &&
                 !link.href.startsWith("#") &&
                 !link.href.startsWith("javascript:")
             ) {
-                link.addEventListener("click", function () {
+                link.addEventListener("click", function (event) {
+                    // Skip if it's the same page, and just a hash change
+                    if (link.tagName === "A") {
+                        const targetUrl = new URL(link.href);
+                        if (targetUrl.hash) {
+                            const currentUrl = new URL(window.location.href);
+                            // Normalize URLs by removing any hash
+                            targetUrl.hash = "";
+                            currentUrl.hash = "";
+                            if (targetUrl.toString() === currentUrl.toString()) {
+                                return;
+                            }
+                        }
+                    }
                     __.themeProgress.end();
                     __.themeProgress.start();
                 });
