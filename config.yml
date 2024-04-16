@@ -4,6 +4,13 @@ languageCode: en-us
 title: Webmin
 theme: PaperMod
 
+module:
+  mounts:
+  - source: layouts
+    target: layouts
+  - source: ../webmin.com/layouts/docs/list.html
+    target: layouts/docs/single.html
+
 canonifyURLs: true
 
 menu:
