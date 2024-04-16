@@ -3,7 +3,7 @@ title: "Webmin 2.111 released"
 date: 2024-04-16
 tags: ["changelog", "webmin-changelog"]
 ---
-* Fix EOL detection for unreleased Linux distributions
+* Fix EOL detection for unreleased Linux distributions [#2121](https://github.com/webmin/webmin/issues/2121)
 
 ---
 
