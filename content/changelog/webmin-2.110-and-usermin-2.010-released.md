@@ -1,6 +1,6 @@
 ---
 title: "Webmin 2.110 and Usermin 2.010 released"
-date: 2024-04-16
+date: 2024-04-15
 tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 ---
 * Add an API to check if the system is running or approaching its end of life (EOL)
@@ -22,8 +22,8 @@ tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 | File                       | Size | File                       | Size |
 | -------------------------- | -----| -------------------------- | ---- |
 | **Webmin**                 |      | **Usermin**                |      |
-|[webmin-2.110-1.noarch.rpm](https://github.com/webmin/webmin/releases/download/2.110/webmin-2.110-1.noarch.rpm) | 41.0 MB | [usermin-2.010-1.noarch.rpm](https://github.com/webmin/usermin/releases/download/2.010/usermin-2.010-1.noarch.rpm)    | 16.3 MB |
-|[webmin_2.110_all.deb](https://github.com/webmin/webmin/releases/download/2.110/webmin_2.110_all.deb)           | 33.7 MB | [usermin-2.010_all.deb](https://github.com/webmin/usermin/releases/download/2.010/usermin_2.010_all.deb)              | 11.8 MB |
-|[webmin-2.110.pkg.gz](https://github.com/webmin/webmin/releases/download/2.110/webmin-2.110.pkg.gz)             | 45.9 MB | [usermin-2.010.tar.gz](https://github.com/webmin/usermin/releases/download/2.010/usermin-2.010.tar.gz)                | 18.3 MB |
-|[webmin-2.110.tar.gz](https://github.com/webmin/webmin/releases/download/2.110/webmin-2.110.tar.gz)             | 46.5 MB | | |
-|[webmin-2.110-minimal.tar.gz](https://github.com/webmin/webmin/releases/download/2.110/webmin-2.110-minimal.tar.gz) | 4.7 MB | |
+|[webmin-2.110-1.noarch.rpm](https://github.com/webmin/webmin/releases/download/2.110/webmin-2.110-1.noarch.rpm) | 39.1 MB | [usermin-2.010-1.noarch.rpm](https://github.com/webmin/usermin/releases/download/2.010/usermin-2.010-1.noarch.rpm)    | 15.6 MB |
+|[webmin_2.110_all.deb](https://github.com/webmin/webmin/releases/download/2.110/webmin_2.110_all.deb)           | 32.2 MB | [usermin-2.010_all.deb](https://github.com/webmin/usermin/releases/download/2.010/usermin_2.010_all.deb)              | 11.3 MB |
+|[webmin-2.110.pkg.gz](https://github.com/webmin/webmin/releases/download/2.110/webmin-2.110.pkg.gz)             | 43.8 MB | [usermin-2.010.tar.gz](https://github.com/webmin/usermin/releases/download/2.010/usermin-2.010.tar.gz)                | 17.5 MB |
+|[webmin-2.110.tar.gz](https://github.com/webmin/webmin/releases/download/2.110/webmin-2.110.tar.gz)             | 44.4 MB | | |
+|[webmin-2.110-minimal.tar.gz](https://github.com/webmin/webmin/releases/download/2.110/webmin-2.110-minimal.tar.gz) | 4.45 MB | |
