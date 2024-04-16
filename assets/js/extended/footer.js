@@ -183,16 +183,19 @@
                 }
             });
 
+            // Add event listener to dropdown links and
+            // buttons to trigger theme progress
             document
                 .querySelectorAll(
-                    hmenuDropDownTargSel + " a, " + hmenuDropDownTargSel + " button[onclick]"
+                    hmenuDropDownTargSel + " a, " + hmenuDropDownIconButtons + "[onclick]"
                 )
                 .forEach(function (link) {
                     if (
-                        link.href &&
-                        link.href.includes(location.host) &&
-                        !link.href.startsWith("#") &&
-                        !link.href.startsWith("javascript:")
+                        (link.href &&
+                            link.href.includes(location.host) &&
+                            !link.href.startsWith("#") &&
+                            !link.href.startsWith("javascript:")) ||
+                        link.getAttribute("onclick")
                     ) {
                         link.addEventListener("click", function () {
                             __.themeProgress.end();
