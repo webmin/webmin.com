@@ -1,5 +1,8 @@
 /* jshint esversion: 6 */
-const isVisibleInContainer = (elem, container) => {
+if (!window.__) {
+    __ = {};
+}
+__.isVisibleInContainer = (elem, container) => {
     if (!(elem instanceof Element) || !(container instanceof Element)) return false;
 
     // Check for CSS visibility
@@ -20,7 +23,7 @@ const isVisibleInContainer = (elem, container) => {
     );
 };
 
-const themeLink = function (event, element) {
+__.themeLink = function (event, element) {
     // Prevent the default link behavior
     event.preventDefault();
 
@@ -38,4 +41,24 @@ const themeLink = function (event, element) {
         // Navigate in the current tab
         window.location.href = newHref;
     }
+};
+
+__.themeProgress = {
+    target: "body > .header",
+    element: "progress-bouncy",
+    start: function () {
+        const targetEl = document.querySelector(this.target);
+        if (!targetEl.querySelector("." + this.element)) {
+            const div = document.createElement("div");
+            div.className = this.element;
+            targetEl.appendChild(div);
+        }
+    },
+    end: function () {
+        const targetEl = document.querySelector(this.target),
+            elementToRemove = targetEl.querySelector("." + this.element);
+        if (elementToRemove) {
+            targetEl.removeChild(elementToRemove);
+        }
+    },
 };

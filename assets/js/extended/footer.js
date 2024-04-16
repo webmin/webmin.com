@@ -182,6 +182,27 @@
                     );
                 }
             });
+
+            // Add event listener to dropdown links and
+            // buttons to trigger theme progress
+            document
+                .querySelectorAll(
+                    hmenuDropDownTargSel + " a, " + hmenuDropDownIconButtons + "[onclick]"
+                )
+                .forEach(function (link) {
+                    if (
+                        (link.href &&
+                            link.href.includes(location.hostname) &&
+                            !link.href.startsWith("#") &&
+                            !link.href.startsWith("javascript:")) ||
+                        link.getAttribute("onclick")
+                    ) {
+                        link.addEventListener("click", function () {
+                            __.themeProgress.end();
+                            __.themeProgress.start();
+                        });
+                    }
+                });
         }
     });
 
@@ -244,7 +265,7 @@
                         !outerlink.getAttribute("onclick") &&
                         outerlink.href.includes("forum.virtualmin.com")
                     ) {
-                        outerlink.setAttribute("onclick", "themeLink(event, this)");
+                        outerlink.setAttribute("onclick", "__.themeLink(event, this)");
                     }
                 }
             });
@@ -372,70 +393,52 @@
         element.removeAttribute("title");
     });
 
-    // Progress bouncy top bar
-    const progress = {
-        target: "body",
-        element: "progress-bouncy",
-        start: function () {
-            const targetEl = document.querySelector(this.target);
-            if (!targetEl.querySelector("." + this.element)) {
-                const div = document.createElement("div");
-                div.className = this.element;
-                targetEl.appendChild(div);
+    // Wait for DOM ready to include footer
+    document.addEventListener("DOMContentLoaded", function () {
+        // Implement the top bouncy loader on each link click
+        document.querySelectorAll("a").forEach(function (link) {
+            if (
+                link.href &&
+                link.href.includes(location.hostname) &&
+                !link.href.startsWith("mailto:") &&
+                !link.href.startsWith("#") &&
+                !link.href.startsWith("javascript:")
+            ) {
+                link.addEventListener("click", function () {
+                    __.themeProgress.end();
+                    __.themeProgress.start();
+                });
             }
-        },
-        end: function () {
-            const targetEl = document.querySelector(this.target),
-                elementToRemove = targetEl.querySelector("." + this.element);
-            if (elementToRemove) {
-                targetEl.removeChild(elementToRemove);
-            }
-        },
-    };
-
-    // Implement the top bouncy loader on each link click
-    const links = document.querySelectorAll("a");
-    links.forEach(function (link) {
-        if (
-            link.href &&
-            !link.href.startsWith("mailto:") &&
-            !link.href.startsWith("#") &&
-            !link.href.startsWith("javascript:")
-        ) {
-            link.addEventListener("click", function () {
-                progress.end();
-                progress.start();
-            });
-        }
-    });
-
-    // Implement the top bouncy loader on each form submit
-    const forms = document.querySelectorAll("form");
-    forms.forEach(function (form) {
-        form.addEventListener("submit", function () {
-            progress.end();
-            progress.start();
         });
-    });
 
-    // On page accessed via back/forward button
-    try {
-        if (
-            window.performance &&
-            window.performance.getEntriesByType("navigation")[0].type === "back_forward"
-        ) {
-            setTimeout(function () {
-                progress.end();
-            }, 1);
-        }
-    } catch (e) {}
+        // Implement the top bouncy loader on each form submit
+        const forms = document.querySelectorAll("form");
+        forms.forEach(function (form) {
+            form.addEventListener("submit", function () {
+                __.themeProgress.end();
+                __.themeProgress.start();
+            });
+        });
 
-    // On page loaded from BFCache (Back-Forward Cache)
-    window.addEventListener("pageshow", function (event) {
-        if (event.persisted) {
-            setTimeout(function () {
-                progress.end();
-            }, 1);
-        }
+        // On page accessed via back/forward button
+        try {
+            if (
+                window.performance &&
+                window.performance.getEntriesByType("navigation")[0].type === "back_forward"
+            ) {
+                setTimeout(function () {
+                    __.themeProgress.end();
+                }, 1);
+            }
+        } catch (e) {}
+
+        // On page loaded from BFCache (Back-Forward Cache)
+        window.addEventListener("pageshow", function (event) {
+            if (event.persisted) {
+                setTimeout(function () {
+                    __.themeProgress.end();
+                }, 1);
+            }
+        });
     });
 })();
