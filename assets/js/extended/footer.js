@@ -199,6 +199,10 @@
                         link.getAttribute("onclick")
                     ) {
                         link.addEventListener("click", function (event) {
+                            // Modifier keys should not trigger the progress bar
+                            if (event.ctrlKey || event.altKey || event.metaKey || event.shiftKey) {
+                                return;
+                            }
                             // Skip if it's the same page, and just a hash change
                             if (link.tagName === "A") {
                                 const targetUrl = new URL(link.href);
@@ -420,6 +424,10 @@
                 !link.href.startsWith("javascript:")
             ) {
                 link.addEventListener("click", function (event) {
+                    // Modifier keys should not trigger the progress bar
+                    if (event.ctrlKey || event.altKey || event.metaKey || event.shiftKey) {
+                        return;
+                    }
                     // Skip if it's the same page, and just a hash change
                     if (link.tagName === "A") {
                         const targetUrl = new URL(link.href);
