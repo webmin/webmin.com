@@ -176,9 +176,7 @@
                 if (hotkey) {
                     btn.setAttribute(
                         "title",
-                        `${btn.getAttribute(
-                            "data-title"
-                        )} (${altKey}${concatKey}${hotkey.toUpperCase()})`
+                        `${btn.getAttribute("data-title")} (${altKey}${concatKey}${hotkey.toUpperCase()})`
                     );
                 }
             });
@@ -409,6 +407,12 @@
     elementsWithAccessKey.forEach(function (element) {
         element.removeAttribute("accesskey");
         element.removeAttribute("title");
+    });
+
+    // If a link contains ?target=_blank, open it in a new tab
+    const targetBlankLinks = document.querySelectorAll("a[href*='target=_blank']");
+    targetBlankLinks.forEach(function (link) {
+        link.target = "_blank";
     });
 
     // Wait for DOM ready to include footer
