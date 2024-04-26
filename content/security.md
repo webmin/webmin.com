@@ -1,6 +1,6 @@
 ---
 title: "Security"
-date: 2023-01-13
+date: 2024-04-25
 showtoc: false
 ---
 
@@ -8,8 +8,17 @@ This page lists security problems found in Webmin and Usermin, versions affected
 
 {{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**" >}}
 
-### Webmin 1.995 and Usermin 1.850 and below
-#### XSS vulnerability in the HTTP Tunnel module (Webmin 1.995 and below)
+### Webmin 2.105 and below [April 15, 2024]
+#### Privilege escalation by non-root users
+
+- A less-privileged Webmin user can execute commands as root via a vulnerability in the shell autocomplete feature.
+
+- All Virtualmin admins and Webmin admins who have created additional accounts should upgrade to version 2.111 as soon as possible!
+
+  > Thanks to Trend Micro’s Zero Day Initiative for finding and reporting this issue.
+
+### Webmin 1.995 and Usermin 1.850 and below [June 30, 2022]
+#### XSS vulnerability in the HTTP Tunnel module
 
 - If a less-privileged Webmin user is given permission to edit the configuration of the HTTP Tunnel module, he/she could use this to introduce a vulnerability that captures cookies belonging to other Webmin users that use the module.
 
@@ -19,13 +28,13 @@ This page lists security problems found in Webmin and Usermin, versions affected
 
   > Thanks to [ly1g3][4] for reporting this bug.
 
-### Webmin 1.991 and below
+### Webmin 1.991 and below [April 18, 2022]
 #### Privilege escalation exploit [CVE-2022-30708]
 - Less privileged Webmin users (excluding those created by Virtualmin and Cloudmin) can modify arbitrary files with root privileges, and so run commands as root. All systems with additional untrusted Webmin users should upgrade immediately.
 
   > Thanks to [esp0xdeadbeef][5] and [V1s3r1on][6] for finding and reporting this issue!
 
-### Webmin 1.984 and below
+### Webmin 1.984 and below [December 26, 2021]
 #### File Manager privilege exploit [CVE-2022-0824 and CVE-2022-0829]
 
 - Less privileged Webmin users who do not have any File Manager module restrictions configured can access files with root privileges, if using the default Authentic theme. All systems with additional untrusted Webmin users should upgrade immediately. Note that Virtualmin systems are not effected by this bug, due to the way domain owner Webmin users are configured.
@@ -36,25 +45,25 @@ This page lists security problems found in Webmin and Usermin, versions affected
 #### Privilege escalation exploit
 - Version 1.0 of the `procmail-wrapper` package installed with Virtualmin has a vulnerability that can be used by anyone with SSH access to gain `root` privileges. To prevent this, all Virtualmin users should upgrade to version 1.1 or later immediately.
 
-### Webmin 1.973 and below
+### Webmin 1.973 and below [March 7, 2021]
 #### XSS vulnerabilities if Webmin is installed using the `setup.pl` script [CVE-2021-31760, CVE-2021-31761 and CVE-2021-31762]
 
 - If Webmin is installed using the non-recommended `setup.pl` script, checking for unknown referers is not enabled by default. This opens the system up to XSS and CSRF attacks using malicious links. Fortunately the standard `rpm`, `deb`, `pkg` and `tar` packages do not use this script and so are not vulnerable. If you did install using the `setup.pl` script, the vulnerability can be fixed by adding the line `referers_none=1` to `/etc/webmin/config` file.
 
  > Thanks to Meshal ( Mesh3l\_911 ) [@Mesh3l\_911][9] and Mohammed ( Z0ldyck ) [@electronicbots][10] for finding and reporting this issue!
 
-### Webmin 1.941 and below
+### Webmin 1.941 and below [January 16, 2020]
 #### XSS vulnerability in the Command Shell module [CVE-2020-8820 and CVE-2020-8821]
 
 - A user with privileges to create custom commands could exploit other users via unescaped HTML.
 
  > Thanks to Mauro Caseres for reporting this and the following issue.
 
-### Webmin 1.941 and below
+### Webmin 1.941 and below [January 16, 2020]
 #### XSS vulnerability in the Read Mail module [CVE-2020-12670]
 - Saving a malicious HTML attachment could trigger and XSS vulnerability.
 
-### Webmin 1.882 to 1.921
+### Webmin 1.882 to 1.921 [July 6, 2019]
 #### Remote Command Execution [CVE-2019-15231]
 - Webmin releases between these versions contain a vulnerability that allows remote command execution! Version 1.890 is vulnerable in a default install and should be upgraded immediately - other versions are only vulnerable if changing of expired passwords is enabled, which is not the case by default.
 
@@ -66,7 +75,7 @@ This page lists security problems found in Webmin and Usermin, versions affected
 
     - At some time in April 2018, the Webmin development build server was exploited and a vulnerability added to the `password_change.cgi` script. Because the timestamp on the file was set back, it did not show up in any Git diffs. This was included in the Webmin 1.890 release.
     - The vulnerable file was reverted to the checked-in version from GitHub, but sometime in July 2018 the file was modified again by the attacker. However, this time the exploit was added to code that is only executed if changing of expired passwords is enabled. This was included in the Webmin 1.900 release.
-    - On September 10th 2018, the vulnerable build server was decomissioned and replaced with a newly installed server running CentOS 7. However, the build directory containing the modified file was copied across from backups made on the original server.
+    - On September 10th 2018, the vulnerable build server was decommissioned and replaced with a newly installed server running CentOS 7. However, the build directory containing the modified file was copied across from backups made on the original server.
     - On August 17th 2019, we were informed that a 0-day exploit that made use of the vulnerability had been released. In response, the exploit code was removed and Webmin version 1.930 created and released to all users.
 
     In order to prevent similar attacks in future, we're doing the following :
@@ -76,42 +85,42 @@ This page lists security problems found in Webmin and Usermin, versions affected
     - Auditing all GitHub commits over the past year to look for commits that may have introduced similar vulnerabilities.
 {{< details-end >}}
 
-### Webmin 1.900
+### Webmin 1.900 [November 19, 2018]
 #### Remote Command Execution (Metasploit)
 
 - This is _not_ a workable exploit as it requires that the attacker already know the root password. Hence there is no fix for it in Webmin.
 
-### Webmin 1.900 and below
+### Webmin 1.900 and below [November 19, 2018]
 #### Malicious HTTP headers in downloaded URLs
 
  - If the Upload and Download or File Manager module is used to fetch an un-trusted URL. If a Webmin user downloads a file from a malicious URL, HTTP headers returned can be used exploit an XSS vulnerability.
 
  > Thanks to independent security researcher, John Page aka hyp3rlinx, who reported this vulnerability to Beyond Security's SecuriTeam Secure Disclosure program.
 
-### Webmin 1.800 and below
+### Webmin 1.800 and below [May 26, 2016]
 #### Authentic theme configuration page vulnerability
  - Only an issue if your system has un-trusted users with Webmin access and is using the new Authentic theme. A non-root Webmin user could use the theme configuration page to execute commands as root.
 
 #### Authentic theme remote access vulnerability
  - Only if the Authentic theme is enabled globally. An attacker could execute commands remotely as root, as long as there was no firewall blocking access to Webmin's port 10000.
 
-### Webmin 1.750 and below
+### Webmin 1.750 and below [May 12, 2015]
 #### XSS (cross-site scripting) vulnerability in `xmlrpc.cgi` script [CVE-2015-1990]
  - A malicious website could create links or JavaScript referencing the `xmlrpc.cgi` script, triggered when a user logged into Webmin visits the attacking site.
 
  > Thanks to Peter Allor from IBM for finding and reporting this issue.
 
-### Webmin 1.720 and below
-#### Read Mail module vulerable to malicious links
+### Webmin 1.720 and below [November 24, 2014]
+#### Read Mail module vulnerable to malicious links
  - If un-trusted users have both SSH access and the ability to use Read User Mail module (as is the case for Virtualmin domain owners), a malicious link could be created to allow reading any file on the system, even those owned by _root_.
 
  > Thanks to Patrick William from RACK911 labs for finding this bug.
 
-### Webmin 1.700 and below
+### Webmin 1.700 and below [August 11, 2014]
 #### Shellshock vulnerability
  - If your _bash_ shell is vulnerable to _shellshock_, it can be exploited by attackers who have a Webmin login to run arbitrary commands as _root_. Updating to version 1.710 (or updating _bash_) will fix this issue.
 
-### Webmin 1.590 and below
+### Webmin 1.590 and below [June 30, 2012]
 #### XSS (cross-site scripting) security hole
  - A malicious website could create links or JavaScript referencing the File Manager module that allowed execution of arbitrary commands via Webmin when the website is viewed by the victim. See [CERT vulnerability note VU#788478][12] for more details. Thanks to Jared Allar from the American Information Security Group for reporting this problem.
 
@@ -120,21 +129,21 @@ This page lists security problems found in Webmin and Usermin, versions affected
 
  > Thanks to Marcin Teodorczyk for finding this issue.
 
-### Webmin 1.540 and below
+### Webmin 1.540 and below [April 20, 2011]
 #### XSS (cross-site scripting) security hole
- - This vulnerability can be triggered if an attacker changes his Unix username via a tool like chfn, and a page listing usernames is then viewed by the root user in Webmin.
+ - This vulnerability can be triggered if an attacker changes his Unix username via a tool like `chfn`, and a page listing usernames is then viewed by the root user in Webmin.
 
  > Thanks to Javier Bassi for reporting this bug.
 
-### Virtualmin 3.70 and below
+### Virtualmin 3.70 and below [June 23, 2009]
 #### Unsafe file writes in Virtualmin
  - This bug allows a virtual server owner to read or write to arbitrary files on the system by creating malicious symbolic links and then having Virtualmin perform operations on those links. Upgrading to version 3.70 is strongly recommended if your system has un-trusted domain owners.
 
-### Webmin 1.390 and below, Usermin 1.320 and below
+### Webmin 1.390 and below, Usermin 1.320 and below [February 8, 2008]
 #### XSS (cross-site scripting) security hole
  - This attack could open users who visit un-trusted websites while having Webmin open in the same browser up to having their session cookie captured, which could then allow an attacker to login to Webmin without a password. The quick fix is to go to the **Webmin Configuration** module, click on the **Trusted Referers** icon, set **Referrer checking enabled?** to **Yes**, and un-check the box **Trust links from unknown referrers**. Webmin 1.400 and Usermin 1.330 will make these settings the defaults.
 
-### Webmin 1.380 and below
+### Webmin 1.380 and below [November 3, 2007]
 #### Windows-only command execution bug
  - Any user logged into Webmin can execute any command using special URL parameters. This could be used by less-privileged Webmin users to raise their level of access.
  
@@ -157,13 +166,13 @@ This page lists security problems found in Webmin and Usermin, versions affected
  > Thanks for Keigo Yamazaki of Little eArth Corporation for finding this bug.
 
 ### Webmin 1.290 and below, Usermin 1.220 and below
-#### Artbitrary remote file access
+#### Arbitrary remote file access
  - An attacker without a login to Webmin can read the contents of any file on the server using a specially crafted URL. All users should upgrade to version 1.290 as soon as possible, or setup IP access control in Webmin.
  
  > Thanks to Kenny Chen for bringing this to my attention.
 
 ### Webmin 1.280 and below
-#### Windows artbitrary file access
+#### Windows arbitrary file access
  - If running Webmin on Windows, an attacker can remotely view the contents of any file on your system using a specially crafted URL. This does not affect other operating systems, but if you use Webmin on Windows you should upgrade to version 1.280 or later.
  
  > Thanks to Keigo Yamazaki of Little eArth Corporation for discovering this bug.
