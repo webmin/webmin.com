@@ -8,6 +8,15 @@ This page lists security problems found in Webmin and Usermin, versions affected
 
 {{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**" >}}
 
+### Webmin 2.105 and below
+#### Privilege escalation by non-root users (Webmin version up to 2.105)
+
+- A less-privileged Webmin user can execute commands as root via a vulnerability in the shell autocomplete feature.
+
+- All Virtualmin admins and Webmin admins who have created additional accounts should upgrade to version 2.111 as soon as possible!
+
+  > Thanks to Trend Micro's Zero Day Initiative for finding and reporting this issue.
+
 ### Webmin 1.995 and Usermin 1.850 and below
 #### XSS vulnerability in the HTTP Tunnel module (Webmin 1.995 and below)
 
