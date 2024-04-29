@@ -258,7 +258,7 @@
                     document.querySelector(themeToggleTargSel).contains(evt.target)
                 )
                     return;
-                // Close becaise clicked outside
+                // Close because clicked outside
                 if (clickOutsideElemRef) clickOutsideElemRef.click();
             });
         }
