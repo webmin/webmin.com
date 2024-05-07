@@ -29,17 +29,24 @@ __.themeLink = function (event, element) {
 
     // Check if the body has the class 'dark'
     const theme = document.body.classList.contains("dark") ? "dark" : "light",
+          href = element.href;
 
     // Modify the link based on the theme
-    newHref = element.href + "?theme=" + theme;
+    if (href) {
+        // Determine the correct separator for appending the theme parameter and respect hash
+        const [baseUrl, hash] = href.split('#'),
+              separator = baseUrl.includes("?") ? "&" : "?";
+        let newHref = baseUrl + separator + "theme=" + theme;
+        newHref = hash ? newHref + "#" + hash : newHref;
 
-    // Check if the link is meant to be opened in a new window/tab
-    if (element.target === "_blank") {
-        // Open in a new tab
-        window.open(newHref, "_blank");
-    } else {
-        // Navigate in the current tab
-        window.location.href = newHref;
+        // Check the target attribute
+        if (element.target === "_blank" || e.ctrlKey || e.metaKey) {
+            // Open in a new tab if target="_blank", or ctrl/meta key is pressed
+            window.open(newHref, "_blank");
+        } else {
+            // Navigate in the same tab otherwise
+            window.location.href = newHref;
+        }
     }
 };
 
