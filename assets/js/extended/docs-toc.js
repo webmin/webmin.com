@@ -3,7 +3,7 @@
     const scrollTarget = document.querySelector(".post-content"),
         labelTargetSelStr = ".docs-toc-content",
         labelTarget = document.querySelector(labelTargetSelStr),
-        labelTargets = [...labelTarget.querySelectorAll(`a[href^="#"]`)]
+        labelTargets = [...labelTarget.querySelectorAll(`a[href^="#"]:not([data-nospy="1"])`)]
             .map(function (e) {
                 const m = e.href.match(/.*#(.*)/);
                 if (m) {
@@ -34,7 +34,7 @@
             });
 
     let $this = {};
-    labelTarget.querySelectorAll("ul > li > a").forEach(function (elem) {
+    labelTarget.querySelectorAll("ul > li > a:not([data-nospy=\"1\"])").forEach(function (elem) {
         elem.addEventListener("click", function (e) {
             $this.scrollDelay = 1;
             e.preventDefault();

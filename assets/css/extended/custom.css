@@ -2442,6 +2442,10 @@ body>.main {
   cursor: pointer;
 }
 
+.docs-toc .docs-toc-content ul li a:not([href]) {
+  cursor: not-allowed;
+}
+
 .docs-toc .docs-toc-content ul li a code {
   font-size: 94%;
   letter-spacing: -1px;

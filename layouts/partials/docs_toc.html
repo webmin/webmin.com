@@ -30,6 +30,7 @@
 
                     {{/* get id="xyz" */}}
                     {{- $id := index (findRE "(id=\"(.*?)\")" $header 9) 0 }}
+                    {{- $nospy := index (findRE "data-nospy=\"([^\"]*)\"" $header 1) 0 -}}
 
                     {{- /* strip id="" to leave xyz, no way to get regex capturing groups in hugo */ -}}
                     {{- $cleanedID := replace (replace $id "id=\"" "") "\"" "" }}
@@ -67,10 +68,10 @@
                 {{- end -}}
                 {{- end }}
                 <li>
-                    <a href="#{{- $cleanedID -}}" aria-label="{{- replaceRE "\\(.*?\\)" "" $header | plainify -}}">{{- replaceRE "(\\S)\\((.*?)\\)" "$1" $header | safeHTML -}}</a>
+                    <a{{- if $cleanedID }} href="#{{- $cleanedID -}}"{{- end }}{{- if $nospy }} data-nospy="1"{{- end }} aria-label="{{- replaceRE "\\(.*?\\)" "" $header | plainify -}}">{{- replaceRE "(\\S)\\((.*?)\\)" "$1" $header | safeHTML -}}</a>
                     {{- else }}
                 <li>
-                    <a href="#{{- $cleanedID -}}" aria-label="{{- replaceRE "\\S\\((.*?)\\)" "" $header | plainify -}}">{{- replaceRE "(\\S)\\((.*?)\\)" "$1" $header | safeHTML -}}</a>
+                    <a{{- if $cleanedID }} href="#{{- $cleanedID -}}"{{- end }}{{- if $nospy }} data-nospy="1"{{- end }} aria-label="{{- replaceRE "\\S\\((.*?)\\)" "" $header | plainify -}}">{{- replaceRE "(\\S)\\((.*?)\\)" "$1" $header | safeHTML -}}</a>
                     {{- end -}}
                     {{- end -}}
                     <!-- {{- $firstHeaderLevel := len (seq (index (findRE "[1-6]" (index $headers 0) 1) 0)) -}} -->
