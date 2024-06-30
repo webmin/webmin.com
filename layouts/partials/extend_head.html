@@ -3,6 +3,7 @@
 <meta data-product="webmin" data-version="webmin-{{ .Site.Params.version.webmin }}.tar.gz">
 <meta data-product="usermin" data-version="usermin-{{ .Site.Params.version.usermin }}.tar.gz">
 {{ end }}
+{{ if not (or (in .Site.BaseURL "www.virtualmin.com") (in .Site.BaseURL "localhost")) }}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ if (eq site.Params.env "production") }}{{ site.Params.analytics.google.trackingCode.production }}{{ else }}{{ site.Params.analytics.google.trackingCode.devel }}{{ end }}"></script>
 <script>
@@ -11,6 +12,7 @@
   gtag('js', new Date());
   gtag('config', '{{ if (eq site.Params.env "production") }}{{ site.Params.analytics.google.trackingCode.production }}{{ else }}{{ site.Params.analytics.google.trackingCode.devel }}{{ end }}');
 </script>
+{{ end }}
 
 <!-- https://fonts.google.com/share?selection.family=Roboto%20Condensed:wght@400;700%7CRoboto%20Mono:wght@300;600%7CRoboto:ital,wght@0,300;0,500;1,300;1,500 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
