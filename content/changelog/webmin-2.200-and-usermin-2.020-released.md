@@ -14,7 +14,6 @@ tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 * Add improved support for displaying last logins in the Users and Groups module
 * Fix to prevent duplicate `also-notify` and `allow-transfer` IPs in the BIND DNS module
 * Fix issues with Terminal module to correct text display problems in editor mode
-* Fix to allow disabling the newly introduced enforcement of _sudo_-capable logins in the Terminal module
 * Fix to store Terminal module logs in the `/var/webmin` directory
 * Fix to display the Spam folder nicely in the Mailbox module
 * Fix how modules are loaded in ProFTPd module
@@ -24,6 +23,7 @@ tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 * Fix to change default monitor name based on database used MariaDB vs MySQL [#2139](https://github.com/virtualmin/virtualmin-gpl/issues/798)
 * Fix to disable manual upgrades for systems installed from the repository
 * Fix to preserve Webmin service state during package upgrades [#2133](https://github.com/webmin/webmin/issues/2133)
+* Change to enforce _sudo_-capable logins as themselves in the Terminal module [docs/modules/terminal](https://webmin.com/docs/modules/terminal/#about)
 * Rename "System Logs" module to "System Logs RS" and "System Logs Viewer" to "System Logs" for clarity
 
 ---
