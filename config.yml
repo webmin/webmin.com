@@ -44,16 +44,10 @@ enableRobotsTXT: true
 
 params:
   version: 
-    webmin: '2.111'
-    usermin: '2.010'
+    webmin: '2.201'
+    usermin: '2.020'
 
   env: production
-
-  analytics:
-     google:
-       trackingCode:
-         production: 'UA-503706-1'
-         devel: 'G-LT56QHK5DW'
 
   title: Webmin
   description: "Powerful and flexible web-based server management control panel"
