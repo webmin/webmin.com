@@ -5,4 +5,6 @@ tags: ["changelog", "virtualmin-changelog"]
 author: "Ilia Ross"
 ---
 
-* Fix external DNS filter to consider CNAME and IPv6 records in Let's Encrypt requests
+* Fix external DNS filter to consider CNAME and IPv6 records
+* Fix not to trigger DNS filter for existing Let's Encrypt renewals
+* FIx old documentation links
