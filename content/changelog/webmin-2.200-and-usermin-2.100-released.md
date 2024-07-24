@@ -1,5 +1,5 @@
 ---
-title: "Webmin 2.200 and Usermin 2.020 released"
+title: "Webmin 2.200 and Usermin 2.100 released"
 date: 2024-07-21
 tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 ---
@@ -33,8 +33,8 @@ tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 | File                       | Size | File                       | Size |
 | -------------------------- | -----| -------------------------- | ---- |
 | **Webmin**                 |      | **Usermin**                |      |
-|[webmin-2.200-1.noarch.rpm](https://github.com/webmin/webmin/releases/download/2.200/webmin-2.200-1.noarch.rpm) | 41.0 MB | [usermin-2.020-1.noarch.rpm](https://github.com/webmin/usermin/releases/download/2.020/usermin-2.020-1.noarch.rpm)    | 16.5 MB |
-|[webmin_2.200_all.deb](https://github.com/webmin/webmin/releases/download/2.200/webmin_2.200_all.deb)           | 33.7 MB | [usermin-2.020_all.deb](https://github.com/webmin/usermin/releases/download/2.020/usermin_2.020_all.deb)              | 11.9 MB |
-|[webmin-2.200.pkg.gz](https://github.com/webmin/webmin/releases/download/2.200/webmin-2.200.pkg.gz)             | 45.9 MB | [usermin-2.020.tar.gz](https://github.com/webmin/usermin/releases/download/2.020/usermin-2.020.tar.gz)                | 18.5 MB |
+|[webmin-2.200-1.noarch.rpm](https://github.com/webmin/webmin/releases/download/2.200/webmin-2.200-1.noarch.rpm) | 41.0 MB | [usermin-2.100-1.noarch.rpm](https://github.com/webmin/usermin/releases/download/2.100/usermin-2.100-1.noarch.rpm)    | 16.4 MB |
+|[webmin_2.200_all.deb](https://github.com/webmin/webmin/releases/download/2.200/webmin_2.200_all.deb)           | 33.7 MB | [usermin-2.100_all.deb](https://github.com/webmin/usermin/releases/download/2.100/usermin_2.100_all.deb)              | 11.9 MB |
+|[webmin-2.200.pkg.gz](https://github.com/webmin/webmin/releases/download/2.200/webmin-2.200.pkg.gz)             | 45.9 MB | [usermin-2.100.tar.gz](https://github.com/webmin/usermin/releases/download/2.100/usermin-2.100.tar.gz)                | 18.4 MB |
 |[webmin-2.200.tar.gz](https://github.com/webmin/webmin/releases/download/2.200/webmin-2.200.tar.gz)             | 46.5 MB | | |
 |[webmin-2.200-minimal.tar.gz](https://github.com/webmin/webmin/releases/download/2.200/webmin-2.200-minimal.tar.gz) | 4.6 MB | |
