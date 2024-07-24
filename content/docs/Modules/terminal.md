@@ -9,7 +9,7 @@ weight: 615
 
 The Terminal module in Webmin is a feature that allows you to access and interact with the command-line shell of your server or system directly from within the Webmin interface.
 
-{{< alert primary exclamation "Note" "Starting with Webmin 2.200, all _sudo_-capable users will log in as themselves instead of as _root_. To disable this limitation, go to **Webmin ⇾ Webmin Users: Edit Webmin User / Terminal: Module Access Control** page, and set the **Enforce _sudo_-only privileges** option to **No**." >}}
+{{< alert primary exclamation "Note" "Starting with Webmin 2.200, all _sudo_-capable users will log in as themselves instead of as _root_. To disable this limitation, go to **Webmin ⇾ Webmin Users: Edit Webmin User / Terminal: Module Access Control** page, and set the **Enforce _sudo_-only privileges** option to **No** for _root_ user." >}}
 
 With the Terminal module, you can perform various tasks using commands just like you would in a traditional terminal or command prompt. This includes running commands, executing scripts, managing files and directories, configuring system settings, and much more.
 
