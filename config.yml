@@ -49,12 +49,6 @@ params:
 
   env: production
 
-  analytics:
-     google:
-       trackingCode:
-         production: 'UA-503706-1'
-         devel: 'G-LT56QHK5DW'
-
   title: Webmin
   description: "Powerful and flexible web-based server management control panel"
   keywords: [webmin, usermin, virtualmin, cloudmin, linux, system administration]

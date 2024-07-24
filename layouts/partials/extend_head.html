@@ -3,15 +3,21 @@
 <meta data-product="webmin" data-version="webmin-{{ .Site.Params.version.webmin }}.tar.gz">
 <meta data-product="usermin" data-version="usermin-{{ .Site.Params.version.usermin }}.tar.gz">
 {{ end }}
-{{ if not (or (in .Site.BaseURL "www.virtualmin.com") (in .Site.BaseURL "localhost")) }}
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ if (eq site.Params.env "production") }}{{ site.Params.analytics.google.trackingCode.production }}{{ else }}{{ site.Params.analytics.google.trackingCode.devel }}{{ end }}"></script>
+{{ if not (or (in .Site.BaseURL "www.virtualmin.com") (in .Site.BaseURL "webmin.dev") (in .Site.BaseURL "localhost")) }}
+<!-- Load Matomo stats tracker for webmin.com -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '{{ if (eq site.Params.env "production") }}{{ site.Params.analytics.google.trackingCode.production }}{{ else }}{{ site.Params.analytics.google.trackingCode.devel }}{{ end }}');
+  let _paq = window._paq = window._paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    const u="//stats.webmin.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    const d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
 </script>
+<!-- End Matomo Code -->
 {{ end }}
 
 <!-- https://fonts.google.com/share?selection.family=Roboto%20Condensed:wght@400;700%7CRoboto%20Mono:wght@300;600%7CRoboto:ital,wght@0,300;0,500;1,300;1,500 -->
@@ -62,15 +68,30 @@
 <script defer crossorigin="anonymous" src="{{ $chocolatloaderindex.RelPermalink }}?{{ now.Unix }}"></script>
 {{ end }}
 
-<!-- Load Matomo stats tracker -->
+<!-- Load Matomo stats tracker for www.virtualmin.com -->
 {{ if in .Site.BaseURL "www.virtualmin.com" }}
-<!-- Matomo -->
 <script>
   let _paq = window._paq = window._paq || [];
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
     const u="https://stats.virtualmin.com/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    const d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+{{ end }}
+<!-- Load Matomo stats tracker for webmin.dev -->
+{{ if in .Site.BaseURL "webmin.dev" }}
+<script>
+  let _paq = window._paq = window._paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    const u="//stats.webmin.dev/";
     _paq.push(['setTrackerUrl', u+'matomo.php']);
     _paq.push(['setSiteId', '1']);
     const d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
