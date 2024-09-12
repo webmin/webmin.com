@@ -23,6 +23,7 @@ New and updated [translations](/about/#supported-languages) for Webmin and all o
 The following people have contributed translations of Webmin or Usermin into non-English languages. The first name under each language is the most recent or prolific contributor. If you want to contribute, read [this](/about/#supported-languages) first for more details.
 
 * **German**
+  * MacSteini [MacSteini](https://github.com/MacSteini)
   * Raymond Vetter &lt;RaymondV@gmx.de&gt;
   * Thomas Hurlimann &lt;thomas@netcult.ch&gt;
   * Christoph Thielecke &lt;u15119@hs-harz.de&gt;
@@ -62,6 +63,7 @@ The following people have contributed translations of Webmin or Usermin into non
   * Caldera's translation team
   * Jing-Jong Shyue &lt;shyue@sonoma.com.tw&gt;
 * **Simplified Chinese**
+  * liAnGjiA [leangjia](https://github.com/leangjia)
   * Caldera's translation team
   * Merlin &lt;merlin@turbolinux.com.cn&gt;
   * Christopher Li &lt;christopher.li@turbolinux.com.cn&gt;
