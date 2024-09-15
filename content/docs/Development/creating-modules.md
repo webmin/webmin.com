@@ -23,7 +23,7 @@ At their simplest, modules are really just directories of CGI programs that Webm
 Every module has its own directory under the Webmin base directory, in which all the module's CGI programs and configuration files must be stored. For example, if the Webmin base was `/usr/libexec/webmin`,
 a module called foobar would be created or installed in `/usr/libexec/webmin/foobar`. 
 
-You can find this base directory by looking at the `root` line in your `/etc/webmin/miniserv.conf` file. It will differ depending on which operating system Webmin is installed.
+You can find this base directory by looking at the `root` entry in your `/etc/webmin/miniserv.conf` file. It will differ depending on which operating system Webmin is installed.
 
 For a module to be displayed on the main Webmin menu, it should contain at least the following files. Only `module.info` is mandatory though. 
 
@@ -302,9 +302,9 @@ tar cvzf /tmp/foomod.wbm.gz foobar
 
 The standard extension for Webmin modules is `.wbm.gz` or just `.wbm` if the tar file is not compressed. For themes the extension is usually `.wbt.gz` and for Usermin modules it is `.ubm.gz`.
 
-Webmin modules can also be packaged as RPMs, which are suitable for installing on servers on which the RPM version of Webmin itself is already installed. You can [download](https://raw.githubusercontent.com/webmin/webmin/master/makemodulerpm.pl) a script called `makemodulerpm.pl` that can package up a module directory into an RPM by creating the spec file automatically. It will place the resulting RPM file into the `/usr/src/redhat/RPMS/noarch` directory. The RPM name is always `wbm-` followed by the module's directory name or `wbt-` for themes.
+Webmin modules can also be packaged as RPMs, which are suitable for installing on servers on which the RPM version of Webmin itself is already installed. You can [download](https://raw.githubusercontent.com/webmin/webmin/main/makemodulerpm.pl) a script called `makemodulerpm.pl` that can package up a module directory into an RPM by creating the spec file automatically. It will place the resulting RPM file into the `/usr/src/redhat/RPMS/noarch` directory. The RPM name is always `wbm-` followed by the module's directory name or `wbt-` for themes.
 
-Similarly, you can create a Debian package of a module using `makemoduledeb.pl` [file](https://raw.githubusercontent.com/webmin/webmin/master/makemoduledeb.pl). The resulting `.deb` file is placed in the `/tmp` directory. The package name is always `webmin-` followed by the directory name, for both modules and themes.
+Similarly, you can create a Debian package of a module using `makemoduledeb.pl` [file](https://raw.githubusercontent.com/webmin/webmin/main/makemoduledeb.pl). The resulting `.deb` file is placed in the `/tmp` directory. The package name is always `webmin-` followed by the directory name, for both modules and themes.
 
 ### Example module
 The best way to show what a Webmin module should look like is via an example. You can install a demo module for the imaginary Foobar Webserver by following these steps:
