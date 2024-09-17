@@ -62,7 +62,7 @@ params:
   hideEditPost: false
   # edit posts
   editPost:
-    URL: "https://github.com/webmin/webmin.com/tree/master/content"
+    URL: "https://github.com/webmin/webmin.com/blob/main/content"
     Text: "Suggest Changes"
     appendFilePath: true
 
