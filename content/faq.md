@@ -11,7 +11,7 @@ weight: 3
 > #### I think I have found a bug in Webmin
 First of all, try upgrading to the latest version. Many bugs in older releases are fixed in the latest version.
 
-The second place to check is the [Webmin changelog](/changelog) page, on which bug-fixes for the current version are posted. The easiest way to install all the latest updates is via package manager by setting up [Webmin repository](/download#setup-repos) or is to use **Webmin Configuration** module.
+The second place to check is the [Webmin changelog](/changelog) page, on which bug-fixes for the current version are posted. The easiest way to install all the latest updates is via package manager by setting up [Webmin repository](/download#setup) or is to use **Webmin Configuration** module.
 
 If you really have found a new bug, go to the Webmin GitHub repository to [submit a new](https://github.com/webmin/webmin/issues) issue report.
 
