@@ -17,18 +17,34 @@ If you really have found a new bug, go to the Webmin GitHub repository to [submi
 
 ---
 
+> #### What effect will Webmin have on my existing configuration files?
+Just installing Webmin will not cause any config file changes to be made. When you start to use it, only the config files related to the changes that you make in Webmin will be modified. For example, using the Apache Webserver module would not effect your Postfix configuration.
+
+---
+
+> #### How do I install Webmin if port 10000 is already in use?
+If port 10000 is already in use and you want to install Webmin using a package
+manager, you can specify a different port by setting the `WEBMIN_PORT` environment
+variable alongside with running the installation command. For example, to
+install Webmin on port 15000 on Debian and derivatives, use the following command:
+
+```text
+WEBMIN_PORT=15000 dpkg -i webmin_2.202_all.deb
+```
+
+On RHEL and derivatives:
+```text
+WEBMIN_PORT=15000 rpm -i webmin-2.202-1.noarch.rpm
+```
+---
+
 > #### How do I change my Webmin password if I can't login?
 If you installed Webmin using package manager (i.e. _rpm_ or _deb_) use the following command to change Webmin user password:
-```shell
+```text
 webmin passwd username
 ```
 
 If not, use the same command found in `bin/` sub-directory of Webmin main installation, i.e. under `/usr/libexec/webmin` or `/usr/share/webmin` or `/usr/local/webmin` directory.
-
----
-
-> #### What effect will Webmin have on my existing configuration files?
-Just installing Webmin will not cause any config file changes to be made. When you start to use it, only the config files related to the changes that you make in Webmin will be modified. For example, using the Apache Webserver module would not effect your Sendmail configuration.
 
 ---
 
