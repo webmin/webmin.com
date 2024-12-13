@@ -2206,6 +2206,7 @@ html[class*="page-docs"] a[href*="example.com"] {
   margin-inline-start: initial;
 }
 
+[class^="page-docs"] .post-content ul>li:has(+li)>ul,
 [class^="page-docs"] .post-content ul>li>ol,
 [class^="page-docs"] .post-content > ol>li>ul,
 [class^="page-docs"] .post-content ul>li>ol>li>ul {
