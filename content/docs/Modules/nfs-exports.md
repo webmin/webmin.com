@@ -111,7 +111,7 @@ Only directories on local file systems can be exported via NFS, so it is not pos
 
 ##### Hide the filesystem
 
-   hen set to Yes, clients will need to mount separately any filesystem exported under this one. When set to No, it will effectively get mounted automatically. 
+   When set to Yes, clients will need to mount separately any filesystem exported under this one. When set to No, it will effectively get mounted automatically. 
 
 ##### Don't trust UIDs
 
