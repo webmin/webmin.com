@@ -9,7 +9,7 @@ This page lists security problems found in Webmin and Usermin, versions affected
 {{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**" >}}
 
 ### Webmin 2.105 and below [April 15, 2024]
-#### Privilege escalation by non-root users
+#### Privilege escalation by non-root users [CVE-2024-12828]
 
 - A less-privileged Webmin user can execute commands as root via a vulnerability in the shell autocomplete feature.
 
