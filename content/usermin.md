@@ -111,8 +111,7 @@ Translation of Usermin modules into different languages is done by volunteers. {
 There are development pre-release and nightly builds available for testing purposes only. These builds may be unstable or lack certain features. Use them at your own risk!
 
 ### Pre-release Builds
-Pre-release builds can be found on [devel.webmin.com](https://download.webmin.com/devel/) page.
+Pre-release builds can be found on [download.webmin.com/devel](https://download.webmin.com/devel/) page.
 
-### Nightly Builds
-Nightly builds can be found on [builds.webmin.dev](https://builds.webmin.dev/) page.
-
+### Testing Builds
+Testing builds can be found on [download.webmin.dev](https://download.webmin.dev/) page.
