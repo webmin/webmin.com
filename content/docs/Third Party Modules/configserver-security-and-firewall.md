@@ -40,10 +40,10 @@ cd csf
 After installation, you need to manually stop and disable Fail2Ban before proceeding with the ConfigServer Security & Firewall Webmin module installation.
 
 To install the module:
-  * Navigate to Webmin ⇾ Webmin Configuration ⇾ Webmin Modules.
-  * Select the From local file option.
-  * Choose the file /usr/local/csf/csfwebmin.tgz.
-  * Click Install Module as shown in the screenshot below.
+  * Navigate to **Webmin ⇾ Webmin Configuration ⇾ Webmin Modules** page.
+  * Select the **From local file** option.
+  * Choose `/usr/local/csf/csfwebmin.tgz` file.
+  * Click **Install Module** as shown in the screenshot below.
 
 [![](/images/docs/screenshots/modules/light/configserver-security-and-firewall-install.png "ConfigServer Security & Firewall Installation Screenshot")](/images/docs/screenshots/modules/light/configserver-security-and-firewall-install.png)
 
