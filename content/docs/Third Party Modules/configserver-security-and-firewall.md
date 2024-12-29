@@ -8,17 +8,21 @@ weight: 4500
 ### About
 A stateful packet inspection (SPI) firewall, login/intrusion detection and security application for Linux servers.
 
+{{< alert primary notification "Note" "[ConfigServer Security & Firewall](https://configserver.com/configserver-security-and-firewall/) is a third-party product that provides a Webmin module, which is not included in the default Webmin installation. You can install it on your system by following the instructions below." >}}
+
 ### Supported OS
 * Red Hat Enterprise Linux 7, 8 and 9
 * Rocky Linux 8 and 9
 * AlmaLinux 8 and 9
-* Fedora 38
+* Fedora 30
 * CentOS Stream 8 and 9
 * CentOS 7
 * CloudLinux 7, 8 and 9
 
-* Debian 10, 11 and 12
+* Debian 10 and 11
 * Ubuntu 18.04, 20.04 and 22.04
+
+{{< alert warning exclamation "Warning" "Any OS that is EOL will not be supported and newer versions may no longer work as new functionality is added." >}}
 
 ### Download
 The latest version of [ConfigServer Security & Firewall](https://configserver.com/configserver-security-and-firewall/) can be downloaded at official [configserver.com](https://configserver.com/configserver-security-and-firewall/) website or using [csf.tgz](https://download.configserver.com/csf.tgz) direct link. The latest _sha256_ checksums can also be [downloaded](https://www.configserver.com/checksums.txt).
@@ -33,7 +37,13 @@ tar -xzf csf.tgz
 cd csf
 ./install.sh
 ```
-After installation, you need to install ConfigServer Security & Firewall Webmin module. To do this, go to **Webmin ⇾ Webmin Configuration: Webmin Modules** page and choose **From local file** option. Then select the file **`/usr/local/csf/csfwebmin.tgz`** and click on **Install Module** as shown in the screenshot below:
+After installation, you need to manually stop and disable Fail2Ban before proceeding with the ConfigServer Security & Firewall Webmin module installation.
+
+To install the module:
+  * Navigate to Webmin ⇾ Webmin Configuration ⇾ Webmin Modules.
+  * Select the From local file option.
+  * Choose the file /usr/local/csf/csfwebmin.tgz.
+  * Click Install Module as shown in the screenshot below.
 
 [![](/images/docs/screenshots/modules/light/configserver-security-and-firewall-install.png "ConfigServer Security & Firewall Installation Screenshot")](/images/docs/screenshots/modules/light/configserver-security-and-firewall-install.png)
 
@@ -89,8 +99,6 @@ This product was developed to address the complexities and inefficiencies of oth
 *   System statistics – basic graphs showing the performance of the server, e.g. Load Averages, CPU Usage, Memory Usage, etc
 *   [ipset](http://ipset.netfilter.org/) support for large IP lists
 *   Integrated with the CloudFlare firewall
-
-{{< alert warning notification "Note" "Any OS that is EOL will not be supported and newer versions may no longer work as new functionality is added." >}}
 
 #### ConfigServer firewall (csf)
 
