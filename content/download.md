@@ -8,18 +8,18 @@ showtoc: true
 ## Repository
 
 ### Setup
-The simplest and best way to get [**Webmin**](/about/) is to use automatic [**`webmin-setup-repos.sh`**](https://github.com/webmin/webmin/blob/master/webmin-setup-repos.sh) script to configure repositories on your **RHEL** or **Debian** derivative systems. It can be done in two easy steps:
+The simplest and best way to get [**Webmin**](/about/) is to use automatic [**`webmin-setup-repo.sh`**](https://github.com/webmin/webmin/blob/master/webmin-setup-repo.sh) script to configure repositories on your **RHEL** or **Debian** derivative systems. It can be done in two easy steps:
 
 ```
-curl -o webmin-setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/webmin-setup-repos.sh
-sh webmin-setup-repos.sh
+curl -o webmin-setup-repo.sh https://raw.githubusercontent.com/webmin/webmin/master/webmin-setup-repo.sh
+sh webmin-setup-repo.sh
 ```
 
 This script will automatically setup our repository and install our GPG keys on your system, and provide **`webmin`** package for installation and easy upgrades in the future. The supported and tested systems are **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora** or **Debian**, **Ubuntu**, **Kali**.
 
 ### Install
 
-If Webmin repository was setup using our **`webmin-setup-repos.sh`** as [described above](#setup) then Webmin can be installed as easy as:
+If Webmin repository was setup using our **`webmin-setup-repo.sh`** as [described above](#setup) then Webmin can be installed as easy as:
 
    #### RHEL and derivatives
     dnf install webmin
