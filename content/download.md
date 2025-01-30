@@ -5,7 +5,7 @@ draft: false
 showtoc: true
 ---
 
-## Repository
+## Repository {{< icon stars xs fw>}}
 
 ### Setup
 The simplest and best way to get [**Webmin**](/about/) is to use automatic [**`webmin-setup-repo.sh`**](https://github.com/webmin/webmin/blob/master/webmin-setup-repo.sh) script to configure repositories on your **RHEL** or **Debian** derivative systems. It can be done in two easy steps:
@@ -30,8 +30,7 @@ If Webmin repository was setup using our **`webmin-setup-repo.sh`** as [describe
 ### Access
 After successful Webmin installation, you can access its interface by entering **`https://<Your-Server-IP>:10000`** in your browser. Check that your firewall configuration allows access through port **10000**.
 
-## Manual
-
+{{< details-start h2 "Manual <i class='wm wm-cog'></i>" >}}
 The latest full Webmin distribution is available in various package formats for download:
 
 
@@ -78,6 +77,7 @@ If Webmin package was downloaded manually it can be installed:
    If you installed it by specifying an installation directory parameter to **`setup.sh`** as the instructions above show, i.e. **`/usr/local/webmin`**, the original **`webmin-current`** directory can now be safely deleted.
 
    The source package can be installed on any of the supported OS, such as **FreeBSD**, **macOS**, **HP/UX**, **AIX**, and all other flavors of Linux. However, if your system supports one of the other package formats like **`rpm`** or **`deb`** packages, it is *recommended* to install it from that type of package.
+{{< details-end >}}
 
 ## Older Versions
 Older versions of Webmin can be downloaded from [Sourceforge](https://sourceforge.net/projects/webadmin/files/webmin/).

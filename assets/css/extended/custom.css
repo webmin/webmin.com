@@ -275,6 +275,10 @@ button#theme-toggle {
   vertical-align: 10%
 }
 
+h2 > .wm-xs {
+  vertical-align: -4%
+}
+
 .wm-sm {
   font-size: 0.966em;
   vertical-align: 2%
@@ -1810,6 +1814,29 @@ details.details-small-inner > .inner > table > thead > tr > th,
 details.details-small-inner > .inner > table > tbody > tr > td,
 details.details-small-inner > .inner {
   font-size: 93% !important;
+}
+
+details.h1 summary {
+  margin: 40px auto 32px;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+details.h2 summary {
+  margin: 32px auto 24px;
+  font-size: 29px;
+  font-weight: 500;
+}
+
+details.h1 summary .wm,
+details.h2 summary .wm {
+  font-size: 76%;
+  vertical-align: 4%;
+}
+
+details.h1:not([open]) summary,
+details.h2:not([open]) summary {
+  margin-bottom: 0;
 }
 
 details[open] > summary {
