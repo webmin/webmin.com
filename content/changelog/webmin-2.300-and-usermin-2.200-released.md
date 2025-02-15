@@ -64,8 +64,8 @@ tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 | File                       | Size | File                       | Size |
 | -------------------------- | -----| -------------------------- | ---- |
 | **Webmin**                 |      | **Usermin**                |      |
-|[webmin-2.300-1.noarch.rpm](https://github.com/webmin/webmin/releases/download/2.300/webmin-2.300-1.noarch.rpm) | 31 MB | [usermin-2.200-1.noarch.rpm](https://github.com/webmin/usermin/releases/download/2.200/usermin-2.200-1.noarch.rpm)    | 13 MB |
-|[webmin_2.300_all.deb](https://github.com/webmin/webmin/releases/download/2.300/webmin_2.300_all.deb)           | 25.8 MB | [usermin-2.200_all.deb](https://github.com/webmin/usermin/releases/download/2.200/usermin_2.200_all.deb)              | 10.8 MB |
-|[webmin-2.300.pkg.gz](https://github.com/webmin/webmin/releases/download/2.300/webmin-2.300.pkg.gz)             | 36 MB | [usermin-2.200.tar.gz](https://github.com/webmin/usermin/releases/download/2.200/usermin-2.200.tar.gz)                | 15.6 MB |
+|[webmin-2.300-1.noarch.rpm](https://github.com/webmin/webmin/releases/download/2.300/webmin-2.300-1.noarch.rpm) | 31 MB | [usermin-2.200-1.noarch.rpm](https://github.com/webmin/usermin/releases/download/2.200/usermin-2.200-1.noarch.rpm)    | 14.2 MB |
+|[webmin_2.300_all.deb](https://github.com/webmin/webmin/releases/download/2.300/webmin_2.300_all.deb)           | 25.8 MB | [usermin-2.200_all.deb](https://github.com/webmin/usermin/releases/download/2.200/usermin_2.200_all.deb)              | 9.8 MB |
+|[webmin-2.300.pkg.gz](https://github.com/webmin/webmin/releases/download/2.300/webmin-2.300.pkg.gz)             | 36 MB | [usermin-2.200.tar.gz](https://github.com/webmin/usermin/releases/download/2.200/usermin-2.200.tar.gz)                | 16.2 MB |
 |[webmin-2.300.tar.gz](https://github.com/webmin/webmin/releases/download/2.300/webmin-2.300.tar.gz)             | 36.6 MB | | |
 |[webmin-2.300-minimal.tar.gz](https://github.com/webmin/webmin/releases/download/2.300/webmin-2.300-minimal.tar.gz) | 3.5 MB | |
