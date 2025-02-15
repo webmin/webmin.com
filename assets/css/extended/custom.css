@@ -1972,6 +1972,11 @@ a.screenshot-entry {
   }
 } */
 
+/* GitHub stats badges */
+.social-icons {
+  margin: 10px auto 20px auto;
+}
+
 .social-icons>a[target="_blank"] {
   display: none;
 }
