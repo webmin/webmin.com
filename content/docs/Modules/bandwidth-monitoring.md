@@ -10,7 +10,7 @@ The **Bandwidth Monitoring** module can be used to create simple reports on band
 
 [![](/images/docs/screenshots/modules/light/bandwidth-monitoring.png "Bandwidth Monitoring Screenshot")](/images/docs/screenshots/modules/light/bandwidth-monitoring.png)
 
-Before it can be used, the module must setup several firewall rules and a `syslog` entry to capture traffic sent and received via your system. At setup time you must select the system's external network interface, on which traffic will be monitored. This will typically be the PPP interface used for your dialup or ADSL connection, or the Ethernet interface connected to your cable modem or upstream router.
+Before it can be used, the module must setup several firewall rules to capture traffic sent and received via your system. At setup time you must select the system's external network interface, on which traffic will be monitored. This will typically be the PPP interface used for your dialup or ADSL connection, or the Ethernet interface connected to your cable modem or upstream router.
 
 Once at least an hour's worth of traffic has been captured, the module can by used to generate reports summarizing the traffic by one of the following categories:
 
