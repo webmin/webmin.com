@@ -275,8 +275,17 @@ button#theme-toggle {
   vertical-align: 10%
 }
 
+.wm-xxs {
+  font-size: 0.711em;
+  vertical-align: 2%
+}
+
 h2 > .wm-xs {
   vertical-align: -4%
+}
+
+h2 > .wm-xxs {
+  vertical-align: -2%
 }
 
 .wm-sm {
@@ -1830,8 +1839,8 @@ details.h2 summary {
 
 details.h1 summary .wm,
 details.h2 summary .wm {
-  font-size: 76%;
-  vertical-align: 4%;
+  font-size: 67%;
+  vertical-align: 12%;
 }
 
 details.h1:not([open]) summary,

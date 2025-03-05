@@ -19,7 +19,7 @@ The easiest way to configure Usermin is via the **Webmin ⇾ Usermin Configurati
 ## Repository
 
 ### Setup
-The simplest and best way to get **Usermin** is to use automatic [**`usermin-setup-repos.sh`**](https://github.com/webmin/webmin/blob/master/setup-repos.sh) script to configure repositories on your **RHEL** or **Debian** derivative systems. It can be done in two easy steps:
+The simplest and best way to get **Usermin** is to use automatic [**`usermin-setup-repo.sh`**](https://github.com/webmin/webmin/blob/master/webmin-setup-repo.sh) script to configure repositories on your **RHEL** or **Debian** derivative systems. It can be done in two easy steps:
 
 ```
 curl -o usermin-setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/setup-repos.sh
@@ -40,7 +40,7 @@ If Usermin repository was setup using our **`usermin-setup-repos.sh`** as [descr
 ### Access
 After successful Usermin installation, you can access its interface by entering **`https://<Your-Server-IP>:20000`** in your browser. Check that your firewall configuration allows access through port **20000**.
 
-## Manual
+{{< details-start h2 "Manual <i class='wm wm-cog'></i>" >}}
 The latest Usermin distribution is available in various package formats for download:
 
   [**`rpm`**](https://www.webmin.com/download/rpm/usermin-current.rpm) — **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora**, **openSUSE**
@@ -96,7 +96,7 @@ If Usermin package was downloaded manually it can be installed:
    If you installed it by specifying an installation directory parameter to **`setup.sh`** as the instructions above show, i.e. **`/usr/local/usermin`**, the original **`usermin-current`** directory can now be safely deleted.
 
    The source package can be installed on any of the supported OS, such as **FreeBSD**, **macOS**, and all other flavors of Linux. However, if your system supports one of the other package formats like **`rpm`** or **`deb`** packages, it is *recommended* to install it from that type of package.
-
+{{< details-end >}}
 
 ## Standard Modules
 The standard modules that you may have deleted from Usermin on your system can be re-installed by downloading using [this](https://download.webmin.com/download/umodules/) link.
