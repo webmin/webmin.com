@@ -16,7 +16,7 @@ Usermin also provides web interfaces for viewing and managing data in MySQL and 
 
 The easiest way to configure Usermin is via the **Webmin ⇾ Usermin Configuration** module in Webmin.
 
-## Repository {{< icon stars xxs fw>}}
+## Repository
 
 ### Setup
 The simplest and best way to get **Usermin** is to use automatic [**`usermin-setup-repo.sh`**](https://github.com/webmin/webmin/blob/master/webmin-setup-repo.sh) script to configure repositories on your **RHEL** or **Debian** derivative systems. It can be done in two easy steps:

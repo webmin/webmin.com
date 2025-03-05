@@ -5,7 +5,7 @@ draft: false
 showtoc: true
 ---
 
-## Repository {{< icon stars xxs fw>}}
+## Repository
 
 ### Setup
 The simplest and best way to get [**Webmin**](/about/) is to use automatic [**`webmin-setup-repo.sh`**](https://github.com/webmin/webmin/blob/master/webmin-setup-repo.sh) script to configure repositories on your **RHEL** or **Debian** derivative systems. It can be done in two easy steps:
