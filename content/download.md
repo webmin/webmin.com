@@ -31,6 +31,9 @@ If Webmin repository was setup using our **`webmin-setup-repo.sh`** as [describe
 After successful Webmin installation, you can access its interface by entering **`https://<Your-Server-IP>:10000`** in your browser. Check that your firewall configuration allows access through port **10000**.
 
 {{< details-start h2 "Manual <i class='wm wm-cog'></i>" >}}
+
+{{< alert warning exclamation "" "Manual installation **isn’t recommended**—follow the instructions above to set up repositories." >}}
+
 The latest full Webmin distribution is available in various package formats for download:
 
 

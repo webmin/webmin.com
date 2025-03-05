@@ -41,6 +41,9 @@ If Usermin repository was setup using our **`usermin-setup-repos.sh`** as [descr
 After successful Usermin installation, you can access its interface by entering **`https://<Your-Server-IP>:20000`** in your browser. Check that your firewall configuration allows access through port **20000**.
 
 {{< details-start h2 "Manual <i class='wm wm-cog'></i>" >}}
+
+{{< alert warning exclamation "" "Manual installation **isn’t recommended**—follow the instructions above to set up repositories." >}}
+
 The latest Usermin distribution is available in various package formats for download:
 
   [**`rpm`**](https://www.webmin.com/download/rpm/usermin-current.rpm) — **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora**, **openSUSE**
