@@ -9,16 +9,16 @@ This page lists security problems found in Webmin and Usermin, versions affected
 {{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**" >}}
 
 ### Webmin 2.202 and below [February 26, 2025]
-#### SSL certs from clients may be trusted unexepectedly
+#### SSL certificates from clients may be trusted unexpectedly
 
-- If Webmin is configured to trust remote IP addresses provided by a proxy
-  *and* you have users authenticating using client SSL certs, a browser
-  connecting directly (not via the proxy) can provide a forged header to
-  fake the client cert.
+- If Webmin is configured to trust remote IP addresses provided by a proxy *and*
+  you have users authenticating using client SSL certificates, a browser
+  connecting directly (not via the proxy) can provide a forged header to fake
+  the client certificate.
 
 - Upgrade to Webmin 2.301 or later, and if there is any chance of direct
-  requests by clients disable this at Webmin -> IP Access Control -> Trust
-  level for proxy headers.
+  requests by clients disable this at **Webmin ⇾ Webmin Configuration ⇾ IP
+  Access Control** page using **Trust level for proxy headers** option.
 
   > Thanks to Tatsu Taki from JPCERT/CC for reporting this.
 
