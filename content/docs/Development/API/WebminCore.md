@@ -475,6 +475,7 @@ Returns a hash containg details of the given module. Some useful keys are:
 * `version` - Optional module version number
 * `os_support` - List of supported operating systems and versions
 * `category` - Category on Webmin's left menu, like net
+* `sortable` - If set to 1, tables in this module are sortable
 
 ##### get_all_module_infos(cachemode)
 Returns a list contains the information on all modules in this webmin install, including clones. Uses caching to reduce the number of module.info files that need to be read. Each element of the array is a hash reference in the same format as returned by get_module_info. The cache mode flag can be: 0 = read and write, 1 = don"t read or write, 2 = read only
