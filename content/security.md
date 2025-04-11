@@ -20,7 +20,7 @@ This page lists security problems found in Webmin and Usermin, versions affected
   requests by clients disable this at **Webmin ⇾ Webmin Configuration ⇾ IP
   Access Control** page using **Trust level for proxy headers** option.
 
-  > Thanks to Tatsu Taki from JPCERT/CC for reporting this.
+  > Thanks to Keigo YAMAZAKI from LAC Co., Ltd. for reporting this.
 
 ### Webmin 2.105 and below [April 15, 2024]
 #### Privilege escalation by non-root users [CVE-2024-12828]
