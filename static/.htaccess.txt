@@ -6,6 +6,9 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 RewriteCond %{HTTP_HOST} ^(www\.)?usermin.com$ [NC]
 RewriteRule ^(.*)$ https://webmin.com/$1 [R=301,L]
 
+# Changelog should be displayed as archives
+RewriteRule ^changelog/$ archives/ [PT]
+
 # Changelog
 RewriteRule ^changes.html$ https://%{HTTP_HOST}/tags/webmin-changelog/ [R=301]
 RewriteRule ^changes-.*.html$ https://%{HTTP_HOST}/tags/webmin-changelog/ [R=301]

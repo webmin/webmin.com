@@ -21,7 +21,7 @@ menu:
       weight: 10
     - identifier: changelog
       name: Changelog
-      url: /archives/
+      url: /changelog/
       weight: 20
     - identifier: faq
       name: FAQ
