@@ -1,3 +1,6 @@
+# Block clickjacking
+Header set X-Frame-Options "SAMEORIGIN"
+
 # Enable the rewrite engine
 RewriteEngine On
 
@@ -187,5 +190,3 @@ RedirectMatch /uupdates/(uupdates.txt.*) "https://download.webmin.com/uupdates/$
 RedirectMatch /modules-funcs.html http://doxfer.webmin.com/Webmin/TheWebminAPI
 RedirectMatch /modules-.*.html http://doxfer.webmin.com/Webmin/ModuleDevelopment
 
-# Block clickjacking
-Header set X-Frame-Options "SAMEORIGIN"
