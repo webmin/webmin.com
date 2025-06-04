@@ -59,9 +59,9 @@ These GPL packages should _not_ be installed directly unless you _really_ know w
 
 | File                       | Size |
 | -------------------------- | -----|
-|[wbm-virtual-server-current.gpl-1.noarch.rpm](https://download.webmin.com/download/virtualmin/wbm-virtual-server-7.20.2.gpl-1.noarch.rpm) | 6.6 MB |
-|[webmin-virtual-server_current.gpl_all.deb](https://download.webmin.com/download/virtualmin/webmin-virtual-server_7.20.2.gpl_all.deb)     | 4.2 MB |
-|[virtual-server-current.gpl.wbm.gz](https://download.webmin.com/download/virtualmin/virtual-server-7.20.2.gpl.wbm.gz)                     | 7.1 MB |
+|[wbm-virtual-server-current.gpl-1.noarch.rpm](https://download.webmin.com/download/virtualmin/wbm-virtual-server-7.30.8.gpl-1.noarch.rpm) | 6.6 MB |
+|[webmin-virtual-server_current.gpl_all.deb](https://download.webmin.com/download/virtualmin/webmin-virtual-server_7.30.8.gpl_all.deb)     | 4.2 MB |
+|[virtual-server-current.gpl.wbm.gz](https://download.webmin.com/download/virtualmin/virtual-server-7.30.8.gpl.wbm.gz)                     | 7.1 MB |
 
 {{< details-end >}}
 
