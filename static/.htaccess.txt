@@ -1,3 +1,9 @@
+# Block clickjacking
+Header set X-Frame-Options "SAMEORIGIN"
+
+# Enable the rewrite engine
+RewriteEngine On
+
 # Always redirect www to non-www
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
@@ -5,6 +11,9 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 # Always redirect usermin.com to webmin.com
 RewriteCond %{HTTP_HOST} ^(www\.)?usermin.com$ [NC]
 RewriteRule ^(.*)$ https://webmin.com/$1 [R=301,L]
+
+# Changelog should be displayed as archives
+RewriteRule ^changelog/$ /archives/ [PT,L]
 
 # Changelog
 RewriteRule ^changes.html$ https://%{HTTP_HOST}/tags/webmin-changelog/ [R=301]
@@ -181,5 +190,3 @@ RedirectMatch /uupdates/(uupdates.txt.*) "https://download.webmin.com/uupdates/$
 RedirectMatch /modules-funcs.html http://doxfer.webmin.com/Webmin/TheWebminAPI
 RedirectMatch /modules-.*.html http://doxfer.webmin.com/Webmin/ModuleDevelopment
 
-# Block clickjacking
-Header set X-Frame-Options "SAMEORIGIN"
