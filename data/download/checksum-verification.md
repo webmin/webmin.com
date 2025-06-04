@@ -1,9 +1,9 @@
 | File | SHA256 Checksum |
 | ---- | --------------- |
-| webmin_2.400_all.deb | c10befcc9a0f69f8b2c1683538173c72c29076c3f301aebcad822dc588dbb1e4 |
-| webmin-2.400-minimal.tar.gz | eba676889aee7aca3925f69694bb915af80f152c9127d38a020cd0348d2b1af8 |
-| webmin-2.400-1.noarch.rpm | a9b49cfe088aa8b0408054c93e236eee5f1002b3260c59a3d24f3c10be52315e |
-| webmin-2.400-1.src.rpm | a15363920f6008d263d390f7e9090781b9f8dc0db9bac31673b5d7b5cdfaedc0 |
-| webmin-2.400.pkg.gz | e0d232fca5f7bc84d256fbeea55ecf6d96eecc67cdaeca63798861e619146297 |
-| webmin-2.400.tar.gz | 165c832354bc0e1a025bd2aeea135c1de34a7a6eeca696b631593fe20c6ff4b8 |
-| webmin-2.400.zip | ec065442b79087768a2a24a5f1e5dc3de5761c7fa2da1efb93867f38c104d950 |
+| webmin_2.401_all.deb | 195d4088a85a2718b9b68f8491cbbc320e5af2b7d3c20b707d516c8668075afb |
+| webmin-2.401-minimal.tar.gz | cc1b16981e07d5c1f926d6ba2284514c7acc855e7944a0506cd167937191c3ef |
+| webmin-2.401-1.noarch.rpm | 8ca9253238b5a5113f006d622114cccc43881b060ca0036b5770838cda78193a |
+| webmin-2.401-1.src.rpm | 59bf1aa80c2bbec0eb2f5672ed0c5a40f45c04ee629a20c842c8eff4bea66a6e |
+| webmin-2.401.pkg.gz | fa775c6237e4c589abe336deebd55b1e67e0b0c6e398f4e7e4d51992802660d8 |
+| webmin-2.401.tar.gz | f6712777a9956aaaa21373c5dd9f046f417594b819ae2faec89247b05af7a945 |
+| webmin-2.401.zip | 7a8b6c45eaf862e40e8be34fcf79433b6e4e9201db12f0d638d89912d411c319 |

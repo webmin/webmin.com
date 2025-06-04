@@ -140,34 +140,34 @@ RedirectMatch ^/mail$ https://webmail.webmin.com/
 RedirectMatch ^/mail/$ https://webmail.webmin.com/
 
 # Webmin redirects
-Redirect /download/webmin-2.400.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.400.tar.gz
-Redirect /download/webmin-2.400-minimal.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.400-minimal.tar.gz
-Redirect /download/rpm/webmin-2.400-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.400-1.noarch.rpm
-Redirect /download/rpm/webmin-2.400-1.src.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.400-1.src.rpm
-Redirect /download/solaris-pkg/webmin-2.400.pkg.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.400.pkg.gz
-Redirect /download/solaris-pkg/webmin-2.400.zip https://prdownloads.sourceforge.net/webadmin/webmin-2.400.zip
-Redirect /download/deb/webmin_2.400_all.deb https://prdownloads.sourceforge.net/webadmin/webmin_2.400_all.deb
+Redirect /download/webmin-2.401.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.401.tar.gz
+Redirect /download/webmin-2.401-minimal.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.401-minimal.tar.gz
+Redirect /download/rpm/webmin-2.401-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.401-1.noarch.rpm
+Redirect /download/rpm/webmin-2.401-1.src.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.401-1.src.rpm
+Redirect /download/solaris-pkg/webmin-2.401.pkg.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.401.pkg.gz
+Redirect /download/solaris-pkg/webmin-2.401.zip https://prdownloads.sourceforge.net/webadmin/webmin-2.401.zip
+Redirect /download/deb/webmin_2.401_all.deb https://prdownloads.sourceforge.net/webadmin/webmin_2.401_all.deb
 
 # Webmin current redirects
-Redirect /download/webmin-current.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.400.tar.gz
-Redirect /download/webmin-current-minimal.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.400-minimal.tar.gz
-Redirect /download/rpm/webmin-current.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.400-1.noarch.rpm
-Redirect /download/rpm/webmin-current.src.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.400-1.src.rpm
-Redirect /download/solaris-pkg/webmin-current.pkg.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.400.pkg.gz
-Redirect /download/solaris-pkg/webmin-current.zip https://prdownloads.sourceforge.net/webadmin/webmin-2.400.zip
-Redirect /download/deb/webmin-current.deb https://prdownloads.sourceforge.net/webadmin/webmin_2.400_all.deb
+Redirect /download/webmin-current.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.401.tar.gz
+Redirect /download/webmin-current-minimal.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.401-minimal.tar.gz
+Redirect /download/rpm/webmin-current.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.401-1.noarch.rpm
+Redirect /download/rpm/webmin-current.src.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.401-1.src.rpm
+Redirect /download/solaris-pkg/webmin-current.pkg.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.401.pkg.gz
+Redirect /download/solaris-pkg/webmin-current.zip https://prdownloads.sourceforge.net/webadmin/webmin-2.401.zip
+Redirect /download/deb/webmin-current.deb https://prdownloads.sourceforge.net/webadmin/webmin_2.401_all.deb
 
 # Usermin redirects
-Redirect /download/usermin-2.300.tar.gz https://prdownloads.sourceforge.net/webadmin/usermin-2.300.tar.gz
-Redirect /download/rpm/usermin-2.300-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.300-1.noarch.rpm
-Redirect /download/rpm/usermin-2.300-1.src.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.300-1.src.rpm
-Redirect /download/deb/usermin_2.300_all.deb https://prdownloads.sourceforge.net/webadmin/usermin_2.300_all.deb
+Redirect /download/usermin-2.301.tar.gz https://prdownloads.sourceforge.net/webadmin/usermin-2.301.tar.gz
+Redirect /download/rpm/usermin-2.301-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.301-1.noarch.rpm
+Redirect /download/rpm/usermin-2.301-1.src.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.301-1.src.rpm
+Redirect /download/deb/usermin_2.301_all.deb https://prdownloads.sourceforge.net/webadmin/usermin_2.301_all.deb
 
 # Usermin current redirects
-Redirect /download/usermin-current.tar.gz https://prdownloads.sourceforge.net/webadmin/usermin-2.300.tar.gz
-Redirect /download/rpm/usermin-current.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.300-1.noarch.rpm
-Redirect /download/rpm/usermin-current.src.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.300-1.src.rpm
-Redirect /download/deb/usermin-current.deb https://prdownloads.sourceforge.net/webadmin/usermin_2.300_all.deb
+Redirect /download/usermin-current.tar.gz https://prdownloads.sourceforge.net/webadmin/usermin-2.301.tar.gz
+Redirect /download/rpm/usermin-current.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.301-1.noarch.rpm
+Redirect /download/rpm/usermin-current.src.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.301-1.src.rpm
+Redirect /download/deb/usermin-current.deb https://prdownloads.sourceforge.net/webadmin/usermin_2.301_all.deb
 
 # Send updates to download.webmin.com
 RedirectMatch /updates/(.*gz.*) "https://download.webmin.com/updates/$1"
