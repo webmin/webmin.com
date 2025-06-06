@@ -337,6 +337,7 @@ body .logo .logo-switches {
   border-radius: var(--radius);
 }
 
+ol>li>.alert,
 ul>li>.alert {
   margin-top: 0.5em;
   margin-bottom: 0.75em;
