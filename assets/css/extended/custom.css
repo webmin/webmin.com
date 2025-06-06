@@ -339,8 +339,18 @@ body .logo .logo-switches {
 
 ol>li>.alert,
 ul>li>.alert {
-  margin-top: 0.5em;
+  margin-top: 0.25em;
   margin-bottom: 0.75em;
+}
+
+ol>li>.alert:has(+.text-note),
+ul>li>.alert:has(+.text-note) {
+  margin-bottom: 0.25em;
+}
+
+ol>li>.alert +.text-note,
+ul>li>.alert +.text-note {
+  margin-bottom: 0.5em;
 }
 
 .alert-primary {
