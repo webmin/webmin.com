@@ -123,7 +123,7 @@ cookiepath=/webmin
 ```
 - Edit `/etc/webmin/xterm/config` file and add the line:
 ```
-host=webmin.example.com/webmin
+host=webmin.example.com
 ```
 - Enable `mod_proxy` and `mod_proxy_wstunnel` for your Apache webserver
 - Create a `VirtualHost` block with the following directives to the Apache configuration, and restart Apache afterwards. Remember to replace `VirtualHost` IP address, `ServerName` and SSL certificates paths with your own:
@@ -247,7 +247,7 @@ cookiepath=/webmin
 ```
 - Edit `/etc/webmin/xterm/config` file and replace previously added `host` directive with the the following:
 ```
-host=webmin.example.com/webmin
+host=webmin.example.com
 ```
 - Create a `Server` block with the following directives to the Nginx configuration, and restart Nginx afterwards. Remember to replace `server_name`, `listen` IP address and SSL certificates paths with your own:
  ```
