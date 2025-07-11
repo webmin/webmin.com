@@ -3,7 +3,7 @@ title: "FAQs"
 summary: "Frequently Asked Questions"
 author: "Jamie Cameron"
 tags: ["faq"]
-date: 2023-01-11
+date: 2025-07-11
 showtoc: true
 weight: 3
 ---
