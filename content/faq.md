@@ -297,6 +297,26 @@ Now all requests to `webmin.example.com/webmin/` to the Nginx virtual host will 
 
 {{< details-end >}}
 
+---
+> #### How to set up Cloudflare Tunnel to work properly with Webmin?
+
+* Add `referers=your.domain.tld` to `/etc/webmin/config` file
+* Add `redirect_host=your.domain.tld` to `/etc/webmin/miniserv.conf` file
+* Set up your Cloudflare Tunnel for Webmin with the following configuration:
+    ```yml
+    tunnel: 00000000-1111-222-3333-444444444444
+    credentials-file: /path/to/cloudflared/00000000-1111-222-3333-444444444444.json
+
+    ingress:
+      - hostname: your.domain.tld
+        service: https://127.0.0.1:10000
+        originRequest:
+          noTLSVerify: true
+          httpHostHeader: your.domain.tld
+
+      - service: http_status:404
+    ```
+ * Restart Webmin with `/etc/webmin/restart` command
 
 ---
 
