@@ -53,6 +53,7 @@ Redirect /download/yum/webmin-2.303-1.noarch.rpm https://prdownloads.sourceforge
 Redirect /download/yum/webmin-2.400-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.400-1.noarch.rpm
 Redirect /download/yum/webmin-2.401-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.401-1.noarch.rpm
 Redirect /download/yum/webmin-2.402-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.402-1.noarch.rpm
+Redirect /download/yum/webmin-2.500-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.500-1.noarch.rpm
 
 Redirect /download/yum/usermin-1.791-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/usermin-1.791-1.noarch.rpm
 Redirect /download/yum/usermin-1.801-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/usermin-1.801-1.noarch.rpm
@@ -85,4 +86,5 @@ Redirect /download/yum/usermin-2.202-1.noarch.rpm https://prdownloads.sourceforg
 Redirect /download/yum/usermin-2.203-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.203-1.noarch.rpm
 Redirect /download/yum/usermin-2.300-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.300-1.noarch.rpm
 Redirect /download/yum/usermin-2.301-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.301-1.noarch.rpm
+Redirect /download/yum/usermin-2.302-1.noarch.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.302-1.noarch.rpm
 #Redirect /download/repository/pool/contrib/w/webmin/usermin_1.741_all.deb http://prdownloads.sourceforge.net/webadmin/usermin_1.741_all.deb
