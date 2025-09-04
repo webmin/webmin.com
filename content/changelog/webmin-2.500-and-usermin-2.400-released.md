@@ -40,6 +40,7 @@ tags: ["changelog", "webmin-changelog", "usermin-changelog"]
   - Fix styling of checkboxes and radios for backup and restore pages in Virtualmin
   - Fix styling for extra backup destinations in Virtualmin
   - Fix advanced schedule display in the cron chooser in Virtualmin
+    
     [More details...](https://github.com/webmin/authentic-theme/releases/tag/25.00)
 
 ---
