@@ -121,10 +121,6 @@ webprefixnoredir=1
 redirect_prefix=/webmin
 cookiepath=/webmin
 ```
-- Edit `/etc/webmin/xterm/config` file and add the line:
-```
-host=webmin.example.com
-```
 - Enable `mod_proxy` and `mod_proxy_wstunnel` for your Apache webserver
 - Create a `VirtualHost` block with the following directives to the Apache configuration, and restart Apache afterwards. Remember to replace `VirtualHost` IP address, `ServerName` and SSL certificates paths with your own:
 ```
@@ -183,10 +179,6 @@ If you just want Webmin to be accessible via Nginx reverse proxy follow the step
  ```text
   redirect_ssl=1
   redirect_host=webmin.example.com
- ```
- - Edit `/etc/webmin/xterm/config` file and add the following line:
- ```
- host=webmin.example.com
  ```
  - Create a `Server` block with the following directives to the Nginx configuration, and restart Nginx afterwards. Remember to replace `server_name`, `listen` IP address and SSL certificates paths with your own:
  ```
