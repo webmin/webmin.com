@@ -32,10 +32,10 @@ This script will automatically setup our repository and install our GPG keys on 
 If Usermin repository was setup using our **`usermin-setup-repos.sh`** as [described earlier](#setup) then Usermin can be installed as easy as:
 
    #### RHEL and derivatives
-    dnf install usermin
+    sudo dnf install usermin
 
    #### Debian and derivatives
-    apt-get install usermin --install-recommends
+    sudo apt-get install usermin --install-recommends
 
 ### Access
 After successful Usermin installation, you can access its interface by entering **`https://<Your-Server-IP>:20000`** in your browser. Check that your firewall configuration allows access through port **20000**.
@@ -60,10 +60,10 @@ To verify that you have downloaded Usermin fully and correctly, you can use the 
 ### Configure
 If Usermin package was downloaded manually it can be installed:
    #### RHEL and derivatives
-    dnf install ./usermin-current.rpm
+    sudo dnf install ./usermin-current.rpm
 
    #### Debian and derivatives
-    apt-get install --install-recommends ./usermin-current.deb
+    sudo apt-get install --install-recommends ./usermin-current.deb
 
    #### FreeBSD and any other Linux installation from source
     # Change directory
@@ -73,7 +73,7 @@ If Usermin package was downloaded manually it can be installed:
     tar xf usermin-current.tar.gz
     cd usermin-current
     # Install
-    ./setup.sh /usr/local/usermin
+    sudo ./setup.sh /usr/local/usermin
    
    {{< details-start post-content-indent-details "More details for installations from source.."  >}}
   
