@@ -12,7 +12,7 @@ The simplest and best way to get [**Webmin**](/about/) is to use automatic [**`w
 
 ```
 curl -o webmin-setup-repo.sh https://raw.githubusercontent.com/webmin/webmin/master/webmin-setup-repo.sh
-sh webmin-setup-repo.sh
+sudo sh webmin-setup-repo.sh
 ```
 
 This script will automatically setup our repository and install our GPG keys on your system, and provide **`webmin`** package for installation and easy upgrades in the future. The supported and tested systems are **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora** or **Debian**, **Ubuntu**, **Kali**.
@@ -22,10 +22,10 @@ This script will automatically setup our repository and install our GPG keys on 
 If Webmin repository was setup using our **`webmin-setup-repo.sh`** as [described above](#setup) then Webmin can be installed as easy as:
 
    #### RHEL and derivatives
-    dnf install webmin
+    sudo dnf install webmin
 
    #### Debian and derivatives
-    apt-get install webmin --install-recommends
+    sudo apt-get install webmin --install-recommends
 
 ### Access
 After successful Webmin installation, you can access its interface by entering **`https://<Your-Server-IP>:10000`** in your browser. Check that your firewall configuration allows access through port **10000**.
@@ -55,10 +55,10 @@ To verify that you have downloaded Webmin fully and correctly, you can use the c
 ### Configure
 If Webmin package was downloaded manually it can be installed:
    #### RHEL and derivatives
-    dnf install ./webmin-current.rpm
+    sudo dnf install ./webmin-current.rpm
 
    #### Debian and derivatives
-    apt-get install --install-recommends ./webmin-current.deb
+    sudo apt-get install --install-recommends ./webmin-current.deb
 
    #### Solaris
     # The root user be switched from a role account to a normal account to logins to work
@@ -76,7 +76,7 @@ If Webmin package was downloaded manually it can be installed:
     tar xf webmin-current.tar.gz
     cd webmin-current
     # Install
-    ./setup.sh /usr/local/webmin
+    sudo ./setup.sh /usr/local/webmin
    If you installed it by specifying an installation directory parameter to **`setup.sh`** as the instructions above show, i.e. **`/usr/local/webmin`**, the original **`webmin-current`** directory can now be safely deleted.
 
    The source package can be installed on any of the supported OS, such as **FreeBSD**, **macOS**, **HP/UX**, **AIX**, and all other flavors of Linux. However, if your system supports one of the other package formats like **`rpm`** or **`deb`** packages, it is *recommended* to install it from that type of package.
