@@ -1,6 +1,6 @@
 ---
 title: "Webmin 2.520 and Usermin 2.420 released"
-date: 2025-09-30
+date: 2025-10-02
 tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 ---
 
@@ -9,6 +9,9 @@ tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 * Fix the printing of the bottom button row in the form column table
 * Fix to recommend Perl `Sys::Syslog` module #2557
 * Fix to avoid using short hostname in HTTPS redirects when an FQDN is available
+* Fix to use _/proc_ sampler instead of `vmstat` for the same output with much lower overhead
+* Fix to query specific fields in FreeBSD memory stats collection, cutting CPU use by 80%
+* Fix to kill Webmin subprocesses during RC stop on FreeBSD and other systems
 * Add a complete overhaul of `var_dump` subroutine, which is now fully portable
 * Update the Authentic theme to the latest version with various fixes:
   - Fix the text color when reading email in the Read User Mail module [webmin#2555](https://github.com/webmin/webmin/issues/2555)
