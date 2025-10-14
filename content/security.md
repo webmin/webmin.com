@@ -8,6 +8,15 @@ This page lists security problems found in Webmin and Usermin, versions affected
 
 {{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**" >}}
 
+### Webmin 2.510 and below [October 9, 2025]
+#### Host header injection vulnerability in the password reset feature [CVE-2025-61541]
+
+- If the password reset feature is enabled, an attacker can use a specially
+  crafted host header to cause the password reset email to contain a link to a
+  malicious site.
+
+  > Thanks to Nyein Chan Aung and Mg Demon for reporting this.
+
 ### Webmin 2.202 and below [February 26, 2025]
 #### SSL certificates from clients may be trusted unexpectedly
 
