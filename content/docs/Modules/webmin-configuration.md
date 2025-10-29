@@ -332,7 +332,7 @@ To set up unauthenticated access to some modules, follow these steps :
 If a user who has already logged visits a module that has been allowed anonymous access with the steps above, Webmin will still identify him correctly as the logged-in user.
 
 ### SSL Encryption
-The **SSL Encryption** page in this module can be used to turn on or off SSL mode or to generate another new key, all of which is explained in [Securing Webmin](/docs/modules/securing-webmin). Free certificates can be obtained using [Let's Encrypt](/docs/modules/lets-encrypt).
+The **SSL Encryption** page in this module can be used to turn on or off SSL mode for Webmin, and to generate a new SSL certificate for the server.
 
 ### Certificate Authority
 As the [Webmin Users](/docs/modules/webmin-users) page explains, the Webmin Users module can be used to request a client-side SSL certificate for a user. However, before this is possible you must set up your system as a certificate authority, or CA. An authority is basically just an SSL certificate that can be used to sign other newly issued client certificates, and to verify that those supplied by clients come from this CA.
