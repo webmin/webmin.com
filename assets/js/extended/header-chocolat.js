@@ -137,29 +137,22 @@ window.addEventListener("DOMContentLoaded", () => {
                     src:
                         "/images/screenshots/" +
                         screenShotType +
-                        "/17-servers_-_ssh_-_server_-_networking.png",
-                    title: "Webmin ⇾ Servers ⇾ SSH Server: Networking",
+                        "/17-servers_-_ssh_-_server.png",
+                    title: "Webmin ⇾ Servers ⇾ SSH Server",
                 },
                 {
                     src:
                         "/images/screenshots/" +
                         screenShotType +
-                        "/18-tools_-_custom_-_commands_-_create_-_command.png",
-                    title: "Webmin ⇾ Tools ⇾ Custom Commands: Create Command",
+                        "/19-tools_-_file_-_manager.png",
+                    title: "Webmin ⇾ Tools ⇾ File Manager",
                 },
                 {
                     src:
                         "/images/screenshots/" +
                         screenShotType +
-                        "/19-tools_-_file_-_manager_-_[:etc].png",
-                    title: "Webmin ⇾ Tools ⇾ File Manager [etc]",
-                },
-                {
-                    src:
-                        "/images/screenshots/" +
-                        screenShotType +
-                        "/20-tools_-_file_-_manager_-_[:etc]_-__-_edit_-_file.png",
-                    title: "Webmin ⇾ Tools ⇾ File Manager [etc] : Edit File",
+                        "/20-tools_-_file_-_manager_-_edit_-_file.png",
+                    title: "Webmin ⇾ Tools ⇾ File Manager: Edit File",
                 },
                 {
                     src:
@@ -190,13 +183,6 @@ window.addEventListener("DOMContentLoaded", () => {
                     src:
                         "/images/screenshots/" +
                         screenShotType +
-                        "/31-authentic_-_theme_-_-_-_dropdown_-_terminal.png",
-                    title: "Webmin ⇾ Tools ⇾ Terminal: Dropdown Terminal",
-                },
-                {
-                    src:
-                        "/images/screenshots/" +
-                        screenShotType +
                         "/24-tools_-_upload_-_and_-_download.png",
                     title: "Webmin ⇾ Tools ⇾ Upload and Download",
                 },
@@ -215,15 +201,15 @@ window.addEventListener("DOMContentLoaded", () => {
                     src:
                         "/images/screenshots/" +
                         screenShotType +
-                        "/27-networking_-_network_-_configuration_-_network_-_interfaces.png",
-                    title: "Webmin ⇾ Networking ⇾ Network Configuration: Network Interfaces",
+                        "/27-networking_-_network.png",
+                    title: "Webmin ⇾ Networking ⇾ Network Configuration",
                 },
                 {
                     src:
                         "/images/screenshots/" +
                         screenShotType +
-                        "/28-hardware_-_logical_-_volume_-_management_-_edit_-_logical_-_volume.png",
-                    title: "Webmin ⇾ Hardware ⇾ Logical Volume Management: Edit Logical Volume",
+                        "/28-hardware_-_logical_-_volume_-_management.png",
+                    title: "Webmin ⇾ Hardware ⇾ Logical Volume Management",
                 },
                 {
                     src:
@@ -238,13 +224,6 @@ window.addEventListener("DOMContentLoaded", () => {
                         screenShotType +
                         "/30-hardware_-_system_-_time.png",
                     title: "Webmin ⇾ Hardware ⇾ System Time",
-                },
-                {
-                    src:
-                        "/images/screenshots/" +
-                        screenShotType +
-                        "/31-cluster_-_cluster_-_users_-_and_-_groups.png",
-                    title: "Webmin ⇾ Cluster ⇾ Cluster Users and Groups",
                 },
                 {
                     src:
