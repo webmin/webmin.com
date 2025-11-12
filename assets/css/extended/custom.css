@@ -1884,6 +1884,14 @@ body:not(.dark) .entry-content {
   margin-bottom: 2em;
 }
 
+.first-entry .entry-header h1 {
+      display: none;
+}
+
+.first-entry .entry-content {
+    margin-top: 0;
+}
+
 /* Index page buttons */
 .first-entry .main-buttons-container {
   margin-top: 0.666em;
