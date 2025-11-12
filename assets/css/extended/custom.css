@@ -2105,7 +2105,7 @@ body.dark .chocolat-wrapper .chocolat-bottom {
 
 .chocolat-img {
   filter: saturate(1.2);
-  border-radius: calc(var(--radius) * 5);
+  border-radius: calc(var(--radius) * 8);
   box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px #21201e03, 14px 14px 14px #4d4d4d40;
 }
 
