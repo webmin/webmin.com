@@ -1889,7 +1889,7 @@ body:not(.dark) .entry-content {
 }
 
 .first-entry .entry-content {
-    margin-top: 0;
+    margin-top: -5px;
 }
 
 /* Index page buttons */
