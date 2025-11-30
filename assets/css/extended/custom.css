@@ -4,7 +4,7 @@
   --main-max-width: 900px;
   --main-min-width: 93.5vw;
   --main-bg: #f5f5f5;
-  --main-bg-overlay: var(--main-bg);
+  --main-bg-overlay: #f5f5f5bb;
   --content: rgb(21, 21, 21);
   --content-strong: rgb(0, 0, 0);
   --primary: rgb(20, 20, 20);
