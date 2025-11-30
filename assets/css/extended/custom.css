@@ -41,8 +41,8 @@
 }
 
 .dark {
-  --main-bg: rgb(29, 30, 32);
-  --main-bg-overlay: rgb(29, 30, 32, .6);
+  --main-bg: #1d1e20;
+  --main-bg-overlay: #1d1e2099;
   --border: rgb(63, 63, 63);
   --content-strong: rgb(202, 202, 203);
   --secondary-strong: rgb(185, 186, 187);
@@ -2116,7 +2116,8 @@ body.dark .chocolat-wrapper .chocolat-bottom {
 
 .chocolat-overlay.chocolat-visible ~ .chocolat-layout .chocolat-img,
 html.chocolat-fullscreen .chocolat-img {
-  box-shadow: -1.5px -1.5px 0 1.5px #f9f9fb,1.5px -1.5px 0 1.5px #f9f9fb,-1.5px 1.5px 0 1.5px #f9f9fb,1.5px 1.5px 0 1.5px #f9f9fb,-1px 0 28px #21201e03,14px 14px 14px #4d4d4d40;
+  box-shadow: -1.5px -1.5px 0 1.5px #b8b8b8,1.5px -1.5px 0 1.5px #b8b8b8,-1.5px 1.5px 0 1.5px #b8b8b8,1.5px 1.5px 0 1.5px #b8b8b8,-1px 0 0 #21201e03,0 0 0 #b8b8b8;
+  border-radius: calc(var(--radius) * 6.333);
 }
 
 .dark .chocolat-overlay.chocolat-visible ~ .chocolat-layout .chocolat-img,
