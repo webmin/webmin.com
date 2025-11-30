@@ -1959,7 +1959,7 @@ a.screenshot-entry {
 
   border-radius: calc(var(--radius) * 5);
 
-  box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(33, 32, 80, 0.01), 28px 28px 28px 0 rgba(33, 32, 80, 0.25);
+  /* box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(33, 32, 80, 0.01), 28px 28px 28px 0 rgba(33, 32, 80, 0.25); */
 
   max-width: calc(var(--main-max-width) + var(--gap) * 2);
   /* Perspective margin-top. X1555 */
@@ -1984,7 +1984,7 @@ a.screenshot-entry {
 .dark a.screenshot-entry {
   background-image: url('/images/screenshots/dark/1-dashboard.png'), url('/images/screenshots/dark/1-dashboard-preload.png');
   background-color: #0a0a0a;
-  box-shadow: 1.5px 1.5px 0 1.5px #000, -1px 0 28px 0 rgba(20, 20, 20, 0.01), 28px 28px 28px 0 rgba(20, 20, 20, 0.25);
+  /* box-shadow: 1.5px 1.5px 0 1.5px #000, -1px 0 28px 0 rgba(20, 20, 20, 0.01), 28px 28px 28px 0 rgba(20, 20, 20, 0.25); */
   filter: none;
 }
 
@@ -2106,23 +2106,18 @@ body.dark .chocolat-wrapper .chocolat-bottom {
 .chocolat-img {
   filter: saturate(1.2);
   border-radius: calc(var(--radius) * 8);
-  box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px #21201e03, 14px 14px 14px #4d4d4d40;
+  /* box-shadow: 1px 1px 0 1px #f9f9fb, -1px 0 28px #21201e03, 14px 14px 14px #4d4d4d40; */
 }
 
 .dark .chocolat-img {
-  box-shadow: 1px 1px 0 1px #000, -1px 0 28px #12121203, 14px 14px 14px #17171740;
+  /* box-shadow: 1px 1px 0 1px #000, -1px 0 28px #12121203, 14px 14px 14px #17171740; */
   filter: none;
 }
 
 .chocolat-overlay.chocolat-visible ~ .chocolat-layout .chocolat-img,
 html.chocolat-fullscreen .chocolat-img {
-  box-shadow: -1.5px -1.5px 0 1.5px #b8b8b8,1.5px -1.5px 0 1.5px #b8b8b8,-1.5px 1.5px 0 1.5px #b8b8b8,1.5px 1.5px 0 1.5px #b8b8b8,-1px 0 0 #21201e03,0 0 0 #b8b8b8;
+  /* box-shadow: -1.5px -1.5px 0 1.5px var(--main-bg),1.5px -1.5px 0 1.5px var(--main-bg),-1.5px 1.5px 0 1.5px var(--main-bg),1.5px 1.5px 0 1.5px var(--main-bg),-1px 0 0 #21201e03,0 0 0 var(--main-bg); */
   border-radius: calc(var(--radius) * 6.333);
-}
-
-.dark .chocolat-overlay.chocolat-visible ~ .chocolat-layout .chocolat-img,
-html.chocolat-fullscreen .dark .chocolat-img {
-  box-shadow: -1.5px -1.5px 0 1.5px #0a0a0a,1.5px -1.5px 0 1.5px #0a0a0a,-1.5px 1.5px 0 1.5px #0a0a0a,1.5px 1.5px 0 1.5px #0a0a0a,-1px 0 28px #12121203,14px 14px 14px #17171740;
 }
 
 .chocolat-in-container {
