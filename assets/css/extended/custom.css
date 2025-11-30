@@ -3,8 +3,8 @@
   /* --main-width: 900px; */
   --main-max-width: 900px;
   --main-min-width: 93.5vw;
-  --main-bg: rgb(245, 245, 245);
-  --main-bg-overlay: rgb(245, 245, 245, .6);
+  --main-bg: #f5f5f5;
+  --main-bg-overlay: var(--main-bg);
   --content: rgb(21, 21, 21);
   --content-strong: rgb(0, 0, 0);
   --primary: rgb(20, 20, 20);
