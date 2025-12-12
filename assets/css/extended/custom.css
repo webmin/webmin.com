@@ -1309,7 +1309,7 @@ fieldset:disabled a.btn {
 
 .btn-md,
 .btn-group-md>.btn {
-  padding: 0.4rem 1.2rem;
+  padding: .43rem 1.2rem .37rem 1.2rem;
   font-size: 1.05rem;
   line-height: 1.5;
   border-radius: var(--radius);
