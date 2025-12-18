@@ -8,7 +8,7 @@ This page lists security problems found in Webmin and Usermin, versions affected
 
 {{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**" >}}
 
-### Webmin 2.600 and below
+### Webmin prior to 2.600
 #### Privilige escalation using Squid module [CVE-2025-67738]
 
 - If an untrusted Webmin user is granted access to the Squid module and the
