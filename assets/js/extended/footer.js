@@ -480,5 +480,30 @@
                 }, 1);
             }
         });
+
+        // Fix broken upstream theme toggle
+        (function () {
+            const toggle = document.getElementById('theme-toggle');
+            if (!toggle) return;
+            // Kill any inline onclick handler if present
+            toggle.onclick = null;
+            toggle.removeAttribute('onclick');
+        
+            toggle.addEventListener('click', function (e) {
+                e.stopImmediatePropagation();
+                e.preventDefault();
+                const html = document.documentElement,
+                      body = document.body,
+                      current = html.dataset.theme === 'dark' ? 'dark' : 'light',
+                      next    = current === 'dark' ? 'light' : 'dark';
+                html.dataset.theme = next;
+                localStorage.setItem('pref-theme', next);
+                if (next === 'dark') {
+                    body.classList.add('dark');
+                } else {
+                    body.classList.remove('dark');
+                }
+            }, true);
+        })();
     });
 })();
