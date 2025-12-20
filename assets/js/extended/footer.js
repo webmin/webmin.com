@@ -481,29 +481,20 @@
             }
         });
 
-        // Fix broken upstream theme toggle
+        // Keep body dark class in sync with the theme without overriding
+        // upstream logic
         (function () {
+            const html = document.documentElement,
+                  body = document.body;
+            // Flip body dark class before other click handlers run
+            // (updateScreenshots, Chocolat, etc.)
             const toggle = document.getElementById('theme-toggle');
-            if (!toggle) return;
-            // Kill any inline onclick handler if present
-            toggle.onclick = null;
-            toggle.removeAttribute('onclick');
-        
-            toggle.addEventListener('click', function (e) {
-                e.stopImmediatePropagation();
-                e.preventDefault();
-                const html = document.documentElement,
-                      body = document.body,
-                      current = html.dataset.theme === 'dark' ? 'dark' : 'light',
-                      next    = current === 'dark' ? 'light' : 'dark';
-                html.dataset.theme = next;
-                localStorage.setItem('pref-theme', next);
-                if (next === 'dark') {
-                    body.classList.add('dark');
-                } else {
-                    body.classList.remove('dark');
-                }
-            }, true);
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    const next = (html.dataset.theme === 'dark') ? 'light' : 'dark';
+                    body.classList.toggle('dark', next === 'dark');
+                }, true);
+            }
         })();
     });
 })();
