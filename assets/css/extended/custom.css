@@ -1316,7 +1316,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-md:has(.wm) {
-  padding-right: calc(1.2rem + 0.4em);
+  padding-right: calc(1.2rem + 0.2em);
 }
 
 .btn-sm,
