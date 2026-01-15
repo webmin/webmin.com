@@ -37,35 +37,56 @@
 </script>
 
 <!-- Load header scripts -->
-{{- $header := resources.Get "js/extended/header.js" | resources.ExecuteAsTemplate "js/extended/header.js" . | resources.Minify }}
-<script defer crossorigin="anonymous" src="{{ $header.RelPermalink }}?{{ now.Unix }}"></script>
+{{- $header := resources.Get "js/extended/header.js"
+  | resources.ExecuteAsTemplate "assets/js/extended/header.js" .
+  | resources.Minify
+  | fingerprint -}}
+<script defer crossorigin="anonymous" src="{{ $header.RelPermalink }}" integrity="{{ $header.Data.Integrity }}"></script>
 
 <!-- Set chocolat.js and chocolat.css vars references -->
-{{- $chocolatjs := resources.Get "js/chocolat.js" | resources.Minify }}
-{{- $chocolatcss := resources.Get "css/chocolat.css" | resources.Minify }}
+{{- $chocolatjs := resources.Get "js/chocolat.js"
+  | resources.Copy "assets/js/chocolat.js"
+  | resources.Minify
+  | fingerprint -}}
+
+{{- $chocolatcss := resources.Get "css/chocolat.css"
+  | resources.Copy "assets/css/chocolat.css"
+  | resources.Minify
+  | fingerprint -}}
 
 <!-- Load chocolat.js for Screenshots page -->
 {{- if .Param "loadGallery" }}
-<script type="text/javascript" src="{{ $chocolatjs.RelPermalink }}?{{ now.Unix }}"></script>
-<link rel="stylesheet" href="{{ $chocolatcss.RelPermalink }}?{{ now.Unix }}" type="text/css" media="screen">
-{{- $chocolatloader := resources.Get "js/extended/header-chocolat.js" | resources.ExecuteAsTemplate "js/extended/header-chocolat.js" . | resources.Minify }}
-<script defer crossorigin="anonymous" src="{{ $chocolatloader.RelPermalink }}?{{ now.Unix }}"></script>
-{{ end }}
+<script type="text/javascript" src="{{ $chocolatjs.RelPermalink }}" integrity="{{ $chocolatjs.Data.Integrity }}"></script>
+<link rel="stylesheet" href="{{ $chocolatcss.RelPermalink }}" integrity="{{ $chocolatcss.Data.Integrity }}" type="text/css" media="screen">
+{{- $chocolatloader := resources.Get "js/extended/header-chocolat.js"
+  | resources.ExecuteAsTemplate "assets/js/extended/header-chocolat.js" .
+  | resources.Minify
+  | fingerprint -}}
+<script defer crossorigin="anonymous" src="{{ $chocolatloader.RelPermalink }}" integrity="{{ $chocolatloader.Data.Integrity }}"></script>
+{{- end }}
 
 <!-- Load chocolat.js for Documentation page -->
 {{ if in .RelPermalink "/docs/" }}
-<script type="text/javascript" src="{{ $chocolatjs.RelPermalink }}?{{ now.Unix }}"></script>
-<link rel="stylesheet" href="{{ $chocolatcss.RelPermalink }}?{{ now.Unix }}" type="text/css" media="screen">
-{{- $chocolatloaderdocs := resources.Get "js/extended/header-chocolat-docs.js" | resources.ExecuteAsTemplate "js/extended/header-chocolat-docs.js" . | resources.Minify }}
-<script defer crossorigin="anonymous" src="{{ $chocolatloaderdocs.RelPermalink }}?{{ now.Unix }}"></script>
+<script type="text/javascript" src="{{ $chocolatjs.RelPermalink }}" integrity="{{ $chocolatjs.Data.Integrity }}"></script>
+<link rel="stylesheet" href="{{ $chocolatcss.RelPermalink }}" integrity="{{ $chocolatcss.Data.Integrity }}" type="text/css" media="screen">
+
+{{- $chocolatloaderdocs := resources.Get "js/extended/header-chocolat-docs.js"
+  | resources.ExecuteAsTemplate "assets/js/extended/header-chocolat-docs.js" .
+  | resources.Minify
+  | fingerprint -}}
+<script defer crossorigin="anonymous" src="{{ $chocolatloaderdocs.RelPermalink }}" integrity="{{ $chocolatloaderdocs.Data.Integrity }}"></script>
 {{ end }}
 
 <!-- Load chocolat.js for Index page -->
 {{ if .Param "loadGalleryIndex" }}
-<script type="text/javascript" src="{{ $chocolatjs.RelPermalink }}?{{ now.Unix }}"></script>
-<link rel="stylesheet" href="{{ $chocolatcss.RelPermalink }}?{{ now.Unix }}" type="text/css" media="screen">
-{{- $chocolatloaderindex := resources.Get "js/extended/header-chocolat-index.js" | resources.ExecuteAsTemplate "js/extended/header-chocolat-index.js" . | resources.Minify }}
-<script defer crossorigin="anonymous" src="{{ $chocolatloaderindex.RelPermalink }}?{{ now.Unix }}"></script>
+<script type="text/javascript" src="{{ $chocolatjs.RelPermalink }}" integrity="{{ $chocolatjs.Data.Integrity }}"></script>
+<link rel="stylesheet" href="{{ $chocolatcss.RelPermalink }}" integrity="{{ $chocolatcss.Data.Integrity }}" type="text/css" media="screen">
+
+{{- $chocolatloaderindex := resources.Get "js/extended/header-chocolat-index.js"
+  | resources.ExecuteAsTemplate "assets/js/extended/header-chocolat-index.js" .
+  | resources.Minify
+  | fingerprint -}}
+<script defer crossorigin="anonymous" src="{{ $chocolatloaderindex.RelPermalink }}" integrity="{{ $chocolatloaderindex.Data.Integrity }}"></script>
 {{ end }}
 
 <!-- Load Matomo stats tracker for www.virtualmin.com -->
