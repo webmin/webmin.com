@@ -1,6 +1,6 @@
 ---
 title: "Webmin 2.621 and Usermin 2.521 released"
-date: 2026-01-09
+date: 2026-01-27
 tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 ---
 * Fix to prevent NAT from dropping idle RPC sessions during long transfers
