@@ -154,6 +154,7 @@ Thanks to the following companies and individuals for their support of Webmin ov
 * [Document Technologies][149] uses Webmin to manage their servers.
 * [The FurrTrax Social Network][150] uses Webmin on all their Servers and CDNs.
 * [Rimu Hosting][151] supplies Webmin and (Virtualmin) control panels along with their VPS servers.
+* [Cloudzy][152] offers one of the largest ready-to-deploy marketplaces, with over 300 one-click apps, now including Webmiin
 
 {{< alert secondary exclamation "Not listed?" "If your company is missing from the list above, please **[let us know](mailto:security@webmin.com)**" >}}
 
@@ -308,3 +309,4 @@ Thanks to the following companies and individuals for their support of Webmin ov
   [149]: http://www.doctechaz.com/
   [150]: http://www.FurrTrax.com/
   [151]: https://rimuhosting.com/resellerhosting.jsp
+  [152]: https://cloudzy.com/marketplace/webmin
