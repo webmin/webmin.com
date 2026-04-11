@@ -144,7 +144,7 @@ To restrict the directories that FTP clients can access, follow these steps:
 - Click the **Save** button to return to the virtual server options page. If you want to add another restriction (such as for a different group and directory), click on **Files and Directories** again and fill in the new blank row in the table. 
 - When done, return to the module's main page and hit the **Apply Changes** button to make the restrictions active. 
 
-<img src=http://www.webmin.com/screenshots/chapter40/figure3.gif><br>
+<img src=https://webmin.com/screenshots/chapter40/figure3.gif><br>
 The files and directories form
 
 From now on when restricted users connect, they will be unable to see files outside the specified directory or even work out which directory they have been limited to. Unlike some other FTP servers that support this kind of restriction, there is no need to copy any files or libraries like `/bin/ls` into the directory, as ProFTPD does not depend on any external programs. 

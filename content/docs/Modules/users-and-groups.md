@@ -90,7 +90,7 @@ You do not often need to edit an existing group, as users can be added to or rem
 - If you are changing the group ID, files owned by the group may need to be updated to use the new ID. Use the **Change group ID on files?** option to control which directories will be searched for files that need updating. 
 - Click on the **Save** button to make the changes active. Once they are complete, you will be returned to the lists of users and groups. 
 
-<img src=http://www.webmin.com/screenshots/chapter4/figure7.gif><br>
+<img src=https://webmin.com/screenshots/chapter4/figure7.gif><br>
 The group editing form
 
 ### Deleting a group

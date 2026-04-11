@@ -240,16 +240,16 @@ Existing aliases can be editing by just changing the entries in the **Document d
 Aliases can also be created that use Perl regular expressions to match more complex URL paths. These must be entered into the **Regexp document directory aliases** table on the **Aliases and Redirects** form, which has the same columns as the *Document directory aliases* table described above. The difference is that any regular expression can be entered into the **From** field, such as _^/images/(.*)\.gif$_. 
 The **To** field can taken a string that refers to bracketed sections in the expression, such as _/images/$1.jpg_. This would convert any request for a GIF file into one for the JPEG with the same name. 
 
-Redirects are similar to aliases, but have a different purpose and work in a different way. Whenever a client requests a URL path that has been redirected, Apache will tell it to go to another URL (possibly on another server) instead. For example, you might redirect all requests to _http://www.example.com/webmin/_ to _http://www.webmin.com/_. Unlike the way aliases behave, 
-if a browser requests a page like _/webmin/foo.gif_ it will not be redirected to _http://www.webmin.com/foo.gif_ - it will 
-just go to the URL _http://www.webmin.com/_ instead. 
+Redirects are similar to aliases, but have a different purpose and work in a different way. Whenever a client requests a URL path that has been redirected, Apache will tell it to go to another URL (possibly on another server) instead. For example, you might redirect all requests to _http://www.example.com/webmin/_ to _https://webmin.com/_. Unlike the way aliases behave, 
+if a browser requests a page like _/webmin/foo.gif_ it will not be redirected to _https://webmin.com/foo.gif_ - it will 
+just go to the URL _https://webmin.com/_ instead. 
 
 Redirects are implemented by the webserver sending the special 302 status code to the browser, which tells it to go to a new location. It is quite possible for the new URL to be a redirect itself, and you can even create a loop of redirects - not that this is a good idea. 
 
 To set up redirection for a path on your server, the steps to follow are : 
 - On the module's main page, click on the icon for the virtual server that you want to create the redirect under. If you want it to apply to all virtual servers, click on the **Default Server** icon instead. 
 - On the virtual server options page that appears, click on the **Aliases and Redirects** icon. 
-- In the empty row of the **URL redirects** table, enter the URL path on your server under the **From** column, such as _/webmin_.  Under the **To** column, enter the URL that requests should be redirected to, such as _http://www.webmin.com/_. The **Status** field is optional, but can be filled in if you want to change the HTTP status code that will be used for this redirect.  The default is 302, which indicates a temporary redirection. However, you can 301 to tell browsers that the direction is permanent, or 303 to tell them that the original content has been replaced. There will always be exactly one empty row in the table. If you need to add more than one redirect, you will need to re-visit this page after filling in the row and saving. 
+- In the empty row of the **URL redirects** table, enter the URL path on your server under the **From** column, such as _/webmin_.  Under the **To** column, enter the URL that requests should be redirected to, such as _https://webmin.com/_. The **Status** field is optional, but can be filled in if you want to change the HTTP status code that will be used for this redirect.  The default is 302, which indicates a temporary redirection. However, you can 301 to tell browsers that the direction is permanent, or 303 to tell them that the original content has been replaced. There will always be exactly one empty row in the table. If you need to add more than one redirect, you will need to re-visit this page after filling in the row and saving. 
 - Click the **Save** button to have your new redirect stored in the Apache configuration. The browser will return to the virtual server options page. 
 - To make the redirection active, click on the **Apply Changes** link at the top of the page. 
 
@@ -257,7 +257,7 @@ As with aliases, existing redirects can be edited by just changing the entries i
 in the table. 
 
 You can also create regular expression redirects that behave in a similar way to regexp aliases, using the **Regexp URL redirects** table on the same page. Under the **From** column you can enter a 
-URL path expression such as _^/webmin/(.*)$_, and under the **To** column a URL that can refer to bracketed parts of the path, such as _http://www.webmin.com/$1_. In this example, an request by a client for a page under _/webmin_ would be redirected to the same file at _www.webmin.com_. 
+URL path expression such as _^/webmin/(.*)$_, and under the **To** column a URL that can refer to bracketed parts of the path, such as _https://webmin.com/$1_. In this example, an request by a client for a page under _/webmin_ would be redirected to the same file at _webmin.com_. 
 
 Also on the Aliases and Redirects page are two more tables labelled **Permanent URL redirects** and **Temporary URL redirects**. The first behaves exactly the same as a normal redirection, but with the status code always set to 301, indicating a permanent redirection. The second also behaves like a normal redirect, but always uses a status code of 302 (temporary redirection). This option is really quite useless, as normal redirections default to using status 302 if one is not specified. 
 
@@ -268,7 +268,7 @@ If Apache on your system has been compiled with or dynamically loads the proxy m
 To set up this URL mapping, the steps to follow are : 
 - On the module's main page, click on the icon for the virtual server that you want to create the mapping under. If you want it to apply to all virtual servers, click on the **Default Server** icon instead. 
 - On the virtual server options page that appears, click on the **Aliases and Redirects** icon.
-- In the empty row in the **Map locale to remote URLs** table, enter a URL path on your server (like _/webmin_) into the first field, and the full URL that you want the pages to be requested from into the second (like _http://www.webmin.com_/). 
+- In the empty row in the **Map locale to remote URLs** table, enter a URL path on your server (like _/webmin_) into the first field, and the full URL that you want the pages to be requested from into the second (like _https://webmin.com_/). 
 - In the empty row in the **Map remote Location: headers to local** table, enter the same full remote URL into the first field and the URL path on your server into the second. This second table controls the conversion of redirects issued by the remote server, and should almost always be set. If it is not set, whenever the remote server issues a redirect the browser will end up connecting directly to it instead of to your server. 
 - Click the **Save** button to have your new mapping stored in the Apache configuration. The browser will return to the virtual server options page. 
 - To make the mapping active, click on the **Apply Changes** link at the top of the page. 

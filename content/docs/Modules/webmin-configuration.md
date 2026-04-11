@@ -183,7 +183,7 @@ Updated versions of Webmin modules in the latest release are often made availabl
 
 Of course, if you are not having any trouble then you can just wait until the next full release and install it instead. Each version will always include any updates that were made available for previous versions of Webmin. Updates are only created to solve problems in the latest version, so if you are running an older version do not expect any more to be released for it. 
 
-The page www.webmin.com/updates.html lists the downloadable updates for each version of Webmin. You can retrieve any that you need from there to be installed using this module, as explained in the **Installing and deleting Webmin modules** section. However, there is an easier method - Webmin can be told to check for, download and install any updates that it does not already have. This can either be done explicitly using this module, or set up to happen on schedule. 
+The page [Downloading and Installing](https://webmin.com/download/) lists the downloadable updates for each version of Webmin. You can retrieve any that you need from there to be installed using this module, as explained in the **Installing and deleting Webmin modules** section. However, there is an easier method - Webmin can be told to check for, download and install any updates that it does not already have. This can either be done explicitly using this module, or set up to happen on schedule. 
 
 To check for and install updates, follow these steps : 
 - Click on the **Update Webmin** icon on the Webmin Configuration module's main page. 

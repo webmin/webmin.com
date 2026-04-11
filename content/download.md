@@ -37,15 +37,15 @@ After successful Webmin installation, you can access its interface by entering *
 The latest full Webmin distribution is available in various package formats for download:
 
 
-  [**`rpm`**](https://www.webmin.com/download/rpm/webmin-current.rpm) — **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora**, **openSUSE**
+  [**`rpm`**](https://webmin.com/download/rpm/webmin-current.rpm) — **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora**, **openSUSE**
 
-  [**`deb`**](https://www.webmin.com/download/deb/webmin-current.deb) — **Debian derivatives (Ubuntu, Kali, Parrot, Pop!, Lite, Devuan)**
+  [**`deb`**](https://webmin.com/download/deb/webmin-current.deb) — **Debian derivatives (Ubuntu, Kali, Parrot, Pop!, Lite, Devuan)**
 
-  [**`pkg`**](https://www.webmin.com/download/solaris-pkg/webmin-current.pkg.gz) — **Solaris**
+  [**`pkg`**](https://webmin.com/download/solaris-pkg/webmin-current.pkg.gz) — **Solaris**
   
-  [**`tar`**](https://www.webmin.com/download/webmin-current.tar.gz) — **FreeBSD** or any other Linux distribution
+  [**`tar`**](https://webmin.com/download/webmin-current.tar.gz) — **FreeBSD** or any other Linux distribution
 
-&nbsp;&nbsp;\* The minimal [**`tar`**](https://www.webmin.com/download/webmin-current-minimal.tar.gz) version of Webmin contains only the core API and programs, and a few modules required for its basic operation. Most modules and all themes have been left out, but can be easily added later. It can be useful if you only need some of the programs functionality, and don't want to download the entire multi-megabyte package. 
+&nbsp;&nbsp;\* The minimal [**`tar`**](https://webmin.com/download/webmin-current-minimal.tar.gz) version of Webmin contains only the core API and programs, and a few modules required for its basic operation. Most modules and all themes have been left out, but can be easily added later. It can be useful if you only need some of the programs functionality, and don't want to download the entire multi-megabyte package. 
 
 ### Checksum Verification
 To verify that you have downloaded Webmin fully and correctly, you can use the command **`sha256sum`** on the downloaded file, and compare it against those listed below:

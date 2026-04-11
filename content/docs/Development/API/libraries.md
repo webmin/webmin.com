@@ -28,7 +28,7 @@ The extensive Webmin API can also be called from your own Perl scripts that do n
 ### API in standalone Perl scripts
 The steps to install and use this module are:
 
-1. [Download](https://www.webmin.com/Webmin-API-1.0.tar.gz) the `Webmin::API` Perl module
+1. [Download](https://webmin.com/Webmin-API-1.0.tar.gz) the `Webmin::API` Perl module
 2. Extract and install it with the following commands, run as _root_:
 ```text
 tar xvzf Webmin-API-1.0.tar.gz

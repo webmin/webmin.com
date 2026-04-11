@@ -46,11 +46,11 @@ After successful Usermin installation, you can access its interface by entering 
 
 The latest Usermin distribution is available in various package formats for download:
 
-  [**`rpm`**](https://www.webmin.com/download/rpm/usermin-current.rpm) — **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora**, **openSUSE**
+  [**`rpm`**](https://webmin.com/download/rpm/usermin-current.rpm) — **Red Hat Enterprise Linux**, **Alma**, **Rocky**, **Oracle**, **CentOS Stream**, **Fedora**, **openSUSE**
 
-  [**`deb`**](https://www.webmin.com/download/deb/usermin-current.deb) — **Debian derivatives (Ubuntu, Kali, Parrot, Pop!, Lite, Devuan)**
+  [**`deb`**](https://webmin.com/download/deb/usermin-current.deb) — **Debian derivatives (Ubuntu, Kali, Parrot, Pop!, Lite, Devuan)**
   
-  [**`tar`**](https://www.webmin.com/download/usermin-current.tar.gz) — **FreeBSD** or any other Linux distribution
+  [**`tar`**](https://webmin.com/download/usermin-current.tar.gz) — **FreeBSD** or any other Linux distribution
 
 ### Checksum Verification
 To verify that you have downloaded Usermin fully and correctly, you can use the command **`sha256sum`** on the downloaded file, and compare it against those listed below:

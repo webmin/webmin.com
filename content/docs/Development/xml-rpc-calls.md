@@ -42,7 +42,7 @@ else {
         }
 ```
 
-Find more additional examples in our [downloadable archive](https://www.webmin.com/xmlrpc.zip). In all these examples, login details for the Webmin server are in the `url.txt` file, which must contain a URL with a username and password like:
+Find more additional examples in our [downloadable archive](https://webmin.com/xmlrpc.zip). In all these examples, login details for the Webmin server are in the `url.txt` file, which must contain a URL with a username and password like:
 
 ```bash
 https://root:password@example.com:10000/xmlrpc.cgi 
