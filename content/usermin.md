@@ -102,7 +102,9 @@ If Usermin package was downloaded manually it can be installed:
 {{< details-end >}}
 
 ## Standard Modules
-The standard modules that you may have deleted from Usermin on your system can be re-installed by downloading using [this](https://download.webmin.com/download/umodules/) link.
+If Usermin was installed from an RPM or DEB repository, use your system package manager to reinstall or upgrade Usermin instead of downloading individual module files.
+
+The [standard Usermin modules directory](https://download.webmin.com/download/umodules/) is mainly for manual, non-package-managed, or source/tarball installations.
 
 ## Supported Languages
 Translation of Usermin modules into different languages is done by volunteers. {{% include file="/data/supported-languages.md" %}}
