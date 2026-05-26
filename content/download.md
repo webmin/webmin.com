@@ -88,10 +88,25 @@ If Webmin package was downloaded manually it can be installed:
 Older versions of Webmin can be downloaded from [Sourceforge](https://sourceforge.net/projects/webadmin/files/webmin/).
 
 ## Standard Modules
-The standard modules that you may have deleted from Webmin on your system can be re-installed by downloading using [this](https://download.webmin.com/download/modules/) link.
+If Webmin was installed from the Webmin RPM or DEB repository described above, the standard modules are included in the `webmin` package. Use your system package manager to reinstall or upgrade Webmin instead of downloading individual module files.
+
+If Webmin was installed from the Virtualmin repositories at [download.virtualmin.com](https://download.virtualmin.com), the package is modular. The core modules are installed with `webmin`, and optional standard modules are available as separate `webmin-*` packages. For example:
+
+```bash
+sudo apt-get install webmin-squid
+sudo dnf install webmin-squid
+```
+
+Use the package name that matches the module you need, for example `webmin-cpan`, `webmin-postgresql`, or `webmin-custom`. For the full Virtualmin repository layout, see [Webmin module packages](https://www.virtualmin.com/docs/installation/troubleshooting-repositories/#webmin-module-packages) in the Virtualmin documentation.
+
+Older Virtualmin systems may still use the legacy [software.virtualmin.com](https://software.virtualmin.com) repository and full Webmin builds. When those systems are switched to [download.virtualmin.com](https://download.virtualmin.com) using Virtualmin's repository setup tools, previously used Webmin modules are preserved by installing the matching modular `webmin-*` packages.
+
+The [standard modules directory](https://download.webmin.com/download/modules/) is mainly for manual, non-package-managed, or source/tarball installations. Avoid mixing module downloads from that directory with package-managed Webmin installs unless you have a specific reason.
 
 ## Development Builds
 There are development pre-release and nightly builds available for testing purposes only. These builds may be unstable or lack certain features. Use them at your own risk!
+
+Repository packages from [download.webmin.dev](https://download.webmin.dev) use the modular Webmin layout, with core modules in `webmin` and optional standard modules available as separate `webmin-*` packages.
 
 ### Pre-release Builds
 Pre-release builds can be found on [rc.download.webmin.dev](https://rc.download.webmin.dev/) page.
