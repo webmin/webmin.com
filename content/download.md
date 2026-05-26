@@ -52,6 +52,8 @@ To verify that you have downloaded Webmin fully and correctly, you can use the c
 
 {{% include file="/data/download/checksum-verification.md" %}}
 
+Machine-readable checksums are also available in <a href=/checksum.json>checksum.json</a>.
+
 ### Configure
 If Webmin package was downloaded manually it can be installed:
    #### RHEL and derivatives
