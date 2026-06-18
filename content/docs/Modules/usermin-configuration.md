@@ -4,7 +4,7 @@ date: 2023-03-14
 weight: 115
 ---
 
-{{< alert warning question "What is Usermin?" "Usermin provides web-access to user-based data and configuration the same way Webmin does for server-administration." >}}
+{{< alert warning note "Usermin at a glance" "Usermin provides web-access to user-based data and configuration the same way Webmin does for server-administration." >}}
 
 ### About
 Usermin Configuration is very much alike as [Webmin Configuration](/docs/modules/webmin-configuration) described in detail.

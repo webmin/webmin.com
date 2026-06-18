@@ -68,7 +68,7 @@ params:
 
   # home-info mode
   homeInfoParams:
-    Title: "What is Webmin?"
+    Title: ""
     content: >
         Webmin is a web-based system administration tool for Unix-like servers, 
         and services with about 1,000,000 yearly installations worldwide. Using it,

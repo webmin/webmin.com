@@ -10,7 +10,7 @@ The **Protected Web Directories** module lets you manage web directories that ar
 
 {{< alert primary exclamation "Note" "When using Apache, the webserver configuration has to include a line `AllowOverride AuthConfig` either globally or on the relevant web-directory." >}}
 
-### What is `.htaccess` file?
+### The `.htaccess` file
 
 1. **Purpose**: `.htaccess` (Hypertext Access) is a configuration file used by Apache-based web servers. It allows for decentralized management of web server configuration.
   
@@ -23,7 +23,7 @@ The **Protected Web Directories** module lets you manage web directories that ar
    - **Performance**: Adjust caching settings.
    - **Other Configurations**: Modify settings like file extensions for certain scripts, set MIME types, etc.
 
-### What is `.htpasswd` file?
+### The `.htpasswd` file
 
 1. **Purpose**: The `.htpasswd` file is used in combination with `.htaccess` to password-protect web directories.
 
