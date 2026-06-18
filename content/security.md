@@ -8,6 +8,46 @@ This page lists security problems found in Webmin and Usermin, versions affected
 
 {{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**" >}}
 
+### Webmin prior to 2.641
+#### Stored XSS in System and Server Status module [CVE-2026-22678]
+
+- An untrusted Webmin user with permission to create notification email templates
+in the System and Server Status could exploit the <tt>root</tt> user when the template
+is viewed.
+
+  > Thanks to Wade Sparks for reporting this issue.
+
+### Webmin prior to 2.640
+#### Privilege escalation using Help feature
+
+- Untrusted Webmin users can use the built-in help pages to execute commands
+with root privileges. This is possible regardless of which modules the Webmin
+user has access to.
+
+  > Thanks to Jeremy Brown for reporting this.
+
+#### XSS attach via SVG email [CVE-2026-49102]
+
+- Opening an untrusted malicious email with an SVG attachment can be used to
+trigger an XSS attach in the Read User Mail module.
+
+  > Thanks to Andrea Carlo Maria Dattola, Marco Ventura and Massimiliano Brolli
+of TIM Security Red Team Research - TIM S.p.A 
+
+#### Detach email attachment file overwrite [CVE-2026-49103]
+
+- Webmin before 2.640 does not safely construct a filename for saving of an
+attachment in the Read User Mail module.
+
+  > Thanks to Andrea Carlo Maria Dattola, Marco Ventura and Massimiliano Brolli
+of TIM Security Red Team Research - TIM S.p.A 
+
+#### 2FA bypass using basic authentication [CVE-2026-42210]
+
+- Accounts with two-factor authentication enabled can bypass the 2FA requirement
+by using Basic HTTP authentication, instead of Webmin's regular cookie-based
+session login. The username and password must still be correctly provided though.
+
 ### Webmin prior to 2.600
 #### Privilige escalation using Squid module [CVE-2025-67738]
 
