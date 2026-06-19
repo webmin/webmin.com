@@ -42,7 +42,7 @@ attachment in the Read User Mail module.
   > Thanks to Andrea Carlo Maria Dattola, Marco Ventura and Massimiliano Brolli
 of TIM Security Red Team Research - TIM S.p.A 
 
-#### 2FA bypass using basic authentication [CVE-2026-42210]
+#### 2FA bypass using basic authentication [CVE-2026-42210, CVE-2026-56022]
 
 - Accounts with two-factor authentication enabled can bypass the 2FA requirement
 by using Basic HTTP authentication, instead of Webmin's regular cookie-based
@@ -67,7 +67,7 @@ parameter escaping to execute commands as root.
   > Thanks to Nyein Chan Aung and Mg Demon for reporting this.
 
 ### Webmin 2.202 and below [February 26, 2025]
-#### SSL certificates from clients may be trusted unexpectedly
+#### SSL certificates from clients may be trusted unexpectedly [CVE-2026-56020]
 
 - If Webmin is configured to trust remote IP addresses provided by a proxy *and*
   you have users authenticating using client SSL certificates, a browser
