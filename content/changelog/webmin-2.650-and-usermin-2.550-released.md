@@ -1,25 +1,33 @@
 ---
 title: "Webmin 2.650 and Usermin 2.550 released"
-date: 2026-06-16
+date: 2026-06-25
 tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 ---
 
 * Add new Systemd Services and Units module
 * Add new GRUB 2 Boot Loader module
 * Add new Kea DHCP Server module
+* Add WebSocket proxy support to the Webmin Servers Index module
 * Add basic Alpine Linux support
 * Add IP-based Let's Encrypt certificate support with Certbot 5.3
+* Add editable SSH public keys for newly added Unix users in Users and Groups module
+* Add improvements to custom Webmin temporary directory handling
 * Add quick service and port forwarding controls to the nftables module
 * Add optional pre- and post-scripts for scheduled package updates
 * Add option to control when scheduled package update email is sent
 * Add per-user RPC/API-only access option to the Webmin Users module
+* Add Apache 2.4 MPM process limit directives [#1821](https://github.com/webmin/webmin/issues/1821)
+* Add dhcpcd network backend for Debian and Raspberry Pi OS [#1607](https://github.com/webmin/webmin/issues/1607)
+* Add hardware RAID passthrough devices config in the SMART Status module [#1704](https://github.com/webmin/webmin/issues/1704)
 * Update Xterm.js to fix Control-C handling on iPadOS/Safari terminals
 * Update Webmin systemd service unit to run without forking
+* Fix IPv6 CIDR access control matching [#1570](https://github.com/webmin/webmin/issues/1570)
 * Fix Bootup and Shutdown module to show only services and not all units on systemd systems
 * Fix Let's Encrypt renewal scheduling to count from the last successful request
 * Fix NetworkManager detection on Debian and IPv6 DNS nameserver saving
 * Fix Dovecot configuration file handling when saving extra configs
 * Fix mailbox listing to skip unusable Maildir entries and remove stale deleted or moved entries
+* Fix Postfix module labels to identify virtual alias maps instead of virtual mailbox domains #1541
 * Fix Apache module to hide disabled default virtual hosts from the active server list
 * Fix Netplan DNS saving to preserve YAML structure
 * Fix BIND DNS handling of underscores, trailing dots, and mass record length checks
@@ -34,6 +42,9 @@ tags: ["changelog", "webmin-changelog", "usermin-changelog"]
   - Add support for saving live stats history for up to 24 hours without performance impact
   - Add better support for the new Nginx, nftables, and upcoming systemd, Kea-DHCP, and GRUB 2 Webmin modules
   - Add ability to always show available dashboard panels in theme configuration
+  - Add support for live stats and terminal WebSocket connections through Webmin Servers Index proxy links
+  - Fix proxying when Webmin is accessed with a webprefix using Webmin Servers Index module
+  - Fix theme UI helpers to escape generated markup more safely
   - Fix iOS terminal viewport sizing
   - Fix editor save handling, clean-state indication and dirty reload guard
   - Fix popover positioning, z-index and border color for help bubbles
