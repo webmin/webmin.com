@@ -1,11 +1,11 @@
 ---
-title: "Linux Firewall"
+title: "Linux Firewall (iptables)"
 date: 2023-09-10
 weight: 645
 ---
 
 ### About
-If your system is connected to the Internet, it may be useful to protect it with a firewall to prevent unauthorized access. This page covers the process of setting up and configuring a **Linux firewall** with Webmin and **iptables**. 
+If your system is connected to the Internet, it may be useful to protect it with a firewall to prevent unauthorized access. This page covers the process of setting up and configuring the **Linux Firewall (iptables)** module with Webmin and **iptables**. For the newer nftables-backed module, see [Linux Firewall (nftables)](/docs/modules/nftables).
 
 ### Intro
 A firewall is a system that protects itself and other hosts on a network from attackers on untrusted networks, such as the Internet. It can block packets and connections based on a variety of criteria, 
@@ -13,7 +13,7 @@ such as the source address, destination address, port and protocol. Typically a 
 
 A firewall system can also be configured to hide multiple hosts behind a single IP address, using a process known as NAT (Network Address Translation). Typically, the hidden hosts are on an internal LAN using a private IP network (such as 192.168.0.0) and the firewall has a single Internet IP address. NAT allows these internal hosts to communicate with others on the Internet, even though they do not have real public IP addresses.
 
-The Linux kernel has included several different firewall implementations over the years, such as IPfwadm and IPchains. The 2.4 series of kernels include the IPtables firewall, which is more powerful and flexible than its predecessors. All Linux distributions that use the 2.4 kernel has IPtables support enabled, and include the commands needed to configure it. This chapter and the Linux Firewall module only covers the setting up of a firewall using IPtables, not any of the older implementations like IPchains or IPfwadm.
+The Linux kernel has included several different firewall implementations over the years, such as IPfwadm and IPchains. The 2.4 series of kernels include the IPtables firewall, which is more powerful and flexible than its predecessors. All Linux distributions that use the 2.4 kernel has IPtables support enabled, and include the commands needed to configure it. This chapter and the Linux Firewall (iptables) module only covers the setting up of a firewall using IPtables, not any of the older implementations like IPchains or IPfwadm.
 
 All IP network traffic is broken up into packets, which are chunks of data with a source, destination and protocol information. Even a continuous flow of data such as the download of a large file is broken into packets when sent, and re-assembled at its destination. Because the IPtables firewall operates at the IP level, all of its rules and chains evaluate and operate on individual packets, not TCP connections or HTTP requests. 
 
@@ -33,7 +33,7 @@ If you have manually created a firewall using a shell script and want to use thi
 
 What you have to do is stop your custom script from being run at boot time, and tell the module to create its own firewall setup script instead. 
 
-This also applies to firewalls created by tools such as YaST or fBuilder, which write out shell scripts of iptables commands. Unless the tool can also edit an IPtables save file (such as knetfilter), it should not be used alongside Webmin's Linux Firewall module, or they will probably overwrite each other's settings. 
+This also applies to firewalls created by tools such as YaST or fBuilder, which write out shell scripts of iptables commands. Unless the tool can also edit an IPtables save file (such as knetfilter), it should not be used alongside Webmin's Linux Firewall (iptables) module, or they will probably overwrite each other's settings.
 
 When you enter the module from the Networking category, the main page will usually display a list of all chains and rules in the first table that contains any (usually **Packet filtering**), as shown in below. However, if Webmin detects that the iptables or iptables-save commands are not installed, an error message will be displayed instead - check your distribution CD or website for a package containing them. 
 
@@ -161,7 +161,7 @@ To set up NAT, all you really need is a system with two network interfaces - one
  1. On the internal LAN, every system's Ethernet interface should be assigned an address on a private IP network such as 192.168.0.0, including the gateway system. 
  2. Set the default router on all internal systems to the LAN IP address of the gateway system. 
  3. Make sure that the gateway has IP forwarding enabled in the Network Configuration module under Routing and Gateways.  See [Network Configuration](/docs/modules/network-configuration) module for more information on how to do this. 
- 4. On the main page of the Linux Firewall module on the gateway system, select **Network address translation** from the list next to the **Showing IPtable** button. Then click the button to display chains in the NAT table. 
+ 4. On the main page of the Linux Firewall (iptables) module on the gateway system, select **Network address translation** from the list next to the **Showing IPtable** button. Then click the button to display chains in the NAT table.
  5. Click the **Add rule** button in the **Packets after routing** section, which will take you to the rule creation form. 
  6. Set the **Action to take** to **Masquerade**. 
  7. To control which ports the firewall will use for masqueraded connections, set the **Source ports for masquerading** option to **Port range** and enter starting and ending port numbers into the fields next to it. Usually just selecting **Any** to let the firewall use any available port will work fine. 
@@ -183,7 +183,7 @@ Many networks use proxy servers like Squid to cache commonly accessed websites a
 Fortunately, there is a solution - transparent proxying. If all client systems access the Internet through a gateway running an IPtables firewall, it can be configured to re-direct connections to port 80 (used by most websites) to a proxy server on the some other system. This means that clients do not need to be configured to access a proxy, as any HTTP requests that they make will be transparently sent to the proxy server without their knowledge. 
 
 To set up transparent proxying, the steps to follow are:
- 1. On the main page of the Linux Firewall module on the gateway system, select **Network address translation** from the list next to the **Showing IPtable** button before clicking it. 
+ 1. On the main page of the Linux Firewall (iptables) module on the gateway system, select **Network address translation** from the list next to the **Showing IPtable** button before clicking it.
  2. In the **Packets before routing** section, click on **Add rule** to go to the rule creation form. The rule being added will redirect all traffic on port 80 forwarded by the firewall system to a proxy server. 
  3. Set the **Action to take** to **Destination NAT**. 
  4. In the **IPs and ports for DNAT** field, select **IP range** and enter the address of the proxy server system into the field next to it. If the proxy is running on the same system, enter its Ethernet IP address (not _127.0.0.1_). In the field next to **Port range**, enter the port the proxy server is running on, such as _8080_. 
@@ -214,7 +214,7 @@ from the Internet. Fortunately, there is a solution to this problem - port forwa
 This lets you re-direct all connections to some port on the firewall system to a different host and port on your internal network. For a mail server, all data received on port _25_ might be send to the same port on the host that is actually being used to host user email. Of course, this would make it impossible for your firewall system to receive email itself. 
 
 To set up port forwarding, follow these steps:
- 1. On the main page of the Linux Firewall module on the gateway system, select **Network address translation** from the list next to the **Showing IPtable** button before clicking it. 
+ 1. On the main page of the Linux Firewall (iptables) module on the gateway system, select **Network address translation** from the list next to the **Showing IPtable** button before clicking it.
  2. In the **Packets before routing** section, click on **Add rule** to go to the rule creation form. The rule being added will redirect all external traffic received by the firewall to some internal address. 
  3. Set the **Action to take** to **Destination NAT**. 
  4. In the **IPs and ports for DNAT** field, select **IP range** and enter the address of the internal host into the adjacent text box, such as _192.168.1.10_. In the **Port range** box, enter the port number on the internal host to which data should be sent, such as _25_ for SMTP, _110_ for POP3 or _80_ for HTTP. 
