@@ -44,8 +44,8 @@ enableRobotsTXT: true
 
 params:
   version: 
-    webmin: '2.641'
-    usermin: '2.530'
+    webmin: '2.651'
+    usermin: '2.550'
 
   env: production
 
