@@ -37,10 +37,13 @@
                     hmenuLinkText.getBoundingClientRect().right,
                 hmenuDropDownTarg = hmenuLink.querySelector(hmenuDropDownTargSel);
             if (hmenuDropDownTarg) {
-                const hmenuDropDownHeight = parseInt(
-                    hmenuDropDownTarg.getBoundingClientRect().height
-                );
-                hmenuDropDownTarg.style.right = hmenuRightOffset + "px";
+                const hmenuRightOffsetValue = hmenuRightOffset.toFixed(2) + "px",
+                    hmenuDropDownHeight = parseInt(
+                        hmenuDropDownTarg.getBoundingClientRect().height
+                    );
+                hmenuDropDownTarg.dataset.right = hmenuRightOffsetValue;
+                hmenuDropDownTarg.style.setProperty("--hmenu-right", hmenuRightOffsetValue);
+                hmenuDropDownTarg.style.removeProperty("right");
                 if (
                     headerElemTopOffset - headerElemHeight > hmenuDropDownHeight ||
                     (document.querySelector(headerTargSel).getBoundingClientRect().top !== 0 &&
