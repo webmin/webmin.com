@@ -160,11 +160,11 @@ Redirect /download/deb/webmin_2.652_all.deb https://prdownloads.sourceforge.net/
 # Webmin current redirects
 Redirect /download/webmin-current.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.652.tar.gz
 Redirect /download/webmin-current-minimal.tar.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.652-minimal.tar.gz
-Redirect /download/rpm/webmin-current.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.652-1.noarch.rpm
-Redirect /download/rpm/webmin-current.src.rpm https://prdownloads.sourceforge.net/webadmin/webmin-2.652-1.src.rpm
+Redirect /download/rpm/webmin-current.rpm https://prdownloads.sourceforge.net/webadmin/newkey-webmin-2.652-1.noarch.rpm
+Redirect /download/rpm/webmin-current.src.rpm https://prdownloads.sourceforge.net/webadmin/newkey-webmin-2.652-1.src.rpm
 Redirect /download/solaris-pkg/webmin-current.pkg.gz https://prdownloads.sourceforge.net/webadmin/webmin-2.652.pkg.gz
 Redirect /download/solaris-pkg/webmin-current.zip https://prdownloads.sourceforge.net/webadmin/webmin-2.652.zip
-Redirect /download/deb/webmin-current.deb https://prdownloads.sourceforge.net/webadmin/webmin_2.652_all.deb
+Redirect /download/deb/webmin-current.deb https://prdownloads.sourceforge.net/webadmin/newkey-webmin_2.652_all.deb
 
 # Usermin redirects
 Redirect /download/usermin-2.551.tar.gz https://prdownloads.sourceforge.net/webadmin/usermin-2.551.tar.gz
@@ -174,9 +174,9 @@ Redirect /download/deb/usermin_2.551_all.deb https://prdownloads.sourceforge.net
 
 # Usermin current redirects
 Redirect /download/usermin-current.tar.gz https://prdownloads.sourceforge.net/webadmin/usermin-2.551.tar.gz
-Redirect /download/rpm/usermin-current.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.551-1.noarch.rpm
-Redirect /download/rpm/usermin-current.src.rpm https://prdownloads.sourceforge.net/webadmin/usermin-2.551-1.src.rpm
-Redirect /download/deb/usermin-current.deb https://prdownloads.sourceforge.net/webadmin/usermin_2.551_all.deb
+Redirect /download/rpm/usermin-current.rpm https://prdownloads.sourceforge.net/webadmin/newkey-usermin-2.551-1.noarch.rpm
+Redirect /download/rpm/usermin-current.src.rpm https://prdownloads.sourceforge.net/webadmin/newkey-usermin-2.551-1.src.rpm
+Redirect /download/deb/usermin-current.deb https://prdownloads.sourceforge.net/webadmin/newkey-usermin_2.551_all.deb
 
 # Send updates to download.webmin.com
 RedirectMatch /updates/(.*gz.*) "https://download.webmin.com/updates/$1"
