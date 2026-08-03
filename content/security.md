@@ -8,6 +8,24 @@ This page lists security problems found in Webmin and Usermin, versions affected
 
 {{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**" >}}
 
+### Webmin prior to 2.652
+#### SSRF exploit in Upload and Download and File Manager modules
+
+- Webmin systems on which un-trusted users have access to modules that can
+download files from other URLs could make use of this download feature to
+access sites which are not accessible from the user's system. This could
+potentially grant access to other servers on an intranet or Cloud provider
+IAM credential URLs, as long as they are not protected by any form of
+authentication.
+
+- Admins who have created Webmin users with limited access should consider
+locking down the URLs they can download from at Webmin -> Webmin Users ->
+username -> Permissions for all modules -> URL download destinations. The
+next release of Virtualmin will apply this restriction to all domain owners
+and extra admins.
+
+  > Thanks to zuesdevil for reporting this issue.
+
 ### Webmin prior to 2.641
 #### Stored XSS in System and Server Status module [CVE-2026-22678]
 
