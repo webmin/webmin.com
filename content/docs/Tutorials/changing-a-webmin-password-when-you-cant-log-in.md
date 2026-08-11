@@ -9,7 +9,7 @@ showtoc: true
 
 If you cannot log in to Webmin, you can change the password for an existing Webmin user from the command line.
 
-{{< alert warning exclamation-triangle "Webmin password or Unix password?" "The `webmin passwd` command only changes passwords stored in Webmin's own password file. If your Webmin user is configured for Unix authentication instead, reset the system password with the regular `passwd` command." >}}
+{{< alert warning exclamation-triangle "Webmin password or Unix password?" "A Webmin user can use the matching Unix account's password or a separate password stored by Webmin. When both accounts exist, interactive use asks which one to change. Use `--unix` or `--webmin-only` to select explicitly." >}}
 
 ### For package-based installs
 
@@ -25,6 +25,20 @@ You can also use the explicit form:
 
 ```text
 webmin passwd --user username
+```
+
+If a matching Unix user exists, choose the recommended Unix password option at the prompt. This keeps Webmin and other system services, such as SSH, on the same password.
+
+You can select it directly with:
+
+```text
+webmin passwd --user username --unix
+```
+
+To set a separate password used only by Webmin, run:
+
+```text
+webmin passwd --user username --webmin-only
 ```
 
 ### For tar or source installs
@@ -56,7 +70,7 @@ If your Webmin configuration directory is not `/etc/webmin`, specify it explicit
 If you need to set the password in a single command, the CLI also supports passing it directly:
 
 ```text
-webmin passwd --user username --password new_password_here
+webmin passwd --user username --webmin-only --password new_password_here
 ```
 
 Use this carefully, because putting passwords on the command line can expose them in shell history or process listings.
@@ -69,8 +83,10 @@ Use the bundled CLI under your Webmin installation directory, such as `/usr/shar
 
 #### The password changed, but you still cannot log in
 
-Check whether that Webmin user is configured for **Unix authentication** instead of a password stored in Webmin itself. If so, reset the Unix password for the underlying system account instead.
+Check which password type the account uses. Run `webmin passwd --user username` interactively to choose, or use `--unix` for the matching Unix account and `--webmin-only` for a separate Webmin password.
 
 #### You are not sure where Webmin is installed
 
 For package installs, common locations are `/usr/libexec/webmin` and `/usr/share/webmin`. For source installs, a common location is `/usr/local/webmin`.
+
+For the main built-in subcommands and global options, see the [Webmin CLI](/docs/reference/webmin-command-line/).
