@@ -2591,7 +2591,9 @@ body>.main {
 }
 
 .docs-menu .docs-menu-content>div#searchbox #searchResults {
+  margin-left: -0.211rem;
   margin-top: 3.333rem;
+  width: 12em;
 }
 
 .docs-menu-content.search-active>details,
