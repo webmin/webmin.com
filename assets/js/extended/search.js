@@ -171,10 +171,10 @@ export function initializeSearch({ indexUrl, options, docsOnly = false }) {
 
     resultsList.setAttribute("aria-live", "polite");
 
-    function clearResults(clearInput = false) {
+    function clearResults(clearInput = false, preserveSearching = false) {
         window.clearTimeout(searchTimer);
         window.clearTimeout(searchIndicatorTimer);
-        resultsList.replaceChildren();
+        if (!preserveSearching) resultsList.replaceChildren();
         currentResult = null;
         if (clearInput) {
             input.value = "";
@@ -202,8 +202,11 @@ export function initializeSearch({ indexUrl, options, docsOnly = false }) {
 
     function search() {
         const query = input.value.trim();
+        const preserveSearching = Boolean(
+            query.length >= 2 && resultsList.querySelector(".search-message-searching")
+        );
         docsMenu?.classList.toggle("search-active", query.length >= 2);
-        clearResults();
+        clearResults(false, preserveSearching);
         if (query.length < 2) return;
 
         if (loadFailed) {
@@ -215,11 +218,15 @@ export function initializeSearch({ indexUrl, options, docsOnly = false }) {
             return;
         }
 
-        searchIndicatorTimer = window.setTimeout(() => {
-            if (query === input.value.trim()) {
-                resultsList.replaceChildren(messageElement("Searching…"));
-            }
-        }, searchIndicatorDelay);
+        if (!preserveSearching) {
+            searchIndicatorTimer = window.setTimeout(() => {
+                if (query === input.value.trim()) {
+                    const message = messageElement("Searching…");
+                    message.classList.add("search-message-searching");
+                    resultsList.replaceChildren(message);
+                }
+            }, searchIndicatorDelay);
+        }
 
         searchTimer = window.setTimeout(() => {
             if (query !== input.value.trim()) return;
