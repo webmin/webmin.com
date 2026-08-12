@@ -4,6 +4,9 @@ languageCode: en-us
 title: Webmin
 theme: PaperMod
 
+build:
+  noJSConfigInAssets: true
+
 module:
   mounts:
   - source: layouts
@@ -121,8 +124,16 @@ params:
     location: 0
     distance: 100
     threshold: 0.1
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
+    minMatchCharLength: 2
+    keys:
+      - name: title
+        weight: 4
+      - name: heading
+        weight: 3
+      - name: summary
+        weight: 2
+      - name: content
+        weight: 1
 
 
 outputs:

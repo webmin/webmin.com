@@ -1,0 +1,52 @@
+{{- $index := slice -}}
+{{- $headingPattern := `(?s)<h[1-6][^>]*\sid="([^"]+)"[^>]*>(.*?)</h[1-6]>` -}}
+{{- $sectionMarker := "WEBMIN_SEARCH_SECTION_3E6B7F54" -}}
+{{- range site.RegularPages -}}
+  {{- if and (not .Params.searchHidden) (ne .Layout `archives`) (ne .Layout `search`) -}}
+    {{- $page := . -}}
+    {{- if eq .Section "docs" -}}
+      {{- $renderedContent := string .Content -}}
+      {{- $headings := findRESubmatch $headingPattern $renderedContent -}}
+      {{- $sections := split (replaceRE $headingPattern $sectionMarker $renderedContent) $sectionMarker -}}
+      {{- $summary := .Params.summary | default .Description | default "" -}}
+      {{- $intro := index $sections 0 | plainify | htmlUnescape | strings.TrimSpace -}}
+      {{- if eq (len $headings) 0 -}}
+        {{- $intro = .Plain | strings.TrimSpace -}}
+      {{- end -}}
+      {{- $index = $index | append (dict
+        "title" .Title
+        "pageTitle" .Title
+        "heading" ""
+        "content" $intro
+        "permalink" .Permalink
+        "section" .Section
+        "summary" ($summary | plainify | htmlUnescape | strings.TrimSpace)
+      ) -}}
+      {{- range $headingIndex, $headingMatch := $headings -}}
+        {{- $fragment := index $headingMatch 1 -}}
+        {{- $heading := index $headingMatch 2 | plainify | htmlUnescape | strings.TrimSpace -}}
+        {{- $sectionContent := index $sections (add $headingIndex 1) | plainify | htmlUnescape | strings.TrimSpace -}}
+        {{- $index = $index | append (dict
+          "title" ""
+          "pageTitle" $page.Title
+          "heading" $heading
+          "content" $sectionContent
+          "permalink" (printf "%s#%s" $page.Permalink $fragment)
+          "section" $page.Section
+          "summary" ""
+        ) -}}
+      {{- end -}}
+    {{- else -}}
+      {{- $index = $index | append (dict
+        "title" .Title
+        "pageTitle" .Title
+        "heading" ""
+        "content" .Plain
+        "permalink" .Permalink
+        "section" .Section
+        "summary" (.Summary | plainify | htmlUnescape | strings.TrimSpace)
+      ) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $index | jsonify -}}
