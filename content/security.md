@@ -8,6 +8,17 @@ This page lists security problems found in Webmin and Usermin, versions affected
 
 {{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**" >}}
 
+### Webmin prior to 2.653
+#### Unprivileged users can perform privileged actions in multiple modules
+
+- Webmin users with limited access to the DHCPd, MySQL, PostgreSQL, Nginx,
+  PostgreSQL Samba or Squid modules may be able to restart servers or
+  edit configs even if denied by the fine-grained ACL.
+
+  > Thanks to [Team Atlanta](https://team-atlanta.github.io/),
+    [OSTIF](https://ostif.org) and [Shielder](https://www.shielder.com)
+    for finding and reporting these issues.
+
 ### Webmin prior to 2.652
 #### SSRF exploit in Upload and Download and File Manager modules
 
