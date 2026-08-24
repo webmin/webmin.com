@@ -129,6 +129,8 @@
     border-radius: var(--radius);
 }
 
+/* The chip is dark in both themes, so its colors are important to
+   outrank generic site-wide button color overrides */
 .install-command__copy {
     position: absolute;
     top: 4px;
@@ -139,8 +141,8 @@
     border: 0;
     border-radius: var(--radius);
     padding: 0 5px;
-    background-color: #4b4f56;
-    color: #f3f3f3;
+    background-color: #4b4f56 !important;
+    color: #f3f3f3 !important;
     font-family: var(--font-default, inherit);
     font-size: 14px;
     text-transform: lowercase;
@@ -150,8 +152,8 @@
 .install-command__copy:hover,
 .install-command__copy:focus-visible,
 .install-command__copy.is-copied {
-    background-color: #5a5f67;
-    color: #ffffff;
+    background-color: #5a5f67 !important;
+    color: #ffffff !important;
     outline: none;
 }
 
