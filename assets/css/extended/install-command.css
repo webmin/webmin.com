@@ -51,27 +51,36 @@
     cursor: pointer;
 }
 
-/* Keep the colored border on top where the pair overlaps */
+/* Keep the colored border on top where the pair overlaps; colors are
+   important to outrank generic site-wide button color overrides */
 .install-command__option:hover,
 .install-command__option:focus-visible,
 .install-command__option[aria-pressed="true"] {
     position: relative;
     z-index: 1;
-    color: var(--link);
-    border-color: var(--link);
+    color: var(--link) !important;
+    border-color: var(--link) !important;
     outline: none;
+}
+
+/* Guard against site-wide button hover backgrounds bleeding through,
+   while a pressed button keeps its background even when hovered */
+.install-command__option:hover,
+.install-command__option:focus-visible {
+    background-color: transparent;
 }
 
 .install-command__option[aria-pressed="true"] {
     background-color: var(--block-read-bg, var(--block-bg));
 }
 
-/* Dangerous choices, such as an unstable branch, are signaled in red */
+/* Dangerous choices, such as an unstable branch, are signaled in red;
+   declared after the generic states so it wins at equal importance */
 .install-command__option--unstable:hover,
 .install-command__option--unstable:focus-visible,
 .install-command__option--unstable[aria-pressed="true"] {
-    color: #d9534f;
-    border-color: #d9534f;
+    color: #d9534f !important;
+    border-color: #d9534f !important;
 }
 
 .install-command__option-note {
@@ -91,14 +100,20 @@
    colored on hover or click only */
 .install-command__docs {
     padding: 1px 4px;
-    color: #555 !important;
     text-decoration: none;
     box-shadow: none !important;
+    transform: scale(0.85);
 }
 
-.install-command__docs:hover,
-.install-command__docs:focus-visible,
-.install-command__docs:active {
+/* The repeated class outranks site table-link overrides that also carry
+   important, whose nesting resolves as high as four classes plus element */
+.install-command__docs.install-command__docs.install-command__docs.install-command__docs.install-command__docs {
+    color: #555 !important;
+}
+
+.install-command__docs.install-command__docs.install-command__docs.install-command__docs.install-command__docs:hover,
+.install-command__docs.install-command__docs.install-command__docs.install-command__docs.install-command__docs:focus-visible,
+.install-command__docs.install-command__docs.install-command__docs.install-command__docs.install-command__docs:active {
     color: var(--link) !important;
     outline: none;
 }
@@ -165,7 +180,7 @@
     padding: 0;
     margin: 0;
     background-color: transparent;
-    color: inherit;
+    color: inherit !important;
     font: inherit;
     cursor: pointer;
     text-decoration: underline dotted;
@@ -176,7 +191,8 @@
    color must stay a bright blue regardless of mode */
 .install-command__tool:hover,
 .install-command__tool:focus-visible {
-    color: #5295ff;
+    color: #5295ff !important;
+    background-color: transparent;
     outline: none;
 }
 
