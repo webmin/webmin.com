@@ -1,0 +1,196 @@
+/*
+ * Install command widget with option toggles and a curl/wget switch,
+ * shared across sites. Markup is a container carrying option state in
+ * data attributes, an options row of buttons and a command block.
+ */
+.install-command {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: calc(var(--gap) / 3);
+    margin: calc(var(--gap) / 2) 0;
+    min-width: 0;
+}
+
+.install-command__options {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: calc(var(--gap) / 2);
+}
+
+/* Two-way switches rendered as one joined segmented pair */
+.install-command__pair {
+    display: flex;
+}
+
+.install-command__pair .install-command__option:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.install-command__pair .install-command__option:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -1px;
+}
+
+.install-command__option {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1px 8px;
+    background-color: transparent;
+    color: var(--content);
+    font-family: var(--font-default, inherit);
+    font-size: 86%;
+    line-height: 1.5;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* Keep the colored border on top where the pair overlaps */
+.install-command__option:hover,
+.install-command__option:focus-visible,
+.install-command__option[aria-pressed="true"] {
+    position: relative;
+    z-index: 1;
+    color: var(--link);
+    border-color: var(--link);
+    outline: none;
+}
+
+.install-command__option[aria-pressed="true"] {
+    background-color: var(--block-read-bg, var(--block-bg));
+}
+
+/* Dangerous choices, such as an unstable branch, are signaled in red */
+.install-command__option--unstable:hover,
+.install-command__option--unstable:focus-visible,
+.install-command__option--unstable[aria-pressed="true"] {
+    color: #d9534f;
+    border-color: #d9534f;
+}
+
+.install-command__option-note {
+    opacity: 0.6;
+    font-size: 88%;
+}
+
+/* A switch and its trailing extras, such as a help icon, wrap as one
+   unit on small screens, spaced like separate buttons */
+.install-command__group {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--gap) / 2);
+}
+
+/* Question mark linking to the flags documentation, always grey and
+   colored on hover or click only */
+.install-command__docs {
+    padding: 1px 4px;
+    color: #555 !important;
+    text-decoration: none;
+    box-shadow: none !important;
+}
+
+.install-command__docs:hover,
+.install-command__docs:focus-visible,
+.install-command__docs:active {
+    color: var(--link) !important;
+    outline: none;
+}
+
+.install-command__scroll {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: var(--radius);
+}
+
+.install-command__copy {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    z-index: 3;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    border-radius: var(--radius);
+    padding: 0 5px;
+    background-color: #4b4f56;
+    color: #f3f3f3;
+    font-family: var(--font-default, inherit);
+    font-size: 14px;
+    text-transform: lowercase;
+    cursor: pointer;
+}
+
+.install-command__copy:hover,
+.install-command__copy:focus-visible,
+.install-command__copy.is-copied {
+    background-color: #5a5f67;
+    color: #ffffff;
+    outline: none;
+}
+
+.install-command__command {
+    margin: 0;
+    padding: calc(var(--gap) / 4);
+    padding-right: calc(var(--gap) * 3);
+    white-space: pre;
+    min-width: 100%;
+    width: max-content;
+    box-sizing: border-box;
+    background-color: var(--code-block-bg);
+    color: var(--code-block-text, #d5d5d6);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 86%;
+    line-height: 1.5;
+}
+
+/* Leading curl/wget word doubles as the download tool switch,
+   rendered inline so it scrolls along with the command */
+.install-command__tool {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+}
+
+/* The command box is dark in both themes, so the hover
+   color must stay a bright blue regardless of mode */
+.install-command__tool:hover,
+.install-command__tool:focus-visible {
+    color: #5295ff;
+    outline: none;
+}
+
+@media screen and (max-width: 767.98px) {
+    .install-command .install-command__scroll {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .install-command .install-command__command {
+        min-width: 0;
+        width: 100%;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+}
