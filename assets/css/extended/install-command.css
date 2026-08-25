@@ -45,6 +45,9 @@
     appearance: none;
     -webkit-appearance: none;
     border: 1px solid var(--border);
+    /* The plain border token washes out on the well background, so the
+       resting border leans towards the content color where supported */
+    border-color: color-mix(in srgb, var(--border), var(--content) 20%);
     border-radius: var(--radius);
     padding: 1px 8px;
     background-color: transparent;
