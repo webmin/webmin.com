@@ -159,6 +159,13 @@ select.install-command__license option {
     margin-right: 4px;
 }
 
+/* Note shown to signed-in users without a usable license */
+.install-command__license-note {
+    color: var(--content);
+    opacity: 0.7;
+    font-size: 86%;
+}
+
 /* Spinner shown beside the edition switch while licenses are loading */
 .install-command__license-spinner {
     color: var(--content);

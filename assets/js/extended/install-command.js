@@ -95,9 +95,10 @@
         return custom || builtinBuilders[box.dataset.installCmd] || buildGplCmd;
     };
 
-    // Offer the loaded licenses as a picker, or a sign-in link when the
-    // visitor has none, placed just before the edition switch
-    const offerLicenses = function (box, licenses) {
+    // Offer the loaded licenses as a picker, a clear note for signed-in
+    // users without a usable license, or a sign-in link for visitors,
+    // placed just before the edition switch
+    const offerLicenses = function (box, state) {
         // The visitor may have switched back to GPL while licenses loaded
         if ((box.dataset.edition || "gpl") !== "pro") {
             return;
@@ -108,8 +109,9 @@
         box.querySelectorAll(".install-command__license").forEach(function (el) {
             el.remove();
         });
+        const licenses = state.licenses;
 
-        if (!licenses.length) {
+        if (!state.signedIn) {
             const link = document.createElement("a");
             link.className = "install-command__license install-command__license-link";
             link.href = "/account/";
@@ -118,6 +120,17 @@
             link.appendChild(icon);
             link.appendChild(document.createTextNode("Sign in to use your license"));
             editionPair.parentElement.insertBefore(link, editionPair);
+            render(box);
+            return;
+        }
+
+        if (!licenses.length) {
+            const note = document.createElement("span");
+            note.className = "install-command__license install-command__license-note";
+            note.textContent = state.inactive > 0
+                ? "No active licenses found"
+                : "No licenses found";
+            editionPair.parentElement.insertBefore(note, editionPair);
             render(box);
             return;
         }
@@ -176,7 +189,7 @@
             return;
         }
 
-        // Load the licenses once and reuse them on later switches
+        // Load the license state once and reuse it on later switches
         if (box._installCmdLicenses) {
             offerLicenses(box, box._installCmdLicenses);
             return;
@@ -195,17 +208,25 @@
         spinner.appendChild(spinnerIcon);
         editionPair.parentElement.insertBefore(spinner, editionPair);
 
+        // A failed or unauthenticated request reads as a signed-out visitor
+        const signedOut = { signedIn: false, licenses: [], inactive: 0 };
         fetch("/wp-admin/admin-ajax.php?action=vm_install_licenses", { credentials: "same-origin" })
             .then(function (response) {
                 return response.json();
             })
             .then(function (data) {
-                box._installCmdLicenses = (data && data.success && data.data) || [];
+                box._installCmdLicenses = (data && data.success && data.data)
+                    ? {
+                        signedIn: true,
+                        licenses: data.data.licenses || [],
+                        inactive: data.data.inactive || 0
+                    }
+                    : signedOut;
                 offerLicenses(box, box._installCmdLicenses);
             })
             .catch(function () {
-                box._installCmdLicenses = [];
-                offerLicenses(box, []);
+                box._installCmdLicenses = signedOut;
+                offerLicenses(box, signedOut);
             });
     };
 
