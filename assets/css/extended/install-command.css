@@ -292,6 +292,12 @@ select.install-command__license + .install-command__edition .install-command__op
     min-width: 0;
 }
 
+/* When the options row lives inside the box wrapper, as on the account
+   page, it keeps the same distance from the command as the well pages */
+.install-command__box .install-command__options {
+    margin-top: calc(var(--gap) / 4);
+}
+
 .install-command__scroll {
     display: block;
     width: 100%;
