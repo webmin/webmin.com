@@ -7,8 +7,13 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: calc(var(--gap) / 3);
+    gap: calc(var(--gap) / 4);
     margin: calc(var(--gap) / 2) 0;
+    padding: calc(var(--gap) / 3);
+    /* Outer radius matches the inner command block radius plus the
+       padding, so the nested corners follow the same curve */
+    border-radius: calc(var(--radius) + var(--gap) / 3);
+    background-color: var(--block-bg, transparent);
     min-width: 0;
 }
 
