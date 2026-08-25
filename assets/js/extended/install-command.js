@@ -8,6 +8,9 @@
     const readOpts = function (box) {
         return {
             bundle: (box.dataset.bundle || "LAMP").toUpperCase(),
+            os: (box.dataset.os || "rpm").toLowerCase(),
+            db: (box.dataset.db || "mariadb").toLowerCase(),
+            postgres: box.dataset.postgres === "1",
             minimal: box.dataset.minimal === "1",
             grade: (box.dataset.grade || "A").toUpperCase(),
             branch: (box.dataset.branch || "stable").toLowerCase(),
@@ -22,6 +25,24 @@
         let args = " --bundle " + (opts.bundle === "LEMP" ? "LEMP" : "LAMP");
         if (opts.minimal) {
             args += " --type mini";
+        }
+        // Extra packages steer the database choice: they are installed
+        // before the stack, so a preinstalled MySQL replaces MariaDB on
+        // Debian-family systems, and PostgreSQL support packages differ
+        // between the Debian and Enterprise Linux families
+        const extras = [];
+        if (opts.db === "mysql" && opts.os === "deb") {
+            extras.push("mysql-server", "mysql-common", "libdbd-mysql-perl");
+        }
+        if (opts.postgres) {
+            extras.push("postgresql",
+                opts.os === "deb" ? "postgresql-client" : "postgresql-server");
+        }
+        if (extras.length) {
+            args += " --extra " + extras.join(",");
+        }
+        if (opts.postgres) {
+            args += " --include PostgreSQL";
         }
         if (opts.grade === "B") {
             args += " --os-grade B";
@@ -263,6 +284,29 @@
             first !== group && group.offsetTop > first.offsetTop);
     };
 
+    // MySQL is only offered on Debian-family systems, so the choice is
+    // hidden elsewhere and falls back to MariaDB when it was selected
+    const updateDbChoices = function (box) {
+        const mysql = box.querySelector(
+            '.install-command__option[data-group="db"][data-value="mysql"]'
+        );
+        if (!mysql) {
+            return;
+        }
+        const rpm = (box.dataset.os || "rpm") !== "deb";
+        if (rpm && box.dataset.db === "mysql") {
+            box.dataset.db = "mariadb";
+            box.querySelectorAll(
+                '.install-command__option[data-group="db"]'
+            ).forEach(function (other) {
+                other.setAttribute("aria-pressed",
+                    other.dataset.value === "mariadb" ? "true" : "false");
+            });
+        }
+        mysql.style.display = rpm ? "none" : "";
+        mysql.parentElement.classList.toggle("install-command__pair--single", rpm);
+    };
+
     // Rebuild the displayed command, preserving the box scroll position
     // and rendering the curl/wget word as a clickable switch
     const render = function (box) {
@@ -270,6 +314,7 @@
         if (!pre) {
             return;
         }
+        updateDbChoices(box);
         const cmd = resolveBuilder(box)(readOpts(box), box);
         const scroller = box.querySelector(".install-command__scroll");
         let scrollerLeft = 0,
@@ -324,7 +369,7 @@
                 if (!group) {
                     return;
                 }
-                if (group === "minimal" || group === "ssl") {
+                if (group === "minimal" || group === "ssl" || group === "postgres") {
                     // Independent on/off switches combining with any other option
                     const on = box.dataset[group] === "1";
                     box.dataset[group] = on ? "0" : "1";

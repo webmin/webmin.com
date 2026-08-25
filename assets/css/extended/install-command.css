@@ -41,6 +41,12 @@
     margin-left: -1px;
 }
 
+/* A pair reduced to one visible choice renders as a standalone button */
+.install-command__pair--single .install-command__option:first-child {
+    border-top-right-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+}
+
 .install-command__option {
     appearance: none;
     -webkit-appearance: none;
@@ -273,8 +279,14 @@ select.install-command__license + .install-command__edition .install-command__op
     outline: none;
 }
 
-.install-command__scroll {
+/* The copy chip anchors to this non-scrolling wrapper, so it stays in
+   the corner instead of riding along with the scrolled command */
+.install-command__box {
     position: relative;
+    min-width: 0;
+}
+
+.install-command__scroll {
     display: block;
     width: 100%;
     max-width: 100%;
