@@ -128,6 +128,7 @@
 select.install-command__license {
     appearance: none;
     -webkit-appearance: none;
+    field-sizing: content;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 1px 8px;
@@ -296,6 +297,32 @@ select.install-command__license + .install-command__edition .install-command__op
    page, it keeps the same distance from the command as the well pages */
 .install-command__box .install-command__options {
     margin-top: calc(var(--gap) / 4);
+}
+
+/* Copy control following the standalone script link in docs prose */
+.install-command__script-copy {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    padding: 0;
+    margin-left: 4px;
+    background-color: transparent !important;
+    color: #555 !important;
+    vertical-align: -2px;
+    cursor: pointer;
+}
+
+.install-command__script-copy:hover,
+.install-command__script-copy:focus-visible,
+.install-command__script-copy.is-copied {
+    color: var(--link) !important;
+    outline: none;
+}
+
+.install-command__script-copy svg {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
 }
 
 .install-command__scroll {

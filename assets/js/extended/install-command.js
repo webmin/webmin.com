@@ -329,6 +329,20 @@
         mysql.parentElement.classList.toggle("install-command__pair--single", rpm);
     };
 
+    // Standalone script links in the surrounding prose follow the branch
+    // choice, showing the matching download host for the script itself
+    const updateScriptLinks = function (box) {
+        const unstable = (box.dataset.branch || "stable").toLowerCase() === "unstable";
+        document.querySelectorAll(".install-command__script-link").forEach(function (link) {
+            const url = unstable ? link.dataset.unstableUrl : link.dataset.stableUrl;
+            if (!url) {
+                return;
+            }
+            link.href = url;
+            link.textContent = url.replace(/^https?:\/\//, "").split("/")[0];
+        });
+    };
+
     // Rebuild the displayed command, preserving the box scroll position
     // and rendering the curl/wget word as a clickable switch
     const render = function (box) {
@@ -378,6 +392,7 @@
         }
         copyState(box.querySelector(".install-command__copy"), false);
         updateWrap(box);
+        updateScriptLinks(box);
     };
 
     // Wire the option buttons and copy button of one widget container
@@ -456,5 +471,27 @@
 
     document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".install-command, [data-install-cmd]").forEach(init);
+
+        // Copy buttons following standalone script links copy the URL
+        document.querySelectorAll(".install-command__script-copy").forEach(function (button) {
+            if (button.dataset.installCmdInit === "1") {
+                return;
+            }
+            button.dataset.installCmdInit = "1";
+            button.addEventListener("click", function (e) {
+                e.preventDefault();
+                const link = button.previousElementSibling;
+                if (!link || !link.href) {
+                    return;
+                }
+                navigator.clipboard.writeText(link.href).then(function () {
+                    button.classList.add("is-copied");
+                    clearTimeout(button._installCmdCopyTimer);
+                    button._installCmdCopyTimer = setTimeout(function () {
+                        button.classList.remove("is-copied");
+                    }, 1600);
+                });
+            });
+        });
     });
 })();
