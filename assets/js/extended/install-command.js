@@ -42,11 +42,171 @@
         return 'sudo sh -c "$(' + download + ')" --' + buildArgs(opts);
     };
 
+    // Personalized Pro command using the wrapper from the shop API, with
+    // the license taken from the container's serial and license data
+    const buildProCmd = function (opts, box) {
+        const serialRaw = (box.dataset.serial || "").trim();
+        const licenseRaw = (box.dataset.license || "").trim();
+        const out = "virtualmin-install-" + serialRaw + ".sh";
+        const args = buildArgs(opts);
+        const wget = opts.tool === "wget";
+
+        const shQuote = function (s) {
+            return "'" + String(s || "").replace(/'/g, "'\"'\"'") + "'";
+        };
+
+        // The unstable branch is served directly from the development
+        // download server, with the license passed via environment
+        // variables instead of the personalized wrapper
+        if (opts.branch === "unstable") {
+            const devUrl = "https://download.virtualmin.dev/install-script";
+            return (
+                (wget
+                    ? "wget -nv -O " + shQuote(out) + " " + shQuote(devUrl)
+                    : "curl -fsS -o " + shQuote(out) + " " + shQuote(devUrl)) + " && " +
+                "sudo env SERIAL=" + shQuote(serialRaw) + " " +
+                "KEY=" + shQuote(licenseRaw) + " " +
+                "sh " + shQuote(out) + args
+            );
+        }
+
+        // The personalized wrapper is fetched from the shop API; wget
+        // passes the license as POST fields instead of basic auth
+        const url = location.origin + "/api/install";
+        const serial = encodeURIComponent(serialRaw);
+        const license = encodeURIComponent(licenseRaw);
+        return (
+            (wget
+                ? "wget -nv --post-data " + shQuote("serial=" + serial + "&license=" + license) + " " +
+                    "-O " + shQuote(out) + " " + shQuote(url)
+                : "curl -fsS -X POST " +
+                    "-u " + shQuote(serial + ":" + license) + " " +
+                    "-o " + shQuote(out) + " " + shQuote(url)) + " && " +
+            "sudo sh " + shQuote(out) + args
+        );
+    };
+
+    const builtinBuilders = { gpl: buildGplCmd, pro: buildProCmd };
+
     // Resolve the command builder for a widget container
     const resolveBuilder = function (box) {
         const custom = window.installCommandBuilders &&
             window.installCommandBuilders[box.dataset.installCmd];
-        return custom || buildGplCmd;
+        return custom || builtinBuilders[box.dataset.installCmd] || buildGplCmd;
+    };
+
+    // Offer the loaded licenses as a picker, or a sign-in link when the
+    // visitor has none, placed just before the edition switch
+    const offerLicenses = function (box, licenses) {
+        // The visitor may have switched back to GPL while licenses loaded
+        if ((box.dataset.edition || "gpl") !== "pro") {
+            return;
+        }
+        const editionPair = box.querySelector(
+            '.install-command__option[data-group="edition"]'
+        ).parentElement;
+        box.querySelectorAll(".install-command__license").forEach(function (el) {
+            el.remove();
+        });
+
+        if (!licenses.length) {
+            const link = document.createElement("a");
+            link.className = "install-command__license install-command__license-link";
+            link.href = "/account/";
+            const icon = document.createElement("i");
+            icon.className = "wm wm-fw wm-user-circle";
+            link.appendChild(icon);
+            link.appendChild(document.createTextNode("Sign in to use your license"));
+            editionPair.parentElement.insertBefore(link, editionPair);
+            render(box);
+            return;
+        }
+
+        const picker = document.createElement("select");
+        picker.className = "install-command__license";
+        picker.setAttribute("aria-label", "License serial for the install command");
+        licenses.forEach(function (item) {
+            const option = document.createElement("option");
+            option.value = item.serial;
+            option.textContent = item.serial;
+            picker.appendChild(option);
+        });
+        picker.onchange = function () {
+            const chosen = licenses.find(function (item) {
+                return item.serial === picker.value;
+            });
+            box.dataset.serial = chosen ? chosen.serial : "";
+            box.dataset.license = chosen ? chosen.license : "";
+            render(box);
+        };
+        // A key badge is joined to the picker's left edge and clicking
+        // it opens the picker as if the select itself was clicked
+        const keyBadge = document.createElement("span");
+        keyBadge.className = "install-command__license install-command__license-icon";
+        const keyGlyph = document.createElement("i");
+        keyGlyph.className = "wm wm-fw wm-key";
+        keyBadge.appendChild(keyGlyph);
+        keyBadge.onclick = function () {
+            picker.focus();
+            if (picker.showPicker) {
+                try {
+                    picker.showPicker();
+                } catch (e) {
+                    // Some browsers refuse without a fresh user gesture
+                }
+            }
+        };
+        editionPair.parentElement.insertBefore(keyBadge, editionPair);
+        editionPair.parentElement.insertBefore(picker, editionPair);
+        box.dataset.installCmd = "pro";
+        picker.onchange();
+    };
+
+    // Switch between the GPL one-liner and a personalized Pro command
+    // built from one of the signed-in user's licenses
+    const applyEdition = function (box, edition) {
+        if (edition !== "pro") {
+            delete box.dataset.installCmd;
+            delete box.dataset.serial;
+            delete box.dataset.license;
+            box.querySelectorAll(".install-command__license").forEach(function (el) {
+                el.remove();
+            });
+            render(box);
+            return;
+        }
+
+        // Load the licenses once and reuse them on later switches
+        if (box._installCmdLicenses) {
+            offerLicenses(box, box._installCmdLicenses);
+            return;
+        }
+
+        // Show a spinner beside the switch while the licenses are loading
+        const editionPair = box.querySelector(
+            '.install-command__option[data-group="edition"]'
+        ).parentElement;
+        const spinner = document.createElement("span");
+        spinner.className = "install-command__license install-command__license-spinner";
+        spinner.setAttribute("role", "status");
+        spinner.setAttribute("aria-label", "Loading licenses");
+        const spinnerIcon = document.createElement("i");
+        spinnerIcon.className = "wm wm-fw wm-refresh";
+        spinner.appendChild(spinnerIcon);
+        editionPair.parentElement.insertBefore(spinner, editionPair);
+
+        fetch("/wp-admin/admin-ajax.php?action=vm_install_licenses", { credentials: "same-origin" })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                box._installCmdLicenses = (data && data.success && data.data) || [];
+                offerLicenses(box, box._installCmdLicenses);
+            })
+            .catch(function () {
+                box._installCmdLicenses = [];
+                offerLicenses(box, []);
+            });
     };
 
     // Keep copy button label/state transitions in one place
@@ -68,6 +228,18 @@
             copyButton.textContent = defaultLabel;
             copyButton.classList.remove("is-copied");
         }
+    };
+
+    // When the edition group no longer shares a line with the other
+    // options it aligns left instead of floating alone on the right
+    const updateWrap = function (box) {
+        const group = box.querySelector(".install-command__edition-group");
+        if (!group) {
+            return;
+        }
+        const first = group.parentElement.firstElementChild;
+        group.classList.toggle("install-command__edition-group--wrapped",
+            first !== group && group.offsetTop > first.offsetTop);
     };
 
     // Rebuild the displayed command, preserving the box scroll position
@@ -111,6 +283,7 @@
             scroller.scrollLeft = scrollerAtEnd ? scroller.scrollWidth : scrollerLeft;
         }
         copyState(box.querySelector(".install-command__copy"), false);
+        updateWrap(box);
     };
 
     // Wire the option buttons and copy button of one widget container
@@ -145,6 +318,10 @@
                             other.dataset.value === value ? "true" : "false");
                     });
                 }
+                if (group === "edition") {
+                    applyEdition(box, value);
+                    return;
+                }
                 render(box);
             });
         });
@@ -166,6 +343,10 @@
                 );
             });
         }
+
+        window.addEventListener("resize", function () {
+            updateWrap(box);
+        });
 
         render(box);
     };

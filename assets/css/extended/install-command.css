@@ -21,7 +21,8 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: calc(var(--gap) / 2);
+    /* Wrapped lines keep the widget's tighter vertical rhythm */
+    gap: calc(var(--gap) / 4) calc(var(--gap) / 2);
 }
 
 /* Two-way switches rendered as one joined segmented pair */
@@ -101,6 +102,143 @@
     display: flex;
     align-items: center;
     gap: calc(var(--gap) / 2);
+}
+
+/* Edition switch and its license controls sit at the right edge of the
+   options row and wrap together as one unit on small screens */
+.install-command__edition-group {
+    margin-left: auto;
+}
+
+/* Once wrapped onto its own line the group aligns left with the rest */
+.install-command__edition-group--wrapped {
+    margin-left: 0;
+}
+
+/* License picker for the Pro command, styled like the option buttons */
+select.install-command__license {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1px 8px;
+    background-color: transparent;
+    color: var(--content);
+    font-family: var(--font-default, inherit);
+    font-size: 86%;
+    font-weight: 400;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+/* The picker always shows as active, matching pressed option buttons */
+select.install-command__license {
+    color: var(--link) !important;
+    border-color: var(--link) !important;
+    background-color: var(--block-read-bg, var(--block-bg));
+}
+
+select.install-command__license:focus-visible {
+    outline: none;
+}
+
+select.install-command__license option {
+    background-color: var(--theme, #fff);
+    color: var(--content);
+}
+
+/* Sign-in hint shown instead of the picker for visitors without licenses */
+.install-command__license-link {
+    color: var(--link) !important;
+    font-size: 86%;
+    text-decoration: none;
+    box-shadow: none !important;
+}
+
+.install-command__license-link .wm {
+    margin-right: 4px;
+}
+
+/* Spinner shown beside the edition switch while licenses are loading */
+.install-command__license-spinner {
+    color: var(--content);
+    opacity: 0.7;
+}
+
+.install-command__license-spinner .wm {
+    display: inline-block;
+    animation: install-command-spin 1s linear infinite;
+}
+
+@keyframes install-command-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* The license picker joins the edition switch as one segmented control,
+   pulling the switch over the row gap and squaring the shared corners */
+select.install-command__license {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Key badge merged into the picker's left edge with no divider; badge
+   and picker share one explicit height, derived from the option button
+   metrics so the whole joined control matches the buttons exactly */
+.install-command__license-icon {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(1.5em + 4px);
+    padding: 0 0 0 8px;
+    border: 1px solid var(--link);
+    border-right: 0;
+    border-radius: var(--radius) 0 0 var(--radius);
+    background-color: var(--block-read-bg, var(--block-bg));
+    color: var(--link);
+    font-size: 86%;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+/* The glyph line tightens so the badge keeps the picker's height even
+   with the dropdown arrow stacked below the key */
+.install-command__license-icon .wm {
+    line-height: 1;
+}
+
+/* Tiny arrow under the key hinting that the serial is a dropdown */
+.install-command__license-icon::after {
+    content: "";
+    width: 0;
+    margin-left: 10px;
+    margin-top: -1px;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 4px solid currentColor;
+}
+
+.install-command__license-icon + select.install-command__license {
+    height: calc(1.5em + 4px);
+    margin-left: calc(var(--gap) / -2);
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+select.install-command__license + .install-command__edition {
+    margin-left: calc(var(--gap) / -2 - 1px);
+}
+
+select.install-command__license + .install-command__edition .install-command__option:first-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 /* Question mark linking to the flags documentation, always grey and
