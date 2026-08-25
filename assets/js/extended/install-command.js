@@ -56,6 +56,11 @@
         return args;
     };
 
+    // Quote a value for safe use inside a single-quoted shell word
+    const shQuote = function (s) {
+        return "'" + String(s || "").replace(/'/g, "'\"'\"'") + "'";
+    };
+
     // Default GPL one-liner used when no custom builder is registered
     const buildGplCmd = function (opts) {
         const download = (opts.tool === "wget" ? "wget -qO-" : "curl -fsSL") +
@@ -71,10 +76,6 @@
         const out = "virtualmin-install-" + serialRaw + ".sh";
         const args = buildArgs(opts);
         const wget = opts.tool === "wget";
-
-        const shQuote = function (s) {
-            return "'" + String(s || "").replace(/'/g, "'\"'\"'") + "'";
-        };
 
         // The unstable branch is served directly from the development
         // download server, with the license passed via environment
@@ -107,13 +108,36 @@
         );
     };
 
-    const builtinBuilders = { gpl: buildGplCmd, pro: buildProCmd };
+    // Local variant for a script already downloaded to the server, used
+    // on docs pages; only the flags change, so there is no tool switch
+    const buildLocalCmd = function (opts) {
+        return "sudo sh virtualmin-install.sh" + buildArgs(opts);
+    };
 
-    // Resolve the command builder for a widget container
+    // Local Pro variant passes the license through environment variables,
+    // as documented for a script that is already on the server
+    const buildLocalProCmd = function (opts, box) {
+        return "sudo env SERIAL=" + shQuote((box.dataset.serial || "").trim()) + " " +
+            "KEY=" + shQuote((box.dataset.license || "").trim()) + " " +
+            "sh virtualmin-install.sh" + buildArgs(opts);
+    };
+
+    // Resolve the command builder for a widget container: the base mode
+    // comes from data-install-cmd, while the Pro edition with a chosen
+    // license upgrades the matching base command
     const resolveBuilder = function (box) {
+        const mode = box.dataset.installCmd;
         const custom = window.installCommandBuilders &&
-            window.installCommandBuilders[box.dataset.installCmd];
-        return custom || builtinBuilders[box.dataset.installCmd] || buildGplCmd;
+            window.installCommandBuilders[mode];
+        if (custom) {
+            return custom;
+        }
+        const pro = mode === "pro" ||
+            (box.dataset.edition === "pro" && box.dataset.serial);
+        if (mode === "local") {
+            return pro ? buildLocalProCmd : buildLocalCmd;
+        }
+        return pro ? buildProCmd : buildGplCmd;
     };
 
     // Offer the loaded licenses as a picker, a clear note for signed-in
@@ -192,7 +216,6 @@
         };
         editionPair.parentElement.insertBefore(keyBadge, editionPair);
         editionPair.parentElement.insertBefore(picker, editionPair);
-        box.dataset.installCmd = "pro";
         picker.onchange();
     };
 
@@ -200,7 +223,6 @@
     // built from one of the signed-in user's licenses
     const applyEdition = function (box, edition) {
         if (edition !== "pro") {
-            delete box.dataset.installCmd;
             delete box.dataset.serial;
             delete box.dataset.license;
             box.querySelectorAll(".install-command__license").forEach(function (el) {
@@ -327,23 +349,29 @@
 
         const tool = readOpts(box).tool === "wget" ? "wget" : "curl";
         const toolIndex = cmd.indexOf(tool);
-        const toolButton = document.createElement("button");
-        toolButton.type = "button";
-        toolButton.className = "install-command__tool";
-        toolButton.textContent = tool;
-        toolButton.title = "Switch to " + (tool === "wget" ? "curl" : "wget");
-        toolButton.setAttribute("aria-label", toolButton.title);
-        toolButton.onclick = function (e) {
-            e.preventDefault();
-            box.dataset.tool = tool === "wget" ? "curl" : "wget";
-            render(box);
-            return false;
-        };
+        if (toolIndex === -1) {
+            // Commands without a download tool, such as the local script
+            // form, are rendered as plain text with no switch
+            pre.textContent = cmd;
+        } else {
+            const toolButton = document.createElement("button");
+            toolButton.type = "button";
+            toolButton.className = "install-command__tool";
+            toolButton.textContent = tool;
+            toolButton.title = "Switch to " + (tool === "wget" ? "curl" : "wget");
+            toolButton.setAttribute("aria-label", toolButton.title);
+            toolButton.onclick = function (e) {
+                e.preventDefault();
+                box.dataset.tool = tool === "wget" ? "curl" : "wget";
+                render(box);
+                return false;
+            };
 
-        pre.textContent = "";
-        pre.appendChild(document.createTextNode(cmd.slice(0, toolIndex)));
-        pre.appendChild(toolButton);
-        pre.appendChild(document.createTextNode(cmd.slice(toolIndex + tool.length)));
+            pre.textContent = "";
+            pre.appendChild(document.createTextNode(cmd.slice(0, toolIndex)));
+            pre.appendChild(toolButton);
+            pre.appendChild(document.createTextNode(cmd.slice(toolIndex + tool.length)));
+        }
 
         if (scroller) {
             scroller.scrollLeft = scrollerAtEnd ? scroller.scrollWidth : scrollerLeft;
