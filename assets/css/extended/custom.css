@@ -2274,7 +2274,24 @@ html[class*="page-docs"] a[href*="example.com"] {
   /* vertical-align: text-bottom; */
 }
 
-[class^="page-docs"] .post-content h4~h5 {
+/* Keep nested documentation headings at least as large as body text. */
+[class^="page-docs"] .post-content h2 {
+  font-size: 29.5px;
+}
+
+[class^="page-docs"] .post-content h3 {
+  font-size: 27px;
+}
+
+[class^="page-docs"] .post-content h4 {
+  font-size: 24px;
+}
+
+[class^="page-docs"] .post-content h5 {
+  font-size: 21px;
+}
+
+[class^="page-docs"] .post-content h6 {
   font-size: 18px;
 }
 
