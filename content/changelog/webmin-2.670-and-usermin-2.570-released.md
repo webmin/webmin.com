@@ -26,6 +26,7 @@ tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 * Fix arbitrary file reads in Software Packages module
 * Fix TLS client certificate verification
 * Fix the signature being added again when re-editing a saved draft in Usermin
+* Update Backup Configuration module's destination selector to use the new select-based UI
 * Update the Authentic theme to the latest version with various improvements:
   - Add support for HTML signatures in Usermin
   - Fix light palette layout gaps to be slightly tighter to match dark palette better
