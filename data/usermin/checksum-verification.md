@@ -1,6 +1,6 @@
 | File | SHA256 Checksum |
 | ---- | ------------ |
-| usermin_2.560_all.deb | b1be319917fd3371f0561c9d5db41e91ce1f6537cdc92b00e3aa5e99ec150dd5 |
-| usermin-2.560-1.noarch.rpm | 9596933d32f8a13b564daee0aa2ff3888d80a31c597d861656b2c831d2a279e2 |
-| usermin-2.560-1.src.rpm | c3ac359944a2dbc5e18212f156d9399bab5bbcc9837e2ce8829c975543074d01 |
-| usermin-2.560.tar.gz | d37b9f3cb8f23cf3d9c41970946557afcc4832e23fbd202816ecc78efdcaaa78 |
+| usermin_2.570_all.deb | e7349c7c9cf1465d30ee9aad8e5fbf8bb518b5eeed29211479d3b6e0073b6139 |
+| usermin-2.570-1.noarch.rpm | f999a30b084acb0b77e4e6325936a65bad1ae7e9ba1215c40e45ab0986be91ed |
+| usermin-2.570-1.src.rpm | c7e52dccdba0a35fb5e2cc2bc3c0f54db594f249eaab0fa808f1e36337e02b37 |
+| usermin-2.570.tar.gz | b87f658150821565aa5ee775878766318d752c232a4e46a63773e24c139f5fda |
