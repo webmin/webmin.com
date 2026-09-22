@@ -9,6 +9,15 @@ This page lists security problems found in Webmin and Usermin, versions affected
 {{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**" >}}
 
 ### Webmin prior to 2.670
+#### Privilege escalation via Custom Command parameters
+
+- An untrusted Webmin user with access to the Custom Commands module
+  and allowed to run commands with paramaters can exploit the lack of
+  input sanitization to execute arbitrary commands as root. Commands
+  without parameters are not vulnerable to this bug.
+
+  > Thanks to BoGeun Jang for finding and reporting this bug.
+
 #### File Manager search results may include restricted directories
 
 - A Webmin user who is limited to two or more directories may see the
