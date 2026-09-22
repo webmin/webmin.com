@@ -8,6 +8,17 @@ This page lists security problems found in Webmin and Usermin, versions affected
 
 {{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**" >}}
 
+### Webmin prior to 2.670
+#### File Manager search results may include restricted directories
+
+- A Webmin user who is limited to two or more directories may see the
+  listing of other directories when using the search function. Actual
+  file contents and changes are still restricted though. Similarly, the 
+  file chooser may allow listing of directories with the same prefix 
+  as an allowed directory.
+
+  > Thanks to Wenhao Wu, Southeast University for finding these bugs.
+
 ### Webmin prior to 2.653
 #### Unprivileged users can perform privileged actions in multiple modules
 
