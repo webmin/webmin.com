@@ -40,7 +40,7 @@ This page lists security problems found in Webmin and Usermin, versions affected
     for finding and reporting these issues.
 
 ### Webmin prior to 2.652
-#### SSRF exploit in Upload and Download and File Manager modules
+#### SSRF exploit in Upload and Download and File Manager modules [CVE-2026-102337]
 
 - Webmin systems on which un-trusted users have access to modules that can
 download files from other URLs could make use of this download feature to
