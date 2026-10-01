@@ -49,11 +49,11 @@ To have Webmin check on the status of a new server or service, you must add an a
 Once you have chosen a type, the steps to follow to add it are:
   - Select the type from the menu next to the **Add monitor of type** button on the module's main page. When you click the button, the browser will display a form for adding a new monitor as shown in the image below. 
   - Fill in the **Description** field with a short description of this monitor, such as **Office webserver**. This will appear on the main page and in any status emails. 
-  - To have the monitor executed on another Webmin server, select it from the **Run on host** menu. If you have no servers defined in the Webmin Servers module (covered in [Webmin Servers Index](/docs/modules/webmin-servers-index)), no menu will appear. 
+  - To run checks on other Webmin servers, register them with a login username and password in [Webmin Servers Index](/docs/modules/webmin-servers-index). Then select one or more servers or server groups in **Run on hosts and groups**. Select **&lt;Local&gt;** to include this server. If no remote servers have a login configured, this field is hidden and the monitor runs locally.
   - If you have scheduled monitoring enabled and want this service to be checked regularly by it, make sure the **Check on schedule?** field is set to **Yes**. If it is set to **No**, scheduled checking will be turned off for this particular monitor. The other options starting with **Yes** allow you to control when email is sent if the monitor goes up or down. They correspond to the options for the **Send email when** field, explained in the **Setting up scheduled monitoring** section. 
   - To have a command executed when a scheduled check determines that the monitor has gone down, enter it into the **If monitor goes down, run command** field. This could be used to attempt to re-start the monitored server, or to notify a system administrator by some method other than email. 
-  - Similarly, you can fill in the **In monitor comes up, run command** field with shell commands to execute when a scheduled check determines that the service has come back up again. 
-  - If the **Run on host** field is set to another Webmin server, you can choose whether the up and down commands in the previous two steps are run on this system or the remote server. This is controlled by the **Run commands on** field. 
+  - Similarly, you can fill in the **If monitor comes up, run command** field with shell commands to execute when a scheduled check determines that the service has come back up again.
+  - Use **Run commands on** to choose where the up, down, and timeout commands run. See [Where monitors and commands run](#where-monitors-and-commands-run) below for how this works with local hosts, remote hosts, and groups.
   - If the monitor is being run locally and is checking a server configured in another Webmin module for which multiple clones exist, the **Module to monitor** field will appear on the form.  This menu can be used to choose which of the clones the monitor should get its configuration from. So for example if you had two versions of Apache installed on your system and two [Apache Webserver](/docs/modules/apache-webserver) modules set up to configure them, you would be able to choose which one should be checked when creating an Apache webserver monitor.
   - Depending on the type of monitor being created, there may be several additional options that you can set on this form.  See the **Monitor types** section below for the details. 
   - When done, click the **Create** button to have the monitor created and added to the main page. Its status should be immediately displayed. 
@@ -63,6 +63,23 @@ Once you have chosen a type, the steps to follow to add it are:
 Existing monitors can be edited by clicking on their description on the main page. When editing, all the same fields as described above are available, in addition to a **Current status** field that indicates whether the service is up or down. For some monitor types, additional information is displayed when it is up, such as the time that the server being checked was started. 
 
 After you have finished editing a monitor, click the **Save** button at the bottom of the page to record your changes. To get rid of a monitor, use the **Delete** button instead. Either way, the changes will be applied immediately.
+
+### Where monitors and commands run
+
+**Run on hosts and groups** selects the Webmin servers that perform the checks. Each selected host, including each member of a selected group, has its own status result.
+
+**Run commands on** controls where the commands in **Commands to run** execute when a scheduled check triggers them:
+
+- **This server** runs the command on the Webmin server where you configured the monitor, even when the check runs on a remote host.
+- **The remote host** runs the command on the Webmin server whose check triggered it. For a check on **&lt;Local&gt;**, the command runs locally.
+
+Each host's result is handled separately, according to the monitor's reporting settings. For example, if a group contains three servers and one goes down, **The remote host** runs the down command on that server. If two servers go down, each runs its own command. With **This server**, both events run the command on the server where you configured the monitor.
+
+If the monitor runs only locally, both choices run commands locally, even though **The remote host** is still shown. To disable these commands, select **Never run commands** under **Run commands when**.
+
+For TCP, HTTP, and ping monitors, **The remote host** means the Webmin server performing the check. The network address being checked can be a different system.
+
+The **On host** column on the module's main page shows the hosts or groups selected to perform the checks. Changing **Run commands on** does not change that column.
 
 ### Monitor types
 The System and Server Status allows you to monitor many different kinds of servers and daemons, using different monitor types. All types perform some kind of check, and either succeed or fail depending on whether the check passes or not. In some cases, a monitor can return a third result indicating that the server being checked is not installed or that the check that it is trying to perform is impossible. 
