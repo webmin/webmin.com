@@ -6,7 +6,14 @@ showtoc: false
 
 This page lists security problems found in Webmin and Usermin, versions affected and recommended solutions.
 
-{{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**" >}}
+{{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**"
+
+PLEASE DO NOT report bugs for privilege escalation by Webmin users that have
+not been properly locked down by the <tt>root</tt> user! Yes we know that many
+modules if granted to an un-trusted non-safe user can be used to gain full
+access to the system. This is why Webmin's fine-grained ACLs exist.
+
+>}}
 
 ### Webmin prior to 2.670
 #### Privilege escalation via Custom Command parameters
@@ -56,6 +63,13 @@ next release of Virtualmin will apply this restriction to all domain owners
 and extra admins.
 
   > Thanks to zuesdevil for reporting this issue.
+
+### Webmin prior to 2.650 [CVE-2026-49243]
+#### Reflected XSS attack on Webmin
+
+- Webmin users who click on a malicious link to their server are vulnerable to this XSS vulnerability that could be used to execute attacker-controlled commands.
+
+  > Thanks to Emiliano Versini for finding and reporting this issue.
 
 ### Webmin prior to 2.641
 #### Stored XSS in System and Server Status module [CVE-2026-22678]
