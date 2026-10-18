@@ -7,13 +7,15 @@ showtoc: false
 This page lists security problems found in Webmin and Usermin, versions affected and recommended solutions.
 
 {{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**"
+>}}
 
 PLEASE DO NOT report bugs for privilege escalation by Webmin users that have
 not been properly locked down by the <tt>root</tt> user! Yes we know that many
 modules if granted to an un-trusted non-safe user can be used to gain full
 access to the system. This is why Webmin's fine-grained ACLs exist.
 
->}}
+PLEASE DO use your own words when submitting bug reports. AI-generated
+vulnerability reports are frequently far too verbose and hard to read.
 
 ### Webmin prior to 2.670
 #### Privilege escalation via Custom Command parameters
