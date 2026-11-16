@@ -1851,6 +1851,46 @@ details.details-small-inner > .inner {
   font-size: 93% !important;
 }
 
+/* Keep embedded documents compact inside an inset accordion panel. */
+.post-content .details-well > .inner {
+  margin: 12px 0 0;
+  padding: 16px 20px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: .9em;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.post-content .details-well :is(h1, h2, h3, h4, h5, h6) {
+  margin: 1.25em 0 .5em;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.post-content .details-well h1 {
+  font-size: 1.125em;
+}
+
+.post-content .details-well :is(p, ul, ol) {
+  margin-bottom: .75em;
+}
+
+.post-content .details-well > .inner > :first-child {
+  margin-top: 0;
+}
+
+.post-content .details-well > .inner > :last-child {
+  margin-bottom: 0;
+}
+
+.post-content .details-well pre code {
+  font-size: .875em;
+  white-space: pre-wrap;
+  word-break: normal;
+}
+
 details.h1 summary {
   margin: 40px auto 32px;
   font-size: 40px;

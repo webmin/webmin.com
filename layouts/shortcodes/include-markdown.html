@@ -1,0 +1,2 @@
+{{/* Render a Markdown file directly to avoid double-escaping code blocks. */}}
+{{- .Page.RenderString (readFile (.Get "file")) -}}

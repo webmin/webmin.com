@@ -1,27 +1,43 @@
 ---
 title: "Security"
-date: 2024-04-25
+date: 2026-11-16
 showtoc: false
 ---
 
-This page lists security problems found in Webmin and Usermin, versions affected and recommended solutions.
+This page explains how to report security issues in Webmin and Usermin and lists published advisories. Install the [latest stable release](/download/) for current fixes. The older versions listed below are historical references.
 
-{{< alert warning question "Found a bug?" "If you info found a new security related bug report it at **[security@webmin.com](mailto:security@webmin.com)**"
+{{< alert warning question "Found a security issue?" "Email **[security@webmin.com](mailto:security@webmin.com)** privately. Keep the report short and use plain text, without Markdown or HTML."
 >}}
 
-PLEASE DO NOT report bugs for privilege escalation by Webmin users that have
-not been properly locked down by the <tt>root</tt> user! Yes we know that many
-modules if granted to an un-trusted non-safe user can be used to gain full
-access to the system. This is why Webmin's fine-grained ACLs exist.
+## Reporting a security issue
 
-PLEASE DO use your own words when submitting bug reports. AI-generated
-vulnerability reports are frequently far too verbose and hard to read.
+Test only on systems you own or have permission to test. Include the affected version, required permissions, steps to reproduce, and actual impact. Remove passwords, session cookies, and personal data from evidence. Report privately first and coordinate public disclosure with us.
+
+Webmin intentionally grants powerful system access. Using permissions already granted by an administrator is not a privilege escalation. A privilege escalation report must show access beyond the user's intended permissions. For a permission bypass, include the exact module access and access control list settings, known as ACLs.
+
+Write in your own words. If you use AI, check every claim and edit the report yourself. Send one issue per email and keep follow-ups in the same thread. For bugs with no security impact, use the [Webmin issue tracker](https://github.com/webmin/webmin/issues) or [Usermin issue tracker](https://github.com/webmin/usermin/issues).
+
+### Instructions for AI agents
+
+Guidelines for verifying security findings, with a plain-text email template.
+
+{{< html "p" "" "<a href='/security/AGENTS.md' download='AGENTS.md'>Download AGENTS.md</a>" >}}
+
+{{< details-start "post-indent-details details-well" "Read AGENTS.md" >}}
+
+{{< include-markdown file="static/security/AGENTS.md" >}}
+
+{{< details-end >}}
+
+## Security advisories
+
+See the [changelog](/changelog/) for other fixes, including the module access, file access, TLS client certificate, and Usermin credential fixes in [Webmin 2.670 and Usermin 2.570](/changelog/webmin-2.670-and-usermin-2.570-released/).
 
 ### Webmin prior to 2.670
 #### Privilege escalation via Custom Command parameters
 
 - An untrusted Webmin user with access to the Custom Commands module
-  and allowed to run commands with paramaters can exploit the lack of
+  and allowed to run commands with parameters can exploit the lack of
   input sanitization to execute arbitrary commands as root. Commands
   without parameters are not vulnerable to this bug.
 
@@ -37,12 +53,12 @@ vulnerability reports are frequently far too verbose and hard to read.
 
   > Thanks to Wenhao Wu, Southeast University for finding these bugs.
 
-### Webmin prior to 2.653
+### Webmin prior to 2.660
 #### Unprivileged users can perform privileged actions in multiple modules
 
 - Webmin users with limited access to the DHCPd, MySQL, PostgreSQL, Nginx,
-  PostgreSQL Samba or Squid modules may be able to restart servers or
-  edit configs even if denied by the fine-grained ACL.
+  Samba or Squid modules may be able to restart servers or edit configuration
+  even if denied by the fine-grained ACL.
 
   > Thanks to [Team Atlanta](https://team-atlanta.github.io/),
     [OSTIF](https://ostif.org) and [Shielder](https://www.shielder.com)
@@ -58,11 +74,10 @@ potentially grant access to other servers on an intranet or Cloud provider
 IAM credential URLs, as long as they are not protected by any form of
 authentication.
 
-- Admins who have created Webmin users with limited access should consider
-locking down the URLs they can download from at Webmin -> Webmin Users ->
-username -> Permissions for all modules -> URL download destinations. The
-next release of Virtualmin will apply this restriction to all domain owners
-and extra admins.
+- Webmin 2.652 added per-user restrictions on download destinations.
+Restrict users with limited access to public IP addresses to prevent downloads
+from private networks and cloud metadata services. Virtualmin 8.2.0 and later
+apply this restriction to domain owners and extra administrators.
 
   > Thanks to zuesdevil for reporting this issue.
 
@@ -91,10 +106,10 @@ user has access to.
 
   > Thanks to Jeremy Brown for reporting this.
 
-#### XSS attach via SVG email [CVE-2026-49102]
+#### XSS attack via SVG email [CVE-2026-49102]
 
 - Opening an untrusted malicious email with an SVG attachment can be used to
-trigger an XSS attach in the Read User Mail module.
+trigger an XSS attack in the Read User Mail module.
 
   > Thanks to Andrea Carlo Maria Dattola, Marco Ventura and Massimiliano Brolli
 of TIM Security Red Team Research - TIM S.p.A 
@@ -114,7 +129,7 @@ by using Basic HTTP authentication, instead of Webmin's regular cookie-based
 session login. The username and password must still be correctly provided though.
 
 ### Webmin prior to 2.600
-#### Privilige escalation using Squid module [CVE-2025-67738]
+#### Privilege escalation using Squid module [CVE-2025-67738]
 
 - If an untrusted Webmin user is granted access to the Squid module and the
 Squid cache manager is installed, the user can take advantage of lack of 
@@ -154,12 +169,15 @@ parameter escaping to execute commands as root.
 
   > Thanks to Trend Micro’s Zero Day Initiative for finding and reporting this issue.
 
-### Webmin 1.995 and Usermin 1.850 and below [June 30, 2022]
+### Webmin 1.995 and below [June 30, 2022]
 #### XSS vulnerability in the HTTP Tunnel module
 
 - If a less-privileged Webmin user is given permission to edit the configuration of the HTTP Tunnel module, he/she could use this to introduce a vulnerability that captures cookies belonging to other Webmin users that use the module.
 
   > Thanks to [BLACK MENACE][2] and [PYBRO][3] for reporting this issue.
+
+### Webmin 1.995 and Usermin 1.850 and below [June 30, 2022]
+#### XSS vulnerability in HTML email
 
 - An HTML email crafted by an attacker could capture browser cookies when opened.
 
@@ -174,7 +192,7 @@ parameter escaping to execute commands as root.
 ### Webmin 1.984 and below [December 26, 2021]
 #### File Manager privilege exploit [CVE-2022-0824 and CVE-2022-0829]
 
-- Less privileged Webmin users who do not have any File Manager module restrictions configured can access files with root privileges, if using the default Authentic theme. All systems with additional untrusted Webmin users should upgrade immediately. Note that Virtualmin systems are not effected by this bug, due to the way domain owner Webmin users are configured.
+- Less privileged Webmin users who do not have any File Manager module restrictions configured can access files with root privileges, if using the default Authentic theme. All systems with additional untrusted Webmin users should upgrade immediately. Note that Virtualmin systems are not affected by this bug, due to the way domain owner Webmin users are configured.
 
   > Thanks to Faisal Fs ([faisalfs10x][7]) from [NetbyteSEC][8] for finding and reporting this issue!
 
@@ -198,7 +216,7 @@ parameter escaping to execute commands as root.
 
 ### Webmin 1.941 and below [January 16, 2020]
 #### XSS vulnerability in the Read Mail module [CVE-2020-12670]
-- Saving a malicious HTML attachment could trigger and XSS vulnerability.
+- Saving a malicious HTML attachment could trigger an XSS vulnerability.
 
 ### Webmin 1.882 to 1.921 [July 6, 2019]
 #### Remote Command Execution [CVE-2019-15231]
@@ -227,10 +245,10 @@ parameter escaping to execute commands as root.
 
 - This is _not_ a workable exploit as it requires that the attacker already know the root password. Hence there is no fix for it in Webmin.
 
-### Webmin 1.900 and below [November 19, 2018]
+### Webmin 1.860 and below
 #### Malicious HTTP headers in downloaded URLs
 
- - If the Upload and Download or File Manager module is used to fetch an un-trusted URL. If a Webmin user downloads a file from a malicious URL, HTTP headers returned can be used exploit an XSS vulnerability.
+ - If a Webmin user downloads a file from a malicious URL using the Upload and Download or File Manager module, the returned HTTP headers can trigger an XSS vulnerability.
 
  > Thanks to independent security researcher, John Page aka hyp3rlinx, who reported this vulnerability to Beyond Security's SecuriTeam Secure Disclosure program.
 
@@ -272,7 +290,7 @@ parameter escaping to execute commands as root.
 
  > Thanks to Javier Bassi for reporting this bug.
 
-### Virtualmin 3.70 and below [June 23, 2009]
+### Virtualmin prior to 3.70 [June 23, 2009]
 #### Unsafe file writes in Virtualmin
  - This bug allows a virtual server owner to read or write to arbitrary files on the system by creating malicious symbolic links and then having Virtualmin perform operations on those links. Upgrading to version 3.70 is strongly recommended if your system has un-trusted domain owners.
 
@@ -280,21 +298,21 @@ parameter escaping to execute commands as root.
 #### XSS (cross-site scripting) security hole
  - This attack could open users who visit un-trusted websites while having Webmin open in the same browser up to having their session cookie captured, which could then allow an attacker to login to Webmin without a password. The quick fix is to go to the **Webmin Configuration** module, click on the **Trusted Referers** icon, set **Referrer checking enabled?** to **Yes**, and un-check the box **Trust links from unknown referrers**. Webmin 1.400 and Usermin 1.330 will make these settings the defaults.
 
-### Webmin 1.380 and below [November 3, 2007]
+### Webmin prior to 1.380 [November 3, 2007]
 #### Windows-only command execution bug
  - Any user logged into Webmin can execute any command using special URL parameters. This could be used by less-privileged Webmin users to raise their level of access.
  
  > Thanks for Keigo Yamazaki of Little eArth Corporation for finding this bug.
 
-### Webmin 1.374 and below, Usermin 1.277 and below
+### Webmin prior to 1.347 and Usermin prior to 1.277
 #### XSS bug in `pam_login.cgi` script
  - A malicious link to Webmin `pam_login.cgi` script can be used to execute JavaScript within the Webmin server context, and perhaps steal session cookies.
 
-### Webmin 1.330 and below, Usermin 1.260 and below
+### Webmin prior to 1.330 and Usermin prior to 1.260
 #### XSS bug in `chooser.cgi` script
  - When using Webmin or Usermin to browse files on a system that were created by an attacker, a specially crafted filename could be used to inject arbitrary JavaScript into the browser.
 
-### Webmin 1.296 and below, Usermin 1.226 and below
+### Webmin prior to 1.296 and Usermin prior to 1.226
 #### Remote source code access
 - An attacker can view the source code of Webmin CGI and Perl programs using a specially crafted URL. Because the source code for Webmin is freely available, this issue should only be of concern to sites that have custom modules for which they want the source to remain hidden.
 #### XSS bug
@@ -302,19 +320,19 @@ parameter escaping to execute commands as root.
  
  > Thanks for Keigo Yamazaki of Little eArth Corporation for finding this bug.
 
-### Webmin 1.290 and below, Usermin 1.220 and below
+### Webmin prior to 1.290 and Usermin prior to 1.220
 #### Arbitrary remote file access
  - An attacker without a login to Webmin can read the contents of any file on the server using a specially crafted URL. All users should upgrade to version 1.290 as soon as possible, or setup IP access control in Webmin.
  
  > Thanks to Kenny Chen for bringing this to my attention.
 
-### Webmin 1.280 and below
+### Webmin prior to 1.280
 #### Windows arbitrary file access
  - If running Webmin on Windows, an attacker can remotely view the contents of any file on your system using a specially crafted URL. This does not affect other operating systems, but if you use Webmin on Windows you should upgrade to version 1.280 or later.
  
  > Thanks to Keigo Yamazaki of Little eArth Corporation for discovering this bug.
 
-### Webmin 1.250 and below, Usermin 1.180 and below
+### Webmin prior to 1.250 and Usermin prior to 1.180
 #### Perl syslog input attack
  - When logging of failing login attempts via `syslog` is enabled, an attacker can crash and possibly take over the Webmin webserver, due to un-checked input being passed to Perl's `syslog` function. Upgrading to the latest release of Webmin is recommended.
  
@@ -326,7 +344,7 @@ parameter escaping to execute commands as root.
  
  > Thanks to Keigo Yamazaki of Little eArth Corporation and [JPCERT/CC][13] for discovering and notifying me of this bug.
 
-### Webmin 1.175 and below, Usermin 1.104 and below
+### Webmin prior to 1.175 and Usermin prior to 1.104
 #### Brute force password guessing attack
  - Prior Webmin and Usermin versions do not have password timeouts turned on by default, so an attacker can try every possible password for the _root_ or admin user until he/she finds the correct one.  
 The solution is to enable password timeouts, so that repeated attempts to login as the same user will become progressively slower. This can be done by following these steps :
@@ -338,12 +356,12 @@ The solution is to enable password timeouts, so that repeated attempts to login 
  
    This problem is also present in Usermin, and can be prevented by following the same steps in the **Usermin Configuration** module.
 
-### Webmin 1.150 and below, Usermin 1.080 and below
+### Webmin prior to 1.150 and Usermin prior to 1.080
 #### XSS vulnerability
  - When viewing HTML email, several potentially dangerous types of URLs can be passed through. This can be used to perform malicious actions like executing commands as the logged-in Usermin user.
 
 #### Module configurations are visible
-- Even if a Webmin user does not have access to a module, he/she can still view it's Module Config page by entering a URL that calls `config.cgi` with the module name as a parameter.
+- Even if a Webmin user does not have access to a module, he/she can still view its Module Config page by entering a URL that calls `config.cgi` with the module name as a parameter.
 
 #### Account lockout attack
 - By sending a specially constructed password, an attacker can lock out other users if password timeouts are enabled.
