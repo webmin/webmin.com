@@ -240,6 +240,8 @@ parameter escaping to execute commands as root.
     - Auditing all GitHub commits over the past year to look for commits that may have introduced similar vulnerabilities.
 {{< details-end >}}
 
+For a practical assessment of Webmin exposed on TCP port 10000, including service/version enumeration and technical walkthroughs of the 2019 backdoor and later File Manager and shell-autocomplete vulnerabilities, see [Webmin Port 10000: RCE Backdoor and Instant Root](https://en.hackita.it/articoli/porta-10000-webmin/).
+
 ### Webmin 1.900 [November 19, 2018]
 #### Remote Command Execution (Metasploit)
 
