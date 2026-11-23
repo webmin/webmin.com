@@ -1,6 +1,9 @@
 ---
 title: "Webmin 2.680 and Usermin 2.580 released"
 date: 2026-11-21
+cover:
+    image: "/images/changelog/webmin-2.680-released/framed-theme.png"
+    alt: "Webmin Framed Theme sidebars in light blue, white, blue, gray, and dark"
 tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 ---
 
