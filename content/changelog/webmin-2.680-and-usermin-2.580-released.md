@@ -1,9 +1,6 @@
 ---
 title: "Webmin 2.680 and Usermin 2.580 released"
 date: 2026-11-21
-cover:
-    image: "/images/changelog/webmin-2.680-released/framed-theme.png"
-    alt: "Webmin Framed Theme sidebars in light blue, white, blue, gray, and dark"
 tags: ["changelog", "webmin-changelog", "usermin-changelog"]
 ---
 
@@ -53,6 +50,10 @@ tags: ["changelog", "webmin-changelog", "usermin-changelog"]
   - Fix spacing and borders in widgets, tables and tab panes
   - Fix zip download dropping symlinks and failing on dangling ones in File Manager module [webmin#1918](https://github.com/webmin/webmin/issues/1918)
   - Fix archive downloads to report the real archiving error in File Manager module
+
+---
+
+![Webmin Framed Theme sidebars in light blue, white, blue, gray, and dark](/images/changelog/webmin-2.680-released/framed-theme.png)
 
 ---
 
